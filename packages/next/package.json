@@ -29,10 +29,10 @@
     "migrations": "./migrations.json"
   },
   "peerDependencies": {
-    "@nrwl/workspace": "*"
+    "@yolkai/nx-workspace": "*"
   },
   "dependencies": {
-    "@nrwl/react": "*",
+    "@yolkai/nx-react": "*",
     "@angular-devkit/schematics": "8.3.14"
   }
 }

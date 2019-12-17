@@ -7,13 +7,13 @@ The requests fail because the API has not been created yet. Using Nx you can dev
 Run the following to add the capability to develop Express applications in your workspace:
 
 ```bash
-npm install --save-dev @nrwl/express
+npm install --save-dev @yolkai/nx-express
 ```
 
 or
 
 ```bash
-yarn add --dev @nrwl/express
+yarn add --dev @yolkai/nx-express
 ```
 
 ## Create an Express Application
@@ -21,7 +21,7 @@ yarn add --dev @nrwl/express
 **Run the following to generate a new Express application:**
 
 ```bash
-nx g @nrwl/express:app api --frontendProject=todos
+nx g @yolkai/nx-express:app api --frontendProject=todos
 ```
 
 Nx will ask you a few questions, and, as with the web application, the defaults will work well here.

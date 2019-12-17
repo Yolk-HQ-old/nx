@@ -6,7 +6,7 @@ import {
 
 export default function(schema: any): Rule {
   return chain([
-    externalSchematic('@nrwl/workspace', 'lib', {
+    externalSchematic('@yolkai/nx-workspace', 'lib', {
       name: schema.name
     })
   ]);

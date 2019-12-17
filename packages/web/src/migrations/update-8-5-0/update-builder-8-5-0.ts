@@ -1,5 +1,5 @@
 import { Rule } from '@angular-devkit/schematics';
-import { updateWorkspaceInTree } from '@nrwl/workspace';
+import { updateWorkspaceInTree } from '@yolkai/nx-workspace';
 
 export default function update(): Rule {
   return updateWorkspaceInTree(config => {
@@ -8,7 +8,7 @@ export default function update(): Rule {
       if (
         config.projects[name].architect &&
         config.projects[name].architect.build &&
-        config.projects[name].architect.build.builder === '@nrwl/web:build'
+        config.projects[name].architect.build.builder === '@yolkai/nx-web:build'
       ) {
         filteredProjects.push(config.projects[name]);
       }

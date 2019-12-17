@@ -1,13 +1,13 @@
 import * as ts from 'typescript';
 import { join, Path, strings } from '@angular-devkit/core';
-import '@nrwl/tao/src/compat/compat';
+import '@yolkai/nx-tao/src/compat/compat';
 import {
   addDepsToPackageJson,
   addGlobal,
   getProjectConfig,
   insert,
   readJsonInTree
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 import {
   apply,
   chain,
@@ -22,7 +22,7 @@ import {
 } from '@angular-devkit/schematics';
 
 import { NormalizedSchema, Schema } from './schema';
-import { formatFiles, getWorkspace, names, toFileName } from '@nrwl/workspace';
+import { formatFiles, getWorkspace, names, toFileName } from '@yolkai/nx-workspace';
 import * as path from 'path';
 import { addReduxStoreToMain, updateReduxStore } from '../../utils/ast-utils';
 import {

@@ -46,43 +46,43 @@ Nx can generate many different types of applications:
 React Applications:
 
 ```bash
-yarn add --dev @nrwl/react # Add React capabilities to a workspace
-nx g @nrwl/react:application myapp # Generate a React application
+yarn add --dev @yolkai/nx-react # Add React capabilities to a workspace
+nx g @yolkai/nx-react:application myapp # Generate a React application
 ```
 
 Applications built out of Web Components:
 
 ```bash
-yarn add --dev @nrwl/web # Add Web capabilities to a workspace
-nx g @nrwl/web:application myapp # Generate a Web application
+yarn add --dev @yolkai/nx-web # Add Web capabilities to a workspace
+nx g @yolkai/nx-web:application myapp # Generate a Web application
 ```
 
 Angular Applications:
 
 ```bash
-yarn add --dev @nrwl/angular # Add Angular capabilities to a workspace
-nx g @nrwl/angular:application myapp # Generate an Angular application
+yarn add --dev @yolkai/nx-angular # Add Angular capabilities to a workspace
+nx g @yolkai/nx-angular:application myapp # Generate an Angular application
 ```
 
 NestJS Applications:
 
 ```bash
-yarn add --dev @nrwl/nest # Add Nest capabilities to a workspace
-nx g @nrwl/nest:application myapp # Generate a Nest application
+yarn add --dev @yolkai/nx-nest # Add Nest capabilities to a workspace
+nx g @yolkai/nx-nest:application myapp # Generate a Nest application
 ```
 
 Express Applications:
 
 ```bash
-yarn add --dev @nrwl/express # Add Express capabilities to a workspace
-nx g @nrwl/express:application myapp # Generate an Express application
+yarn add --dev @yolkai/nx-express # Add Express capabilities to a workspace
+nx g @yolkai/nx-express:application myapp # Generate an Express application
 ```
 
 Next.js Applications:
 
 ```bash
-yarn add --dev @nrwl/next # Add Next.js capabilities to a workspace
-nx g @nrwl/next:application myapp # Generate an Next.js application
+yarn add --dev @yolkai/nx-next # Add Next.js capabilities to a workspace
+nx g @yolkai/nx-next:application myapp # Generate an Next.js application
 ```
 
 And even more!
@@ -131,19 +131,19 @@ Nx can also generate many different types of libraries:
 React Libraries:
 
 ```bash
-nx g @nrwl/react:library mylib # Generate a React Library
+nx g @yolkai/nx-react:library mylib # Generate a React Library
 ```
 
 Angular Libraries:
 
 ```bash
-nx g @nrwl/angular:library mylib # Generate an Angular Library
+nx g @yolkai/nx-angular:library mylib # Generate an Angular Library
 ```
 
 Typescript Libraries:
 
 ```bash
-nx g @nrwl/workspace:library mylib # Generate a Typescript Library
+nx g @yolkai/nx-workspace:library mylib # Generate a Typescript Library
 ```
 
 Creating a new library will result in something like this:

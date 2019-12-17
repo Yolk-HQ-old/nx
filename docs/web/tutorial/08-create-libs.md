@@ -10,7 +10,7 @@ Every library has an `index.ts` file, which defines its public API. Other applic
 
 To illustrate how useful libraries can be, create a library of Web components.
 
-**Run `nx g @nrwl/workspace:lib ui`.**
+**Run `nx g @yolkai/nx-workspace:lib ui`.**
 
 You should see the following:
 

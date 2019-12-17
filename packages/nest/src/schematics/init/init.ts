@@ -5,7 +5,7 @@ import {
   formatFiles,
   updateJsonInTree,
   updateWorkspace
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { Schema } from './schema';
 import {
   nestJsSchematicsVersion,
@@ -26,7 +26,7 @@ export function addDependencies(): Rule {
     {
       '@nestjs/schematics': nestJsSchematicsVersion,
       '@nestjs/testing': nestJsVersion,
-      '@nrwl/nest': nxVersion
+      '@yolkai/nx-nest': nxVersion
     }
   );
 }
@@ -35,7 +35,7 @@ function moveDependency(): Rule {
   return updateJsonInTree('package.json', json => {
     json.dependencies = json.dependencies || {};
 
-    delete json.dependencies['@nrwl/nest'];
+    delete json.dependencies['@yolkai/nx-nest'];
     return json;
   });
 }
@@ -48,8 +48,8 @@ function setDefault(): Rule {
       workspace.extensions.cli &&
       ((workspace.extensions.cli as JsonObject).defaultCollection as string);
 
-    if (!defaultCollection || defaultCollection === '@nrwl/workspace') {
-      (workspace.extensions.cli as JsonObject).defaultCollection = '@nrwl/nest';
+    if (!defaultCollection || defaultCollection === '@yolkai/nx-workspace') {
+      (workspace.extensions.cli as JsonObject).defaultCollection = '@yolkai/nx-nest';
     }
   });
 }
@@ -57,8 +57,8 @@ function setDefault(): Rule {
 export default function(schema: Schema) {
   return chain([
     setDefault(),
-    addPackageWithInit('@nrwl/node'),
-    addPackageWithInit('@nrwl/jest'),
+    addPackageWithInit('@yolkai/nx-node'),
+    addPackageWithInit('@yolkai/nx-jest'),
     addDependencies(),
     moveDependency(),
     formatFiles(schema)

@@ -19,7 +19,7 @@ forEachCli(currentCLIName => {
 
       const linter = currentCLIName === 'angular' ? 'tslint' : 'eslint';
       runCLI(
-        `generate @nrwl/web:app ${appName} --no-interactive --linter=${linter}`
+        `generate @yolkai/nx-web:app ${appName} --no-interactive --linter=${linter}`
       );
 
       const lintResults = runCLI(`lint ${appName}`);
@@ -64,7 +64,7 @@ forEachCli(currentCLIName => {
       ensureProject();
       const appName = uniq('app');
 
-      runCLI(`generate @nrwl/web:app ${appName} --no-interactive`);
+      runCLI(`generate @yolkai/nx-web:app ${appName} --no-interactive`);
 
       const mainPath = `apps/${appName}/src/app/app.element.ts`;
       const content = readFile(mainPath);

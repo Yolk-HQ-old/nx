@@ -3,7 +3,7 @@ import {
   readJsonInTree,
   readWorkspaceJson,
   getProjectConfig
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { createTestUILib, runSchematic } from '../../utils/testing';
 import { StorybookConfigureSchema } from './schema';
 
@@ -37,7 +37,7 @@ describe('schematic:configuration', () => {
     const project = getProjectConfig(tree, 'test-ui-lib');
 
     expect(project.architect.storybook).toEqual({
-      builder: '@nrwl/storybook:storybook',
+      builder: '@yolkai/nx-storybook:storybook',
       configurations: {
         ci: {
           quiet: true

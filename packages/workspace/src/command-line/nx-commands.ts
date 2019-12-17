@@ -62,7 +62,7 @@ export const commandsObject = yargs
     'generate [schematic-collection:][schematic] [options, ...]',
     `
     Generate code
-    (e.g., nx generate @nrwl/web:app myapp). 
+    (e.g., nx generate @yolkai/nx-web:app myapp). 
     `
   )
   .command(
@@ -200,7 +200,7 @@ export const commandsObject = yargs
   .command(
     'migrate',
     `Creates a migrations file or runs migrations from the migrations file.
-- Migrate packages and create migrations.json (e.g., nx migrate @nrwl/workspace@latest)      
+- Migrate packages and create migrations.json (e.g., nx migrate @yolkai/nx-workspace@latest)      
 - Run migrations (e.g., nx migrate --run-migrations=migrations.json)      
     `,
     yargs => yargs,

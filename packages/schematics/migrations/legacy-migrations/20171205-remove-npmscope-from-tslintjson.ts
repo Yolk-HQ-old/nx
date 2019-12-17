@@ -1,4 +1,4 @@
-import { updateJsonFile } from '@nrwl/workspace';
+import { updateJsonFile } from '@yolkai/nx-workspace';
 
 export default {
   description: 'Remove npmScope from tslint.json',

@@ -1,4 +1,4 @@
-import { ProjectGraphNode } from '@nrwl/workspace/src/core/project-graph';
+import { ProjectGraphNode } from '@yolkai/nx-workspace/src/core/project-graph';
 
 export function projectHasTargetAndConfiguration(
   project: ProjectGraphNode,

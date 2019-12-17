@@ -4,9 +4,9 @@ import {
   SchematicContext,
   Tree
 } from '@angular-devkit/schematics';
-import { updateJsonInTree } from '@nrwl/workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
-import { addDepsToPackageJson } from '@nrwl/workspace/src/utils/ast-utils';
+import { addDepsToPackageJson } from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 function displayInformation(host: Tree, context: SchematicContext) {
   context.logger.info(

@@ -7,7 +7,7 @@ The requests fail because the API has not been created yet. Using Nx you can dev
 Run the following to add the capability to develop Nest applications in your workspace:
 
 ```bash
-ng add @nrwl/nest
+ng add @yolkai/nx-nest
 ```
 
 ## Create a Nest Application
@@ -15,7 +15,7 @@ ng add @nrwl/nest
 **Run the following to generate a new Nest application:**
 
 ```bash
-ng g @nrwl/nest:app api --frontendProject=todos
+ng g @yolkai/nx-nest:app api --frontendProject=todos
 ```
 
 Nx will ask you a few questions, and, as with the Angular application, the defaults will work well here.

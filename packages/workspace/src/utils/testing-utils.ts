@@ -3,7 +3,7 @@ import {
   _test_addWorkspaceFile,
   WorkspaceFormat
 } from '@angular-devkit/core/src/workspace/core';
-import { NxJson } from '@nrwl/workspace/src/core/shared-interfaces';
+import { NxJson } from '@yolkai/nx-workspace/src/core/shared-interfaces';
 
 export function getFileContent(tree: Tree, path: string): string {
   const fileEntry = tree.get(path);

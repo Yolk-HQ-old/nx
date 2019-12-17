@@ -1,6 +1,6 @@
 import { Rule } from '@angular-devkit/schematics';
 import { angularJsVersion } from './versions';
-import { updateJsonInTree } from '@nrwl/workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace';
 
 export function addUpgradeToPackageJson(): Rule {
   return updateJsonInTree('package.json', packageJson => {

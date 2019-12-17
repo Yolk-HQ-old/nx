@@ -1,5 +1,5 @@
 import { Tree, noop, chain, mergeWith, url } from '@angular-devkit/schematics';
-import { readJsonInTree, addDepsToPackageJson } from '@nrwl/workspace';
+import { readJsonInTree, addDepsToPackageJson } from '@yolkai/nx-workspace';
 
 export default function() {
   return (host: Tree) => {

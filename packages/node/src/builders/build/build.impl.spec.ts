@@ -61,7 +61,7 @@ describe('NodeBuildBuilder', () => {
   describe('run', () => {
     it('should call runWebpack', async () => {
       const run = await architect.scheduleBuilder(
-        '@nrwl/node:build',
+        '@yolkai/nx-node:build',
         testOptions
       );
       await run.output.toPromise();
@@ -73,7 +73,7 @@ describe('NodeBuildBuilder', () => {
 
     it('should emit the outfile along with success', async () => {
       const run = await architect.scheduleBuilder(
-        '@nrwl/node:build',
+        '@yolkai/nx-node:build',
         testOptions
       );
       const output = await run.output.toPromise();
@@ -98,7 +98,7 @@ describe('NodeBuildBuilder', () => {
         );
         testOptions.webpackConfig = 'apps/nodeapp/webpack.config.js';
         const run = await architect.scheduleBuilder(
-          '@nrwl/node:build',
+          '@yolkai/nx-node:build',
           testOptions
         );
         await run.output.toPromise();

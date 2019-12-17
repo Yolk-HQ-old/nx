@@ -11,7 +11,7 @@ import {
   addDepsToPackageJson,
   updateWorkspace,
   formatFiles
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import {
   angularVersion,
   angularDevkitVersion,
@@ -62,11 +62,11 @@ export function addUnitTestRunner(
         ),
         (host: Tree) => {
           const packageJson = readJsonInTree(host, 'package.json');
-          if (packageJson.devDependencies['@nrwl/jest']) {
+          if (packageJson.devDependencies['@yolkai/nx-jest']) {
             return noop();
           }
           return externalSchematic(
-            '@nrwl/jest',
+            '@yolkai/nx-jest',
             'init',
             {},
             {
@@ -102,11 +102,11 @@ export function addE2eTestRunner(options: Pick<Schema, 'e2eTestRunner'>): Rule {
     case E2eTestRunner.Cypress:
       return (host: Tree) => {
         const packageJson = readJsonInTree(host, 'package.json');
-        if (packageJson.devDependencies['@nrwl/cypress']) {
+        if (packageJson.devDependencies['@yolkai/nx-cypress']) {
           return noop();
         }
         return externalSchematic(
-          '@nrwl/cypress',
+          '@yolkai/nx-cypress',
           'ng-add',
           {},
           {
@@ -123,21 +123,21 @@ export function setDefaults(options: Schema): Rule {
   return updateWorkspace(workspace => {
     workspace.extensions.schematics = workspace.extensions.schematics || {};
 
-    workspace.extensions.schematics['@nrwl/angular:application'] =
-      workspace.extensions.schematics['@nrwl/angular:application'] || {};
+    workspace.extensions.schematics['@yolkai/nx-angular:application'] =
+      workspace.extensions.schematics['@yolkai/nx-angular:application'] || {};
     workspace.extensions.schematics[
-      '@nrwl/angular:application'
+      '@yolkai/nx-angular:application'
     ].unitTestRunner =
-      workspace.extensions.schematics['@nrwl/angular:application']
+      workspace.extensions.schematics['@yolkai/nx-angular:application']
         .unitTestRunner || options.unitTestRunner;
-    workspace.extensions.schematics['@nrwl/angular:application'].e2eTestRunner =
-      workspace.extensions.schematics['@nrwl/angular:application']
+    workspace.extensions.schematics['@yolkai/nx-angular:application'].e2eTestRunner =
+      workspace.extensions.schematics['@yolkai/nx-angular:application']
         .e2eTestRunner || options.e2eTestRunner;
 
-    workspace.extensions.schematics['@nrwl/angular:library'] =
-      workspace.extensions.schematics['@nrwl/angular:library'] || {};
-    workspace.extensions.schematics['@nrwl/angular:library'].unitTestRunner =
-      workspace.extensions.schematics['@nrwl/angular:library'].unitTestRunner ||
+    workspace.extensions.schematics['@yolkai/nx-angular:library'] =
+      workspace.extensions.schematics['@yolkai/nx-angular:library'] || {};
+    workspace.extensions.schematics['@yolkai/nx-angular:library'].unitTestRunner =
+      workspace.extensions.schematics['@yolkai/nx-angular:library'].unitTestRunner ||
       options.unitTestRunner;
 
     workspace.extensions.cli = workspace.extensions.cli || {};
@@ -145,9 +145,9 @@ export function setDefaults(options: Schema): Rule {
       workspace.extensions.cli &&
       ((workspace.extensions.cli as JsonObject).defaultCollection as string);
 
-    if (!defaultCollection || defaultCollection === '@nrwl/workspace') {
+    if (!defaultCollection || defaultCollection === '@yolkai/nx-workspace') {
       (workspace.extensions.cli as JsonObject).defaultCollection =
-        '@nrwl/angular';
+        '@yolkai/nx-angular';
     }
   });
 }

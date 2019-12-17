@@ -9,7 +9,7 @@ It created a proxy configuration that allows the Web application to talk to the 
 ```json
 {
   "serve": {
-    "builder": "@nrwl/web:dev-server",
+    "builder": "@yolkai/nx-web:dev-server",
     "options": {
       "buildTarget": "todos:build",
       "proxyConfig": "apps/todos/proxy.conf.json"

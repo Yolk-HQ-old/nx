@@ -3,7 +3,7 @@ module.exports = {
   transform: {
     '^.+\\.(ts|js|html)$': 'ts-jest'
   },
-  resolver: '@nrwl/jest/plugins/resolver',
+  resolver: '@yolkai/nx-jest/plugins/resolver',
   moduleFileExtensions: ['ts', 'js', 'html'],
   collectCoverage: true,
   coverageReporters: ['html']

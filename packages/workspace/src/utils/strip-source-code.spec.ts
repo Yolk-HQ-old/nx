@@ -67,7 +67,7 @@ export { C as D } from './c'`;
     const input = `const routes = [
       {
         path: 'lazy',
-        loadChildren: '@nrwl/lazy'
+        loadChildren: '@yolkai/lazy'
       }
     ];`;
     expect(stripSourceCode(scanner, input)).toEqual(input);

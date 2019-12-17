@@ -1,7 +1,7 @@
 import * as utils from './ast-utils';
 import * as ts from 'typescript';
 import { Tree } from '@angular-devkit/schematics';
-import { insert } from '@nrwl/workspace/src/utils/ast-utils';
+import { insert } from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 describe('findDefaultExport', () => {
   it('should find exported variable', () => {

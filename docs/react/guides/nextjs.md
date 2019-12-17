@@ -21,7 +21,7 @@ npx --ignore-existing create-nx-workspace happynrwl --preset=next
 If you used the Next.js preset, you are all set and can skip this. If you created an empty workspace or have an existing workspace, you can add Next.js capabilities to the workspace:
 
 ```bash
-yarn add --dev @nrwl/next
+yarn add --dev @yolkai/nx-next
 ```
 
 ## Generating a Next.js Application
@@ -29,7 +29,7 @@ yarn add --dev @nrwl/next
 Run
 
 ```bash
-nx g @nrwl/next:app tuskdesk
+nx g @yolkai/nx-next:app tuskdesk
 ```
 
 and you will see the following:
@@ -81,7 +81,7 @@ When using Next.js in Nx, you get the out-of-the-box support for TypeScript, Cyp
 Run
 
 ```bash
-nx g @nrwl/react:lib shared-components
+nx g @yolkai/nx-react:lib shared-components
 ```
 
 and you will see the following:

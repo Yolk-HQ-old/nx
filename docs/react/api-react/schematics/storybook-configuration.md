@@ -13,7 +13,7 @@ By default, Nx will search for `storybook-configuration` in the default collecti
 You can specify the collection explicitly as follows:
 
 ```bash
-nx g @nrwl/react:storybook-configuration ...
+nx g @yolkai/react:storybook-configuration ...
 ```
 
 Show what will be generated without writing to disk:

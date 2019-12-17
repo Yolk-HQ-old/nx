@@ -11,7 +11,7 @@ describe('Update 7.0.2', () => {
   beforeEach(async () => {
     initialTree = Tree.empty();
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/schematics',
+      '@yolkai/nx-schematics',
       path.join(__dirname, '../migrations.json')
     );
   });

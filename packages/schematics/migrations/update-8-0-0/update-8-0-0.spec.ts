@@ -1,9 +1,9 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
-import { updateJsonInTree, readJsonInTree } from '@nrwl/workspace';
+import { updateJsonInTree, readJsonInTree } from '@yolkai/nx-workspace';
 
 import * as path from 'path';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 describe('Update 8-0-0', () => {
   let initialTree: Tree;
@@ -12,24 +12,24 @@ describe('Update 8-0-0', () => {
   beforeEach(async () => {
     initialTree = createEmptyWorkspace(Tree.empty());
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/schematics',
+      '@yolkai/nx-schematics',
       path.join(__dirname, '../migrations.json')
     );
     initialTree = await schematicRunner
       .callRule(
         updateJsonInTree('package.json', json => ({
           scripts: {
-            update: 'ng update @nrwl/schematics'
+            update: 'ng update @yolkai/nx-schematics'
           },
           dependencies: {
-            '@nrwl/nx': '7.8.1',
+            '@yolkai/nx': '7.8.1',
             '@nestjs/core': '5.6.0',
             express: '4.16.3',
             react: '16.8.3',
             '@angular/core': '^7.0.0'
           },
           devDependencies: {
-            '@nrwl/schematics': '7.8.1',
+            '@yolkai/nx-schematics': '7.8.1',
             cypress: '3.1.0',
             jest: '24.1.0'
           }
@@ -62,38 +62,38 @@ describe('Update 8-0-0', () => {
             'my-app': {
               architect: {
                 cypress: {
-                  builder: '@nrwl/builders:cypress',
+                  builder: '@yolkai/builders:cypress',
                   options: {}
                 },
                 jest: {
-                  builder: '@nrwl/builders:jest',
+                  builder: '@yolkai/builders:jest',
                   options: {}
                 },
                 nodeBuild: {
-                  builder: '@nrwl/builders:node-build',
+                  builder: '@yolkai/builders:node-build',
                   options: {}
                 },
                 nodeServe: {
-                  builder: '@nrwl/builders:node-execute',
+                  builder: '@yolkai/builders:node-execute',
                   options: {}
                 },
                 webBuild: {
-                  builder: '@nrwl/builders:web-build',
+                  builder: '@yolkai/builders:web-build',
                   options: {}
                 },
                 webServe: {
-                  builder: '@nrwl/builders:web-dev-server',
+                  builder: '@yolkai/builders:web-dev-server',
                   options: {}
                 },
                 runCommands: {
-                  builder: '@nrwl/builders:run-commands',
+                  builder: '@yolkai/builders:run-commands',
                   options: {}
                 }
               }
             }
           },
           cli: {
-            defaultCollection: '@nrwl/schematics'
+            defaultCollection: '@yolkai/nx-schematics'
           }
         })),
         initialTree
@@ -102,7 +102,7 @@ describe('Update 8-0-0', () => {
     initialTree = await schematicRunner
       .callRule(
         updateJsonInTree('tslint.json', json => ({
-          rulesDirectory: ['node_modules/@nrwl/schematics/src/tslint'],
+          rulesDirectory: ['node_modules/@yolkai/nx-schematics/src/tslint'],
           rules: {}
         })),
         initialTree
@@ -111,14 +111,14 @@ describe('Update 8-0-0', () => {
   });
 
   describe('imports', () => {
-    it(`should be migrated from '@nrwl/nx' to '@nrwl/angular'`, async () => {
+    it(`should be migrated from '@yolkai/nx' to '@yolkai/nx-angular'`, async () => {
       initialTree.create(
         'file.ts',
         `
-        import * from '@nrwl/nx';
-        import * from '@nrwl/nx/testing';
-        import { NxModule } from '@nrwl/nx';
-        import { hot } from '@nrwl/nx/testing';
+        import * from '@yolkai/nx';
+        import * from '@yolkai/nx/testing';
+        import { NxModule } from '@yolkai/nx';
+        import { hot } from '@yolkai/nx/testing';
       `
       );
 
@@ -126,19 +126,19 @@ describe('Update 8-0-0', () => {
         .runSchematicAsync('update-8.0.0', {}, initialTree)
         .toPromise();
       expect(tree.readContent('file.ts')).toEqual(`
-        import * from '@nrwl/angular';
-        import * from '@nrwl/angular/testing';
-        import { NxModule } from '@nrwl/angular';
-        import { hot } from '@nrwl/angular/testing';
+        import * from '@yolkai/nx-angular';
+        import * from '@yolkai/nx-angular/testing';
+        import { NxModule } from '@yolkai/nx-angular';
+        import { hot } from '@yolkai/nx-angular/testing';
       `);
     });
 
-    it(`should be migrated from '@nrwl/schematics' to '@nrwl/workspace'`, async () => {
+    it(`should be migrated from '@yolkai/nx-schematics' to '@yolkai/nx-workspace'`, async () => {
       initialTree.create(
         'file.ts',
         `
-        import * from '@nrwl/schematics/src/utils/fileutils';
-        import { fileExists } from '@nrwl/schematics/src/utils/fileutils';
+        import * from '@yolkai/nx-schematics/src/utils/fileutils';
+        import { fileExists } from '@yolkai/nx-schematics/src/utils/fileutils';
       `
       );
 
@@ -147,8 +147,8 @@ describe('Update 8-0-0', () => {
         .toPromise();
       expect(tree.readContent('file.ts')).toEqual(
         `
-        import * from '@nrwl/workspace/src/utils/fileutils';
-        import { fileExists } from '@nrwl/workspace/src/utils/fileutils';
+        import * from '@yolkai/nx-workspace/src/utils/fileutils';
+        import { fileExists } from '@yolkai/nx-workspace/src/utils/fileutils';
       `
       );
     });
@@ -161,25 +161,25 @@ describe('Update 8-0-0', () => {
         .toPromise();
       const { projects } = readJsonInTree(tree, 'workspace.json');
       const { architect } = projects['my-app'];
-      expect(architect.cypress.builder).toEqual('@nrwl/cypress:cypress');
-      expect(architect.jest.builder).toEqual('@nrwl/jest:jest');
-      expect(architect.nodeBuild.builder).toEqual('@nrwl/node:build');
-      expect(architect.nodeServe.builder).toEqual('@nrwl/node:execute');
-      expect(architect.webBuild.builder).toEqual('@nrwl/web:build');
-      expect(architect.webServe.builder).toEqual('@nrwl/web:dev-server');
+      expect(architect.cypress.builder).toEqual('@yolkai/nx-cypress:cypress');
+      expect(architect.jest.builder).toEqual('@yolkai/nx-jest:jest');
+      expect(architect.nodeBuild.builder).toEqual('@yolkai/nx-node:build');
+      expect(architect.nodeServe.builder).toEqual('@yolkai/nx-node:execute');
+      expect(architect.webBuild.builder).toEqual('@yolkai/nx-web:build');
+      expect(architect.webServe.builder).toEqual('@yolkai/nx-web:dev-server');
       expect(architect.runCommands.builder).toEqual(
-        '@nrwl/workspace:run-commands'
+        '@yolkai/nx-workspace:run-commands'
       );
     });
   });
 
   describe('update npm script', () => {
-    it('should do ng update @nrwl/workspace', async () => {
+    it('should do ng update @yolkai/nx-workspace', async () => {
       const tree = await schematicRunner
         .runSchematicAsync('update-8.0.0', {}, initialTree)
         .toPromise();
       const packageJson = readJsonInTree(tree, 'package.json');
-      expect(packageJson.scripts.update).toEqual('ng update @nrwl/workspace');
+      expect(packageJson.scripts.update).toEqual('ng update @yolkai/nx-workspace');
     });
   });
 
@@ -202,7 +202,7 @@ describe('Update 8-0-0', () => {
         'jest.config.js',
         `
         module.exports = {
-          resolver: '@nrwl/builders/plugins/jest/resolver',
+          resolver: '@yolkai/builders/plugins/jest/resolver',
         };
       `
       );
@@ -210,7 +210,7 @@ describe('Update 8-0-0', () => {
         .runSchematicAsync('update-8.0.0', {}, initialTree)
         .toPromise();
       expect(tree.readContent('jest.config.js')).toContain(
-        '@nrwl/jest/plugins/resolver'
+        '@yolkai/nx-jest/plugins/resolver'
       );
     });
   });
@@ -225,33 +225,33 @@ describe('Update 8-0-0', () => {
         tree,
         'package.json'
       );
-      expect(dependencies['@nrwl/nx']).not.toBeDefined();
-      expect(devDependencies['@nrwl/schematics']).not.toBeDefined();
-      expect(devDependencies['@nrwl/builders']).not.toBeDefined();
-      expect(dependencies['@nrwl/angular']).toBeDefined();
-      expect(devDependencies['@nrwl/express']).toBeDefined();
-      expect(devDependencies['@nrwl/cypress']).toBeDefined();
-      expect(devDependencies['@nrwl/jest']).toBeDefined();
-      expect(devDependencies['@nrwl/nest']).toBeDefined();
-      expect(devDependencies['@nrwl/node']).toBeDefined();
-      expect(devDependencies['@nrwl/react']).toBeDefined();
-      expect(devDependencies['@nrwl/web']).toBeDefined();
-      expect(devDependencies['@nrwl/workspace']).toBeDefined();
+      expect(dependencies['@yolkai/nx']).not.toBeDefined();
+      expect(devDependencies['@yolkai/nx-schematics']).not.toBeDefined();
+      expect(devDependencies['@yolkai/builders']).not.toBeDefined();
+      expect(dependencies['@yolkai/nx-angular']).toBeDefined();
+      expect(devDependencies['@yolkai/nx-express']).toBeDefined();
+      expect(devDependencies['@yolkai/nx-cypress']).toBeDefined();
+      expect(devDependencies['@yolkai/nx-jest']).toBeDefined();
+      expect(devDependencies['@yolkai/nx-nest']).toBeDefined();
+      expect(devDependencies['@yolkai/nx-node']).toBeDefined();
+      expect(devDependencies['@yolkai/nx-react']).toBeDefined();
+      expect(devDependencies['@yolkai/nx-web']).toBeDefined();
+      expect(devDependencies['@yolkai/nx-workspace']).toBeDefined();
     });
   });
 
   describe('lint rules', () => {
-    it('should be migrated to `@nrwl/workspace`', async () => {
+    it('should be migrated to `@yolkai/nx-workspace`', async () => {
       const tree = await schematicRunner
         .runSchematicAsync('update-8.0.0', {}, initialTree)
         .toPromise();
 
       const { rulesDirectory } = readJsonInTree(tree, 'tslint.json');
       expect(rulesDirectory).not.toContain(
-        'node_modules/@nrwl/schematics/src/tslint'
+        'node_modules/@yolkai/nx-schematics/src/tslint'
       );
       expect(rulesDirectory).toContain(
-        'node_modules/@nrwl/workspace/src/tslint'
+        'node_modules/@yolkai/nx-workspace/src/tslint'
       );
     });
   });
@@ -277,17 +277,17 @@ describe('Update 8-0-0', () => {
   });
 
   describe('defaultCollection', () => {
-    it('should be set to @nrwl/angular if @angular/core is present', async () => {
+    it('should be set to @yolkai/nx-angular if @angular/core is present', async () => {
       const tree = await schematicRunner
         .runSchematicAsync('update-8.0.0', {}, initialTree)
         .toPromise();
 
       const defaultCollection = readJsonInTree(tree, 'workspace.json').cli
         .defaultCollection;
-      expect(defaultCollection).toEqual('@nrwl/angular');
+      expect(defaultCollection).toEqual('@yolkai/nx-angular');
     });
 
-    it('should be set to @nrwl/react if react is present', async () => {
+    it('should be set to @yolkai/nx-react if react is present', async () => {
       initialTree = await schematicRunner
         .callRule(
           updateJsonInTree('package.json', json => ({
@@ -307,10 +307,10 @@ describe('Update 8-0-0', () => {
 
       const defaultCollection = readJsonInTree(tree, 'workspace.json').cli
         .defaultCollection;
-      expect(defaultCollection).toEqual('@nrwl/react');
+      expect(defaultCollection).toEqual('@yolkai/nx-react');
     });
 
-    it('should be set to @nrwl/nest if @nestjs/core is present', async () => {
+    it('should be set to @yolkai/nx-nest if @nestjs/core is present', async () => {
       initialTree = await schematicRunner
         .callRule(
           updateJsonInTree('package.json', json => ({
@@ -329,10 +329,10 @@ describe('Update 8-0-0', () => {
 
       const defaultCollection = readJsonInTree(tree, 'workspace.json').cli
         .defaultCollection;
-      expect(defaultCollection).toEqual('@nrwl/nest');
+      expect(defaultCollection).toEqual('@yolkai/nx-nest');
     });
 
-    it('should be set to @nrwl/express if express is present', async () => {
+    it('should be set to @yolkai/nx-express if express is present', async () => {
       initialTree = await schematicRunner
         .callRule(
           updateJsonInTree('package.json', json => ({
@@ -350,10 +350,10 @@ describe('Update 8-0-0', () => {
 
       const defaultCollection = readJsonInTree(tree, 'workspace.json').cli
         .defaultCollection;
-      expect(defaultCollection).toEqual('@nrwl/express');
+      expect(defaultCollection).toEqual('@yolkai/nx-express');
     });
 
-    it('should be set to @nrwl/express if express is present', async () => {
+    it('should be set to @yolkai/nx-express if express is present', async () => {
       initialTree = await schematicRunner
         .callRule(
           updateJsonInTree('package.json', json => ({
@@ -371,10 +371,10 @@ describe('Update 8-0-0', () => {
 
       const defaultCollection = readJsonInTree(tree, 'workspace.json').cli
         .defaultCollection;
-      expect(defaultCollection).toEqual('@nrwl/express');
+      expect(defaultCollection).toEqual('@yolkai/nx-express');
     });
 
-    it('should fallback to @nrwl/workspace', async () => {
+    it('should fallback to @yolkai/nx-workspace', async () => {
       initialTree = await schematicRunner
         .callRule(
           updateJsonInTree('package.json', json => ({
@@ -399,7 +399,7 @@ describe('Update 8-0-0', () => {
 
       const defaultCollection = readJsonInTree(tree, 'workspace.json').cli
         .defaultCollection;
-      expect(defaultCollection).toEqual('@nrwl/workspace');
+      expect(defaultCollection).toEqual('@yolkai/nx-workspace');
     });
   });
 });

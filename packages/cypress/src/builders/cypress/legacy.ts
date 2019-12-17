@@ -1,6 +1,6 @@
 import { ChildProcess, fork } from 'child_process';
 import { BuilderContext, BuilderOutput } from '@angular-devkit/architect';
-import { readJsonFile } from '@nrwl/workspace';
+import { readJsonFile } from '@yolkai/nx-workspace';
 import { dirname, join } from 'path';
 import { removeSync, copySync } from 'fs-extra';
 import { concatMap, map, tap } from 'rxjs/operators';

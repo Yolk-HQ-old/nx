@@ -4,7 +4,7 @@ import {
   findNodes,
   InsertChange,
   ReplaceChange
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 import * as ts from 'typescript';
 import { SchematicContext } from '@angular-devkit/schematics';
 

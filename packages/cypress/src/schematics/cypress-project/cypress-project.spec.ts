@@ -1,7 +1,7 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { runSchematic } from '../../utils/testing';
-import { readJsonInTree, Linter } from '@nrwl/workspace';
+import { readJsonInTree, Linter } from '@yolkai/nx-workspace';
 
 describe('schematic:cypress-project', () => {
   let appTree: Tree;
@@ -55,7 +55,7 @@ describe('schematic:cypress-project', () => {
         }
       });
       expect(project.architect.e2e).toEqual({
-        builder: '@nrwl/cypress:cypress',
+        builder: '@yolkai/nx-cypress:cypress',
         options: {
           cypressConfig: 'apps/my-app-e2e/cypress.json',
           devServerTarget: 'my-app:serve',
@@ -79,7 +79,7 @@ describe('schematic:cypress-project', () => {
       const project = workspaceJson.projects['my-app-e2e'];
 
       expect(project.architect.lint).toEqual({
-        builder: '@nrwl/linter:lint',
+        builder: '@yolkai/nx-linter:lint',
         options: {
           linter: 'eslint',
           config: 'apps/my-app-e2e/.eslintrc',
@@ -152,7 +152,7 @@ describe('schematic:cypress-project', () => {
         });
 
         expect(projectConfig.architect.e2e).toEqual({
-          builder: '@nrwl/cypress:cypress',
+          builder: '@yolkai/nx-cypress:cypress',
           options: {
             cypressConfig: 'apps/my-dir/my-app-e2e/cypress.json',
             devServerTarget: 'my-dir-my-app:serve',

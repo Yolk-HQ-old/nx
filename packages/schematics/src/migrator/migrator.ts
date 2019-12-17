@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { updateJsonFile, readWorkspaceConfigPath } from '@nrwl/workspace';
+import { updateJsonFile, readWorkspaceConfigPath } from '@yolkai/nx-workspace';
 
 type Migration = { description: string; run(): void };
 type MigrationName = { name: string; migration: Migration };

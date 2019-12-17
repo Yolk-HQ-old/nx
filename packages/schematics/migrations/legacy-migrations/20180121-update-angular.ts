@@ -1,4 +1,4 @@
-import { copyFile, updateJsonFile } from '@nrwl/workspace';
+import { copyFile, updateJsonFile } from '@yolkai/nx-workspace';
 import * as path from 'path';
 
 export default {

@@ -14,7 +14,7 @@ import {
   addUpdateTask,
   updateWorkspaceInTree,
   readWorkspace
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import {
   createSourceFile,
   isImportDeclaration,
@@ -24,7 +24,7 @@ import {
 import {
   getSourceNodes,
   ReplaceChange
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 import { relative } from 'path';
 
 const ignore = require('ignore');
@@ -47,41 +47,41 @@ function addDependencies() {
       });
     const newDependencies = {};
     const newDevDependencies = {
-      '@nrwl/workspace': '8.0.0'
+      '@yolkai/nx-workspace': '8.0.0'
     };
-    context.logger.info(`Adding @nrwl/workspace as a dependency`);
+    context.logger.info(`Adding @yolkai/nx-workspace as a dependency`);
     if (dependencies['@angular/core']) {
-      newDependencies['@nrwl/angular'] = '8.0.0';
-      context.logger.info(`Adding @nrwl/angular as a dependency`);
+      newDependencies['@yolkai/nx-angular'] = '8.0.0';
+      context.logger.info(`Adding @yolkai/nx-angular as a dependency`);
     }
     if (dependencies['react']) {
-      newDevDependencies['@nrwl/react'] = '8.0.0';
-      context.logger.info(`Adding @nrwl/react as a dependency`);
+      newDevDependencies['@yolkai/nx-react'] = '8.0.0';
+      context.logger.info(`Adding @yolkai/nx-react as a dependency`);
     }
     if (dependencies['@nestjs/core']) {
-      newDevDependencies['@nrwl/nest'] = '8.0.0';
-      context.logger.info(`Adding @nrwl/nest as a dependency`);
+      newDevDependencies['@yolkai/nx-nest'] = '8.0.0';
+      context.logger.info(`Adding @yolkai/nx-nest as a dependency`);
     }
     if (dependencies.express) {
-      newDevDependencies['@nrwl/express'] = '8.0.0';
-      newDevDependencies['@nrwl/node'] = '8.0.0';
-      context.logger.info(`Adding @nrwl/express as a dependency`);
+      newDevDependencies['@yolkai/nx-express'] = '8.0.0';
+      newDevDependencies['@yolkai/nx-node'] = '8.0.0';
+      context.logger.info(`Adding @yolkai/nx-express as a dependency`);
     }
-    if (builders.has('@nrwl/web')) {
-      newDevDependencies['@nrwl/web'] = '8.0.0';
-      context.logger.info(`Adding @nrwl/web as a dependency`);
+    if (builders.has('@yolkai/nx-web')) {
+      newDevDependencies['@yolkai/nx-web'] = '8.0.0';
+      context.logger.info(`Adding @yolkai/nx-web as a dependency`);
     }
-    if (builders.has('@nrwl/node')) {
-      newDevDependencies['@nrwl/node'] = '8.0.0';
-      context.logger.info(`Adding @nrwl/node as a dependency`);
+    if (builders.has('@yolkai/nx-node')) {
+      newDevDependencies['@yolkai/nx-node'] = '8.0.0';
+      context.logger.info(`Adding @yolkai/nx-node as a dependency`);
     }
-    if (builders.has('@nrwl/jest')) {
-      newDevDependencies['@nrwl/jest'] = '8.0.0';
-      context.logger.info(`Adding @nrwl/jest as a dependency`);
+    if (builders.has('@yolkai/nx-jest')) {
+      newDevDependencies['@yolkai/nx-jest'] = '8.0.0';
+      context.logger.info(`Adding @yolkai/nx-jest as a dependency`);
     }
-    if (builders.has('@nrwl/cypress')) {
-      newDevDependencies['@nrwl/cypress'] = '8.0.0';
-      context.logger.info(`Adding @nrwl/cypress as a dependency`);
+    if (builders.has('@yolkai/nx-cypress')) {
+      newDevDependencies['@yolkai/nx-cypress'] = '8.0.0';
+      context.logger.info(`Adding @yolkai/nx-cypress as a dependency`);
     }
     return chain([addDepsToPackageJson(newDependencies, newDevDependencies)]);
   };
@@ -92,15 +92,15 @@ const removeOldDependencies = updateJsonInTree(
   (json, context: SchematicContext) => {
     json.dependencies = json.dependencies || {};
     json.devDependencies = json.devDependencies || {};
-    delete json.dependencies['@nrwl/nx'];
-    delete json.devDependencies['@nrwl/nx'];
-    delete json.dependencies['@nrwl/schematics'];
-    delete json.devDependencies['@nrwl/schematics'];
-    delete json.dependencies['@nrwl/builders'];
-    delete json.devDependencies['@nrwl/builders'];
-    context.logger.info(`Removing @nrwl/schematics as a dependency`);
-    context.logger.info(`Removing @nrwl/builders as a dependency`);
-    context.logger.info(`Removing @nrwl/nx as a dependency`);
+    delete json.dependencies['@yolkai/nx'];
+    delete json.devDependencies['@yolkai/nx'];
+    delete json.dependencies['@yolkai/nx-schematics'];
+    delete json.devDependencies['@yolkai/nx-schematics'];
+    delete json.dependencies['@yolkai/builders'];
+    delete json.devDependencies['@yolkai/builders'];
+    context.logger.info(`Removing @yolkai/nx-schematics as a dependency`);
+    context.logger.info(`Removing @yolkai/builders as a dependency`);
+    context.logger.info(`Removing @yolkai/nx as a dependency`);
 
     return json;
   }
@@ -108,7 +108,7 @@ const removeOldDependencies = updateJsonInTree(
 
 const updateUpdateScript = updateJsonInTree('package.json', json => {
   json.scripts = json.scripts || {};
-  json.scripts.update = 'ng update @nrwl/workspace';
+  json.scripts.update = 'ng update @yolkai/nx-workspace';
   return json;
 });
 
@@ -122,33 +122,33 @@ const updateBuilders = updateWorkspaceInTree(json => {
     }
 
     Object.entries<any>(project.architect).forEach(([targetKey, target]) => {
-      if (target.builder === '@nrwl/builders:jest') {
+      if (target.builder === '@yolkai/builders:jest') {
         json.projects[projectKey].architect[targetKey].builder =
-          '@nrwl/jest:jest';
+          '@yolkai/nx-jest:jest';
       }
-      if (target.builder === '@nrwl/builders:cypress') {
+      if (target.builder === '@yolkai/builders:cypress') {
         json.projects[projectKey].architect[targetKey].builder =
-          '@nrwl/cypress:cypress';
+          '@yolkai/nx-cypress:cypress';
       }
-      if (target.builder === '@nrwl/builders:web-build') {
+      if (target.builder === '@yolkai/builders:web-build') {
         json.projects[projectKey].architect[targetKey].builder =
-          '@nrwl/web:build';
+          '@yolkai/nx-web:build';
       }
-      if (target.builder === '@nrwl/builders:web-dev-server') {
+      if (target.builder === '@yolkai/builders:web-dev-server') {
         json.projects[projectKey].architect[targetKey].builder =
-          '@nrwl/web:dev-server';
+          '@yolkai/nx-web:dev-server';
       }
-      if (target.builder === '@nrwl/builders:node-build') {
+      if (target.builder === '@yolkai/builders:node-build') {
         json.projects[projectKey].architect[targetKey].builder =
-          '@nrwl/node:build';
+          '@yolkai/nx-node:build';
       }
-      if (target.builder === '@nrwl/builders:node-execute') {
+      if (target.builder === '@yolkai/builders:node-execute') {
         json.projects[projectKey].architect[targetKey].builder =
-          '@nrwl/node:execute';
+          '@yolkai/nx-node:execute';
       }
-      if (target.builder === '@nrwl/builders:run-commands') {
+      if (target.builder === '@yolkai/builders:run-commands') {
         json.projects[projectKey].architect[targetKey].builder =
-          '@nrwl/workspace:run-commands';
+          '@yolkai/nx-workspace:run-commands';
       }
     });
   });
@@ -159,7 +159,7 @@ const displayInformation = (host: Tree, context: SchematicContext) => {
   context.logger.info(stripIndents`
     Nx has been repackaged. We are installing and migrating your dependencies to the ones necessary.
 
-    If you have workspace schematics, we tried to migrate your imports from "@nrwl/schematics" to "@nrwl/workspace" but your externalSchematics may be broken.
+    If you have workspace schematics, we tried to migrate your imports from "@yolkai/nx-schematics" to "@yolkai/nx-workspace" but your externalSchematics may be broken.
     
     Read this guide to see where to find familiar features: https://nx.dev/guides/nx7-to-nx8
     
@@ -200,35 +200,35 @@ const updateNxModuleImports = (host: Tree) => {
         const modulePath = statement.moduleSpecifier
           .getText(sourceFile)
           .substr(1, nodeText.length - 2);
-        if (modulePath === '@nrwl/nx') {
+        if (modulePath === '@yolkai/nx') {
           changes.push(
             new ReplaceChange(
               path,
               statement.moduleSpecifier.getStart(sourceFile),
               nodeText,
-              `'@nrwl/angular'`
+              `'@yolkai/nx-angular'`
             )
           );
         }
 
-        if (modulePath === '@nrwl/nx/testing') {
+        if (modulePath === '@yolkai/nx/testing') {
           changes.push(
             new ReplaceChange(
               path,
               statement.moduleSpecifier.getStart(sourceFile),
               nodeText,
-              `'@nrwl/angular/testing'`
+              `'@yolkai/nx-angular/testing'`
             )
           );
         }
 
-        if (modulePath.startsWith('@nrwl/schematics')) {
+        if (modulePath.startsWith('@yolkai/nx-schematics')) {
           changes.push(
             new ReplaceChange(
               path,
               statement.moduleSpecifier.getStart(sourceFile),
               nodeText,
-              nodeText.replace('@nrwl/schematics', '@nrwl/workspace')
+              nodeText.replace('@yolkai/nx-schematics', '@yolkai/nx-workspace')
             )
           );
         }
@@ -256,13 +256,13 @@ const updateJestPlugin = (host: Tree) => {
       const value = node
         .getText(sourceFile)
         .substr(1, node.getText(sourceFile).length - 2);
-      if (value === '@nrwl/builders/plugins/jest/resolver') {
+      if (value === '@yolkai/builders/plugins/jest/resolver') {
         changes.push(
           new ReplaceChange(
             'jest.config.js',
             node.getStart(sourceFile),
             node.getText(sourceFile),
-            `'@nrwl/jest/plugins/resolver'`
+            `'@yolkai/nx-jest/plugins/resolver'`
           )
         );
       }
@@ -274,8 +274,8 @@ const updateJestPlugin = (host: Tree) => {
 const updateTslintRules = updateJsonInTree('tslint.json', json => {
   const { rulesDirectory } = json;
   json.rulesDirectory = rulesDirectory.map(directory => {
-    return directory === 'node_modules/@nrwl/schematics/src/tslint'
-      ? 'node_modules/@nrwl/workspace/src/tslint'
+    return directory === 'node_modules/@yolkai/nx-schematics/src/tslint'
+      ? 'node_modules/@yolkai/nx-workspace/src/tslint'
       : directory;
   });
   return json;
@@ -289,20 +289,20 @@ const updateDefaultCollection = (host: Tree, context: SchematicContext) => {
 
   return updateWorkspaceInTree(json => {
     json.cli = json.cli || {};
-    if (dependencies['@nrwl/angular']) {
-      json.cli.defaultCollection = '@nrwl/angular';
-    } else if (devDependencies['@nrwl/react']) {
-      json.cli.defaultCollection = '@nrwl/react';
-    } else if (devDependencies['@nrwl/nest']) {
-      json.cli.defaultCollection = '@nrwl/nest';
-    } else if (devDependencies['@nrwl/express']) {
-      json.cli.defaultCollection = '@nrwl/express';
-    } else if (devDependencies['@nrwl/web']) {
-      json.cli.defaultCollection = '@nrwl/web';
-    } else if (devDependencies['@nrwl/node']) {
-      json.cli.defaultCollection = '@nrwl/node';
+    if (dependencies['@yolkai/nx-angular']) {
+      json.cli.defaultCollection = '@yolkai/nx-angular';
+    } else if (devDependencies['@yolkai/nx-react']) {
+      json.cli.defaultCollection = '@yolkai/nx-react';
+    } else if (devDependencies['@yolkai/nx-nest']) {
+      json.cli.defaultCollection = '@yolkai/nx-nest';
+    } else if (devDependencies['@yolkai/nx-express']) {
+      json.cli.defaultCollection = '@yolkai/nx-express';
+    } else if (devDependencies['@yolkai/nx-web']) {
+      json.cli.defaultCollection = '@yolkai/nx-web';
+    } else if (devDependencies['@yolkai/nx-node']) {
+      json.cli.defaultCollection = '@yolkai/nx-node';
     } else {
-      json.cli.defaultCollection = '@nrwl/workspace';
+      json.cli.defaultCollection = '@yolkai/nx-workspace';
     }
     context.logger.info(
       `Default collection is now set to ${json.cli.defaultCollection}`
@@ -367,7 +367,7 @@ const updateNestDependencies = updateJsonInTree('package.json', json => {
   json.dependencies = json.dependencies || {};
   json.devDependencies = json.devDependencies || {};
 
-  if (!json.devDependencies['@nrwl/nest']) {
+  if (!json.devDependencies['@yolkai/nx-nest']) {
     return json;
   }
 

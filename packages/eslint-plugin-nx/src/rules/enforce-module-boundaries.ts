@@ -1,4 +1,4 @@
-import { appRootPath } from '@nrwl/workspace/src/utils/app-root';
+import { appRootPath } from '@yolkai/nx-workspace/src/utils/app-root';
 import {
   DepConstraint,
   findConstraintsFor,
@@ -11,7 +11,7 @@ import {
   isRelativeImportIntoAnotherProject,
   matchImportWithWildcard,
   onlyLoadChildren
-} from '@nrwl/workspace/src/utils/runtime-lint-utils';
+} from '@yolkai/nx-workspace/src/utils/runtime-lint-utils';
 import { TSESTree } from '@typescript-eslint/experimental-utils';
 import { createESLintRule } from '../utils/create-eslint-rule';
 import { normalize } from '@angular-devkit/core';
@@ -19,12 +19,12 @@ import {
   createProjectGraph,
   ProjectGraph,
   ProjectType
-} from '@nrwl/workspace/src/core/project-graph';
+} from '@yolkai/nx-workspace/src/core/project-graph';
 import {
   normalizedProjectRoot,
   readNxJson,
   readWorkspaceJson
-} from '@nrwl/workspace/src/core/file-utils';
+} from '@yolkai/nx-workspace/src/core/file-utils';
 
 type Options = [
   {

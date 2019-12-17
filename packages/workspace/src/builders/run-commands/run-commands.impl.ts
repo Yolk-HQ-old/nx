@@ -6,7 +6,7 @@ import {
 import { JsonObject } from '@angular-devkit/core';
 import { exec } from 'child_process';
 import { Observable } from 'rxjs';
-import { TEN_MEGABYTES } from '@nrwl/workspace/src/core/file-utils';
+import { TEN_MEGABYTES } from '@yolkai/nx-workspace/src/core/file-utils';
 
 try {
   require('dotenv').config();
@@ -32,21 +32,21 @@ function run(
       observer.next({
         success: false,
         error:
-          'ERROR: Bad builder config for @nrwl/run-command - "commands" option is required'
+          'ERROR: Bad builder config for @yolkai/run-command - "commands" option is required'
       });
       return;
     }
 
     if (options.readyWhen && !options.parallel) {
       observer.error(
-        'ERROR: Bad builder config for @nrwl/run-command - "readyWhen" can only be used when parallel=true'
+        'ERROR: Bad builder config for @yolkai/run-command - "readyWhen" can only be used when parallel=true'
       );
       return;
     }
 
     if (options.commands.some(c => !c.command)) {
       observer.error(
-        'ERROR: Bad builder config for @nrwl/run-command - "command" option is required'
+        'ERROR: Bad builder config for @yolkai/run-command - "command" option is required'
       );
       return;
     }
@@ -59,7 +59,7 @@ function run(
       observer.complete();
     } catch (e) {
       observer.error(
-        `ERROR: Something went wrong in @nrwl/run-command - ${e.message}`
+        `ERROR: Something went wrong in @yolkai/run-command - ${e.message}`
       );
     }
   });
@@ -79,7 +79,7 @@ async function runInParallel(options: RunCommandsBuilderOptions) {
     const r = await Promise.race(procs);
     if (!r.result) {
       process.stderr.write(
-        `Warning: @nrwl/run-command command "${r.command}" exited with non-zero status code`
+        `Warning: @yolkai/run-command command "${r.command}" exited with non-zero status code`
       );
       return false;
     } else {
@@ -91,7 +91,7 @@ async function runInParallel(options: RunCommandsBuilderOptions) {
     if (failed.length > 0) {
       failed.forEach(f => {
         process.stderr.write(
-          `Warning: @nrwl/run-command command "${f.command}" exited with non-zero status code`
+          `Warning: @yolkai/run-command command "${f.command}" exited with non-zero status code`
         );
       });
       return false;
@@ -123,7 +123,7 @@ async function runSerially(
 
   if (failedCommand) {
     context.logger.warn(
-      `Warning: @nrwl/run-command command "${failedCommand}" exited with non-zero status code`
+      `Warning: @yolkai/run-command command "${failedCommand}" exited with non-zero status code`
     );
     return false;
   }

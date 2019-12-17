@@ -12,11 +12,11 @@ import {
   updateJsonInTree,
   updatePackageJsonDependencies,
   updatePackagesInPackageJson
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 import * as path from 'path';
 import { relative } from 'path';
-import { ReplaceChange } from '@nrwl/workspace/src/utils/ast-utils';
+import { ReplaceChange } from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 const ignore = require('ignore');
 

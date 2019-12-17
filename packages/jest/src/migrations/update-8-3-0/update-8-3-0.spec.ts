@@ -11,7 +11,7 @@ describe('Update 8.3.0', () => {
   beforeEach(async () => {
     initialTree = Tree.empty();
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/jest',
+      '@yolkai/nx-jest',
       path.join(__dirname, '../../../migrations.json')
     );
   });

@@ -1,10 +1,10 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { callRule, runMigration } from '../../utils/testing';
 import {
   readJsonInTree,
   updateJsonInTree
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 describe('Update 8.2.0', () => {
   let tree: Tree;

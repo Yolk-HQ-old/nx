@@ -14,7 +14,7 @@ import {
 import { schema, JsonObject } from '@angular-devkit/core';
 
 const testRunner = new SchematicTestRunner(
-  '@nrwl/web',
+  '@yolkai/nx-web',
   join(__dirname, '../../collection.json')
 );
 

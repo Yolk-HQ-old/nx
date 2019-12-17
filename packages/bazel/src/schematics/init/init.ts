@@ -10,7 +10,7 @@ import {
   addDepsToPackageJson,
   readJsonInTree,
   updateJsonInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import ignore from 'ignore';
 import { bazelVersion, iBazelVersion, patchVersion } from '../utils/versions';
 import { noop } from 'rxjs';

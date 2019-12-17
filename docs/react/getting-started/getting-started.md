@@ -39,13 +39,13 @@ If you haven't specified any presets, you get an empty Nx workspace. There are n
 Using `npm`:
 
 ```bash
-npm install --save-dev @nrwl/react
+npm install --save-dev @yolkai/nx-react
 ```
 
 Using `yarn`:
 
 ```bash
-yarn add --dev @nrwl/react
+yarn add --dev @yolkai/nx-react
 ```
 
 ### Additional Capabilities
@@ -55,19 +55,19 @@ Nx also provides capabilities for other platforms, and libraries such as Node, N
 To add the additional capabilities:
 
 ```bash
-npm install --save-dev @nrwl/next
-npm install --save-dev @nrwl/node
-npm install --save-dev @nrwl/express
-npm install --save-dev @nrwl/nest
+npm install --save-dev @yolkai/nx-next
+npm install --save-dev @yolkai/nx-node
+npm install --save-dev @yolkai/nx-express
+npm install --save-dev @yolkai/nx-nest
 ```
 
 **Using `yarn`**
 
 ```bash
-yarn add --dev @nrwl/next
-yarn add --dev @nrwl/node
-yarn add --dev @nrwl/express
-yarn add --dev @nrwl/nest
+yarn add --dev @yolkai/nx-next
+yarn add --dev @yolkai/nx-node
+yarn add --dev @yolkai/nx-express
+yarn add --dev @yolkai/nx-nest
 ```
 
 ## Creating an application
@@ -75,7 +75,7 @@ yarn add --dev @nrwl/nest
 After the capabilities are added, you create your first application using the following command:
 
 ```bash
-nx generate @nrwl/react:application myapp
+nx generate @yolkai/nx-react:application myapp
 ```
 
 > Nx has first-class Next.js support. Read more about it [here](https://nx.dev/react/guides/nextjs).

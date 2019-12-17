@@ -1,4 +1,4 @@
-import { updatePackagesInPackageJson } from '@nrwl/workspace';
+import { updatePackagesInPackageJson } from '@yolkai/nx-workspace';
 
 import { join } from 'path';
 

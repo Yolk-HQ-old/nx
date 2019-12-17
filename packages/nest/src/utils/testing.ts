@@ -3,7 +3,7 @@ import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import { Rule, Tree } from '@angular-devkit/schematics';
 
 const testRunner = new SchematicTestRunner(
-  '@nrwl/nest',
+  '@yolkai/nx-nest',
   join(__dirname, '../../collection.json')
 );
 

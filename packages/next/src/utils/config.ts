@@ -1,6 +1,6 @@
 import TsConfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import loadConfig from 'next-server/dist/server/config';
-import { offsetFromRoot } from '@nrwl/workspace';
+import { offsetFromRoot } from '@yolkai/nx-workspace';
 import * as path from 'path';
 import * as withCSS from '@zeit/next-css';
 import * as withLESS from '@zeit/next-less';

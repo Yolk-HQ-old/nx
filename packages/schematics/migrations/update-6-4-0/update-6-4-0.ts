@@ -1,5 +1,5 @@
 import { Rule, SchematicContext, chain } from '@angular-devkit/schematics';
-import { updateJsonInTree } from '@nrwl/workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 
 function updateDependencies() {

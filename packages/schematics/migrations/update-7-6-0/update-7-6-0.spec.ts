@@ -6,16 +6,16 @@ import {
 
 import { join } from 'path';
 
-import { serializeJson } from '@nrwl/workspace';
-import { readJsonInTree, updateJsonInTree } from '@nrwl/workspace';
+import { serializeJson } from '@yolkai/nx-workspace';
+import { readJsonInTree, updateJsonInTree } from '@yolkai/nx-workspace';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 const effectContents = `
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Effect, Actions } from '@ngrx/effects';
-import { DataPersistence } from '@nrwl/nx';
+import { DataPersistence } from '@yolkai/nx';
 
 import { UserPartialState } from './user.reducer';
 import {
@@ -96,7 +96,7 @@ describe('Update 7.6.0', () => {
     );
 
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/schematics',
+      '@yolkai/nx-schematics',
       join(__dirname, '../migrations.json')
     );
   });
@@ -161,22 +161,22 @@ describe('Update 7.6.0', () => {
 
       expect(
         readJsonInTree(result, 'workspace.json').schematics[
-          '@nrwl/schematics:library'
+          '@yolkai/nx-schematics:library'
         ].unitTestRunner
       ).toEqual('karma');
       expect(
         readJsonInTree(result, 'workspace.json').schematics[
-          '@nrwl/schematics:application'
+          '@yolkai/nx-schematics:application'
         ].unitTestRunner
       ).toEqual('karma');
       expect(
         readJsonInTree(result, 'workspace.json').schematics[
-          '@nrwl/schematics:application'
+          '@yolkai/nx-schematics:application'
         ].e2eTestRunner
       ).toEqual('protractor');
       expect(
         readJsonInTree(result, 'workspace.json').schematics[
-          '@nrwl/schematics:node-application'
+          '@yolkai/nx-schematics:node-application'
         ].framework
       ).toEqual('express');
     });

@@ -30,7 +30,7 @@ describe('NodeExecuteBuilder', () => {
         project: 'nodeapp',
         target: 'build'
       },
-      '@nrwl/node:build'
+      '@yolkai/nx-node:build'
     );
     testOptions = {
       inspect: true,

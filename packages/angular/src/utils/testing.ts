@@ -1,11 +1,11 @@
 import { join } from 'path';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import { Tree, Rule, externalSchematic } from '@angular-devkit/schematics';
-import { names, toFileName } from '@nrwl/workspace/src/utils/name-utils';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { names, toFileName } from '@yolkai/nx-workspace/src/utils/name-utils';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 const testRunner = new SchematicTestRunner(
-  '@nrwl/angular',
+  '@yolkai/nx-angular',
   join(__dirname, '../../collection.json')
 );
 

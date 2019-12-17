@@ -1,6 +1,6 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
-import { updateJsonInTree, readJsonInTree } from '@nrwl/workspace';
+import { updateJsonInTree, readJsonInTree } from '@yolkai/nx-workspace';
 
 import * as path from 'path';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
@@ -12,7 +12,7 @@ describe('Update 8-0-0', () => {
   beforeEach(async () => {
     tree = Tree.empty();
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/react',
+      '@yolkai/nx-react',
       path.join(__dirname, '../../../migrations.json')
     );
     tree = await schematicRunner

@@ -1,5 +1,5 @@
 import { Rule } from '@angular-devkit/schematics';
-import { addDepsToPackageJson } from '@nrwl/workspace';
+import { addDepsToPackageJson } from '@yolkai/nx-workspace';
 import { ngrxVersion } from '../../../utils/versions';
 
 export function addNgRxToPackageJson(): Rule {

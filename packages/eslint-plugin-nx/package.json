@@ -28,7 +28,7 @@
   },
   "homepage": "https://nx.dev",
   "peerDependencies": {
-    "@nrwl/workspace": "*",
+    "@yolkai/nx-workspace": "*",
     "@typescript-eslint/parser": "^2.3.2"
   },
   "dependencies": {

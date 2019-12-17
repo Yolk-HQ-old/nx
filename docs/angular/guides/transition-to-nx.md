@@ -13,12 +13,12 @@ using a monorepo approach. If you are currently using an Angular CLI workspace, 
 To transform a Angular CLI workspace to an Nx workspace, use the `ng add` command:
 
 ```
-ng add @nrwl/workspace
+ng add @yolkai/nx-workspace
 ```
 
-This installs the `@nrwl/workspace` package into your workspace and runs a schematic to transform your workspace. The schematic applies the following changes to your workspace:
+This installs the `@yolkai/nx-workspace` package into your workspace and runs a schematic to transform your workspace. The schematic applies the following changes to your workspace:
 
-- Installs the packages for the `Nx` plugin `@nrwl/angular` in your package.json.
+- Installs the packages for the `Nx` plugin `@yolkai/nx-angular` in your package.json.
 - Creates an [nx.json](/angular/fundamentals/monorepos-automation#understanding-nx-json) file in the root of your workspace.
 - Creates configuration files for [Prettier](/angular/fundamentals/use-modern-tools#prettier).
 - Creates an `apps` folder for generating applications.
@@ -208,14 +208,14 @@ If you are using `Karma` for unit testing:
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@yolkai/nx-angular"
   },
   "schematics": {
-    "@nrwl/angular:application": {
+    "@yolkai/nx-angular:application": {
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
-    "@nrwl/angular:library": {
+    "@yolkai/nx-angular:library": {
       "unitTestRunner": "jest"
     }
   },
@@ -292,14 +292,14 @@ If you are using `Protractor` for E2E testing:
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@yolkai/nx-angular"
   },
   "schematics": {
-    "@nrwl/angular:application": {
+    "@yolkai/nx-angular:application": {
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
-    "@nrwl/angular:library": {
+    "@yolkai/nx-angular:library": {
       "unitTestRunner": "jest"
     }
   },

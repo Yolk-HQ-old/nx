@@ -11,13 +11,13 @@ Next.js is a React framework designed for building server-prerendered applicatio
 Add the Nex.js capability to your workspace:
 
 ```bash
-yarn add --dev @nrwl/next
+yarn add --dev @yolkai/nx-next
 ```
 
 To create the new Next.js application:
 
 ```bash
-nx g @nrwl/next:application tasks
+nx g @yolkai/nx-next:application tasks
 ```
 
 You can run:
@@ -38,13 +38,13 @@ Nest is a Node.js framework designed for building scalable server-side applicati
 Add the Nest capability to your workspace:
 
 ```bash
-yarn add --dev @nrwl/nest
+yarn add --dev @yolkai/nx-nest
 ```
 
 To create the new Nest application:
 
 ```bash
-nx g @nrwl/nest:application api
+nx g @yolkai/nx-nest:application api
 ```
 
 The following folders and files are created:
@@ -95,13 +95,13 @@ Read more about Nest at [nestjs.com](https://nestjs.com).
 To use [Express](https://express.org), add the Express capability to your workspace:
 
 ```bash
-yarn add --dev @nrwl/express
+yarn add --dev @yolkai/nx-express
 ```
 
 To create an express application, run:
 
 ```bash
-nx g @nrwl/express:application api
+nx g @yolkai/nx-express:application api
 ```
 
 ### Using Other Frameworks
@@ -109,13 +109,13 @@ nx g @nrwl/express:application api
 For an empty node application, add the Node capability to your workspace:
 
 ```bash
-yarn add --dev @nrwl/node
+yarn add --dev @yolkai/nx-node
 ```
 
 To create a Node Application:
 
 ```bash
-nx g @nrwl/node:application api
+nx g @yolkai/nx-node:application api
 ```
 
 ## Cypress
@@ -133,7 +133,7 @@ Cypress is an e2e test runner built for modern web. It has a lot of great featur
 
 By default, when creating a new web application, Nx will use Cypress to create the e2e tests project.
 
-Running `nx g @nrwl/web:application frontend` will create:
+Running `nx g @yolkai/nx-web:application frontend` will create:
 
 ```treeview
 <workspace name>/

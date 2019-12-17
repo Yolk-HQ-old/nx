@@ -1,6 +1,6 @@
 # init
 
-Initialize the @nrwl/express plugin
+Initialize the @yolkai/nx-express plugin
 
 ## Usage
 
@@ -13,7 +13,7 @@ By default, Nx will search for `init` in the default collection provisioned in `
 You can specify the collection explicitly as follows:
 
 ```bash
-ng g @nrwl/express:init ...
+ng g @yolkai/express:init ...
 ```
 
 Show what will be generated without writing to disk:

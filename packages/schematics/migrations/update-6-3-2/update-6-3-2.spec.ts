@@ -1,6 +1,6 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
-import { serializeJson } from '@nrwl/workspace';
+import { serializeJson } from '@yolkai/nx-workspace';
 
 import * as path from 'path';
 
@@ -19,7 +19,7 @@ describe('Update 6.2.0', () => {
       })
     );
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/schematics',
+      '@yolkai/nx-schematics',
       path.join(__dirname, '../migrations.json')
     );
   });

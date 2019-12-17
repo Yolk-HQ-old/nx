@@ -1,4 +1,4 @@
-import { updateJsonInTree, checkAndCleanWithSemver } from '@nrwl/workspace';
+import { updateJsonInTree, checkAndCleanWithSemver } from '@yolkai/nx-workspace';
 import { chain, SchematicContext } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import { gt } from 'semver';

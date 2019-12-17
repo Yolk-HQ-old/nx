@@ -22,8 +22,8 @@ Many conventions and best practices used in Angular applications can be also be 
 To create a new Nest application, run:
 
 ```bash
-ng add @nrwl/nest # Add Nest Capabilities to a workspace
-ng g @nrwl/nest:application api # Create a Nest App
+ng add @yolkai/nx-nest # Add Nest Capabilities to a workspace
+ng g @yolkai/nx-nest:application api # Create a Nest App
 ```
 
 This will create the following:
@@ -75,8 +75,8 @@ Read more about Nest at [nestjs.com](https://nestjs.com).
 To create an express application, run:
 
 ```bash
-ng add @nrwl/express # Add Express Capabilities to a workspace
-ng g @nrwl/express:application api # Create an Express Application
+ng add @yolkai/nx-express # Add Express Capabilities to a workspace
+ng g @yolkai/nx-express:application api # Create an Express Application
 ```
 
 ### Using Other Frameworks
@@ -84,8 +84,8 @@ ng g @nrwl/express:application api # Create an Express Application
 To create an empty node application, run:
 
 ```bash
-ng add @nrwl/node # Add Node Capabilities to a workspace
-ng g @nrwl/node:application api # Create a Node Application
+ng add @yolkai/nx-node # Add Node Capabilities to a workspace
+ng g @yolkai/nx-node:application api # Create a Node Application
 ```
 
 ## Cypress
@@ -103,7 +103,7 @@ Cypress is an e2e test runner built for modern web. It has a lot of great featur
 
 By default, when creating a new Angular application, Nx will use Cypress to create the e2e tests project.
 
-So running `ng g @nrwl/angular:application frontend` will create:
+So running `ng g @yolkai/nx-angular:application frontend` will create:
 
 ```treeview
 <workspace name>/
@@ -145,7 +145,7 @@ Read more about Cypress at [cypress.io](https://cypress.io).
 
 ### Using Protractor
 
-To use Protractor instead of Cypress, run `ng g @nrwl/angular:application frontend --e2e-test-runner=protractor`.
+To use Protractor instead of Cypress, run `ng g @yolkai/nx-angular:application frontend --e2e-test-runner=protractor`.
 
 ## Jest
 
@@ -190,7 +190,7 @@ Read more about Jest at [jestjs.io](https://jestjs.io).
 
 ### Using Karma
 
-To use Karma instead of Jest, run `ng g @nrwl/angular:application frontend --unit-test-runner=karma`.
+To use Karma instead of Jest, run `ng g @yolkai/nx-angular:application frontend --unit-test-runner=karma`.
 
 ## Prettier
 

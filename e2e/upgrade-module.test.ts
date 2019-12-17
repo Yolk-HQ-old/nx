@@ -13,7 +13,7 @@ forEachCli('angular', () => {
     it('should generate an UpgradeModule setup', async () => {
       ensureProject();
       const myapp = uniq('myapp');
-      runCLI(`generate @nrwl/angular:app ${myapp} --unit-test-runner=karma`);
+      runCLI(`generate @yolkai/nx-angular:app ${myapp} --unit-test-runner=karma`);
       patchKarmaToWorkOnWSL();
 
       updateFile(
@@ -36,7 +36,7 @@ forEachCli('angular', () => {
       updateFile(`apps/${myapp}/src/app/app.component.spec.ts`, ``);
 
       runCLI(
-        'generate @nrwl/angular:upgrade-module legacy --angularJsImport=./legacy ' +
+        'generate @yolkai/nx-angular:upgrade-module legacy --angularJsImport=./legacy ' +
           `--angularJsCmpSelector=proj-root-legacy --project=${myapp}`
       );
 

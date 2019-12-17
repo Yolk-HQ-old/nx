@@ -1,4 +1,4 @@
-import { InsertChange } from '@nrwl/workspace/src/utils/ast-utils';
+import { InsertChange } from '@yolkai/nx-workspace/src/utils/ast-utils';
 import { createSourceFile, ScriptTarget } from 'typescript';
 import { addProviderToModule } from './ast-utils';
 

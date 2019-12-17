@@ -13,7 +13,7 @@ forEachCli('nx', () => {
       expect(mainHelp).toContain('Run a target for a project');
       expect(mainHelp).toContain('Run task for affected projects');
 
-      const genHelp = runCLI(`g @nrwl/web:app --help`);
+      const genHelp = runCLI(`g @yolkai/nx-web:app --help`);
       expect(genHelp).toContain(
         'The file extension to be used for style files. (default: css)'
       );
@@ -40,7 +40,7 @@ forEachCli('angular', () => {
       expect(mainHelp).toContain('Run a target for a project');
       expect(mainHelp).toContain('Run task for affected projects');
 
-      const genHelp = runCLI(`g @nrwl/web:app --help`);
+      const genHelp = runCLI(`g @yolkai/nx-web:app --help`);
       expect(genHelp).toContain(
         'The file extension to be used for style files.'
       );

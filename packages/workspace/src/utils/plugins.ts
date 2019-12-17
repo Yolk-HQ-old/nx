@@ -10,43 +10,43 @@ export interface Plugin {
 
 export const approvedPlugins: Plugin[] = [
   {
-    name: '@nrwl/angular',
+    name: '@yolkai/nx-angular',
     capabilities: 'schematics'
   },
   {
-    name: '@nrwl/cypress',
+    name: '@yolkai/nx-cypress',
     capabilities: 'builders,schematics'
   },
   {
-    name: '@nrwl/express',
+    name: '@yolkai/nx-express',
     capabilities: 'builders,schematics'
   },
   {
-    name: '@nrwl/jest',
+    name: '@yolkai/nx-jest',
     capabilities: 'builders,schematics'
   },
   {
-    name: '@nrwl/nest',
+    name: '@yolkai/nx-nest',
     capabilities: 'builders,schematics'
   },
   {
-    name: '@nrwl/next',
+    name: '@yolkai/nx-next',
     capabilities: 'builders,schematics'
   },
   {
-    name: '@nrwl/node',
+    name: '@yolkai/nx-node',
     capabilities: 'builders,schematics'
   },
   {
-    name: '@nrwl/react',
+    name: '@yolkai/nx-react',
     capabilities: 'builders,schematics'
   },
   {
-    name: '@nrwl/storybook',
+    name: '@yolkai/nx-storybook',
     capabilities: 'builders,schematics'
   },
   {
-    name: '@nrwl/web',
+    name: '@yolkai/nx-web',
     capabilities: 'builders,schematics'
   }
 ];

@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { getMockContext, MockBuilderContext } from '../../utils/testing';
 import { workspaces } from '@angular-devkit/core';
 import { join } from 'path';
-import * as f from '@nrwl/workspace/src/utils/fileutils';
+import * as f from '@yolkai/nx-workspace/src/utils/fileutils';
 import { BundleBuilderOptions } from '../../utils/types';
 
 jest.mock('tsconfig-paths-webpack-plugin');

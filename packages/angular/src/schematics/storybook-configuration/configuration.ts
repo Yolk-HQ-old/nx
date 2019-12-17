@@ -9,7 +9,7 @@ import { StorybookConfigureSchema } from './schema';
 
 export default function(schema: StorybookConfigureSchema): Rule {
   return chain([
-    externalSchematic('@nrwl/storybook', 'configuration', {
+    externalSchematic('@yolkai/nx-storybook', 'configuration', {
       name: schema.name,
       uiFramework: '@storybook/angular',
       configureCypress: schema.configureCypress

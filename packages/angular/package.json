@@ -16,10 +16,10 @@
     "Cypress",
     "CLI"
   ],
-  "main": "bundles/nrwl-angular.umd.js",
-  "types": "nrwl-angular.d.ts",
-  "module": "esm5/nrwl-angular.js",
-  "es2015": "esm2015/nrwl-angular.js",
+  "main": "bundles/yolkai-nx-angular.umd.js",
+  "types": "yolkai-nx-angular.d.ts",
+  "module": "esm5/yolkai-nx-angular.js",
+  "es2015": "esm2015/yolkai-nx-angular.js",
   "author": "Victor Savkin",
   "license": "MIT",
   "bugs": {
@@ -32,11 +32,11 @@
     "migrations": "./migrations.json"
   },
   "peerDependencies": {
-    "@nrwl/workspace": "*"
+    "@yolkai/nx-workspace": "*"
   },
   "dependencies": {
-    "@nrwl/cypress": "*",
-    "@nrwl/jest": "*",
+    "@yolkai/nx-cypress": "*",
+    "@yolkai/nx-jest": "*",
     "@angular-devkit/schematics": "8.3.14",
     "@schematics/angular": "8.3.14",
     "jasmine-marbles": "~0.6.0"

@@ -12,12 +12,12 @@ import {
   readJsonInTree,
   updateJsonInTree,
   updateWorkspaceInTree
-} from '@nrwl/workspace';
-import { serializeJson, renameSync } from '@nrwl/workspace';
-import { parseTarget, serializeTarget } from '@nrwl/workspace';
-import { offsetFromRoot } from '@nrwl/workspace';
-import { formatFiles } from '@nrwl/workspace';
-import { NxJson } from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
+import { serializeJson, renameSync } from '@yolkai/nx-workspace';
+import { parseTarget, serializeTarget } from '@yolkai/nx-workspace';
+import { offsetFromRoot } from '@yolkai/nx-workspace';
+import { formatFiles } from '@yolkai/nx-workspace';
+import { NxJson } from '@yolkai/nx-workspace';
 
 function createKarma(host: Tree, project: any) {
   const offset = offsetFromRoot(project.root);
@@ -394,7 +394,7 @@ const updatePackageJson = updateJsonInTree('package.json', json => {
     '@ngrx/router-store': '6.0.1',
     '@ngrx/store': '6.0.1',
     '@ngrx/store-devtools': '6.0.1',
-    '@nrwl/nx': '6.0.2'
+    '@yolkai/nx': '6.0.2'
   };
   json.devDependencies = {
     ...json.devDependencies,
@@ -565,11 +565,11 @@ const updateworkspaceJson = updateWorkspaceInTree(json => {
   json.newProjectRoot = '';
   json.cli = {
     ...json.cli,
-    defaultCollection: '@nrwl/schematics'
+    defaultCollection: '@yolkai/nx-schematics'
   };
   delete json.projects.$workspaceRoot;
   delete json.projects['$workspaceRoot-e2e'];
-  const prefix = json.schematics['@nrwl/schematics:component'].prefix;
+  const prefix = json.schematics['@yolkai/nx-schematics:component'].prefix;
   delete json.schematics;
   json.defaultProject = pathToName(json.defaultProject);
 

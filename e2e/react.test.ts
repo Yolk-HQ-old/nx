@@ -13,7 +13,7 @@ import {
   workspaceConfigName,
   setMaxWorkers
 } from './utils';
-import { serializeJson } from '@nrwl/workspace';
+import { serializeJson } from '@yolkai/nx-workspace';
 
 forEachCli(currentCLIName => {
   const linter = currentCLIName === 'angular' ? 'tslint' : 'eslint';
@@ -25,9 +25,9 @@ forEachCli(currentCLIName => {
       const libName = uniq('lib');
 
       runCLI(
-        `generate @nrwl/react:app ${appName} --no-interactive --linter=${linter}`
+        `generate @yolkai/nx-react:app ${appName} --no-interactive --linter=${linter}`
       );
-      runCLI(`generate @nrwl/react:lib ${libName} --no-interactive`);
+      runCLI(`generate @yolkai/nx-react:lib ${libName} --no-interactive`);
 
       setMaxWorkers(appName);
 
@@ -45,7 +45,7 @@ forEachCli(currentCLIName => {
       const libName = uniq('lib');
 
       runCLI(
-        `generate @nrwl/react:lib ${libName} --publishable --no-interactive`
+        `generate @yolkai/nx-react:lib ${libName} --publishable --no-interactive`
       );
 
       const libTestResults = await runCLIAsync(`build ${libName}`);
@@ -64,7 +64,7 @@ forEachCli(currentCLIName => {
       const appName = uniq('app');
 
       runCLI(
-        `generate @nrwl/react:app ${appName} --routing --no-interactive --linter=${linter}`
+        `generate @yolkai/nx-react:app ${appName} --routing --no-interactive --linter=${linter}`
       );
 
       setMaxWorkers(appName);
@@ -77,7 +77,7 @@ forEachCli(currentCLIName => {
       const appName = uniq('app');
 
       runCLI(
-        `generate @nrwl/react:app ${appName} --style styled-components --no-interactive --linter=${linter}`
+        `generate @yolkai/nx-react:app ${appName} --style styled-components --no-interactive --linter=${linter}`
       );
 
       setMaxWorkers(appName);
@@ -94,9 +94,9 @@ forEachCli(currentCLIName => {
       const libName = uniq('lib');
 
       runCLI(
-        `generate @nrwl/react:app ${appName} --no-interactive --linter=${linter}`
+        `generate @yolkai/nx-react:app ${appName} --no-interactive --linter=${linter}`
       );
-      runCLI(`generate @nrwl/react:lib ${libName} --no-interactive`);
+      runCLI(`generate @yolkai/nx-react:lib ${libName} --no-interactive`);
 
       setMaxWorkers(appName);
 

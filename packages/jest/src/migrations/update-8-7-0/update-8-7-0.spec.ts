@@ -1,5 +1,5 @@
 import { Tree } from '@angular-devkit/schematics';
-import { readJsonInTree } from '@nrwl/workspace/src/utils/ast-utils';
+import { readJsonInTree } from '@yolkai/nx-workspace/src/utils/ast-utils';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import * as path from 'path';
 
@@ -10,7 +10,7 @@ describe('Update 8.7.0', () => {
   beforeEach(async () => {
     tree = Tree.empty();
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/jest',
+      '@yolkai/nx-jest',
       path.join(__dirname, '../../../migrations.json')
     );
   });
@@ -24,19 +24,19 @@ describe('Update 8.7.0', () => {
           test: {
             architect: {
               jest1: {
-                builder: '@nrwl/jest:jest',
+                builder: '@yolkai/nx-jest:jest',
                 options: {
                   testPathPattern: 'some/test/path'
                 }
               },
               jest2: {
-                builder: '@nrwl/jest:jest',
+                builder: '@yolkai/nx-jest:jest',
                 options: {
                   foo: 'bar'
                 }
               },
               jest3: {
-                builder: '@nrwl/jest:jest'
+                builder: '@yolkai/nx-jest:jest'
               }
             }
           }

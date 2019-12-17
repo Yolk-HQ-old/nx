@@ -4,7 +4,7 @@ import {
   addDepsToPackageJson,
   addPackageWithInit,
   updateWorkspace
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import {
   nextVersion,
   zeitNextCss,
@@ -35,8 +35,8 @@ function setDefault(): Rule {
       workspace.extensions.cli &&
       ((workspace.extensions.cli as JsonObject).defaultCollection as string);
 
-    if (!defaultCollection || defaultCollection === '@nrwl/workspace') {
-      (workspace.extensions.cli as JsonObject).defaultCollection = '@nrwl/next';
+    if (!defaultCollection || defaultCollection === '@yolkai/nx-workspace') {
+      (workspace.extensions.cli as JsonObject).defaultCollection = '@yolkai/nx-next';
     }
   });
 }
@@ -44,10 +44,10 @@ function setDefault(): Rule {
 export default function(schema: Schema) {
   return chain([
     setDefault(),
-    addPackageWithInit('@nrwl/jest'),
-    addPackageWithInit('@nrwl/cypress'),
-    addPackageWithInit('@nrwl/web'),
-    addPackageWithInit('@nrwl/react'),
+    addPackageWithInit('@yolkai/nx-jest'),
+    addPackageWithInit('@yolkai/nx-cypress'),
+    addPackageWithInit('@yolkai/nx-web'),
+    addPackageWithInit('@yolkai/nx-react'),
     addDependencies()
   ]);
 }

@@ -24,8 +24,8 @@ forEachCli('angular', () => {
       const packageJson = readJson('package.json');
       packageJson.description = 'some description';
       updateFile('package.json', JSON.stringify(packageJson, null, 2));
-      // confirm that @nrwl and @ngrx dependencies do not exist yet
-      expect(packageJson.devDependencies['@nrwl/workspace']).not.toBeDefined();
+      // confirm that @yolkai and @ngrx dependencies do not exist yet
+      expect(packageJson.devDependencies['@yolkai/nx-workspace']).not.toBeDefined();
       expect(packageJson.dependencies['@ngrx/store']).not.toBeDefined();
       expect(packageJson.dependencies['@ngrx/effects']).not.toBeDefined();
       expect(packageJson.dependencies['@ngrx/router-store']).not.toBeDefined();
@@ -51,7 +51,7 @@ forEachCli('angular', () => {
       updateFile('angular.json', JSON.stringify(angularCLIJson, null, 2));
 
       // run the command
-      runNgAdd('add @nrwl/workspace --npmScope projscope --skip-install');
+      runNgAdd('add @yolkai/nx-workspace --npmScope projscope --skip-install');
       copyMissingPackages();
 
       // check that prettier config exits and that files have been moved!
@@ -91,14 +91,14 @@ forEachCli('angular', () => {
         format: 'nx format:write',
         'format:write': 'nx format:write',
         'format:check': 'nx format:check',
-        update: 'ng update @nrwl/workspace',
+        update: 'ng update @yolkai/nx-workspace',
         'update:check': 'ng update',
         'dep-graph': 'nx dep-graph',
         'workspace-schematic': 'nx workspace-schematic',
         help: 'nx help'
       });
       expect(
-        updatedPackageJson.devDependencies['@nrwl/workspace']
+        updatedPackageJson.devDependencies['@yolkai/nx-workspace']
       ).toBeDefined();
       expect(updatedPackageJson.devDependencies['@angular/cli']).toBeDefined();
 
@@ -257,7 +257,7 @@ forEachCli('angular', () => {
       // update package.json
       const existingPackageJson = readJson('package.json');
       existingPackageJson.devDependencies[
-        '@nrwl/workspace'
+        '@yolkai/nx-workspace'
       ] = schematicsVersion;
       existingPackageJson.dependencies['@ngrx/store'] = ngrxVersion;
       existingPackageJson.dependencies['@ngrx/effects'] = ngrxVersion;
@@ -272,11 +272,11 @@ forEachCli('angular', () => {
         })
       );
       // run the command
-      runNgAdd('add @nrwl/workspace --npmScope projscope --skip-install');
+      runNgAdd('add @yolkai/nx-workspace --npmScope projscope --skip-install');
 
       // check that dependencies and devDependencies remained the same
       const packageJson = readJson('package.json');
-      expect(packageJson.devDependencies['@nrwl/workspace']).toEqual(
+      expect(packageJson.devDependencies['@yolkai/nx-workspace']).toEqual(
         schematicsVersion
       );
       expect(packageJson.dependencies['@ngrx/store']).toEqual(ngrxVersion);
@@ -309,7 +309,7 @@ forEachCli('angular', () => {
       runNgAdd('add @ngrx/effects');
 
       // Add Nx
-      runNgAdd('add @nrwl/workspace --skip-install');
+      runNgAdd('add @yolkai/nx-workspace --skip-install');
     });
 
     it('should handle different types of errors', () => {
@@ -319,7 +319,7 @@ forEachCli('angular', () => {
       // Only remove e2e directory
       runCommand('mv e2e e2e-bak');
       try {
-        runNgAdd('add @nrwl/workspace --npmScope projscope --skip-install');
+        runNgAdd('add @yolkai/nx-workspace --npmScope projscope --skip-install');
         fail('Did not handle not having a e2e directory');
       } catch (e) {
         expect(e.stderr.toString()).toContain(
@@ -333,7 +333,7 @@ forEachCli('angular', () => {
       // Remove package.json
       runCommand('mv package.json package.json.bak');
       try {
-        runNgAdd('add @nrwl/workspace --npmScope projscope --skip-install');
+        runNgAdd('add @yolkai/nx-workspace --npmScope projscope --skip-install');
         fail('Did not handle not having a package.json');
       } catch (e) {
         expect(e.stderr.toString()).toContain(
@@ -347,7 +347,7 @@ forEachCli('angular', () => {
       // Remove src
       runCommand('mv src src-bak');
       try {
-        runNgAdd('add @nrwl/workspace --npmScope projscope --skip-install');
+        runNgAdd('add @yolkai/nx-workspace --npmScope projscope --skip-install');
         fail('Did not handle not having a src directory');
       } catch (e) {
         expect(e.stderr.toString()).toContain('Path: src does not exist');

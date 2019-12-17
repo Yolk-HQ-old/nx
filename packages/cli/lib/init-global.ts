@@ -14,7 +14,7 @@ export function initGlobal() {
     require(path.join(
       workspace.dir,
       'node_modules',
-      '@nrwl',
+      '@yolkai',
       'cli',
       'bin',
       'nx.js'

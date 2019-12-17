@@ -1,7 +1,7 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace, getFileContent } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace, getFileContent } from '@yolkai/nx-workspace/testing';
 import { createApp, runSchematic } from '../../utils/testing';
-import { readJsonInTree } from '@nrwl/workspace';
+import { readJsonInTree } from '@yolkai/nx-workspace';
 
 describe('upgrade-module', () => {
   let appTree: Tree;

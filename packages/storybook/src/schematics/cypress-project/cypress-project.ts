@@ -5,7 +5,7 @@ import {
   SchematicContext,
   Tree
 } from '@angular-devkit/schematics';
-import { getProjectConfig, updateWorkspaceInTree } from '@nrwl/workspace';
+import { getProjectConfig, updateWorkspaceInTree } from '@yolkai/nx-workspace';
 import { parseJsonAtPath, safeFileDelete } from '../../utils/utils';
 
 export interface CypressConfigureSchema {
@@ -15,7 +15,7 @@ export interface CypressConfigureSchema {
 export default function(schema: CypressConfigureSchema): Rule {
   const e2eProjectName = schema.name + '-e2e';
   return chain([
-    externalSchematic('@nrwl/cypress', 'cypress-project', {
+    externalSchematic('@yolkai/nx-cypress', 'cypress-project', {
       name: e2eProjectName,
       project: schema.name
     }),

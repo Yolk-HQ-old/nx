@@ -17,11 +17,11 @@ forEachCli(cliName => {
       const mylib2 = uniq('mylib2');
       const mypublishablelib = uniq('mypublishablelib');
 
-      runCLI(`generate @nrwl/react:app ${myapp}`);
-      runCLI(`generate @nrwl/react:app ${myapp2}`);
-      runCLI(`generate @nrwl/react:lib ${mylib}`);
-      runCLI(`generate @nrwl/react:lib ${mylib2}`);
-      runCLI(`generate @nrwl/react:lib ${mypublishablelib} --publishable`);
+      runCLI(`generate @yolkai/nx-react:app ${myapp}`);
+      runCLI(`generate @yolkai/nx-react:app ${myapp2}`);
+      runCLI(`generate @yolkai/nx-react:lib ${mylib}`);
+      runCLI(`generate @yolkai/nx-react:lib ${mylib2}`);
+      runCLI(`generate @yolkai/nx-react:lib ${mypublishablelib} --publishable`);
 
       updateFile(
         `apps/${myapp}/src/main.tsx`,

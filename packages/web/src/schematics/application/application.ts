@@ -25,7 +25,7 @@ import {
   updateWorkspaceInTree,
   generateProjectLint,
   addLintFiles
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import init from '../init/init';
 
 interface NormalizedSchema extends Schema {
@@ -65,7 +65,7 @@ function addProject(options: NormalizedSchema): Rule {
     const architect: { [key: string]: any } = {};
 
     architect.build = {
-      builder: '@nrwl/web:build',
+      builder: '@yolkai/nx-web:build',
       options: {
         outputPath: join(normalize('dist'), options.appProjectRoot),
         index: join(normalize(options.appProjectRoot), 'src/index.html'),
@@ -114,7 +114,7 @@ function addProject(options: NormalizedSchema): Rule {
     };
 
     architect.serve = {
-      builder: '@nrwl/web:dev-server',
+      builder: '@yolkai/nx-web:dev-server',
       options: {
         buildTarget: `${options.projectName}:build`
       },
@@ -158,7 +158,7 @@ export default function(schema: Schema): Rule {
       updateNxJson(options),
       addProject(options),
       options.e2eTestRunner === 'cypress'
-        ? externalSchematic('@nrwl/cypress', 'cypress-project', {
+        ? externalSchematic('@yolkai/nx-cypress', 'cypress-project', {
             ...options,
             name: options.name + '-e2e',
             directory: options.directory,
@@ -166,7 +166,7 @@ export default function(schema: Schema): Rule {
           })
         : noop(),
       options.unitTestRunner === 'jest'
-        ? externalSchematic('@nrwl/jest', 'jest-project', {
+        ? externalSchematic('@yolkai/nx-jest', 'jest-project', {
             project: options.projectName,
             skipSerializers: true,
             setupFile: 'web-components'

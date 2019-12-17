@@ -9,10 +9,10 @@ import {
   Tree,
   url
 } from '@angular-devkit/schematics';
-import { findNodes } from '@nrwl/workspace';
+import { findNodes } from '@yolkai/nx-workspace';
 import { PropertyDeclaration, SyntaxKind } from 'typescript';
 import { getTsSourceFile, applyWithSkipExisting } from '../../utils/ast-utils';
-import { getSourceNodes } from '@nrwl/workspace/src/utils/ast-utils';
+import { getSourceNodes } from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 export interface CreateComponentStoriesFileSchema {
   libPath: string;

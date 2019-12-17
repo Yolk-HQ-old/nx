@@ -19,7 +19,7 @@ npx --ignore-existing create-nx-workspace happynrwl --preset=empty
 An empty workspace does not have any capabilities to create applications. Add capabilities for Angular development via:
 
 ```bash
-ng add @nrwl/angular
+ng add @yolkai/nx-angular
 ```
 
 ## Creating an Angular Application
@@ -27,7 +27,7 @@ ng add @nrwl/angular
 An empty workspace has no application or libraries: nothing to run and nothing to test. Let's add an Angular application into it via:
 
 ```bash
-ng g @nrwl/angular:app angularapp
+ng g @yolkai/nx-angular:app angularapp
 ```
 
 The result should look like this:
@@ -115,14 +115,14 @@ And the template of the generated component will look as follows:
 Generating a React application is just as easy. First, add capabilities for React development via:
 
 ```bash
-ng add @nrwl/react
+ng add @yolkai/nx-react
 ```
 
 ## Creating a React Application
 
 Create a React application via:
 
-`ng g @nrwl/react:app reactapp` and this is what we will see:
+`ng g @yolkai/nx-react:app reactapp` and this is what we will see:
 
 ```treeview
 happynrwl/
@@ -224,7 +224,7 @@ TypeScript support, Jest, Cypress, source maps, watch mode--all work with React 
 
 Nx makes sharing code between applications easy. What used to take days or even weeks, with Nx takes minutes. Say we want to create a ui library of shared components that we will use in both the React and Angular applications.
 
-`ng g @nrwl/workspace:lib ui` and this is what we will see:
+`ng g @yolkai/nx-workspace:lib ui` and this is what we will see:
 
 ```treeview
 happynrwl/

@@ -18,7 +18,7 @@ Cypress is an e2e test runner built for modern web. It has a lot of great featur
 By default, when creating a new frontend application, Nx will use Cypress to create the e2e tests project.
 
 ```bash
-nx g @nrwl/web:app frontend
+nx g @yolkai/nx-web:app frontend
 ```
 
 ```treeview

@@ -1,5 +1,5 @@
 import { existsSync, writeFileSync } from 'fs';
-import { readJsonFile, serializeJson } from '@nrwl/workspace';
+import { readJsonFile, serializeJson } from '@yolkai/nx-workspace';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 
 export default {

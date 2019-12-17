@@ -13,7 +13,7 @@ By default, Nx will search for `stories` in the default collection provisioned i
 You can specify the collection explicitly as follows:
 
 ```bash
-nx g @nrwl/angular:stories ...
+nx g @yolkai/angular:stories ...
 ```
 
 Show what will be generated without writing to disk:

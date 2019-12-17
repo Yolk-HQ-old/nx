@@ -1,4 +1,4 @@
-import { Linter } from '@nrwl/workspace/src/utils/lint';
+import { Linter } from '@yolkai/nx-workspace/src/utils/lint';
 
 export interface Schema {
   name: string;

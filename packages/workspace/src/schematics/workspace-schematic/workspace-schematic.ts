@@ -9,8 +9,8 @@ import {
   move
 } from '@angular-devkit/schematics';
 import { Schema } from './schema';
-import { formatFiles } from '@nrwl/workspace';
-import { toFileName } from '@nrwl/workspace';
+import { formatFiles } from '@yolkai/nx-workspace';
+import { toFileName } from '@yolkai/nx-workspace';
 
 export default function(schema: Schema): Rule {
   const options = normalizeOptions(schema);

@@ -14,11 +14,11 @@ forEachCli(() => {
       ensureProject();
 
       const myapp = uniq('myapp');
-      runCLI(`generate @nrwl/angular:app ${myapp} --no-interactive`);
+      runCLI(`generate @yolkai/nx-angular:app ${myapp} --no-interactive`);
 
       // Generate root ngrx state management
       runCLI(
-        `generate @nrwl/angular:ngrx users --module=apps/${myapp}/src/app/app.module.ts --root`
+        `generate @yolkai/nx-angular:ngrx users --module=apps/${myapp}/src/app/app.module.ts --root`
       );
       const packageJson = readJson('package.json');
       expect(packageJson.dependencies['@ngrx/store']).toBeDefined();
@@ -28,9 +28,9 @@ forEachCli(() => {
 
       const mylib = uniq('mylib');
       // Generate feature library and ngrx state within that library
-      runCLI(`g @nrwl/angular:lib ${mylib} --prefix=fl`);
+      runCLI(`g @yolkai/nx-angular:lib ${mylib} --prefix=fl`);
       runCLI(
-        `generate @nrwl/angular:ngrx flights --module=libs/${mylib}/src/lib/${mylib}.module.ts --facade`
+        `generate @yolkai/nx-angular:ngrx flights --module=libs/${mylib}/src/lib/${mylib}.module.ts --facade`
       );
 
       expect(runCLI(`build ${myapp}`)).toContain(
@@ -47,11 +47,11 @@ forEachCli(() => {
       ensureProject();
 
       const myapp = uniq('myapp');
-      runCLI(`generate @nrwl/angular:app ${myapp} --routing --no-interactive`);
+      runCLI(`generate @yolkai/nx-angular:app ${myapp} --routing --no-interactive`);
 
       // Generate root ngrx state management
       runCLI(
-        `generate @nrwl/angular:ngrx users --module=apps/${myapp}/src/app/app.module.ts --root --minimal --syntax=creators`
+        `generate @yolkai/nx-angular:ngrx users --module=apps/${myapp}/src/app/app.module.ts --root --minimal --syntax=creators`
       );
       const packageJson = readJson('package.json');
       expect(packageJson.dependencies['@ngrx/entity']).toBeDefined();
@@ -63,11 +63,11 @@ forEachCli(() => {
 
       const mylib = uniq('mylib');
       // Generate feature library and ngrx state within that library
-      runCLI(`g @nrwl/angular:lib ${mylib} --prefix=fl`);
+      runCLI(`g @yolkai/nx-angular:lib ${mylib} --prefix=fl`);
 
       const flags = `--facade --syntax=creators --useDataPersistence=false --barrels`;
       runCLI(
-        `generate @nrwl/angular:ngrx flights --module=libs/${mylib}/src/lib/${mylib}.module.ts ${flags}`
+        `generate @yolkai/nx-angular:ngrx flights --module=libs/${mylib}/src/lib/${mylib}.module.ts ${flags}`
       );
 
       expect(runCLI(`build ${myapp}`)).toContain(

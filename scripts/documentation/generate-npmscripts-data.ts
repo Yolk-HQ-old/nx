@@ -299,9 +299,9 @@ const examples = {
       description: 'List the plugins installed in the current workspace'
     },
     {
-      command: 'list @nrwl/web',
+      command: 'list @yolkai/nx-web',
       description:
-        'List the schematics and builders available in the `@nrwl/web` plugin if it is installed (If the plugin is not installed `nx` will show advice on how to add it to your workspace)'
+        'List the schematics and builders available in the `@yolkai/nx-web` plugin if it is installed (If the plugin is not installed `nx` will show advice on how to add it to your workspace)'
     }
   ],
   'run-many': [
@@ -364,7 +364,7 @@ Promise.all(
       nx ${command.command}
       \`\`\`
 
-      Install \`@nrwl/cli\` globally to invoke the command directly using \`nx\`, or use \`npm run nx\` or \`yarn nx\`.\n`;
+      Install \`@yolkai/nx-cli\` globally to invoke the command directly using \`nx\`, or use \`npm run nx\` or \`yarn nx\`.\n`;
 
       if (examples[command.command] && examples[command.command].length > 0) {
         template += `### Examples`;

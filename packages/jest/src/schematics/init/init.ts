@@ -1,5 +1,5 @@
 import { mergeWith, chain, url, Tree } from '@angular-devkit/schematics';
-import { addDepsToPackageJson, updateJsonInTree } from '@nrwl/workspace';
+import { addDepsToPackageJson, updateJsonInTree } from '@yolkai/nx-workspace';
 import {
   jestVersion,
   jestTypesVersion,
@@ -13,7 +13,7 @@ const updatePackageJson = chain([
   addDepsToPackageJson(
     {},
     {
-      '@nrwl/jest': nxVersion,
+      '@yolkai/nx-jest': nxVersion,
       jest: jestVersion,
       '@types/jest': jestTypesVersion,
       'ts-jest': tsJestVersion
@@ -21,7 +21,7 @@ const updatePackageJson = chain([
   ),
   updateJsonInTree('package.json', json => {
     json.dependencies = json.dependencies || {};
-    delete json.dependencies['@nrwl/jest'];
+    delete json.dependencies['@yolkai/nx-jest'];
     return json;
   })
 ]);
@@ -36,7 +36,7 @@ const createJestConfig = (host: Tree) => {
     transform: {
       '^.+\\.(ts|js|html)$': 'ts-jest'
     },
-    resolver: '@nrwl/jest/plugins/resolver',
+    resolver: '@yolkai/nx-jest/plugins/resolver',
     moduleFileExtensions: ['ts', 'js', 'html'],
     coverageReporters: ['html'],
     passWithNoTests: true

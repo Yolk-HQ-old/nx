@@ -7,15 +7,15 @@ import {
   apply,
   source
 } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 const testRunner = new SchematicTestRunner(
-  '@nrwl/storybook',
+  '@yolkai/nx-storybook',
   join(__dirname, '../../collection.json')
 );
 
 const migrationRunner = new SchematicTestRunner(
-  '@nrwl/storybook/migrations',
+  '@yolkai/nx-storybook/migrations',
   join(__dirname, '../../migrations.json')
 );
 
@@ -41,13 +41,13 @@ export async function createTestUILib(libName: string): Promise<Tree> {
   let appTree = Tree.empty();
   appTree = createEmptyWorkspace(appTree);
   appTree = await callRule(
-    externalSchematic('@nrwl/angular', 'library', {
+    externalSchematic('@yolkai/nx-angular', 'library', {
       name: libName
     }),
     appTree
   );
   appTree = await callRule(
-    externalSchematic('@nrwl/angular', 'component', {
+    externalSchematic('@yolkai/nx-angular', 'component', {
       name: 'test-button',
       project: libName
     }),
@@ -84,7 +84,7 @@ export class TestButtonComponent implements OnInit {
     `<button [attr.type]="type" [ngClass]="style"></button>`
   );
   appTree = await callRule(
-    externalSchematic('@nrwl/angular', 'component', {
+    externalSchematic('@yolkai/nx-angular', 'component', {
       name: 'test-other',
       project: libName
     }),

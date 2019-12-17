@@ -11,7 +11,7 @@ Storybook is a development environment for UI components. It allows you to brows
 You can generate Storybook configuration for an individual project with this command:
 
 ```bash
-nx g @nrwl/react:storybook-configuration project-name
+nx g @yolkai/nx-react:storybook-configuration project-name
 ```
 
 If there's no `.storybook` folder at the root of the workspace, one is created.

@@ -1,11 +1,11 @@
 import { writeFileSync, unlinkSync } from 'fs';
 import { join } from 'path';
 
-import { updateJsonFile } from '@nrwl/workspace';
+import { updateJsonFile } from '@yolkai/nx-workspace';
 import {
   ExistingPrettierConfig,
   resolveUserExistingPrettierConfig
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 
 export default {
   description: 'Create or update prettier configuration',

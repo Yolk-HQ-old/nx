@@ -35,19 +35,19 @@ First, we must add the capability to create [React](https://reactjs.org/) applic
 Using `npm`:
 
 ```bash
-npm install --save-dev @nrwl/react
+npm install --save-dev @yolkai/nx-react
 ```
 
 Using `yarn`:
 
 ```bash
-yarn add --dev @nrwl/react
+yarn add --dev @yolkai/nx-react
 ```
 
 Now, create your first React application.
 
 ```bash
-nx generate @nrwl/react:application todos
+nx generate @yolkai/nx-react:application todos
 ```
 
 Nx will ask you a few questions about the application you are trying to create: the directory it will be placed it, the tags used for linting, etc.. As your workspace grows, those things become really important. For now the default answers are good enough.

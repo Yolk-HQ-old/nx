@@ -24,7 +24,7 @@ import {
   extraEslintDependencies,
   reactEslintJson,
   CSS_IN_JS_DEPENDENCIES
-} from '@nrwl/react';
+} from '@yolkai/nx-react';
 import {
   addLintFiles,
   formatFiles,
@@ -35,11 +35,11 @@ import {
   toFileName,
   updateJsonInTree,
   updateWorkspace
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import {
   updateWorkspaceInTree,
   addDepsToPackageJson
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 import init from '../init/init';
 import { Schema } from './schema';
 
@@ -212,7 +212,7 @@ function addProject(options: NormalizedSchema): Rule {
     const { server } = options;
 
     architect.build = {
-      builder: '@nrwl/next:build',
+      builder: '@yolkai/nx-next:build',
       options: {
         root: options.appProjectRoot,
         outputPath: join(normalize('dist'), options.appProjectRoot)
@@ -220,7 +220,7 @@ function addProject(options: NormalizedSchema): Rule {
     };
 
     architect.serve = {
-      builder: '@nrwl/next:dev-server',
+      builder: '@yolkai/nx-next:dev-server',
       options: {
         buildTarget: `${options.projectName}:build`,
         dev: true
@@ -240,7 +240,7 @@ function addProject(options: NormalizedSchema): Rule {
     }
 
     architect.export = {
-      builder: '@nrwl/next:export',
+      builder: '@yolkai/nx-next:export',
       options: {
         buildTarget: `${options.projectName}:build`
       }
@@ -268,7 +268,7 @@ function addProject(options: NormalizedSchema): Rule {
 
 function addCypress(options: NormalizedSchema): Rule {
   return options.e2eTestRunner === 'cypress'
-    ? externalSchematic('@nrwl/cypress', 'cypress-project', {
+    ? externalSchematic('@yolkai/nx-cypress', 'cypress-project', {
         ...options,
         name: options.name + '-e2e',
         directory: options.directory,
@@ -280,7 +280,7 @@ function addCypress(options: NormalizedSchema): Rule {
 function addJest(options: NormalizedSchema): Rule {
   return options.unitTestRunner === 'jest'
     ? chain([
-        externalSchematic('@nrwl/jest', 'jest-project', {
+        externalSchematic('@yolkai/nx-jest', 'jest-project', {
           project: options.projectName,
           supportTsx: true,
           skipSerializers: true,
@@ -314,15 +314,15 @@ function setDefaults(options: NormalizedSchema): Rule {
         workspace.extensions.schematics = jsonIdentity(
           workspace.extensions.schematics || {}
         );
-        workspace.extensions.schematics['@nrwl/next'] =
-          workspace.extensions.schematics['@nrwl/next'] || {};
+        workspace.extensions.schematics['@yolkai/nx-next'] =
+          workspace.extensions.schematics['@yolkai/nx-next'] || {};
         const prev = jsonIdentity(
-          workspace.extensions.schematics['@nrwl/next']
+          workspace.extensions.schematics['@yolkai/nx-next']
         );
 
         workspace.extensions.schematics = {
           ...workspace.extensions.schematics,
-          '@nrwl/next': {
+          '@yolkai/nx-next': {
             ...prev,
             application: {
               style: options.style,

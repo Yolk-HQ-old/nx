@@ -5,14 +5,14 @@ import {
   readJsonInTree,
   updateJsonInTree,
   updateWorkspaceInTree
-} from '@nrwl/workspace';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+} from '@yolkai/nx-workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import {
   callRule,
   createLibWithTests,
   runMigration
 } from '../../utils/testing';
-import { updateWorkspace } from '@nrwl/workspace/src/utils/workspace';
+import { updateWorkspace } from '@yolkai/nx-workspace/src/utils/workspace';
 
 describe('Update 8.10.0', () => {
   let tree: Tree;

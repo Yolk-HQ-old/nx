@@ -29,11 +29,11 @@
     "migrations": "./migrations.json"
   },
   "peerDependencies": {
-    "@nrwl/workspace": "*"
+    "@yolkai/nx-workspace": "*"
   },
   "dependencies": {
-    "@nrwl/jest": "*",
-    "@nrwl/linter": "*",
+    "@yolkai/nx-jest": "*",
+    "@yolkai/nx-linter": "*",
     "@angular-devkit/architect": "0.803.14",
     "@angular-devkit/core": "8.3.14",
     "@angular-devkit/schematics": "8.3.14",

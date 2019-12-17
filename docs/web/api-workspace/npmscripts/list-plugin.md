@@ -8,7 +8,7 @@ Lists installed plugins, capabilities of installed plugins and other available p
 nx list [plugin]
 ```
 
-Install `@nrwl/cli` globally to invoke the command directly using `nx`, or use `npm run nx` or `yarn nx`.
+Install `@yolkai/nx-cli` globally to invoke the command directly using `nx`, or use `npm run nx` or `yarn nx`.
 
 ### Examples
 
@@ -18,10 +18,10 @@ List the plugins installed in the current workspace:
 nx list
 ```
 
-List the schematics and builders available in the `@nrwl/web` plugin if it is installed (If the plugin is not installed `nx` will show advice on how to add it to your workspace):
+List the schematics and builders available in the `@yolkai/nx-web` plugin if it is installed (If the plugin is not installed `nx` will show advice on how to add it to your workspace):
 
 ```bash
-nx list @nrwl/web
+nx list @yolkai/nx-web
 ```
 
 ## Options

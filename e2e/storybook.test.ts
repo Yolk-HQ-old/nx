@@ -16,15 +16,15 @@ forEachCli(() => {
           ensureProject();
 
           const myapp = uniq('myapp');
-          runCLI(`generate @nrwl/angular:app ${myapp} --no-interactive`);
+          runCLI(`generate @yolkai/nx-angular:app ${myapp} --no-interactive`);
 
           const mylib = uniq('test-ui-lib');
           createTestUILib(mylib);
 
           const mylib2 = uniq('test-ui-lib-react');
-          runCLI(`generate @nrwl/react:lib ${mylib2} --no-interactive`);
+          runCLI(`generate @yolkai/nx-react:lib ${mylib2} --no-interactive`);
           runCLI(
-            `generate @nrwl/react:component Button --project=${mylib2} --no-interactive`
+            `generate @yolkai/nx-react:component Button --project=${mylib2} --no-interactive`
           );
           writeFileSync(
             tmpProjPath(`libs/${mylib2}/src/lib/button.tsx`),
@@ -73,10 +73,10 @@ forEachCli(() => {
           );
 
           runCLI(
-            `generate @nrwl/angular:storybook-configuration ${mylib} --configureCypress --generateStories --generateCypressSpecs --no-interactive`
+            `generate @yolkai/nx-angular:storybook-configuration ${mylib} --configureCypress --generateStories --generateCypressSpecs --no-interactive`
           );
           runCLI(
-            `generate @nrwl/angular:stories ${mylib} --generateCypressSpecs --no-interactive`
+            `generate @yolkai/nx-angular:stories ${mylib} --generateCypressSpecs --no-interactive`
           );
 
           writeFileSync(
@@ -104,7 +104,7 @@ forEachCli(() => {
           );
 
           runCLI(
-            `generate @nrwl/react:storybook-configuration ${mylib2} --configureCypress --no-interactive`
+            `generate @yolkai/nx-react:storybook-configuration ${mylib2} --configureCypress --no-interactive`
           );
 
           mkdirSync(tmpProjPath(`apps/${mylib2}-e2e/src/integration`));
@@ -139,9 +139,9 @@ forEachCli(() => {
 });
 
 export function createTestUILib(libName: string): void {
-  runCLI(`g @nrwl/angular:library ${libName} --no-interactive`);
+  runCLI(`g @yolkai/nx-angular:library ${libName} --no-interactive`);
   runCLI(
-    `g @nrwl/angular:component test-button --project=${libName} --no-interactive`
+    `g @yolkai/nx-angular:component test-button --project=${libName} --no-interactive`
   );
 
   writeFileSync(
@@ -181,6 +181,6 @@ export class TestButtonComponent implements OnInit {
     `
   );
   runCLI(
-    `g @nrwl/angular:component test-other --project=${libName} --no-interactive`
+    `g @yolkai/nx-angular:component test-other --project=${libName} --no-interactive`
   );
 }

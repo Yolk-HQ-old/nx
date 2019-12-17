@@ -6,7 +6,7 @@ import {
   updateWorkspaceInTree,
   readWorkspace,
   getWorkspacePath
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 
 import * as path from 'path';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
@@ -18,7 +18,7 @@ describe('Update 8-5-0', () => {
   beforeEach(async () => {
     tree = Tree.empty();
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/web',
+      '@yolkai/nx-web',
       path.join(__dirname, '../../../migrations.json')
     );
   });
@@ -33,7 +33,7 @@ describe('Update 8-5-0', () => {
             sourceRoot: 'apps/demo/src',
             architect: {
               build: {
-                builder: '@nrwl/web:build',
+                builder: '@yolkai/nx-web:build',
                 options: {
                   differentialLoading: true
                 }

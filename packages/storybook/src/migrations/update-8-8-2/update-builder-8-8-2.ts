@@ -4,7 +4,7 @@ import {
   readWorkspaceJson,
   readWorkspace,
   updateJsonInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 
 export default function update(): Rule {
   return chain([
@@ -15,7 +15,7 @@ export default function update(): Rule {
           config.projects[name].architect &&
           config.projects[name].architect.e2e &&
           config.projects[name].architect.e2e.builder ===
-            '@nrwl/cypress:cypress' &&
+            '@yolkai/nx-cypress:cypress' &&
           config.projects[name].architect.e2e.options.devServerTarget.endsWith(
             ':storybook'
           )
@@ -38,7 +38,7 @@ export default function update(): Rule {
           workspace.projects[name].architect &&
           workspace.projects[name].architect.storybook &&
           workspace.projects[name].architect.storybook.builder ===
-            '@nrwl/storybook:storybook' &&
+            '@yolkai/nx-storybook:storybook' &&
           workspace.projects[name].architect.storybook.options.config
             .configFolder
         ) {

@@ -5,21 +5,21 @@ import { appRootPath } from '../utils/app-root';
 import { output } from '../utils/output';
 
 export const packagesWeCareAbout = [
-  '@nrwl/angular',
-  '@nrwl/cli',
-  '@nrwl/cypress',
-  '@nrwl/eslint-plugin-nx',
-  '@nrwl/express',
-  '@nrwl/jest',
-  '@nrwl/linter',
-  '@nrwl/nest',
-  '@nrwl/next',
-  '@nrwl/node',
-  '@nrwl/react',
-  '@nrwl/schematics',
-  '@nrwl/tao',
-  '@nrwl/web',
-  '@nrwl/workspace',
+  '@yolkai/nx-angular',
+  '@yolkai/nx-cli',
+  '@yolkai/nx-cypress',
+  '@yolkai/eslint-plugin-nx',
+  '@yolkai/nx-express',
+  '@yolkai/nx-jest',
+  '@yolkai/nx-linter',
+  '@yolkai/nx-nest',
+  '@yolkai/nx-next',
+  '@yolkai/nx-node',
+  '@yolkai/nx-react',
+  '@yolkai/nx-schematics',
+  '@yolkai/nx-tao',
+  '@yolkai/nx-web',
+  '@yolkai/nx-workspace',
   'typescript'
 ];
 

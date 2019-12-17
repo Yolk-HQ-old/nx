@@ -11,7 +11,7 @@ Storybook is a development environment for UI components. It allows you to brows
 You can generate Storybook configuration for an individual project with this command:
 
 ```bash
-nx g @nrwl/angular:storybook-configuration project-name
+nx g @yolkai/nx-angular:storybook-configuration project-name
 ```
 
 If there's no `.storybook` folder at the root of the workspace, one is created.
@@ -55,7 +55,7 @@ nx run project-name:storybook
 
 ### Auto-generate Stories
 
-The `@nrwl/angular:storybook-configuration` schematic has the option to automatically generate `*.stories.ts` files for each component declared in the library.
+The `@yolkai/nx-angular:storybook-configuration` schematic has the option to automatically generate `*.stories.ts` files for each component declared in the library.
 
 ```treeview
 <some-folder>/

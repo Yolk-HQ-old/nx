@@ -40,51 +40,51 @@
     "852": {
       "version": "8.5.2",
       "packages": {
-        "@nrwl/angular": {
+        "@yolkai/nx-angular": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/cypress": {
+        "@yolkai/nx-cypress": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/eslint-plugin-nx": {
+        "@yolkai/eslint-plugin-nx": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/express": {
+        "@yolkai/nx-express": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/jest": {
+        "@yolkai/nx-jest": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/linter": {
+        "@yolkai/nx-linter": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/nest": {
+        "@yolkai/nx-nest": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/next": {
+        "@yolkai/nx-next": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/node": {
+        "@yolkai/nx-node": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/react": {
+        "@yolkai/nx-react": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/tao": {
+        "@yolkai/nx-tao": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/web": {
+        "@yolkai/nx-web": {
           "version": "8.5.2",
           "alwaysAddToPackageJson": false
         }
@@ -93,51 +93,51 @@
     "853": {
       "version": "8.5.3",
       "packages": {
-        "@nrwl/angular": {
+        "@yolkai/nx-angular": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/cypress": {
+        "@yolkai/nx-cypress": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/eslint-plugin-nx": {
+        "@yolkai/eslint-plugin-nx": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/express": {
+        "@yolkai/nx-express": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/jest": {
+        "@yolkai/nx-jest": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/linter": {
+        "@yolkai/nx-linter": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/nest": {
+        "@yolkai/nx-nest": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/next": {
+        "@yolkai/nx-next": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/node": {
+        "@yolkai/nx-node": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/react": {
+        "@yolkai/nx-react": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/tao": {
+        "@yolkai/nx-tao": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/web": {
+        "@yolkai/nx-web": {
           "version": "8.5.3",
           "alwaysAddToPackageJson": false
         }
@@ -146,51 +146,51 @@
     "870": {
       "version": "8.7.0",
       "packages": {
-        "@nrwl/angular": {
+        "@yolkai/nx-angular": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/cypress": {
+        "@yolkai/nx-cypress": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/eslint-plugin-nx": {
+        "@yolkai/eslint-plugin-nx": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/express": {
+        "@yolkai/nx-express": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/jest": {
+        "@yolkai/nx-jest": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/linter": {
+        "@yolkai/nx-linter": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/nest": {
+        "@yolkai/nx-nest": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/next": {
+        "@yolkai/nx-next": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/node": {
+        "@yolkai/nx-node": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/react": {
+        "@yolkai/nx-react": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/tao": {
+        "@yolkai/nx-tao": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         },
-        "@nrwl/web": {
+        "@yolkai/nx-web": {
           "version": "8.7.0",
           "alwaysAddToPackageJson": false
         }

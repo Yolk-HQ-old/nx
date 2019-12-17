@@ -17,7 +17,7 @@ By default, Nx will search for `redux` in the default collection provisioned in 
 You can specify the collection explicitly as follows:
 
 ```bash
-nx g @nrwl/react:redux ...
+nx g @yolkai/react:redux ...
 ```
 
 Show what will be generated without writing to disk:

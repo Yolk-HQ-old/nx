@@ -5,7 +5,7 @@ import {
   runExternalSchematic,
   callRule
 } from '../../utils/testing';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 describe('schematic:stories', () => {
   let appTree: Tree;
@@ -48,7 +48,7 @@ describe('schematic:stories', () => {
 
     it('should generate cypress spec files', async () => {
       let tree = await runExternalSchematic(
-        '@nrwl/storybook',
+        '@yolkai/nx-storybook',
         'cypress-project',
         { name: 'test-ui-lib' },
         appTree
@@ -96,7 +96,7 @@ describe('schematic:stories', () => {
 
     it('should run twice without errors', async () => {
       let tree = await runExternalSchematic(
-        '@nrwl/storybook',
+        '@yolkai/nx-storybook',
         'cypress-project',
         { name: 'test-ui-lib' },
         appTree
@@ -119,7 +119,7 @@ export async function createTestUILib(libName: string): Promise<Tree> {
   let appTree = Tree.empty();
   appTree = createEmptyWorkspace(appTree);
   appTree = await callRule(
-    externalSchematic('@nrwl/angular', 'library', {
+    externalSchematic('@yolkai/nx-angular', 'library', {
       name: libName
     }),
     appTree

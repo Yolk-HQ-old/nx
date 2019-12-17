@@ -13,12 +13,12 @@
     "declaration": true,
     "baseUrl": ".",
     "paths": {
-      "@nrwl/tao": ["./packages/tao"],
-      "@nrwl/tao/*": ["./packages/tao/*"],
-      "@nrwl/workspace": ["./packages/workspace"],
-      "@nrwl/workspace/*": ["./packages/workspace/*"],
-      "@nrwl/workspace/testing": ["./packages/workspace/testing"],
-      "@nrwl/react": ["./packages/react"]
+      "@yolkai/nx-tao": ["./packages/tao"],
+      "@yolkai/nx-tao/*": ["./packages/tao/*"],
+      "@yolkai/nx-workspace": ["./packages/workspace"],
+      "@yolkai/nx-workspace/*": ["./packages/workspace/*"],
+      "@yolkai/nx-workspace/testing": ["./packages/workspace/testing"],
+      "@yolkai/nx-react": ["./packages/react"]
     }
   },
   "exclude": [

@@ -5,7 +5,7 @@ import {
   addPackageWithInit,
   updateWorkspace,
   formatFiles
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { Schema } from './schema';
 import { nxVersion } from '../../utils/versions';
 import { JsonObject } from '@angular-devkit/core';
@@ -14,7 +14,7 @@ function addDependencies(): Rule {
   return addDepsToPackageJson(
     {},
     {
-      '@nrwl/node': nxVersion
+      '@yolkai/nx-node': nxVersion
     }
   );
 }
@@ -23,7 +23,7 @@ function moveDependency(): Rule {
   return updateJsonInTree('package.json', json => {
     json.dependencies = json.dependencies || {};
 
-    delete json.dependencies['@nrwl/node'];
+    delete json.dependencies['@yolkai/nx-node'];
     return json;
   });
 }
@@ -36,8 +36,8 @@ function setDefault(): Rule {
       workspace.extensions.cli &&
       ((workspace.extensions.cli as JsonObject).defaultCollection as string);
 
-    if (!defaultCollection || defaultCollection === '@nrwl/workspace') {
-      (workspace.extensions.cli as JsonObject).defaultCollection = '@nrwl/node';
+    if (!defaultCollection || defaultCollection === '@yolkai/nx-workspace') {
+      (workspace.extensions.cli as JsonObject).defaultCollection = '@yolkai/nx-node';
     }
   });
 }
@@ -45,7 +45,7 @@ function setDefault(): Rule {
 export default function(schema: Schema) {
   return chain([
     setDefault(),
-    addPackageWithInit('@nrwl/jest'),
+    addPackageWithInit('@yolkai/nx-jest'),
     addDependencies(),
     moveDependency(),
     formatFiles(schema)

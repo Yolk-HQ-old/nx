@@ -31,15 +31,15 @@
     "requirements": {},
     "migrations": "./migrations.json",
     "packageGroup": [
-      "@nrwl/workspace",
-      "@nrwl/angular",
-      "@nrwl/cypress",
-      "@nrwl/express",
-      "@nrwl/jest",
-      "@nrwl/nest",
-      "@nrwl/node",
-      "@nrwl/react",
-      "@nrwl/web"
+      "@yolkai/nx-workspace",
+      "@yolkai/nx-angular",
+      "@yolkai/nx-cypress",
+      "@yolkai/nx-express",
+      "@yolkai/nx-jest",
+      "@yolkai/nx-nest",
+      "@yolkai/nx-node",
+      "@yolkai/nx-react",
+      "@yolkai/nx-web"
     ]
   },
   "peerDependencies": {
@@ -60,6 +60,6 @@
     "yargs-parser": "10.0.0",
     "yargs": "^11.0.0",
     "chalk": "2.4.2",
-    "@nrwl/cli": "*"
+    "@yolkai/nx-cli": "*"
   }
 }

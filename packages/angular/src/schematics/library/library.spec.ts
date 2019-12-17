@@ -1,8 +1,8 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace, getFileContent } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace, getFileContent } from '@yolkai/nx-workspace/testing';
 import { createApp, runSchematic } from '../../utils/testing';
 import * as stripJsonComments from 'strip-json-comments';
-import { NxJson, readJsonInTree } from '@nrwl/workspace';
+import { NxJson, readJsonInTree } from '@yolkai/nx-workspace';
 import { UnitTestTree } from '@angular-devkit/schematics/testing';
 
 describe('lib', () => {
@@ -813,7 +813,7 @@ describe('lib', () => {
       const workspaceJson = readJsonInTree(result, 'workspace.json');
 
       expect(workspaceJson.projects['my-lib'].schematics).toEqual({
-        '@nrwl/angular:component': {
+        '@yolkai/nx-angular:component': {
           styleext: 'scss'
         }
       });

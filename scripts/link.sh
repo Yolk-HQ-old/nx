@@ -8,6 +8,6 @@ if [ "$1" != "fast" ]; then
   ./scripts/build.sh
 fi
 
-rm -rf node_modules/@nrwl
+rm -rf node_modules/@yolkai
 
-cp -r build/packages node_modules/@nrwl
+cp -r build/packages node_modules/@yolkai

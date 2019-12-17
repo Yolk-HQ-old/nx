@@ -18,10 +18,10 @@ import {
   updateWorkspaceInTree,
   generateProjectLint,
   addLintFiles
-} from '@nrwl/workspace';
-import { toFileName } from '@nrwl/workspace';
-import { getProjectConfig } from '@nrwl/workspace';
-import { offsetFromRoot } from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
+import { toFileName } from '@yolkai/nx-workspace';
+import { getProjectConfig } from '@yolkai/nx-workspace';
+import { offsetFromRoot } from '@yolkai/nx-workspace';
 import init from '../init/init';
 
 interface NormalizedSchema extends Schema {
@@ -43,7 +43,7 @@ function updateNxJson(options: NormalizedSchema): Rule {
 
 function getBuildConfig(project: any, options: NormalizedSchema) {
   return {
-    builder: '@nrwl/node:build',
+    builder: '@yolkai/nx-node:build',
     options: {
       outputPath: join(normalize('dist'), options.appProjectRoot),
       main: join(project.sourceRoot, 'main.ts'),
@@ -68,7 +68,7 @@ function getBuildConfig(project: any, options: NormalizedSchema) {
 
 function getServeConfig(options: NormalizedSchema) {
   return {
-    builder: '@nrwl/node:execute',
+    builder: '@yolkai/nx-node:execute',
     options: {
       buildTarget: `${options.name}:build`
     }
@@ -156,7 +156,7 @@ export default function(schema: Schema): Rule {
       updateWorkspaceJson(options),
       updateNxJson(options),
       options.unitTestRunner === 'jest'
-        ? externalSchematic('@nrwl/jest', 'jest-project', {
+        ? externalSchematic('@yolkai/nx-jest', 'jest-project', {
             project: options.name,
             setupFile: 'none',
             skipSerializers: true

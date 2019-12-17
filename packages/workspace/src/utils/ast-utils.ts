@@ -14,7 +14,7 @@ import { getWorkspacePath } from './cli-config-utils';
 import { createProjectGraph, ProjectGraph } from '../core/project-graph';
 import { FileData } from '../core/file-utils';
 import { extname, join, normalize, Path } from '@angular-devkit/core';
-import { NxJson } from '@nrwl/workspace/src/core/shared-interfaces';
+import { NxJson } from '@yolkai/nx-workspace/src/core/shared-interfaces';
 
 function nodesByPosition(first: ts.Node, second: ts.Node): number {
   return first.getStart() - second.getStart();

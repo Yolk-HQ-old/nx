@@ -23,7 +23,7 @@ forEachCli(currentCLIName => {
         ensureProject();
         const myapp = uniq('myapp');
         runCLI(
-          `generate @nrwl/${nrwlPackageName}:app ${myapp} --e2eTestRunner=cypress --linter=${linter}`
+          `generate @yolkai/${nrwlPackageName}:app ${myapp} --e2eTestRunner=cypress --linter=${linter}`
         );
 
         // Making sure the package.json file contains the Cypress dependency
@@ -49,7 +49,7 @@ forEachCli(currentCLIName => {
           newProject();
           const myapp = uniq('myapp');
           runCLI(
-            `generate @nrwl/${nrwlPackageName}:app ${myapp} --e2eTestRunner=cypress --linter=${linter}`
+            `generate @yolkai/${nrwlPackageName}:app ${myapp} --e2eTestRunner=cypress --linter=${linter}`
           );
 
           if (currentCLIName === 'nx') {

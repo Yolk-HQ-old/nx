@@ -1,13 +1,13 @@
 import { chain, Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { callRule, runSchematic } from '../utils/testing';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
-import { updateJsonInTree } from '@nrwl/workspace/src/utils/ast-utils';
-import { updateWorkspace } from '@nrwl/workspace/src/utils/workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace/src/utils/ast-utils';
+import { updateWorkspace } from '@yolkai/nx-workspace/src/utils/workspace';
 import { rulesNodeJSSha, rulesNodeJSVersion } from '../utils/versions';
-import { NxJson } from '@nrwl/workspace/src/core/shared-interfaces';
+import { NxJson } from '@yolkai/nx-workspace/src/core/shared-interfaces';
 
-describe('@nrwl/bazel:sync', () => {
+describe('@yolkai/nx-bazel:sync', () => {
   let tree: Tree;
 
   beforeEach(() => {
@@ -109,21 +109,21 @@ describe('@nrwl/bazel:sync', () => {
               root: 'proj',
               targets: {
                 build: {
-                  builder: '@nrwl/web:build',
+                  builder: '@yolkai/nx-web:build',
                   options: {},
                   configurations: {
                     production: {}
                   }
                 },
                 serve: {
-                  builder: '@nrwl/web:dev-server',
+                  builder: '@yolkai/nx-web:dev-server',
                   options: {},
                   configurations: {
                     production: {}
                   }
                 },
                 test: {
-                  builder: '@nrwl/jest:jest',
+                  builder: '@yolkai/nx-jest:jest',
                   options: {}
                 }
               }

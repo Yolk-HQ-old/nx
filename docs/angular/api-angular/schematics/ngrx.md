@@ -13,7 +13,7 @@ By default, Nx will search for `ngrx` in the default collection provisioned in `
 You can specify the collection explicitly as follows:
 
 ```bash
-ng g @nrwl/angular:ngrx ...
+ng g @yolkai/angular:ngrx ...
 ```
 
 Show what will be generated without writing to disk:

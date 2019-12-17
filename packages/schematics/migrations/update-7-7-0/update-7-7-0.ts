@@ -1,23 +1,23 @@
 import { chain, Rule, Tree } from '@angular-devkit/schematics';
 
-import { updateJsonInTree, insert } from '@nrwl/workspace';
-import { formatFiles, updateWorkspaceInTree } from '@nrwl/workspace';
+import { updateJsonInTree, insert } from '@yolkai/nx-workspace';
+import { formatFiles, updateWorkspaceInTree } from '@yolkai/nx-workspace';
 
 import * as ts from 'typescript';
 import {
   getSourceNodes,
   ReplaceChange
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 const setDefaults = updateWorkspaceInTree(json => {
   if (!json.schematics) {
     json.schematics = {};
   }
-  if (!json.schematics['@nrwl/schematics:library']) {
-    json.schematics['@nrwl/schematics:library'] = {};
+  if (!json.schematics['@yolkai/nx-schematics:library']) {
+    json.schematics['@yolkai/nx-schematics:library'] = {};
   }
-  if (!json.schematics['@nrwl/schematics:library'].framework) {
-    json.schematics['@nrwl/schematics:library'].framework = 'angular';
+  if (!json.schematics['@yolkai/nx-schematics:library'].framework) {
+    json.schematics['@yolkai/nx-schematics:library'].framework = 'angular';
   }
   return json;
 });

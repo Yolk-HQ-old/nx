@@ -15,9 +15,9 @@ import {
   readJsonInTree,
   updateJsonInTree,
   updateWorkspaceInTree
-} from '@nrwl/workspace';
-import { getProjectConfig, addDepsToPackageJson } from '@nrwl/workspace';
-import { offsetFromRoot } from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
+import { getProjectConfig, addDepsToPackageJson } from '@yolkai/nx-workspace';
+import { offsetFromRoot } from '@yolkai/nx-workspace';
 import { join, normalize } from '@angular-devkit/core';
 import init from '../init/init';
 
@@ -78,7 +78,7 @@ function updateWorkspaceJson(options: JestProjectSchema): Rule {
   return updateWorkspaceInTree(json => {
     const projectConfig = json.projects[options.project];
     projectConfig.architect.test = {
-      builder: '@nrwl/jest:jest',
+      builder: '@yolkai/nx-jest:jest',
       options: {
         jestConfig: join(normalize(projectConfig.root), 'jest.config.js'),
         tsConfig: join(normalize(projectConfig.root), 'tsconfig.spec.json')

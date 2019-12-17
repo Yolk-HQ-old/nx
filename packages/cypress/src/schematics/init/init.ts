@@ -2,8 +2,8 @@ import { Rule, Tree, noop, chain } from '@angular-devkit/schematics';
 
 import { Schema } from './schema';
 import { cypressVersion, nxVersion } from '../../utils/versions';
-import { readJsonInTree } from '@nrwl/workspace';
-import { addDepsToPackageJson, updateJsonInTree } from '@nrwl/workspace';
+import { readJsonInTree } from '@yolkai/nx-workspace';
+import { addDepsToPackageJson, updateJsonInTree } from '@yolkai/nx-workspace';
 
 function checkDependenciesInstalled(): Rule {
   return (host: Tree): Rule => {
@@ -12,8 +12,8 @@ function checkDependenciesInstalled(): Rule {
     if (!packageJson.devDependencies.cypress) {
       dependencyList.push({ name: 'cypress', version: cypressVersion });
     }
-    if (!packageJson.devDependencies['@nrwl/cypress']) {
-      dependencyList.push({ name: '@nrwl/cypress', version: nxVersion });
+    if (!packageJson.devDependencies['@yolkai/nx-cypress']) {
+      dependencyList.push({ name: '@yolkai/nx-cypress', version: nxVersion });
     }
 
     if (!dependencyList.length) {
@@ -33,7 +33,7 @@ function checkDependenciesInstalled(): Rule {
 function removeDependency() {
   return updateJsonInTree('package.json', json => {
     json.dependencies = json.dependencies || {};
-    delete json.dependencies['@nrwl/cypress'];
+    delete json.dependencies['@yolkai/nx-cypress'];
     return json;
   });
 }

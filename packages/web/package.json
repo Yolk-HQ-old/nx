@@ -28,12 +28,12 @@
     "migrations": "./migrations.json"
   },
   "peerDependencies": {
-    "@nrwl/workspace": "*"
+    "@yolkai/nx-workspace": "*"
   },
   "dependencies": {
-    "@nrwl/cypress": "*",
-    "@nrwl/jest": "*",
-    "@nrwl/linter": "*",
+    "@yolkai/nx-cypress": "*",
+    "@yolkai/nx-jest": "*",
+    "@yolkai/nx-linter": "*",
     "@angular/service-worker": "8.2.12",
     "@angular-devkit/architect": "0.803.14",
     "@angular-devkit/build-ng-packagr": "0.803.14",

@@ -85,11 +85,11 @@ You can then go to `tmp/nx` (this is set up to use Nx CLI) or `tmp/angular` (thi
 ```bash
 yarn create-playground
 cd tmp/nx
-nx g @nrwl/express:app backend
+nx g @yolkai/nx-express:app backend
 nx build backend
 ```
 
-You can fix the changed files in `tmp/nx/node_modules/@nrwl/...` and `tmp/angular/node_modules/@nrwl/...`.
+You can fix the changed files in `tmp/nx/node_modules/@yolkai/...` and `tmp/angular/node_modules/@yolkai/...`.
 
 ### Developing on Windows
 

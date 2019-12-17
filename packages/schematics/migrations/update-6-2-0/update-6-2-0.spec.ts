@@ -1,6 +1,6 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
-import { serializeJson } from '@nrwl/workspace';
+import { serializeJson } from '@yolkai/nx-workspace';
 
 import * as path from 'path';
 
@@ -25,7 +25,7 @@ describe('Update 6.2.0', () => {
           'core-js': '^2.5.4',
           rxjs: '6.0.0',
           'zone.js': '^0.8.26',
-          '@nrwl/nx': '6.1.0',
+          '@yolkai/nx': '6.1.0',
           '@ngrx/effects': '5.2.0',
           '@ngrx/router-store': '5.2.0',
           '@ngrx/store': '5.2.0',
@@ -38,7 +38,7 @@ describe('Update 6.2.0', () => {
           '@angular/language-service': '6.0.1',
           '@angular-devkit/build-angular': '~0.6.1',
           '@ngrx/schematics': '5.2.0',
-          '@nrwl/schematics': '6.1.0',
+          '@yolkai/nx-schematics': '6.1.0',
           'jasmine-marbles': '0.3.1',
           '@types/jasmine': '~2.8.6',
           '@types/jasminewd2': '~2.0.3',
@@ -60,7 +60,7 @@ describe('Update 6.2.0', () => {
       })
     );
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/schematics',
+      '@yolkai/nx-schematics',
       path.join(__dirname, '../migrations.json')
     );
   });
@@ -97,7 +97,7 @@ describe('Update 6.2.0', () => {
         'core-js': '^2.5.4',
         rxjs: '6.2.2',
         'zone.js': '^0.8.26',
-        '@nrwl/nx': '6.1.0',
+        '@yolkai/nx': '6.1.0',
         '@ngrx/effects': '6.0.1',
         '@ngrx/store': '6.0.1',
         '@ngrx/router-store': '6.0.1'
@@ -108,7 +108,7 @@ describe('Update 6.2.0', () => {
         '@angular/language-service': '^6.1.0',
         '@angular-devkit/build-angular': '~0.7.0',
         '@ngrx/store-devtools': '6.0.1',
-        '@nrwl/schematics': '6.1.0',
+        '@yolkai/nx-schematics': '6.1.0',
         'jasmine-marbles': '0.3.1',
         '@types/jasmine': '~2.8.6',
         '@types/jasminewd2': '~2.0.3',

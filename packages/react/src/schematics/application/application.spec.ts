@@ -1,7 +1,7 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import * as stripJsonComments from 'strip-json-comments';
-import { readJsonInTree, NxJson } from '@nrwl/workspace';
+import { readJsonInTree, NxJson } from '@yolkai/nx-workspace';
 import { runSchematic } from '../../utils/testing';
 
 describe('app', () => {
@@ -227,7 +227,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.build.builder).toEqual('@nrwl/web:build');
+    expect(architectConfig.build.builder).toEqual('@yolkai/nx-web:build');
     expect(architectConfig.build.options).toEqual({
       assets: ['apps/my-app/src/favicon.ico', 'apps/my-app/src/assets'],
       index: 'apps/my-app/src/index.html',
@@ -237,7 +237,7 @@ describe('app', () => {
       scripts: [],
       styles: ['apps/my-app/src/styles.css'],
       tsConfig: 'apps/my-app/tsconfig.app.json',
-      webpackConfig: '@nrwl/react/plugins/babel'
+      webpackConfig: '@yolkai/nx-react/plugins/babel'
     });
     expect(architectConfig.build.configurations.production).toEqual({
       optimization: true,
@@ -273,7 +273,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.serve.builder).toEqual('@nrwl/web:dev-server');
+    expect(architectConfig.serve.builder).toEqual('@yolkai/nx-web:dev-server');
     expect(architectConfig.serve.options).toEqual({
       buildTarget: 'my-app:build'
     });
@@ -478,7 +478,7 @@ describe('app', () => {
 
     expect(
       workspaceJson.projects['my-app'].architect.build.options.webpackConfig
-    ).toEqual('@nrwl/react/plugins/babel');
+    ).toEqual('@yolkai/nx-react/plugins/babel');
   });
 
   it('should add required polyfills for core-js and regenerator', async () => {
@@ -509,7 +509,7 @@ describe('app', () => {
       );
 
       const workspaceJson = readJsonInTree(tree, '/workspace.json');
-      expect(workspaceJson.schematics['@nrwl/react']).toMatchObject({
+      expect(workspaceJson.schematics['@yolkai/nx-react']).toMatchObject({
         application: {
           babel: true,
           style: 'styled-components'

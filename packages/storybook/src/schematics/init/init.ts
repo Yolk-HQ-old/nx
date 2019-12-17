@@ -9,7 +9,7 @@ import {
   addDepsToPackageJson,
   readJsonInTree,
   updateJsonInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import {
   babelCoreVersion,
   babelLoaderVersion,
@@ -25,7 +25,7 @@ function checkDependenciesInstalled(): Rule {
     if (!packageJson.devDependencies['@storybook/angular']) {
       context.addTask(new NodePackageInstallTask());
       dependencyList.push(
-        { name: '@nrwl/storybook', version: '*' },
+        { name: '@yolkai/nx-storybook', version: '*' },
         { name: '@storybook/angular', version: storybookVersion },
         { name: '@storybook/react', version: storybookVersion },
         { name: '@storybook/addon-knobs', version: storybookVersion },
@@ -60,7 +60,7 @@ function checkDependenciesInstalled(): Rule {
 function removeDependency() {
   return updateJsonInTree('package.json', json => {
     json.dependencies = json.dependencies || {};
-    delete json.dependencies['@nrwl/storybook'];
+    delete json.dependencies['@yolkai/nx-storybook'];
     return json;
   });
 }

@@ -33,11 +33,11 @@ forEachCli(() => {
       const mylib = uniq('mylib');
       const mylib2 = uniq('mylib2');
       const mypublishablelib = uniq('mypublishablelib');
-      runCLI(`generate @nrwl/angular:app ${myapp}`);
-      runCLI(`generate @nrwl/angular:app ${myapp2}`);
-      runCLI(`generate @nrwl/angular:lib ${mylib}`);
-      runCLI(`generate @nrwl/angular:lib ${mylib2}`);
-      runCLI(`generate @nrwl/angular:lib ${mypublishablelib} --publishable`);
+      runCLI(`generate @yolkai/nx-angular:app ${myapp}`);
+      runCLI(`generate @yolkai/nx-angular:app ${myapp2}`);
+      runCLI(`generate @yolkai/nx-angular:lib ${mylib}`);
+      runCLI(`generate @yolkai/nx-angular:lib ${mylib2}`);
+      runCLI(`generate @yolkai/nx-angular:lib ${mypublishablelib} --publishable`);
 
       updateFile(
         `apps/${myapp}/src/app/app.component.spec.ts`,

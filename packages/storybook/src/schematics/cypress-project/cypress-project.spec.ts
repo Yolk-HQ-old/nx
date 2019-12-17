@@ -1,5 +1,5 @@
 import { Tree } from '@angular-devkit/schematics';
-import { readJsonInTree, getProjectConfig } from '@nrwl/workspace';
+import { readJsonInTree, getProjectConfig } from '@yolkai/nx-workspace';
 import { createTestUILib, runSchematic } from '../../utils/testing';
 
 describe('schematic:cypress-project', () => {

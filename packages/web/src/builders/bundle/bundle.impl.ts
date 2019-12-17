@@ -18,13 +18,13 @@ import * as filesize from 'rollup-plugin-filesize';
 import * as localResolve from 'rollup-plugin-local-resolve';
 import { BundleBuilderOptions } from '../../utils/types';
 import { normalizeBundleOptions } from '../../utils/normalize';
-import { toClassName } from '@nrwl/workspace/src/utils/name-utils';
+import { toClassName } from '@yolkai/nx-workspace/src/utils/name-utils';
 import { BuildResult } from '@angular-devkit/build-webpack';
 import { writeFileSync } from 'fs';
 import {
   readJsonFile,
   writeJsonFile
-} from '@nrwl/workspace/src/utils/fileutils';
+} from '@yolkai/nx-workspace/src/utils/fileutils';
 
 // These use require because the ES import isn't correct.
 const resolve = require('rollup-plugin-node-resolve');

@@ -7,5 +7,5 @@ interface Schema {
 }
 
 export default function(schema: Schema) {
-  return externalSchematic('@nrwl/workspace', 'ng-add', schema);
+  return externalSchematic('@yolkai/nx-workspace', 'ng-add', schema);
 }

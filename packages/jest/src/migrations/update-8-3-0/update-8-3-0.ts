@@ -1,10 +1,10 @@
 import { Rule, Tree } from '@angular-devkit/schematics';
-import { insert } from '@nrwl/workspace';
+import { insert } from '@yolkai/nx-workspace';
 import * as ts from 'typescript';
 import {
   getSourceNodes,
   RemoveChange
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 function updateJestConfig(host: Tree) {
   if (host.exists('jest.config.js')) {

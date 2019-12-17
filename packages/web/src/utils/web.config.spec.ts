@@ -172,7 +172,7 @@ describe('getWebConfig', () => {
         );
         expect(es2015Config.entry.polyfills).toContain(
           require.resolve(
-            '@nrwl/web/src/utils/third-party/cli-files/models/safari-nomodule.js'
+            '@yolkai/nx-web/src/utils/third-party/cli-files/models/safari-nomodule.js'
           )
         );
       });

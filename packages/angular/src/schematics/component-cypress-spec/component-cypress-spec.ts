@@ -10,7 +10,7 @@ import {
   Tree,
   url
 } from '@angular-devkit/schematics';
-import { findNodes, getProjectConfig } from '@nrwl/workspace';
+import { findNodes, getProjectConfig } from '@yolkai/nx-workspace';
 import {
   PropertyAssignment,
   PropertyDeclaration,

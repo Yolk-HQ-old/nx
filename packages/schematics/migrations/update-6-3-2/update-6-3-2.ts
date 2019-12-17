@@ -1,6 +1,6 @@
 import { Rule, Tree, SchematicContext } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
-import { updateJsonInTree } from '@nrwl/workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace';
 
 export default function(): Rule {
   return (host: Tree, context: SchematicContext) => {

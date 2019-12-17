@@ -1,22 +1,22 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import { join } from 'path';
-import { readJsonInTree } from '@nrwl/workspace';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { readJsonInTree } from '@yolkai/nx-workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { createLibWithTests } from '../../utils/testing';
 
 describe('Update 8.5.0', () => {
   let tree: Tree;
   let schematicRunner: SchematicTestRunner;
 
-  const jestBuilder = '@nrwl/jest:jest';
+  const jestBuilder = '@yolkai/nx-jest:jest';
   const nonJestBuilder = 'something-else';
 
   beforeEach(async () => {
     tree = Tree.empty();
     tree = createEmptyWorkspace(tree);
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/workspace',
+      '@yolkai/nx-workspace',
       join(__dirname, '../../../migrations.json')
     );
   });

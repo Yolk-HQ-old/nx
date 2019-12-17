@@ -13,7 +13,7 @@ By default, Nx will search for `karma-project` in the default collection provisi
 You can specify the collection explicitly as follows:
 
 ```bash
-ng g @nrwl/angular:karma-project ...
+ng g @yolkai/angular:karma-project ...
 ```
 
 Show what will be generated without writing to disk:

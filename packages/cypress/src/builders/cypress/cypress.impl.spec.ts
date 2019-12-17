@@ -4,7 +4,7 @@ import { normalize, schema } from '@angular-devkit/core';
 import { EventEmitter } from 'events';
 import * as child_process from 'child_process';
 import * as path from 'path';
-import * as fsUtility from '@nrwl/workspace';
+import * as fsUtility from '@yolkai/nx-workspace';
 import * as fsExtras from 'fs-extra';
 import { Architect } from '@angular-devkit/architect';
 import * as devkitArchitect from '@angular-devkit/architect';
@@ -71,7 +71,7 @@ describe('Cypress builder', () => {
 
   it('should call `Cypress.run` if headless mode is `true`', async done => {
     const run = await architect.scheduleBuilder(
-      '@nrwl/cypress:cypress',
+      '@yolkai/nx-cypress:cypress',
       cypressBuilderOptions
     );
     run.result.then(async () => {
@@ -89,7 +89,7 @@ describe('Cypress builder', () => {
   });
 
   it('should call `Cypress.open` if headless mode is `false`', async done => {
-    const run = await architect.scheduleBuilder('@nrwl/cypress:cypress', {
+    const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
       ...cypressBuilderOptions,
       headless: false,
       watch: true
@@ -109,7 +109,7 @@ describe('Cypress builder', () => {
   });
 
   it('should call `Cypress.run` with provided baseUrl', async done => {
-    const run = await architect.scheduleBuilder('@nrwl/cypress:cypress', {
+    const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
       ...cypressBuilderOptions,
       devServerTarget: undefined,
       baseUrl: 'http://my-distant-host.com'
@@ -132,7 +132,7 @@ describe('Cypress builder', () => {
   });
 
   it('should call `Cypress.run` with provided browser', async done => {
-    const run = await architect.scheduleBuilder('@nrwl/cypress:cypress', {
+    const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
       ...cypressBuilderOptions,
       browser: 'chrome'
     });
@@ -152,7 +152,7 @@ describe('Cypress builder', () => {
   });
 
   it('should call `Cypress.run` without baseUrl nor dev server target value', async done => {
-    const run = await architect.scheduleBuilder('@nrwl/cypress:cypress', {
+    const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
       cypressConfig: 'apps/my-app-e2e/cypress.json',
       tsConfig: 'apps/my-app-e2e/tsconfig.json',
       devServerTarget: undefined,
@@ -186,7 +186,7 @@ describe('Cypress builder', () => {
         })
       );
     const run = await architect.scheduleBuilder(
-      '@nrwl/cypress:cypress',
+      '@yolkai/nx-cypress:cypress',
       cypressBuilderOptions
     );
     run.result.then(async res => {
@@ -206,7 +206,7 @@ describe('Cypress builder', () => {
 
     it('should call `fork.child_process` with the tsc command', async () => {
       const run = await architect.scheduleBuilder(
-        '@nrwl/cypress:cypress',
+        '@yolkai/nx-cypress:cypress',
         cypressBuilderOptions
       );
       fakeEventEmitter.emit('exit', 0);
@@ -221,7 +221,7 @@ describe('Cypress builder', () => {
 
     it('should copy fixtures folder to out-dir', async done => {
       const run = await architect.scheduleBuilder(
-        '@nrwl/cypress:cypress',
+        '@yolkai/nx-cypress:cypress',
         cypressBuilderOptions
       );
       run.result.then(async () => {
@@ -240,7 +240,7 @@ describe('Cypress builder', () => {
     it('should not copy fixtures folder if they are not defined in the cypress config', async done => {
       delete cypressConfig.fixturesFolder;
       const run = await architect.scheduleBuilder(
-        '@nrwl/cypress:cypress',
+        '@yolkai/nx-cypress:cypress',
         cypressBuilderOptions
       );
       run.result.then(async () => {
@@ -255,7 +255,7 @@ describe('Cypress builder', () => {
     it('should copy regex files to out-dir', async done => {
       const regex: string = '^.+\\.feature$';
 
-      const run = await architect.scheduleBuilder('@nrwl/cypress:cypress', {
+      const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
         ...cypressBuilderOptions,
         copyFiles: regex
       });
@@ -275,7 +275,7 @@ describe('Cypress builder', () => {
     it('should not copy regex files if the regex is not defined', async done => {
       const regex: string = undefined;
 
-      const run = await architect.scheduleBuilder('@nrwl/cypress:cypress', {
+      const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
         ...cypressBuilderOptions,
         copyFiles: regex
       });
@@ -297,7 +297,7 @@ describe('Cypress builder', () => {
 
       const regex: string = '^.+\\.feature$';
 
-      const run = await architect.scheduleBuilder('@nrwl/cypress:cypress', {
+      const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
         ...cypressBuilderOptions,
         copyFiles: regex
       });
@@ -316,7 +316,7 @@ describe('Cypress builder', () => {
 
     it('should fail early if integration files fail to compile', async done => {
       const run = await architect.scheduleBuilder(
-        '@nrwl/cypress:cypress',
+        '@yolkai/nx-cypress:cypress',
         cypressBuilderOptions
       );
       run.result.then(async res => {

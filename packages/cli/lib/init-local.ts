@@ -12,7 +12,7 @@ export function initLocal(workspace: Workspace) {
     require(path.join(
       workspace.dir,
       'node_modules',
-      '@nrwl',
+      '@yolkai',
       'tao',
       'src',
       'compat',
@@ -22,14 +22,14 @@ export function initLocal(workspace: Workspace) {
 
   // The commandsObject is a Yargs object declared in `nx-commands.ts`,
   // It is exposed and bootstrapped here to provide CLI features.
-  const w = require('@nrwl/workspace');
+  const w = require('@yolkai/nx-workspace');
   if (w.supportedNxCommands.includes(process.argv[2])) {
     w.commandsObject.argv;
   } else if (workspace.type === 'nx') {
     require(path.join(
       workspace.dir,
       'node_modules',
-      '@nrwl',
+      '@yolkai',
       'tao',
       'index.js'
     ));

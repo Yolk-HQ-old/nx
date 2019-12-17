@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-// we can import from '@nrwl/workspace' because it will require typescript
-import { output } from '@nrwl/workspace/src/utils/output';
+// we can import from '@yolkai/nx-workspace' because it will require typescript
+import { output } from '@yolkai/nx-workspace/src/utils/output';
 import { execSync } from 'child_process';
 import { writeFileSync } from 'fs';
 import * as inquirer from 'inquirer';
@@ -250,7 +250,7 @@ function determineCli(preset: Preset, parsedArgs: any) {
   };
 
   const nx = {
-    package: '@nrwl/tao',
+    package: '@yolkai/nx-tao',
     version: cliVersion,
     command: 'tao'
   };
@@ -365,7 +365,7 @@ function createSandbox(
     path.join(tmpDir, 'package.json'),
     JSON.stringify({
       dependencies: {
-        '@nrwl/workspace': nxVersion,
+        '@yolkai/nx-workspace': nxVersion,
         [cli.package]: cli.version,
         typescript: tsVersion
       },
@@ -409,7 +409,7 @@ function createApp(
   const styleArg = style ? ` --style="${style}"` : ``;
 
   console.log(
-    `new ${args} --preset="${preset}"${appNameArg}${styleArg} --collection=@nrwl/workspace`
+    `new ${args} --preset="${preset}"${appNameArg}${styleArg} --collection=@yolkai/nx-workspace`
   );
   execSync(
     `"${path.join(
@@ -417,7 +417,7 @@ function createApp(
       'node_modules',
       '.bin',
       cli.command
-    )}" new ${args} --preset="${preset}"${appNameArg}${styleArg} --collection=@nrwl/workspace`,
+    )}" new ${args} --preset="${preset}"${appNameArg}${styleArg} --collection=@yolkai/nx-workspace`,
     {
       stdio: [0, 1, 2]
     }
@@ -438,7 +438,7 @@ function showNxWarning(workspaceName: string) {
       title: `Nx CLI is not installed globally.`,
       bodyLines: [
         `This means that you might have to use "yarn nx" or "npm nx" to execute commands in the workspace.`,
-        `Run "yarn global add @nrwl/cli" or "npm install -g @nrwl/cli" to be able to execute command directly.`
+        `Run "yarn global add @yolkai/nx-cli" or "npm install -g @yolkai/nx-cli" to be able to execute command directly.`
       ]
     });
   }

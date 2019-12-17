@@ -6,7 +6,7 @@ import {
   SchematicsException,
   Tree
 } from '@angular-devkit/schematics';
-import { getProjectConfig } from '@nrwl/workspace';
+import { getProjectConfig } from '@yolkai/nx-workspace';
 import { SyntaxKind } from 'typescript';
 import {
   getTsSourceFile,

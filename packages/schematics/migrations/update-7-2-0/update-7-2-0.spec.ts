@@ -1,9 +1,9 @@
 import { Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
-import { serializeJson } from '@nrwl/workspace';
+import { serializeJson } from '@yolkai/nx-workspace';
 
 import * as path from 'path';
-import { readJsonInTree, updateJsonInTree } from '@nrwl/workspace';
+import { readJsonInTree, updateJsonInTree } from '@yolkai/nx-workspace';
 
 describe('Update 7.2.0', () => {
   let initialTree: Tree;
@@ -70,7 +70,7 @@ describe('Update 7.2.0', () => {
               }
             },
             test: {
-              builder: '@nrwl/schematics:jest',
+              builder: '@yolkai/nx-schematics:jest',
               options: {
                 tsConfig: 'apps/app2/tsconfig.spec.json'
               }
@@ -90,7 +90,7 @@ describe('Update 7.2.0', () => {
           root: 'apps/app2-e2e',
           architect: {
             e2e: {
-              builder: '@nrwl/builders:cypress',
+              builder: '@yolkai/builders:cypress',
               options: {
                 tsConfig: 'apps/app2-e2e/tsconfig.e2e.json'
               }
@@ -107,13 +107,13 @@ describe('Update 7.2.0', () => {
           root: 'apps/node-app',
           architect: {
             build: {
-              builder: '@nrwl/builders:node-build',
+              builder: '@yolkai/builders:node-build',
               options: {
                 tsConfig: 'apps/node-app/tsconfig.app.json'
               }
             },
             test: {
-              builder: '@nrwl/schematics:jest',
+              builder: '@yolkai/nx-schematics:jest',
               options: {
                 tsConfig: 'apps/node-app/tsconfig.spec.json'
               }
@@ -133,13 +133,13 @@ describe('Update 7.2.0', () => {
           root: 'apps/weird/app',
           architect: {
             build: {
-              builder: '@nrwl/builders:node-build',
+              builder: '@yolkai/builders:node-build',
               options: {
                 tsConfig: 'apps/weird/app/src/tsconfig.app.json'
               }
             },
             test: {
-              builder: '@nrwl/schematics:jest',
+              builder: '@yolkai/nx-schematics:jest',
               options: {
                 tsConfig: 'apps/weird/app/src/tsconfig.spec.json'
               }
@@ -283,7 +283,7 @@ describe('Update 7.2.0', () => {
     }
 
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/schematics',
+      '@yolkai/nx-schematics',
       path.join(__dirname, '../migrations.json')
     );
   });

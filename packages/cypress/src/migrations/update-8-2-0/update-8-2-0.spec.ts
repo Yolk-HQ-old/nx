@@ -1,12 +1,12 @@
 import { chain, Tree } from '@angular-devkit/schematics';
 
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { callRule, runMigration } from '../../utils/testing';
 import {
   updateWorkspace,
   readJsonInTree,
   updateJsonInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 
 describe('Update 8.2.0', () => {
   let initialTree: Tree;
@@ -21,7 +21,7 @@ describe('Update 8.2.0', () => {
             name: 'proejct',
             targets: {
               e2e: {
-                builder: '@nrwl/cypress:cypress',
+                builder: '@yolkai/nx-cypress:cypress',
                 options: {
                   cypressConfig: 'project/cypress.json',
                   tsConfig: 'project/tsconfig.e2e.json',
@@ -134,7 +134,7 @@ describe('Update 8.2.0', () => {
     const newPluginsFile = result.readContent('project/src/plugins/index.js');
     expect(newPluginsFile).toContain('module.exports = function(on, config) {');
     expect(newPluginsFile).toContain(
-      `const { preprocessTypescript } = require('@nrwl/cypress/plugins/preprocessor');`
+      `const { preprocessTypescript } = require('@yolkai/nx-cypress/plugins/preprocessor');`
     );
     expect(newPluginsFile).toContain(`var mod = require('module');`);
     expect(newPluginsFile).toContain(

@@ -5,12 +5,12 @@ import { names } from './name-utils';
 import { updateWorkspace } from './workspace';
 
 const testRunner = new SchematicTestRunner(
-  '@nrwl/workspace',
+  '@yolkai/nx-workspace',
   join(__dirname, '../../collection.json')
 );
 
 const migrationTestRunner = new SchematicTestRunner(
-  '@nrwl/workspace/migrations',
+  '@yolkai/nx-workspace/migrations',
   join(__dirname, '../../migrations.json')
 );
 

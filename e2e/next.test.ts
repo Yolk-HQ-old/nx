@@ -1,4 +1,4 @@
-import { capitalize } from '@nrwl/workspace/src/utils/strings';
+import { capitalize } from '@yolkai/nx-workspace/src/utils/strings';
 import * as http from 'http';
 import {
   checkFilesExist,
@@ -21,10 +21,10 @@ forEachCli('nx', () => {
       const libName = uniq('lib');
 
       runCLI(
-        `generate @nrwl/next:app ${appName} --no-interactive --linter=eslint`
+        `generate @yolkai/nx-next:app ${appName} --no-interactive --linter=eslint`
       );
 
-      runCLI(`generate @nrwl/react:lib ${libName} --no-interactive`);
+      runCLI(`generate @yolkai/nx-react:lib ${libName} --no-interactive`);
 
       const mainPath = `apps/${appName}/pages/index.tsx`;
       updateFile(mainPath, `import '@proj/${libName}';\n` + readFile(mainPath));
@@ -51,9 +51,9 @@ module.exports = {
       const libName = uniq('lib');
 
       runCLI(
-        `generate @nrwl/next:app ${appName} --no-interactive --linter=eslint`
+        `generate @yolkai/nx-next:app ${appName} --no-interactive --linter=eslint`
       );
-      runCLI(`generate @nrwl/react:lib ${libName} --no-interactive`);
+      runCLI(`generate @yolkai/nx-react:lib ${libName} --no-interactive`);
 
       const mainPath = `apps/${appName}/pages/index.tsx`;
       updateFile(
@@ -81,7 +81,7 @@ async function checkApp(appName: string, opts: { checkLint: boolean }) {
   expect(testResults.stderr).toContain('Test Suites: 1 passed, 1 total');
 
   // const server = fork(
-  //   `./node_modules/@nrwl/cli/bin/nx.js`,
+  //   `./node_modules/@yolkai/nx-cli/bin/nx.js`,
   //   [`serve`, appName],
   //   {
   //     cwd: tmpProjPath(),
