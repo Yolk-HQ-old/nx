@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/bazel",
+  "name": "@yolkai/nx-bazel",
   "version": "0.0.1",
   "description": "Bazel Plugin for Nx",
   "repository": {

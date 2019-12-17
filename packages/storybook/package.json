@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/storybook",
+  "name": "@yolkai/nx-storybook",
   "version": "0.0.1",
   "description": "Storybook plugin for Nx",
   "repository": {

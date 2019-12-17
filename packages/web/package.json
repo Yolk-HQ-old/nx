@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/web",
+  "name": "@yolkai/nx-web",
   "version": "0.0.1",
   "description": "Web Plugin for Nx",
   "repository": {

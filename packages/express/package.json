@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/express",
+  "name": "@yolkai/nx-express",
   "version": "0.0.1",
   "description": "Express Plugin for Nx",
   "repository": {

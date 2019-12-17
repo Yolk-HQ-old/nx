@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/next",
+  "name": "@yolkai/nx-next",
   "version": "0.0.1",
   "description": "Next.js Plugin for Nx",
   "repository": {

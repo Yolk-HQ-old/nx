@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/nx-source",
+  "name": "@yolkai/nx-source",
   "version": "8.9.0",
   "description": "Extensible Dev Tools for Monorepos",
   "homepage": "https://nx.dev",

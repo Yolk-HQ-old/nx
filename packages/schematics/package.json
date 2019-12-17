@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/schematics",
+  "name": "@yolkai/nx-schematics",
   "version": "0.0.2",
   "description": "Extensible Dev Tools for Monorepos: Schematics",
   "repository": {

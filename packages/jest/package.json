@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/jest",
+  "name": "@yolkai/nx-jest",
   "version": "0.0.1",
   "description": "Jest plugin for Nx",
   "repository": {

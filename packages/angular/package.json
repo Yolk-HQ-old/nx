@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/angular",
+  "name": "@yolkai/nx-angular",
   "version": "0.0.1",
   "description": "Angular Plugin for Nx",
   "repository": {
