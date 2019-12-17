@@ -14,14 +14,26 @@ forEachCli(() => {
       ensureProject();
       const mylib = uniq('mylib');
       const myapp = uniq('myapp');
-      runCLI(`generate @yolkai/nx-angular:app ${myapp} --unit-test-runner jest`);
-      runCLI(`generate @yolkai/nx-angular:lib ${mylib} --unit-test-runner jest`);
+      runCLI(
+        `generate @yolkai/nx-angular:app ${myapp} --unit-test-runner jest`
+      );
+      runCLI(
+        `generate @yolkai/nx-angular:lib ${mylib} --unit-test-runner jest`
+      );
 
       await Promise.all([
-        runCLIAsync(`generate @yolkai/nx-angular:service test --project ${myapp}`),
-        runCLIAsync(`generate @yolkai/nx-angular:component test --project ${myapp}`),
-        runCLIAsync(`generate @yolkai/nx-angular:service test --project ${mylib}`),
-        runCLIAsync(`generate @yolkai/nx-angular:component test --project ${mylib}`)
+        runCLIAsync(
+          `generate @yolkai/nx-angular:service test --project ${myapp}`
+        ),
+        runCLIAsync(
+          `generate @yolkai/nx-angular:component test --project ${myapp}`
+        ),
+        runCLIAsync(
+          `generate @yolkai/nx-angular:service test --project ${mylib}`
+        ),
+        runCLIAsync(
+          `generate @yolkai/nx-angular:component test --project ${mylib}`
+        )
       ]);
       const appResult = await runCLIAsync(`test ${myapp} --no-watch`);
       expect(appResult.stderr).toContain('Test Suites: 3 passed, 3 total');
@@ -34,7 +46,9 @@ forEachCli(() => {
       ensureProject();
       const testGlobal = `'My Test Global'`;
       const mylib = uniq('mylib');
-      runCLI(`generate @yolkai/nx-workspace:lib ${mylib} --unit-test-runner jest`);
+      runCLI(
+        `generate @yolkai/nx-workspace:lib ${mylib} --unit-test-runner jest`
+      );
 
       updateFile(`libs/${mylib}/src/lib/${mylib}.ts`, `export class Test { }`);
 
@@ -71,7 +85,9 @@ forEachCli(() => {
     it('should set the NODE_ENV to `test`', async done => {
       ensureProject();
       const mylib = uniq('mylib');
-      runCLI(`generate @yolkai/nx-workspace:lib ${mylib} --unit-test-runner jest`);
+      runCLI(
+        `generate @yolkai/nx-workspace:lib ${mylib} --unit-test-runner jest`
+      );
 
       updateFile(
         `libs/${mylib}/src/lib/${mylib}.spec.ts`,

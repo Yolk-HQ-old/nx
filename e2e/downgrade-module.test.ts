@@ -14,7 +14,9 @@ forEachCli('angular', () => {
       ensureProject();
 
       const myapp = uniq('myapp');
-      runCLI(`generate @yolkai/nx-angular:app ${myapp} --unit-test-runner=karma`);
+      runCLI(
+        `generate @yolkai/nx-angular:app ${myapp} --unit-test-runner=karma`
+      );
       patchKarmaToWorkOnWSL();
 
       updateFile(

@@ -29,9 +29,9 @@ describe('init', () => {
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
       expect(workspaceJson.cli.defaultCollection).toEqual('@yolkai/nx-react');
-      expect(workspaceJson.schematics['@yolkai/nx-react'].application.babel).toBe(
-        true
-      );
+      expect(
+        workspaceJson.schematics['@yolkai/nx-react'].application.babel
+      ).toBe(true);
     });
 
     it('should be set if @yolkai/nx-workspace was set before', async () => {
@@ -48,9 +48,9 @@ describe('init', () => {
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
       expect(workspaceJson.cli.defaultCollection).toEqual('@yolkai/nx-react');
-      expect(workspaceJson.schematics['@yolkai/nx-react'].application.babel).toBe(
-        true
-      );
+      expect(
+        workspaceJson.schematics['@yolkai/nx-react'].application.babel
+      ).toBe(true);
     });
 
     it('should not be set if something else was set before', async () => {

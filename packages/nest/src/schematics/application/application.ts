@@ -12,7 +12,11 @@ import {
 } from '@angular-devkit/schematics';
 import { join, normalize, Path } from '@angular-devkit/core';
 import { Schema } from './schema';
-import { formatFiles, toFileName, updateJsonInTree } from '@yolkai/nx-workspace';
+import {
+  formatFiles,
+  toFileName,
+  updateJsonInTree
+} from '@yolkai/nx-workspace';
 import init from '../init/init';
 
 interface NormalizedSchema extends Schema {

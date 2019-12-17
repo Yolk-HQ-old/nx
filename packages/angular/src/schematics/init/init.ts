@@ -130,15 +130,19 @@ export function setDefaults(options: Schema): Rule {
     ].unitTestRunner =
       workspace.extensions.schematics['@yolkai/nx-angular:application']
         .unitTestRunner || options.unitTestRunner;
-    workspace.extensions.schematics['@yolkai/nx-angular:application'].e2eTestRunner =
+    workspace.extensions.schematics[
+      '@yolkai/nx-angular:application'
+    ].e2eTestRunner =
       workspace.extensions.schematics['@yolkai/nx-angular:application']
         .e2eTestRunner || options.e2eTestRunner;
 
     workspace.extensions.schematics['@yolkai/nx-angular:library'] =
       workspace.extensions.schematics['@yolkai/nx-angular:library'] || {};
-    workspace.extensions.schematics['@yolkai/nx-angular:library'].unitTestRunner =
-      workspace.extensions.schematics['@yolkai/nx-angular:library'].unitTestRunner ||
-      options.unitTestRunner;
+    workspace.extensions.schematics[
+      '@yolkai/nx-angular:library'
+    ].unitTestRunner =
+      workspace.extensions.schematics['@yolkai/nx-angular:library']
+        .unitTestRunner || options.unitTestRunner;
 
     workspace.extensions.cli = workspace.extensions.cli || {};
     const defaultCollection: string =

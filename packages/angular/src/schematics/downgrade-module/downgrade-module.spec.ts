@@ -1,5 +1,8 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace, getFileContent } from '@yolkai/nx-workspace/testing';
+import {
+  createEmptyWorkspace,
+  getFileContent
+} from '@yolkai/nx-workspace/testing';
 import { runSchematic, createApp } from '../../utils/testing';
 import { readJsonInTree } from '@yolkai/nx-workspace';
 

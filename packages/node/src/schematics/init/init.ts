@@ -37,7 +37,8 @@ function setDefault(): Rule {
       ((workspace.extensions.cli as JsonObject).defaultCollection as string);
 
     if (!defaultCollection || defaultCollection === '@yolkai/nx-workspace') {
-      (workspace.extensions.cli as JsonObject).defaultCollection = '@yolkai/nx-node';
+      (workspace.extensions.cli as JsonObject).defaultCollection =
+        '@yolkai/nx-node';
     }
   });
 }

@@ -255,10 +255,13 @@ describe('Cypress builder', () => {
     it('should copy regex files to out-dir', async done => {
       const regex: string = '^.+\\.feature$';
 
-      const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
-        ...cypressBuilderOptions,
-        copyFiles: regex
-      });
+      const run = await architect.scheduleBuilder(
+        '@yolkai/nx-cypress:cypress',
+        {
+          ...cypressBuilderOptions,
+          copyFiles: regex
+        }
+      );
       run.result.then(async () => {
         await run.stop();
         expect(fsExtras.copySync).toHaveBeenCalledWith(
@@ -275,10 +278,13 @@ describe('Cypress builder', () => {
     it('should not copy regex files if the regex is not defined', async done => {
       const regex: string = undefined;
 
-      const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
-        ...cypressBuilderOptions,
-        copyFiles: regex
-      });
+      const run = await architect.scheduleBuilder(
+        '@yolkai/nx-cypress:cypress',
+        {
+          ...cypressBuilderOptions,
+          copyFiles: regex
+        }
+      );
       run.result.then(async () => {
         await run.stop();
         expect(fsExtras.copySync).not.toHaveBeenCalledWith(
@@ -297,10 +303,13 @@ describe('Cypress builder', () => {
 
       const regex: string = '^.+\\.feature$';
 
-      const run = await architect.scheduleBuilder('@yolkai/nx-cypress:cypress', {
-        ...cypressBuilderOptions,
-        copyFiles: regex
-      });
+      const run = await architect.scheduleBuilder(
+        '@yolkai/nx-cypress:cypress',
+        {
+          ...cypressBuilderOptions,
+          copyFiles: regex
+        }
+      );
       run.result
         .then(async () => {
           await run.stop();

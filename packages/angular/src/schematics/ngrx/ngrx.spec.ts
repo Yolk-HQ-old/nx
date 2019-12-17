@@ -102,7 +102,9 @@ describe('ngrx', () => {
 
     const appModule = getFileContent(tree, '/apps/myapp/src/app/app.module.ts');
 
-    expect(appModule).toContain(`import { NxModule } from '@yolkai/nx-angular';`);
+    expect(appModule).toContain(
+      `import { NxModule } from '@yolkai/nx-angular';`
+    );
     expect(appModule).toContain(
       `import * as fromApp from './+state/app.reducer';`
     );
@@ -131,7 +133,9 @@ describe('ngrx', () => {
 
     const appModule = getFileContent(tree, '/apps/myapp/src/app/app.module.ts');
 
-    expect(appModule).toContain(`import { NxModule } from '@yolkai/nx-angular';`);
+    expect(appModule).toContain(
+      `import { NxModule } from '@yolkai/nx-angular';`
+    );
     expect(appModule).toContain('NxModule.forRoot');
     expect(appModule).toContain('StoreModule.forRoot');
     expect(appModule).toContain('EffectsModule.forRoot');

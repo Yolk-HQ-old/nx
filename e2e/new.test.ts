@@ -87,7 +87,9 @@ forEachCli(() => {
     it('should support router config generation (lazy)', async () => {
       const myapp = uniq('myapp');
       const mylib = uniq('mylib');
-      runCLI(`generate @yolkai/nx-angular:app ${myapp} --directory=myDir --routing`);
+      runCLI(
+        `generate @yolkai/nx-angular:app ${myapp} --directory=myDir --routing`
+      );
       runCLI(
         `generate @yolkai/nx-angular:lib ${mylib} --directory=myDir --routing --lazy --parentModule=apps/my-dir/${myapp}/src/app/app.module.ts`
       );
@@ -98,7 +100,9 @@ forEachCli(() => {
 
     it('should support router config generation (eager)', async () => {
       const myapp = uniq('myapp');
-      runCLI(`generate @yolkai/nx-angular:app ${myapp} --directory=myDir --routing`);
+      runCLI(
+        `generate @yolkai/nx-angular:app ${myapp} --directory=myDir --routing`
+      );
       const mylib = uniq('mylib');
       runCLI(
         `generate @yolkai/nx-angular:lib ${mylib} --directory=myDir --routing --parentModule=apps/my-dir/${myapp}/src/app/app.module.ts`

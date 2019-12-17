@@ -25,7 +25,9 @@ forEachCli('angular', () => {
       packageJson.description = 'some description';
       updateFile('package.json', JSON.stringify(packageJson, null, 2));
       // confirm that @yolkai and @ngrx dependencies do not exist yet
-      expect(packageJson.devDependencies['@yolkai/nx-workspace']).not.toBeDefined();
+      expect(
+        packageJson.devDependencies['@yolkai/nx-workspace']
+      ).not.toBeDefined();
       expect(packageJson.dependencies['@ngrx/store']).not.toBeDefined();
       expect(packageJson.dependencies['@ngrx/effects']).not.toBeDefined();
       expect(packageJson.dependencies['@ngrx/router-store']).not.toBeDefined();
@@ -319,7 +321,9 @@ forEachCli('angular', () => {
       // Only remove e2e directory
       runCommand('mv e2e e2e-bak');
       try {
-        runNgAdd('add @yolkai/nx-workspace --npmScope projscope --skip-install');
+        runNgAdd(
+          'add @yolkai/nx-workspace --npmScope projscope --skip-install'
+        );
         fail('Did not handle not having a e2e directory');
       } catch (e) {
         expect(e.stderr.toString()).toContain(
@@ -333,7 +337,9 @@ forEachCli('angular', () => {
       // Remove package.json
       runCommand('mv package.json package.json.bak');
       try {
-        runNgAdd('add @yolkai/nx-workspace --npmScope projscope --skip-install');
+        runNgAdd(
+          'add @yolkai/nx-workspace --npmScope projscope --skip-install'
+        );
         fail('Did not handle not having a package.json');
       } catch (e) {
         expect(e.stderr.toString()).toContain(
@@ -347,7 +353,9 @@ forEachCli('angular', () => {
       // Remove src
       runCommand('mv src src-bak');
       try {
-        runNgAdd('add @yolkai/nx-workspace --npmScope projscope --skip-install');
+        runNgAdd(
+          'add @yolkai/nx-workspace --npmScope projscope --skip-install'
+        );
         fail('Did not handle not having a src directory');
       } catch (e) {
         expect(e.stderr.toString()).toContain('Path: src does not exist');

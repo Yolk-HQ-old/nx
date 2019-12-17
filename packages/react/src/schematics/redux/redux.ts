@@ -22,7 +22,12 @@ import {
 } from '@angular-devkit/schematics';
 
 import { NormalizedSchema, Schema } from './schema';
-import { formatFiles, getWorkspace, names, toFileName } from '@yolkai/nx-workspace';
+import {
+  formatFiles,
+  getWorkspace,
+  names,
+  toFileName
+} from '@yolkai/nx-workspace';
 import * as path from 'path';
 import { addReduxStoreToMain, updateReduxStore } from '../../utils/ast-utils';
 import {

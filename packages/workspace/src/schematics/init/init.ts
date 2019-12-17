@@ -287,7 +287,9 @@ function updateTsLint() {
       tslintJson[key] = undefined;
     });
     tslintJson.rulesDirectory = tslintJson.rulesDirectory || [];
-    tslintJson.rulesDirectory.push('node_modules/@yolkai/nx-workspace/src/tslint');
+    tslintJson.rulesDirectory.push(
+      'node_modules/@yolkai/nx-workspace/src/tslint'
+    );
     tslintJson.rules['nx-enforce-module-boundaries'] = [
       true,
       {

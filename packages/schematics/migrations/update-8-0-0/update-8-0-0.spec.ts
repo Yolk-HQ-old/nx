@@ -179,7 +179,9 @@ describe('Update 8-0-0', () => {
         .runSchematicAsync('update-8.0.0', {}, initialTree)
         .toPromise();
       const packageJson = readJsonInTree(tree, 'package.json');
-      expect(packageJson.scripts.update).toEqual('ng update @yolkai/nx-workspace');
+      expect(packageJson.scripts.update).toEqual(
+        'ng update @yolkai/nx-workspace'
+      );
     });
   });
 

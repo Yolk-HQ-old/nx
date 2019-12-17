@@ -6,9 +6,11 @@ try {
   if (path.basename(root) === 'workspace.json') {
     const workspaceJson = JSON.parse(fs.readFileSync(root));
     if (Object.keys(workspaceJson.projects).length === 0) {
-      const output = require('@yolkai/nx-workspace/src/command-line/output').output;
+      const output = require('@yolkai/nx-workspace/src/command-line/output')
+        .output;
       output.warn({
-        title: '@yolkai/nx-angular added to a Nx workspace powered by the Nx CLI.',
+        title:
+          '@yolkai/nx-angular added to a Nx workspace powered by the Nx CLI.',
         bodyLines: [
           "You won't be able to use 'ng' to generate artifacts and run tasks.",
           "If you want to use 'ng', you need to create a new workspace powered by the Angular CLI.",

@@ -14,7 +14,11 @@ import {
 
 import { names, toClassName, toFileName } from '@yolkai/nx-workspace';
 import * as path from 'path';
-import { addMethod, addParameterToConstructor, insert } from '@yolkai/nx-workspace';
+import {
+  addMethod,
+  addParameterToConstructor,
+  insert
+} from '@yolkai/nx-workspace';
 import { Schema } from './schema';
 import { addUpgradeToPackageJson } from '../../utils/upgrade';
 import { formatFiles } from '@yolkai/nx-workspace';

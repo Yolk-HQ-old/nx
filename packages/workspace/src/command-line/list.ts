@@ -73,7 +73,10 @@ function listCapabilities(pluginName: string) {
 
       let workspaceVersion = 'latest';
       if (installedPlugins.some(x => x.name === '@yolkai/nx-workspace')) {
-        workspaceVersion = getPluginVersion(appRootPath, '@yolkai/nx-workspace');
+        workspaceVersion = getPluginVersion(
+          appRootPath,
+          '@yolkai/nx-workspace'
+        );
       }
 
       output.note({

@@ -75,9 +75,9 @@ describe('init', () => {
           appTree
         );
         const { schematics } = readJsonInTree(tree, 'workspace.json');
-        expect(schematics['@yolkai/nx-angular:application'].unitTestRunner).toEqual(
-          'karma'
-        );
+        expect(
+          schematics['@yolkai/nx-angular:application'].unitTestRunner
+        ).toEqual('karma');
         expect(schematics['@yolkai/nx-angular:library'].unitTestRunner).toEqual(
           'karma'
         );
@@ -119,9 +119,9 @@ describe('init', () => {
           appTree
         );
         const { schematics } = readJsonInTree(tree, 'workspace.json');
-        expect(schematics['@yolkai/nx-angular:application'].unitTestRunner).toEqual(
-          'jest'
-        );
+        expect(
+          schematics['@yolkai/nx-angular:application'].unitTestRunner
+        ).toEqual('jest');
         expect(schematics['@yolkai/nx-angular:library'].unitTestRunner).toEqual(
           'jest'
         );
@@ -154,9 +154,9 @@ describe('init', () => {
           appTree
         );
         const { schematics } = readJsonInTree(tree, 'workspace.json');
-        expect(schematics['@yolkai/nx-angular:application'].e2eTestRunner).toEqual(
-          'cypress'
-        );
+        expect(
+          schematics['@yolkai/nx-angular:application'].e2eTestRunner
+        ).toEqual('cypress');
       });
     });
 
@@ -186,9 +186,9 @@ describe('init', () => {
           appTree
         );
         const { schematics } = readJsonInTree(tree, 'workspace.json');
-        expect(schematics['@yolkai/nx-angular:application'].e2eTestRunner).toEqual(
-          'protractor'
-        );
+        expect(
+          schematics['@yolkai/nx-angular:application'].e2eTestRunner
+        ).toEqual('protractor');
       });
     });
   });

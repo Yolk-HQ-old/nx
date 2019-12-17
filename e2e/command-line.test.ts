@@ -29,7 +29,9 @@ forEachCli(() => {
       runCLI(`generate @yolkai/nx-angular:app ${myapp2}`);
       runCLI(`generate @yolkai/nx-angular:lib ${mylib}`);
       runCLI(`generate @yolkai/nx-angular:lib ${lazylib}`);
-      runCLI(`generate @yolkai/nx-angular:lib ${invalidtaglib} --tags=invalidtag`);
+      runCLI(
+        `generate @yolkai/nx-angular:lib ${invalidtaglib} --tags=invalidtag`
+      );
       runCLI(`generate @yolkai/nx-angular:lib ${validtaglib} --tags=validtag`);
 
       const tslint = readJson('tslint.json');

@@ -140,7 +140,9 @@ forEachCli(currentCLIName => {
         // them from their config files as happened with emitDecoratorMetadata.
         cleanup();
         runNew('', false, false);
-        runNgAdd('add @yolkai/nx-workspace --npmScope projscope --skip-install');
+        runNgAdd(
+          'add @yolkai/nx-workspace --npmScope projscope --skip-install'
+        );
         copyMissingPackages();
       } else {
         ensureProject();

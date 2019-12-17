@@ -386,7 +386,8 @@ const setDefaults = updateWorkspaceInTree(json => {
     json.schematics['@yolkai/nx-schematics:application'] = {};
   }
   if (!json.schematics['@yolkai/nx-schematics:application'].unitTestRunner) {
-    json.schematics['@yolkai/nx-schematics:application'].unitTestRunner = 'karma';
+    json.schematics['@yolkai/nx-schematics:application'].unitTestRunner =
+      'karma';
   }
   if (!json.schematics['@yolkai/nx-schematics:application'].e2eTestRunner) {
     json.schematics['@yolkai/nx-schematics:application'].e2eTestRunner =
@@ -396,7 +397,8 @@ const setDefaults = updateWorkspaceInTree(json => {
     json.schematics['@yolkai/nx-schematics:node-application'] = {};
   }
   if (!json.schematics['@yolkai/nx-schematics:node-application'].framework) {
-    json.schematics['@yolkai/nx-schematics:node-application'].framework = 'express';
+    json.schematics['@yolkai/nx-schematics:node-application'].framework =
+      'express';
   }
   return json;
 });

@@ -47,7 +47,9 @@ forEachCli(() => {
       ensureProject();
 
       const myapp = uniq('myapp');
-      runCLI(`generate @yolkai/nx-angular:app ${myapp} --routing --no-interactive`);
+      runCLI(
+        `generate @yolkai/nx-angular:app ${myapp} --routing --no-interactive`
+      );
 
       // Generate root ngrx state management
       runCLI(

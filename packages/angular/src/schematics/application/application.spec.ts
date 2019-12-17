@@ -1,5 +1,8 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace, getFileContent } from '@yolkai/nx-workspace/testing';
+import {
+  createEmptyWorkspace,
+  getFileContent
+} from '@yolkai/nx-workspace/testing';
 import * as stripJsonComments from 'strip-json-comments';
 import { readJsonInTree, updateJsonInTree, NxJson } from '@yolkai/nx-workspace';
 import { runSchematic, callRule } from '../../utils/testing';
