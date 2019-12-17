@@ -9,9 +9,6 @@ PACKAGE_SOURCE=build/packages
 NPM_DEST=build/npm
 ORIG_DIRECTORY=`pwd`
 
-# We are running inside of a child_process, so we need to reauth
-npm adduser
-
 for package in $NPM_DEST/*/
 do
 
