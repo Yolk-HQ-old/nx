@@ -31,7 +31,7 @@ Use `--dry-run` to perform all of the build steps required for publishing, witho
 For example:
 
 ```sh
-env GITHUB_TOKEN_RELEASE_IT_NX=415819xxxx NPM_CONFIG_USERCONFIG=$HOME/.npmrc yarn nx-release 8.10.0-alpha.0
+env GITHUB_TOKEN_RELEASE_IT_NX=415819xxxx npm run nx-release 8.10.0-alpha.0
 ```
 
 The above command will build all packages, create a GitHub tag and release, then publish all packages to npm.
