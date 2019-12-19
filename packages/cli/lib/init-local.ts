@@ -13,7 +13,7 @@ export function initLocal(workspace: Workspace) {
       workspace.dir,
       'node_modules',
       '@yolkai',
-      'tao',
+      'nx-tao',
       'src',
       'compat',
       'compat.js'
@@ -30,7 +30,7 @@ export function initLocal(workspace: Workspace) {
       workspace.dir,
       'node_modules',
       '@yolkai',
-      'tao',
+      'nx-tao',
       'index.js'
     ));
   } else if (workspace.type === 'angular') {
