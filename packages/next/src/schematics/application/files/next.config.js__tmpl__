@@ -1,0 +1,2 @@
+const { withNx } = require('@yolkai/nx-next');
+module.exports = withNx('<%= projectName %>')({});
