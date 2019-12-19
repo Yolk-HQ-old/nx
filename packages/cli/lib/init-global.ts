@@ -15,7 +15,7 @@ export function initGlobal() {
       workspace.dir,
       'node_modules',
       '@yolkai',
-      'cli',
+      'nx-cli',
       'bin',
       'nx.js'
     ));
