@@ -33,12 +33,15 @@
     "packageGroup": [
       "@yolkai/nx-workspace",
       "@yolkai/nx-angular",
+      "@yolkai/nx-bazel",
       "@yolkai/nx-cypress",
       "@yolkai/nx-express",
       "@yolkai/nx-jest",
       "@yolkai/nx-nest",
+      "@yolkai/nx-next",
       "@yolkai/nx-node",
       "@yolkai/nx-react",
+      "@yolkai/nx-storybook",
       "@yolkai/nx-web"
     ]
   },

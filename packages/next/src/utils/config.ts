@@ -1,6 +1,6 @@
 import TsConfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import loadConfig from 'next-server/dist/server/config';
 import { offsetFromRoot } from '@yolkai/nx-workspace';
+import loadConfig from 'next/dist/next-server/server/config';
 import * as path from 'path';
 import * as withCSS from '@zeit/next-css';
 import * as withLESS from '@zeit/next-less';
@@ -30,11 +30,11 @@ export function prepareConfig(
   workspaceRoot: string,
   root: string,
   outputPath: string,
-  mode: string
+  phase: string
 ) {
   const absoluteRoot = path.resolve(workspaceRoot, root);
   const config = withSTYLUS(
-    withSASS(withLESS(withCSS(loadConfig(mode, root, null))))
+    withSASS(withLESS(withCSS(loadConfig(phase, root, null))))
   );
   config.distDir = `${offsetFromRoot(root)}${outputPath}`;
   config.outdir = `${offsetFromRoot(root)}${outputPath}`;

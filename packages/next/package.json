@@ -29,7 +29,8 @@
     "migrations": "./migrations.json"
   },
   "peerDependencies": {
-    "@yolkai/nx-workspace": "*"
+    "@yolkai/nx-workspace": "*",
+    "next": "^9.1.0"
   },
   "dependencies": {
     "@yolkai/nx-react": "*",
