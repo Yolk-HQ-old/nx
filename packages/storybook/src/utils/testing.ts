@@ -1,13 +1,17 @@
-import { join } from 'path';
+import { join, sep } from 'path';
+import { tmpdir } from 'os';
+import { mkdtempSync } from 'fs';
+
+import { schema } from '@angular-devkit/core';
+import { externalSchematic, Rule, Tree } from '@angular-devkit/schematics';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
+import { Architect } from '@angular-devkit/architect';
+import { TestingArchitectHost } from '@angular-devkit/architect/testing';
+
 import {
-  Tree,
-  Rule,
-  externalSchematic,
-  apply,
-  source
-} from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
+  createEmptyWorkspace,
+  MockBuilderContext
+} from '@yolkai/nx-workspace/testing';
 
 const testRunner = new SchematicTestRunner(
   '@yolkai/nx-storybook',
@@ -57,6 +61,8 @@ export async function createTestUILib(libName: string): Promise<Tree> {
     `libs/${libName}/src/lib/test-button/test-button.component.ts`,
     `
 import { Component, OnInit, Input } from '@angular/core';
+import { tmpdir } from 'os';
+import { mkdtempSync } from 'fs';
 
 export type ButtonStyle = 'default' | 'primary' | 'accent';
 
@@ -91,4 +97,31 @@ export class TestButtonComponent implements OnInit {
     appTree
   );
   return appTree;
+}
+
+function getTempDir() {
+  const tmpDir = tmpdir();
+  const tmpFolder = `${tmpDir}${sep}`;
+  return mkdtempSync(tmpFolder);
+}
+
+export async function getTestArchitect() {
+  const tmpDir = getTempDir();
+  const architectHost = new TestingArchitectHost(tmpDir, tmpDir);
+  const registry = new schema.CoreSchemaRegistry();
+  registry.addPostTransform(schema.transforms.addUndefinedDefaults);
+
+  const architect = new Architect(architectHost, registry);
+
+  await architectHost.addBuilderFromPackage(join(__dirname, '../..'));
+
+  return [architect, architectHost] as [Architect, TestingArchitectHost];
+}
+
+export async function getMockContext() {
+  const [architect, architectHost] = await getTestArchitect();
+
+  const context = new MockBuilderContext(architect, architectHost);
+  await context.addBuilderFromPackage(join(__dirname, '../..'));
+  return context;
 }

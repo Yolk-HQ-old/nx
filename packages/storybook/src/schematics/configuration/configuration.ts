@@ -15,6 +15,7 @@ import {
   readJsonFile,
   updateWorkspace
 } from '@yolkai/nx-workspace';
+import { join, normalize } from '@angular-devkit/core';
 import { StorybookStoriesSchema } from '../../../../angular/src/schematics/stories/stories';
 import { applyWithSkipExisting, parseJsonAtPath } from '../../utils/utils';
 import { CypressConfigureSchema } from '../cypress-project/cypress-project';
@@ -96,6 +97,25 @@ function addStorybookTask(projectName: string, uiFramework: string): Rule {
       options: {
         uiFramework,
         port: 4400,
+        config: {
+          configFolder: `${projectConfig.root}/.storybook`
+        }
+      },
+      configurations: {
+        ci: {
+          quiet: true
+        }
+      }
+    });
+    projectConfig.targets.set('build-storybook', {
+      builder: '@yolkai/nx-storybook:build',
+      options: {
+        uiFramework,
+        outputPath: join(
+          normalize('dist'),
+          normalize('storybook'),
+          projectName
+        ),
         config: {
           configFolder: `${projectConfig.root}/.storybook`
         }

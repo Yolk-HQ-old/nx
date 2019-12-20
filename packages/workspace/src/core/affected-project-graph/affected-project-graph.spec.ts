@@ -75,8 +75,8 @@ describe('project graph', () => {
       compilerOptions: {
         baseUrl: '.',
         paths: {
-          '@nrwl/ui': ['libs/ui/src/index.ts'],
-          '@nrwl/util': ['libs/util/src/index.ts']
+          '@yolkai/nx-ui': ['libs/ui/src/index.ts'],
+          '@yolkai/nx-util': ['libs/util/src/index.ts']
         }
       }
     };
