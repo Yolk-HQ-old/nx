@@ -306,9 +306,9 @@ npm run e2e:affected ----files="libs/mylib/index.ts,libs/mylib2/index.ts"
 
 # 0.5.3
 
-`ng new myproj --collection=@yolkai/nx-schematics` creates a new workspace.
+`ng new myproj --collection=@nrwl/schematics` creates a new workspace.
 
-For this to work `@yolkai/nx-schematics` and `@angular/cli` have to be installed globally, and they have to be compatible. This is error prone, and it often results in hard to debug errors. And it is impossible for Nx to solve this problem because we do not control your globally installed npm modules.
+For this to work `@nrwl/schematics` and `@angular/cli` have to be installed globally, and they have to be compatible. This is error prone, and it often results in hard to debug errors. And it is impossible for Nx to solve this problem because we do not control your globally installed npm modules.
 
 That is why we provided a way to create a new workspace using a sandbox that does not depend on any global modules, like this:
 
@@ -316,12 +316,12 @@ That is why we provided a way to create a new workspace using a sandbox that doe
 curl -fsSL https://raw.githubusercontent.com/nrwl/nx/master/packages/install/install.sh | bash -s myprojectname
 ```
 
-This works, but with one caveat: you have to have `curl` and `bash` installed, which might be a problem for a lot of windows folks. That is why starting with `0.5.3`, `@yolkai/nx-schematics` ships with a binary that works on all platforms and creates an Nx workspace without relying on globally installed npm modules.
+This works, but with one caveat: you have to have `curl` and `bash` installed, which might be a problem for a lot of windows folks. That is why starting with `0.5.3`, `@nrwl/schematics` ships with a binary that works on all platforms and creates an Nx workspace without relying on globally installed npm modules.
 
 This is what you can do now:
 
 ```
-yarn global add @yolkai/nx-schematics # do it once
+yarn global add @nrwl/schematics # do it once
 create-nx-workspace myproj
 ```
 
@@ -379,7 +379,7 @@ Some folks also reported having problems running Nx behind a firewall, in a corp
 
 # 0.3.0
 
-We want to be able to add new features to Nx without breaking existing workspaces. Say, you created an Nx Workspace using Nx 0.2.0. Then, half a year later, you decided to upgrade the version of Nx to 0.5.0. Imagine the 0.5.0 release requires you to have more information in your `.angular-cli.json`. Until now, you would have to manually go through the changelog and modify your `.angular-cli.json`. This release adds the `nx-migrate` command that does it for you. Run `npm run nx-migrate` after upgrading `@yolkai/nx-schematics`, and it will upgrade your workspace to be 0.5.0 compatible.
+We want to be able to add new features to Nx without breaking existing workspaces. Say, you created an Nx Workspace using Nx 0.2.0. Then, half a year later, you decided to upgrade the version of Nx to 0.5.0. Imagine the 0.5.0 release requires you to have more information in your `.angular-cli.json`. Until now, you would have to manually go through the changelog and modify your `.angular-cli.json`. This release adds the `nx-migrate` command that does it for you. Run `npm run nx-migrate` after upgrading `@nrwl/schematics`, and it will upgrade your workspace to be 0.5.0 compatible.
 
 ## Features
 
