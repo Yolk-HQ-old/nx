@@ -2,7 +2,7 @@
 
 Extensible Dev Tools for Monorepos.
 
-This is fork of the upstream [nrwl/nx](https://github.com/nrwl/nx), for the purpose of maintaining and using proposed changes to Nx at Yolk before they are accepted by Nrwl.
+This is a fork of the upstream [nrwl/nx](https://github.com/nrwl/nx), for the purpose of maintaining and using proposed changes to Nx at Yolk before they are accepted by Nrwl.
 
 ### Contributing
 
