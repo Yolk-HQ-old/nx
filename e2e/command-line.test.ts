@@ -25,12 +25,14 @@ forEachCli(() => {
       const invalidtaglib = uniq('invalidtaglib');
       const validtaglib = uniq('validtaglib');
 
-      runCLI(`generate @nrwl/angular:app ${myapp} --tags=validtag`);
-      runCLI(`generate @nrwl/angular:app ${myapp2}`);
-      runCLI(`generate @nrwl/angular:lib ${mylib}`);
-      runCLI(`generate @nrwl/angular:lib ${lazylib}`);
-      runCLI(`generate @nrwl/angular:lib ${invalidtaglib} --tags=invalidtag`);
-      runCLI(`generate @nrwl/angular:lib ${validtaglib} --tags=validtag`);
+      runCLI(`generate @yolkai/nx-angular:app ${myapp} --tags=validtag`);
+      runCLI(`generate @yolkai/nx-angular:app ${myapp2}`);
+      runCLI(`generate @yolkai/nx-angular:lib ${mylib}`);
+      runCLI(`generate @yolkai/nx-angular:lib ${lazylib}`);
+      runCLI(
+        `generate @yolkai/nx-angular:lib ${invalidtaglib} --tags=invalidtag`
+      );
+      runCLI(`generate @yolkai/nx-angular:lib ${validtaglib} --tags=validtag`);
 
       const tslint = readJson('tslint.json');
       tslint.rules['nx-enforce-module-boundaries'][1].depConstraints = [
@@ -73,7 +75,7 @@ forEachCli(() => {
         const appBefore = uniq('before');
         const appAfter = uniq('after');
 
-        runCLI(`generate @nrwl/angular:app ${appBefore}`);
+        runCLI(`generate @yolkai/nx-angular:app ${appBefore}`);
         runCommand(`mv apps/${appBefore} apps/${appAfter}`);
 
         const stdout = runCommand('./node_modules/.bin/nx workspace-lint');
@@ -101,8 +103,8 @@ forEachCli(() => {
       const myapp = uniq('myapp');
       const mylib = uniq('mylib');
 
-      runCLI(`generate @nrwl/angular:app ${myapp}`);
-      runCLI(`generate @nrwl/angular:lib ${mylib}`);
+      runCLI(`generate @yolkai/nx-angular:app ${myapp}`);
+      runCLI(`generate @yolkai/nx-angular:lib ${mylib}`);
       updateFile(
         `apps/${myapp}/src/main.ts`,
         `
@@ -231,11 +233,11 @@ forEachCli(() => {
     describe('dep-graph', () => {
       beforeEach(() => {
         newProject();
-        runCLI('generate @nrwl/angular:app myapp');
-        runCLI('generate @nrwl/angular:app myapp2');
-        runCLI('generate @nrwl/angular:app myapp3');
-        runCLI('generate @nrwl/angular:lib mylib');
-        runCLI('generate @nrwl/angular:lib mylib2');
+        runCLI('generate @yolkai/nx-angular:app myapp');
+        runCLI('generate @yolkai/nx-angular:app myapp2');
+        runCLI('generate @yolkai/nx-angular:app myapp3');
+        runCLI('generate @yolkai/nx-angular:lib mylib');
+        runCLI('generate @yolkai/nx-angular:lib mylib2');
 
         updateFile(
           'apps/myapp/src/main.ts',

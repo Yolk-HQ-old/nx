@@ -1,6 +1,6 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
-import { readJsonInTree, NxJson } from '@nrwl/workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
+import { readJsonInTree, NxJson } from '@yolkai/nx-workspace';
 import { runSchematic } from '../../utils/testing';
 
 describe('app', () => {
@@ -86,7 +86,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.build.builder).toEqual('@nrwl/next:build');
+    expect(architectConfig.build.builder).toEqual('@yolkai/nx-next:build');
     expect(architectConfig.build.options).toEqual({
       root: 'apps/my-app',
       outputPath: 'dist/apps/my-app'
@@ -103,7 +103,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.serve.builder).toEqual('@nrwl/next:dev-server');
+    expect(architectConfig.serve.builder).toEqual('@yolkai/nx-next:dev-server');
     expect(architectConfig.serve.options).toEqual({
       buildTarget: 'my-app:build',
       dev: true
@@ -123,7 +123,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.export.builder).toEqual('@nrwl/next:export');
+    expect(architectConfig.export.builder).toEqual('@yolkai/nx-next:export');
     expect(architectConfig.export.options).toEqual({
       buildTarget: 'my-app:build'
     });

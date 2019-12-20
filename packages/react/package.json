@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/react",
+  "name": "@yolkai/nx-react",
   "version": "0.0.1",
   "description": "React Plugin for Nx",
   "repository": {
@@ -28,12 +28,12 @@
     "migrations": "./migrations.json"
   },
   "peerDependencies": {
-    "@nrwl/workspace": "*"
+    "@yolkai/nx-workspace": "*"
   },
   "dependencies": {
-    "@nrwl/cypress": "*",
-    "@nrwl/jest": "*",
-    "@nrwl/web": "*",
+    "@yolkai/nx-cypress": "*",
+    "@yolkai/nx-jest": "*",
+    "@yolkai/nx-web": "*",
     "@angular-devkit/schematics": "8.3.14",
     "confusing-browser-globals": "^1.0.8",
     "eslint-plugin-import": "^2.18.2",

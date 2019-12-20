@@ -41,7 +41,7 @@ function generateSchematicList(
   return Object.keys(schematicCollection).map(schematicName => {
     const schematic = {
       name: schematicName,
-      collectionName: `@nrwl/${config.name}`,
+      collectionName: `@yolkai/${config.name}`,
       ...schematicCollection[schematicName],
       alias: schematicCollection[schematicName].hasOwnProperty('aliases')
         ? schematicCollection[schematicName]['aliases'][0]

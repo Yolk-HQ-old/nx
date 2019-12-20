@@ -1,4 +1,4 @@
-import { updateJsonFile } from '@nrwl/workspace';
+import { updateJsonFile } from '@yolkai/nx-workspace';
 
 export default {
   description: 'Add nx-migrate:check and nx-migrate:skip to npm scripts',

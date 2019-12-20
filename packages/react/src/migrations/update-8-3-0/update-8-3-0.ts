@@ -11,14 +11,14 @@ import {
   readJsonInTree,
   updateJsonInTree,
   updatePackageJsonDependencies
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import {
   createSourceFile,
   isImportDeclaration,
   isStringLiteral,
   ScriptTarget
 } from 'typescript';
-import { ReplaceChange } from '@nrwl/workspace/src/utils/ast-utils';
+import { ReplaceChange } from '@yolkai/nx-workspace/src/utils/ast-utils';
 import { relative } from 'path';
 import { testingLibraryReactVersion } from '../../utils/versions';
 

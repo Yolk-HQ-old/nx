@@ -2,8 +2,8 @@ import * as ts from 'typescript';
 import * as path from 'path';
 import { Rule, Tree } from '@angular-devkit/schematics';
 
-import { names, toClassName } from '@nrwl/workspace';
-import { insert, addGlobal } from '@nrwl/workspace';
+import { names, toClassName } from '@yolkai/nx-workspace';
+import { insert, addGlobal } from '@yolkai/nx-workspace';
 import { Schema } from '../schema';
 
 /**

@@ -1,7 +1,7 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { runSchematic, createApp, createLib } from '../../utils/testing';
-import { readJsonInTree } from '@nrwl/workspace/src/utils/ast-utils';
+import { readJsonInTree } from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 describe('component', () => {
   let appTree: Tree;

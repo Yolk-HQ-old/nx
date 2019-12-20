@@ -11,7 +11,7 @@
     },
     "skipInstall": {
       "type": "boolean",
-      "description": "Skip installing after adding @nrwl/workspace",
+      "description": "Skip installing after adding @yolkai/nx-workspace",
       "default": false
     },
     "name": {

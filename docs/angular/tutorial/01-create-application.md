@@ -32,13 +32,13 @@ This is an empty Nx workspace without any applications or libraries: nothing to 
 First, we must add the capability to create [Angular](https://angular.io) applications via:
 
 ```bash
-ng add @nrwl/angular --defaults
+ng add @yolkai/nx-angular --defaults
 ```
 
 Now, create your first Angular application.
 
 ```bash
-ng g @nrwl/angular:application todos
+ng g @yolkai/nx-angular:application todos
 ```
 
 Nx will ask you a few questions about the application you are trying to create: the directory it will be placed in, the tags used for linting, etc. As your workspace grows, those things become really important. For now the default answers are good enough.

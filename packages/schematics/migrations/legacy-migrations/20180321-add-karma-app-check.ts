@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as ts from 'typescript';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
-import { getSourceNodes } from '@nrwl/workspace/src/utils/ast-utils';
+import { getSourceNodes } from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 export default {
   description: 'Add makeSureNoAppIsSelected(); to karma conf',
@@ -28,7 +28,7 @@ export default {
     }
 
     const snippet = stripIndents`
-      const { makeSureNoAppIsSelected } = require('@nrwl/schematics/src/utils/cli-config-utils');
+      const { makeSureNoAppIsSelected } = require('@yolkai/nx-schematics/src/utils/cli-config-utils');
       // Nx only supports running unit tests for all apps and libs.
       makeSureNoAppIsSelected();
     `;

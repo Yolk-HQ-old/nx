@@ -13,7 +13,7 @@ By default, Nx will search for `upgrade-module` in the default collection provis
 You can specify the collection explicitly as follows:
 
 ```bash
-nx g @nrwl/angular:upgrade-module ...
+nx g @yolkai/angular:upgrade-module ...
 ```
 
 Show what will be generated without writing to disk:

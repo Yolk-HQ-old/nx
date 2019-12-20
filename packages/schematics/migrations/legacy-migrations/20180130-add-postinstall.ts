@@ -1,4 +1,4 @@
-import { updateJsonFile } from '@nrwl/workspace';
+import { updateJsonFile } from '@yolkai/nx-workspace';
 
 export default {
   description: 'Add postinstall script to run nx-migrate:check',

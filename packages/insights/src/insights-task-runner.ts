@@ -3,15 +3,15 @@ import {
   Task,
   TaskCompleteEvent,
   TasksRunner
-} from '@nrwl/workspace/src/tasks-runner/tasks-runner';
+} from '@yolkai/nx-workspace/src/tasks-runner/tasks-runner';
 import { Observable, Subject } from 'rxjs';
 import {
   defaultTasksRunner,
   DefaultTasksRunnerOptions
-} from '@nrwl/workspace/src/tasks-runner/default-tasks-runner';
+} from '@yolkai/nx-workspace/src/tasks-runner/default-tasks-runner';
 import * as fs from 'fs';
-import { TasksMap } from '@nrwl/workspace/src/tasks-runner/run-command';
-import { ProjectGraph } from '@nrwl/workspace/src/core/project-graph';
+import { TasksMap } from '@yolkai/nx-workspace/src/tasks-runner/run-command';
+import { ProjectGraph } from '@yolkai/nx-workspace/src/core/project-graph';
 const axios = require('axios');
 
 interface InsightsTaskRunnerOptions extends DefaultTasksRunnerOptions {

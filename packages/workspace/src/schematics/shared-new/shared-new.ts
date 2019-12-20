@@ -72,7 +72,7 @@ function createPresetTaskExecutor(cli: string, opts: Schema) {
             : `./node_modules/.bin/${cliCommand}`;
         const args = [
           `g`,
-          `@nrwl/workspace:preset`,
+          `@yolkai/nx-workspace:preset`,
           `--name=${opts.appName}`,
           opts.style ? `--style=${opts.style}` : null,
           opts.npmScope
@@ -126,14 +126,14 @@ function addDependencies(options: Schema) {
     return addDepsToPackageJson(
       {},
       {
-        '@nrwl/web': nxVersion
+        '@yolkai/nx-web': nxVersion
       },
       false
     );
   } else if (options.preset === 'angular') {
     return addDepsToPackageJson(
       {
-        '@nrwl/angular': nxVersion
+        '@yolkai/nx-angular': nxVersion
       },
       {},
       false
@@ -141,10 +141,10 @@ function addDependencies(options: Schema) {
   } else if (options.preset === 'angular-nest') {
     return addDepsToPackageJson(
       {
-        '@nrwl/angular': nxVersion
+        '@yolkai/nx-angular': nxVersion
       },
       {
-        '@nrwl/nest': nxVersion
+        '@yolkai/nx-nest': nxVersion
       },
       false
     );
@@ -152,7 +152,7 @@ function addDependencies(options: Schema) {
     return addDepsToPackageJson(
       {},
       {
-        '@nrwl/react': nxVersion
+        '@yolkai/nx-react': nxVersion
       },
       false
     );
@@ -160,8 +160,8 @@ function addDependencies(options: Schema) {
     return addDepsToPackageJson(
       {},
       {
-        '@nrwl/react': nxVersion,
-        '@nrwl/express': nxVersion
+        '@yolkai/nx-react': nxVersion,
+        '@yolkai/nx-express': nxVersion
       },
       false
     );
@@ -169,7 +169,7 @@ function addDependencies(options: Schema) {
     return addDepsToPackageJson(
       {},
       {
-        '@nrwl/next': nxVersion
+        '@yolkai/nx-next': nxVersion
       },
       false
     );
@@ -230,19 +230,19 @@ function setDefaultLinter(linter: string) {
     if (!json.schematics) {
       json.schematics = {};
     }
-    json.schematics['@nrwl/workspace'] = { library: { linter } };
-    json.schematics['@nrwl/cypress'] = { 'cypress-project': { linter } };
-    json.schematics['@nrwl/react'] = {
+    json.schematics['@yolkai/nx-workspace'] = { library: { linter } };
+    json.schematics['@yolkai/nx-cypress'] = { 'cypress-project': { linter } };
+    json.schematics['@yolkai/nx-react'] = {
       application: { linter },
       library: { linter }
     };
-    json.schematics['@nrwl/next'] = {
+    json.schematics['@yolkai/nx-next'] = {
       application: { linter }
     };
-    json.schematics['@nrwl/web'] = { application: { linter } };
-    json.schematics['@nrwl/node'] = { application: { linter } };
-    json.schematics['@nrwl/nest'] = { application: { linter } };
-    json.schematics['@nrwl/express'] = { application: { linter } };
+    json.schematics['@yolkai/nx-web'] = { application: { linter } };
+    json.schematics['@yolkai/nx-node'] = { application: { linter } };
+    json.schematics['@yolkai/nx-nest'] = { application: { linter } };
+    json.schematics['@yolkai/nx-express'] = { application: { linter } };
     return json;
   });
 }

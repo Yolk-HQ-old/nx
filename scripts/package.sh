@@ -31,9 +31,9 @@ fi
 
 if [[ $NX_VERSION == "*" ]]; then
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -E -i "" "s|\"@nrwl\/([^\"]+)\": \"\\*\"|\"@nrwl\/\1\": \"file:$PWD\/\1\"|" {schematics,jest,web,react,next,node,express,nest,cypress,storybook,angular,workspace,insights,linter,bazel,cli,tao,eslint-plugin-nx,create-nx-workspace}/package.json
+        sed -E -i "" "s|\"@yolkai\/([^\"]+)\": \"\\*\"|\"@yolkai\/\1\": \"file:$PWD\/\1\"|" {schematics,jest,web,react,next,node,express,nest,cypress,storybook,angular,workspace,insights,linter,bazel,cli,tao,eslint-plugin-nx,create-nx-workspace}/package.json
     else
     echo $PWD
-        sed -E -i "s|\"@nrwl\/([^\"]+)\": \"\\*\"|\"@nrwl\/\1\": \"file:$PWD\/\1\"|" {schematics,jest,web,react,next,node,express,nest,cypress,storybook,angular,workspace,insights,linter,bazel,cli,tao,eslint-plugin-nx,create-nx-workspace}/package.json
+        sed -E -i "s|\"@yolkai\/([^\"]+)\": \"\\*\"|\"@yolkai\/\1\": \"file:$PWD\/\1\"|" {schematics,jest,web,react,next,node,express,nest,cypress,storybook,angular,workspace,insights,linter,bazel,cli,tao,eslint-plugin-nx,create-nx-workspace}/package.json
     fi
 fi

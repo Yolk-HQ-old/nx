@@ -14,9 +14,9 @@ import {
   updateJsonInTree,
   readJsonInTree,
   updateWorkspaceInTree
-} from '@nrwl/workspace';
-import { getWorkspacePath } from '@nrwl/workspace';
-import { offsetFromRoot, addUpdateTask } from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
+import { getWorkspacePath } from '@yolkai/nx-workspace';
+import { offsetFromRoot, addUpdateTask } from '@yolkai/nx-workspace';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 
 function getBuilders(project: any): string[] {
@@ -28,8 +28,8 @@ function getBuilders(project: any): string[] {
 const builderTypes: { [key: string]: string[] } = {
   '@angular-devkit/build-angular:karma': ['jasmine'],
   '@angular-devkit/build-angular:protractor': ['jasmine', 'jasminewd2'],
-  '@nrwl/builders:jest': ['jest', 'node'],
-  '@nrwl/builers:cypress': ['cypress']
+  '@yolkai/builders:jest': ['jest', 'node'],
+  '@yolkai/builers:cypress': ['cypress']
 };
 
 function getTypes(host: Tree, project: any, context: SchematicContext) {
@@ -169,7 +169,7 @@ function fixCypressConfigs(host: Tree, context: SchematicContext): Rule {
       .filter(
         ([key, project]) =>
           project.architect.e2e &&
-          project.architect.e2e.builder === '@nrwl/builders:cypress' &&
+          project.architect.e2e.builder === '@yolkai/builders:cypress' &&
           project.architect.lint &&
           !host.exists(project.architect.lint.options.tsConfig) &&
           host.exists(join(project.root, 'tsconfig.e2e.json'))

@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/schematics",
+  "name": "@yolkai/nx-schematics",
   "version": "0.0.2",
   "description": "Extensible Dev Tools for Monorepos: Schematics",
   "repository": {
@@ -31,8 +31,8 @@
     "migrations": "./migrations/migrations.json"
   },
   "dependencies": {
-    "@nrwl/workspace": "*",
-    "@nrwl/angular": "*",
+    "@yolkai/nx-workspace": "*",
+    "@yolkai/nx-angular": "*",
     "app-root-path": "^2.0.1",
     "cosmiconfig": "4.0.0",
     "fs-extra": "6.0.0",

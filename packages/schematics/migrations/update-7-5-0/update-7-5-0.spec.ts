@@ -3,9 +3,9 @@ import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 
 import * as path from 'path';
 
-import { serializeJson } from '@nrwl/workspace';
-import { readJsonInTree } from '@nrwl/workspace';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { serializeJson } from '@yolkai/nx-workspace';
+import { readJsonInTree } from '@yolkai/nx-workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 describe('Update 7.5.0', () => {
   let initialTree: Tree;
@@ -24,7 +24,7 @@ describe('Update 7.5.0', () => {
     );
 
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/schematics',
+      '@yolkai/nx-schematics',
       path.join(__dirname, '../migrations.json')
     );
   });

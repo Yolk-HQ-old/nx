@@ -44,7 +44,7 @@ forEachCli(currentCLIName => {
       ensureProject();
       const nodeapp = uniq('nodeapp');
 
-      runCLI(`generate @nrwl/express:app ${nodeapp} --linter=${linter}`);
+      runCLI(`generate @yolkai/nx-express:app ${nodeapp} --linter=${linter}`);
       const lintResults = runCLI(`lint ${nodeapp}`);
       expect(lintResults).toContain('All files pass linting.');
 
@@ -91,7 +91,7 @@ forEachCli(currentCLIName => {
       });
       const config = readJson(workspaceConfigName());
       config.projects[nodeapp].architect.waitAndPrint = {
-        builder: '@nrwl/workspace:run-commands',
+        builder: '@yolkai/nx-workspace:run-commands',
         options: {
           commands: [
             {
@@ -140,14 +140,16 @@ forEachCli(currentCLIName => {
         // them from their config files as happened with emitDecoratorMetadata.
         cleanup();
         runNew('', false, false);
-        runNgAdd('add @nrwl/workspace --npmScope projscope --skip-install');
+        runNgAdd(
+          'add @yolkai/nx-workspace --npmScope projscope --skip-install'
+        );
         copyMissingPackages();
       } else {
         ensureProject();
       }
 
       const nestapp = uniq('nestapp');
-      runCLI(`generate @nrwl/nest:app ${nestapp} --linter=${linter}`);
+      runCLI(`generate @yolkai/nx-nest:app ${nestapp} --linter=${linter}`);
       const configPath = tmpProjPath(`apps/${nestapp}/tsconfig.app.json`);
       const json = ts.readConfigFile(configPath, ts.sys.readFile);
       const config = ts.parseJsonConfigFileContent(
@@ -162,7 +164,7 @@ forEachCli(currentCLIName => {
     it('should be able to generate a nest application', async done => {
       ensureProject();
       const nestapp = uniq('nestapp');
-      runCLI(`generate @nrwl/nest:app ${nestapp} --linter=${linter}`);
+      runCLI(`generate @yolkai/nx-nest:app ${nestapp} --linter=${linter}`);
 
       setMaxWorkers(nestapp);
 
@@ -204,7 +206,7 @@ forEachCli(currentCLIName => {
 
       const process = spawn(
         'node',
-        ['./node_modules/@nrwl/cli/bin/nx', 'serve', nestapp],
+        ['./node_modules/@yolkai/nx-cli/bin/nx', 'serve', nestapp],
         {
           cwd: tmpProjPath()
         }
@@ -227,7 +229,7 @@ forEachCli(currentCLIName => {
       ensureProject();
       const nodeapp = uniq('nodeapp');
 
-      runCLI(`generate @nrwl/node:app ${nodeapp} --linter=${linter}`);
+      runCLI(`generate @yolkai/nx-node:app ${nodeapp} --linter=${linter}`);
 
       setMaxWorkers(nodeapp);
 

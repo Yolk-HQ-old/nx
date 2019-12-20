@@ -26,14 +26,14 @@ describe('Command Runner Builder', () => {
   xit('should error when no commands are given', async () => {
     try {
       const run = await architect.scheduleBuilder(
-        '@nrwl/workspace:run-commands',
+        '@yolkai/nx-workspace:run-commands',
         {}
       );
       await run.output.toPromise();
       fail('should throw');
     } catch (e) {
       expect(e).toEqual(
-        `ERROR: Bad builder config for @nrwl/run-command - "command" option is required`
+        `ERROR: Bad builder config for @yolkai/run-command - "command" option is required`
       );
     }
   });
@@ -42,7 +42,7 @@ describe('Command Runner Builder', () => {
   xit('should error when no command is given', async () => {
     try {
       const run = await architect.scheduleBuilder(
-        '@nrwl/workspace:run-commands',
+        '@yolkai/nx-workspace:run-commands',
         {
           commands: [{}]
         }
@@ -51,7 +51,7 @@ describe('Command Runner Builder', () => {
       fail('should throw');
     } catch (e) {
       expect(e).toEqual(
-        `ERROR: Bad builder config for @nrwl/run-command - "command" option is required`
+        `ERROR: Bad builder config for @yolkai/run-command - "command" option is required`
       );
     }
   });
@@ -60,7 +60,7 @@ describe('Command Runner Builder', () => {
     it('should run commands serially', async () => {
       const f = fileSync().name;
       const run = await architect.scheduleBuilder(
-        '@nrwl/workspace:run-commands',
+        '@yolkai/nx-workspace:run-commands',
         {
           commands: [
             {
@@ -82,7 +82,7 @@ describe('Command Runner Builder', () => {
     it('should run commands in parallel', async () => {
       const f = fileSync().name;
       const run = await architect.scheduleBuilder(
-        '@nrwl/workspace:run-commands',
+        '@yolkai/nx-workspace:run-commands',
         {
           commands: [
             {
@@ -106,7 +106,7 @@ describe('Command Runner Builder', () => {
     it('should error when parallel = false', async () => {
       try {
         const run = await architect.scheduleBuilder(
-          '@nrwl/workspace:run-commands',
+          '@yolkai/nx-workspace:run-commands',
           {
             commands: [{ command: 'some command' }],
             parallel: false,
@@ -117,7 +117,7 @@ describe('Command Runner Builder', () => {
         fail('should throw');
       } catch (e) {
         expect(e).toEqual(
-          `ERROR: Bad builder config for @nrwl/run-command - "readyWhen" can only be used when parallel=true`
+          `ERROR: Bad builder config for @yolkai/run-command - "readyWhen" can only be used when parallel=true`
         );
       }
     });
@@ -125,7 +125,7 @@ describe('Command Runner Builder', () => {
     it('should return success true when the string specified is ready condition is found', async done => {
       const f = fileSync().name;
       const run = await architect.scheduleBuilder(
-        '@nrwl/workspace:run-commands',
+        '@yolkai/nx-workspace:run-commands',
         {
           commands: [
             {
@@ -153,7 +153,7 @@ describe('Command Runner Builder', () => {
   it('should stop execution when a command fails', async () => {
     const f = fileSync().name;
     const run = await architect.scheduleBuilder(
-      '@nrwl/workspace:run-commands',
+      '@yolkai/nx-workspace:run-commands',
       {
         commands: [
           {
@@ -178,7 +178,7 @@ describe('Command Runner Builder', () => {
 
     try {
       const run = await architect.scheduleBuilder(
-        '@nrwl/workspace:run-commands',
+        '@yolkai/nx-workspace:run-commands',
         {
           commands: [
             {
@@ -197,7 +197,7 @@ describe('Command Runner Builder', () => {
   it('should enable parameter substitution', async () => {
     const f = fileSync().name;
     const run = await architect.scheduleBuilder(
-      '@nrwl/workspace:run-commands',
+      '@yolkai/nx-workspace:run-commands',
       {
         commands: [
           {

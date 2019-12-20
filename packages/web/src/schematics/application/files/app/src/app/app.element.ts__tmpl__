@@ -70,10 +70,10 @@ export class AppElement extends HTMLElement {
         <summary>Add UI library</summary>
         <pre>
 \`# Generate UI lib
-nx g @nrwl/angular:lib ui
+nx g @yolkai/nx-angular:lib ui
 
 # Add a component
-nx g @nrwl/angular:component xyz --project ui\`</pre
+nx g @yolkai/nx-angular:component xyz --project ui\`</pre
         >
     </details>
     <details>

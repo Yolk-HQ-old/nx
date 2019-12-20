@@ -27,7 +27,7 @@ import {
   normalizedProjectRoot,
   readNxJson,
   readWorkspaceJson
-} from '@nrwl/workspace/src/core/file-utils';
+} from '@yolkai/nx-workspace/src/core/file-utils';
 
 export class Rule extends Lint.Rules.AbstractRule {
   constructor(

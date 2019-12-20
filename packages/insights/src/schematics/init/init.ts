@@ -1,4 +1,4 @@
-import { updateJsonInTree } from '@nrwl/workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace';
 
 export default function init() {
   return updateJsonInTree('nx.json', json => {
@@ -6,7 +6,7 @@ export default function init() {
       ...json,
       tasksRunnerOptions: {
         default: {
-          runner: '@nrwl/insights'
+          runner: '@yolkai/nx-insights'
         }
       }
     };

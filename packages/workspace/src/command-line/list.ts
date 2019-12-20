@@ -72,8 +72,11 @@ function listCapabilities(pluginName: string) {
       const installedPlugins = readCapabilitiesFromNodeModules(appRootPath);
 
       let workspaceVersion = 'latest';
-      if (installedPlugins.some(x => x.name === '@nrwl/workspace')) {
-        workspaceVersion = getPluginVersion(appRootPath, '@nrwl/workspace');
+      if (installedPlugins.some(x => x.name === '@yolkai/nx-workspace')) {
+        workspaceVersion = getPluginVersion(
+          appRootPath,
+          '@yolkai/nx-workspace'
+        );
       }
 
       output.note({

@@ -1,5 +1,5 @@
 import { Tree } from '@angular-devkit/schematics';
-import { NxJson, readJsonInTree } from '@nrwl/workspace';
+import { NxJson, readJsonInTree } from '@yolkai/nx-workspace';
 import { runSchematic } from '../../utils/testing';
 
 describe('workspace', () => {

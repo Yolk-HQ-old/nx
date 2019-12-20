@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/next",
+  "name": "@yolkai/nx-next",
   "version": "0.0.1",
   "description": "Next.js Plugin for Nx",
   "repository": {
@@ -29,11 +29,11 @@
     "migrations": "./migrations.json"
   },
   "peerDependencies": {
-    "@nrwl/workspace": "*",
+    "@yolkai/nx-workspace": "*",
     "next": "^9.1.0"
   },
   "dependencies": {
-    "@nrwl/react": "*",
+    "@yolkai/nx-react": "*",
     "@angular-devkit/schematics": "8.3.14"
   }
 }

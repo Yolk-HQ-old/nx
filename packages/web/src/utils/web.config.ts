@@ -8,7 +8,7 @@ import { LoggerApi } from '@angular-devkit/core/src/logger';
 import { basename, resolve } from 'path';
 import { WebBuildBuilderOptions } from '../builders/build/build.impl';
 import { convertBuildOptions } from './normalize';
-import { readTsConfig } from '@nrwl/workspace';
+import { readTsConfig } from '@yolkai/nx-workspace';
 import { getBaseWebpackPartial } from './config';
 import { IndexHtmlWebpackPlugin } from './third-party/cli-files/plugins/index-html-webpack-plugin';
 import { generateEntryPoints } from './third-party/cli-files/utilities/package-chunk-sort';
@@ -140,7 +140,7 @@ function getPolyfillsPartial(
     // Need to patch it up so the browser doesn't load both sets.
     config.entry.polyfills = [
       require.resolve(
-        '@nrwl/web/src/utils/third-party/cli-files/models/safari-nomodule.js'
+        '@yolkai/nx-web/src/utils/third-party/cli-files/models/safari-nomodule.js'
       ),
       ...(options.polyfills ? [options.polyfills] : [])
     ];

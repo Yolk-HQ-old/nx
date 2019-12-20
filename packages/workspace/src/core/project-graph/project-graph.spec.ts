@@ -19,12 +19,12 @@ describe('project graph', () => {
 
   beforeEach(() => {
     packageJson = {
-      name: '@nrwl/workspace-src',
+      name: '@yolkai/nx-workspace-src',
       dependencies: {
         'happy-nrwl': '1.0.0'
       },
       devDependencies: {
-        '@nrwl/workspace': '*'
+        '@yolkai/nx-workspace': '*'
       }
     };
     workspaceJson = {
@@ -82,10 +82,10 @@ describe('project graph', () => {
       compilerOptions: {
         baseUrl: '.',
         paths: {
-          '@nrwl/shared/util': ['libs/shared/util/src/index.ts'],
-          '@nrwl/shared-util-data': ['libs/shared/util/data/src/index.ts'],
-          '@nrwl/ui': ['libs/ui/src/index.ts'],
-          '@nrwl/lazy-lib': ['libs/lazy-lib/src/index.ts']
+          '@yolkai/nx-shared/util': ['libs/shared/util/src/index.ts'],
+          '@yolkai/nx-shared-util-data': ['libs/shared/util/data/src/index.ts'],
+          '@yolkai/nx-ui': ['libs/ui/src/index.ts'],
+          '@yolkai/nx-lazy-lib': ['libs/lazy-lib/src/index.ts']
         }
       }
     };
@@ -94,16 +94,16 @@ describe('project graph', () => {
         console.log('starting server');
       `,
       './apps/demo/src/index.ts': stripIndents`
-        import * as ui from '@nrwl/ui';
-        import * as data from '@nrwl/shared-util-data;
+        import * as ui from '@yolkai/nx-ui';
+        import * as data from '@yolkai/nx-shared-util-data;
 
-        const s = { loadChildren: '@nrwl/lazy-lib#LAZY' }
+        const s = { loadChildren: '@yolkai/nx-lazy-lib#LAZY' }
       `,
       './apps/demo-e2e/src/integration/app.spec.ts': stripIndents`
         describe('whatever', () => {});
       `,
       './libs/ui/src/index.ts': stripIndents`
-        import * as util from '@nrwl/shared/util';
+        import * as util from '@yolkai/shared/util';
       `,
       './libs/shared/util/src/index.ts': stripIndents`
         import * as happyNrwl from 'happy-nrwl';
@@ -163,7 +163,7 @@ describe('project graph', () => {
 
   it('should handle circular dependencies', () => {
     filesJson['./libs/shared/util/src/index.ts'] = stripIndents`
-        import * as ui from '@nrwl/ui';
+        import * as ui from '@yolkai/ui';
         import * as happyNrwl from 'happy-nrwl';
     `;
     vol.fromJSON(filesJson, '/root');

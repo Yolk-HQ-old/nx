@@ -18,34 +18,34 @@ forEachCli(currentCLIName => {
 
     it('should generate build files for apps', () => {
       ensureProject();
-      runCLI(`generate @nrwl/angular:app ${ngapp}`);
-      runCLI('generate @nrwl/bazel:sync');
+      runCLI(`generate @yolkai/nx-angular:app ${ngapp}`);
+      runCLI('generate @yolkai/nx-bazel:sync');
       checkFilesExist(`apps/${ngapp}/BUILD.bazel`);
 
-      runCLI(`generate @nrwl/react:app ${reactapp}`);
-      runCLI('generate @nrwl/bazel:sync');
+      runCLI(`generate @yolkai/nx-react:app ${reactapp}`);
+      runCLI('generate @yolkai/nx-bazel:sync');
       checkFilesExist(`apps/${reactapp}/BUILD.bazel`);
     });
 
     it('should generate build files for libs', () => {
-      runCLI(`generate @nrwl/angular:lib ${nglib}`);
-      runCLI('generate @nrwl/bazel:sync');
+      runCLI(`generate @yolkai/nx-angular:lib ${nglib}`);
+      runCLI('generate @yolkai/nx-bazel:sync');
       checkFilesExist(`libs/${nglib}/BUILD.bazel`);
 
-      runCLI(`generate @nrwl/angular:lib ${reactlib}`);
-      runCLI('generate @nrwl/bazel:sync');
+      runCLI(`generate @yolkai/nx-angular:lib ${reactlib}`);
+      runCLI('generate @yolkai/nx-bazel:sync');
       checkFilesExist(`libs/${reactlib}/BUILD.bazel`);
     });
 
     it('should add dependencies to build files', () => {
       updateFile(`apps/${ngapp}/src/main.ts`, `import '@proj/${nglib}';`);
-      runCLI('generate @nrwl/bazel:sync');
+      runCLI('generate @yolkai/nx-bazel:sync');
       expect(readFile(`apps/${ngapp}/BUILD.bazel`)).toContain(
         `//libs/${nglib}:${nglib}`
       );
 
       updateFile(`apps/${reactapp}/src/main.ts`, `import '@proj/${reactlib}';`);
-      runCLI('generate @nrwl/bazel:sync');
+      runCLI('generate @yolkai/nx-bazel:sync');
       expect(readFile(`apps/${reactapp}/BUILD.bazel`)).toContain(
         `//libs/${reactlib}:${reactlib}`
       );

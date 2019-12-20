@@ -1,6 +1,6 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
-import { readJsonInTree } from '@nrwl/workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
+import { readJsonInTree } from '@yolkai/nx-workspace';
 import { runSchematic } from '../../utils/testing';
 
 describe('jest', () => {
@@ -26,7 +26,7 @@ describe('jest', () => {
     const resultTree = await runSchematic('init', {}, appTree);
     const packageJson = readJsonInTree(resultTree, 'package.json');
     expect(packageJson.devDependencies.jest).toBeDefined();
-    expect(packageJson.devDependencies['@nrwl/jest']).toBeDefined();
+    expect(packageJson.devDependencies['@yolkai/nx-jest']).toBeDefined();
     expect(packageJson.devDependencies['@types/jest']).toBeDefined();
     expect(packageJson.devDependencies['ts-jest']).toBeDefined();
   });

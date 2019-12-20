@@ -35,7 +35,7 @@ export function generateProjectLint(
     };
   } else if (linter === Linter.EsLint) {
     return {
-      builder: '@nrwl/linter:lint',
+      builder: '@yolkai/nx-linter:lint',
       options: {
         linter: 'eslint',
         config: projectRoot + '/.eslintrc',
@@ -94,7 +94,7 @@ export function addLintFiles(
               : {})
           },
           {
-            '@nrwl/eslint-plugin-nx': nxVersion,
+            '@yolkai/eslint-plugin-nx': nxVersion,
             '@typescript-eslint/parser': typescriptESLintVersion,
             '@typescript-eslint/eslint-plugin': typescriptESLintVersion,
             eslint: eslintVersion,
@@ -135,7 +135,7 @@ export function addLintFiles(
 
 const globalTsLint = `
 {
-  "rulesDirectory": ["node_modules/@nrwl/workspace/src/tslint"],
+  "rulesDirectory": ["node_modules/@yolkai/nx-workspace/src/tslint"],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -206,7 +206,7 @@ const globalESLint = `
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "@nrwl/nx"],
+  "plugins": ["@typescript-eslint", "@yolkai/nx"],
   "extends": [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -218,7 +218,7 @@ const globalESLint = `
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-parameter-properties": "off",
-    "@nrwl/nx/enforce-module-boundaries": [
+    "@yolkai/nx/enforce-module-boundaries": [
       "error",
       {
         "allow": [],

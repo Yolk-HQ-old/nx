@@ -5,7 +5,7 @@ import {
   formatFiles,
   updateJsonInTree,
   checkAndCleanWithSemver
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import { gt } from 'semver';
 

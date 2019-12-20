@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/bazel",
+  "name": "@yolkai/nx-bazel",
   "version": "0.0.1",
   "description": "Bazel Plugin for Nx",
   "repository": {
@@ -32,23 +32,23 @@
     "requirements": {},
     "migrations": "./migrations.json",
     "packageGroup": [
-      "@nrwl/workspace",
-      "@nrwl/angular",
-      "@nrwl/cypress",
-      "@nrwl/express",
-      "@nrwl/jest",
-      "@nrwl/nest",
-      "@nrwl/node",
-      "@nrwl/react",
-      "@nrwl/web"
+      "@yolkai/nx-workspace",
+      "@yolkai/nx-angular",
+      "@yolkai/nx-cypress",
+      "@yolkai/nx-express",
+      "@yolkai/nx-jest",
+      "@yolkai/nx-nest",
+      "@yolkai/nx-node",
+      "@yolkai/nx-react",
+      "@yolkai/nx-web"
     ]
   },
   "dependencies": {
     "@angular-devkit/core": "8.3.14",
     "@angular-devkit/schematics": "8.3.14",
-    "@nrwl/cli": "*"
+    "@yolkai/nx-cli": "*"
   },
   "peerDependencies": {
-    "@nrwl/workspace": "*"
+    "@yolkai/nx-workspace": "*"
   }
 }

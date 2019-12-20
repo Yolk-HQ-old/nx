@@ -4,7 +4,10 @@ import {
   SchematicContext,
   Tree
 } from '@angular-devkit/schematics';
-import { readJsonInTree, updatePackagesInPackageJson } from '@nrwl/workspace';
+import {
+  readJsonInTree,
+  updatePackagesInPackageJson
+} from '@yolkai/nx-workspace';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 import * as path from 'path';
 

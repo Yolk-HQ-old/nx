@@ -56,7 +56,7 @@ export function findRequireStatement(nodes: ts.Node[]): ts.VariableStatement {
         ) {
           const argument = callExpression.arguments[0] as ts.StringLiteral;
           return (
-            argument.text === '@nrwl/schematics/src/utils/cli-config-utils'
+            argument.text === '@yolkai/nx-schematics/src/utils/cli-config-utils'
           );
         }
         return false;

@@ -1,5 +1,5 @@
 import { Rule, chain } from '@angular-devkit/schematics';
-import { updateJsonInTree, addUpdateTask } from '@nrwl/workspace';
+import { updateJsonInTree, addUpdateTask } from '@yolkai/nx-workspace';
 
 export default function(): Rule {
   return chain([

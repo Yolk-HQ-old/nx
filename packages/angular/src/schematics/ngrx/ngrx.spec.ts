@@ -1,9 +1,9 @@
 import { UnitTestTree } from '@angular-devkit/schematics/testing';
 import { Tree } from '@angular-devkit/schematics';
-import { readJsonInTree } from '@nrwl/workspace';
+import { readJsonInTree } from '@yolkai/nx-workspace';
 
-import { findModuleParent } from '@nrwl/workspace';
-import { getFileContent } from '@nrwl/workspace/testing';
+import { findModuleParent } from '@yolkai/nx-workspace';
+import { getFileContent } from '@yolkai/nx-workspace/testing';
 import {
   AppConfig,
   createApp,
@@ -12,7 +12,7 @@ import {
   getLibConfig,
   runSchematic
 } from '../../utils/testing';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 describe('ngrx', () => {
   let appTree: Tree;
@@ -102,7 +102,9 @@ describe('ngrx', () => {
 
     const appModule = getFileContent(tree, '/apps/myapp/src/app/app.module.ts');
 
-    expect(appModule).toContain(`import { NxModule } from '@nrwl/angular';`);
+    expect(appModule).toContain(
+      `import { NxModule } from '@yolkai/nx-angular';`
+    );
     expect(appModule).toContain(
       `import * as fromApp from './+state/app.reducer';`
     );
@@ -131,7 +133,9 @@ describe('ngrx', () => {
 
     const appModule = getFileContent(tree, '/apps/myapp/src/app/app.module.ts');
 
-    expect(appModule).toContain(`import { NxModule } from '@nrwl/angular';`);
+    expect(appModule).toContain(
+      `import { NxModule } from '@yolkai/nx-angular';`
+    );
     expect(appModule).toContain('NxModule.forRoot');
     expect(appModule).toContain('StoreModule.forRoot');
     expect(appModule).toContain('EffectsModule.forRoot');
@@ -441,7 +445,7 @@ describe('ngrx', () => {
       const content = getFileContent(tree, `${statePath}/users.effects.ts`);
 
       [
-        `import { DataPersistence } from '@nrwl/angular'`,
+        `import { DataPersistence } from '@yolkai/nx-angular'`,
         `
 import {
   LoadUsers,

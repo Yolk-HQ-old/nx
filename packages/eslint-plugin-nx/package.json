@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/eslint-plugin-nx",
+  "name": "@yolkai/eslint-plugin-nx",
   "version": "0.0.1",
   "description": "ESLint Plugin for Nx",
   "repository": {
@@ -28,7 +28,7 @@
   },
   "homepage": "https://nx.dev",
   "peerDependencies": {
-    "@nrwl/workspace": "*",
+    "@yolkai/nx-workspace": "*",
     "@typescript-eslint/parser": "^2.3.2"
   },
   "dependencies": {

@@ -13,7 +13,7 @@ By default, Nx will search for `cypress-project` in the default collection provi
 You can specify the collection explicitly as follows:
 
 ```bash
-nx g @nrwl/storybook:cypress-project ...
+nx g @yolkai/storybook:cypress-project ...
 ```
 
 Show what will be generated without writing to disk:

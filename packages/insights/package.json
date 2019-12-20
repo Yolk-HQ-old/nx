@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/insights",
+  "name": "@yolkai/nx-insights",
   "version": "0.0.1",
   "description": "Nx Insights plugin for Nx",
   "repository": {
@@ -21,7 +21,7 @@
   "homepage": "https://nx.dev",
   "schematics": "./collection.json",
   "peerDependencies": {
-    "@nrwl/workspace": "*"
+    "@yolkai/nx-workspace": "*"
   },
   "dependencies": {
     "axios": "^0.19.0"

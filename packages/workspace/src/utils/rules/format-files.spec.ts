@@ -11,7 +11,7 @@ describe('formatFiles', () => {
   let schematicRunner: SchematicTestRunner;
   beforeEach(() => {
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/workspace',
+      '@yolkai/nx-workspace',
       path.join(__dirname, '../../../collection.json')
     );
     spyOn(prettier, 'format').and.callFake(input => 'formatted :: ' + input);

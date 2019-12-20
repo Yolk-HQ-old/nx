@@ -14,13 +14,13 @@ import {
   url
 } from '@angular-devkit/schematics';
 import { Schema } from './schema';
-import { formatFiles, getWorkspace, names } from '@nrwl/workspace';
+import { formatFiles, getWorkspace, names } from '@yolkai/nx-workspace';
 import {
   addDepsToPackageJson,
   addGlobal,
   getProjectConfig,
   insert
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 import { CSS_IN_JS_DEPENDENCIES } from '../../utils/styled';
 import {
   typesReactRouterDomVersion,

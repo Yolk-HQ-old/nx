@@ -8,7 +8,7 @@ import {
   DependencyType,
   ProjectGraph,
   ProjectType
-} from '@nrwl/workspace/src/core/project-graph';
+} from '@yolkai/nx-workspace/src/core/project-graph';
 import { extname } from 'path';
 
 describe('Enforce Module Boundaries', () => {

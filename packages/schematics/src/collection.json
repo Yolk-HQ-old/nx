@@ -1,7 +1,7 @@
 {
   "name": "nx",
   "version": "0.1",
-  "extends": "@nrwl/angular",
+  "extends": "@yolkai/nx-angular",
   "schematics": {
     "ng-add": {
       "factory": "./schematics/ng-add/ng-add",

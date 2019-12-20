@@ -19,8 +19,8 @@ cd myorg
 Now, create a frontend application using React with:
 
 ```bash
-yarn add --dev @nrwl/react # Add React Capabilities to the workspace
-nx g @nrwl/react:application frontend # Create a React Application
+yarn add --dev @yolkai/nx-react # Add React Capabilities to the workspace
+nx g @yolkai/nx-react:application frontend # Create a React Application
 ```
 
 This will create the following:
@@ -98,8 +98,8 @@ No todos will show up yet because the API does not exist. So the next step is to
 Create an Express application similar to how you created the React application earlier:
 
 ```bash
-yarn add --dev @nrwl/express # Add Express Capabilities to the workspace
-nx g @nrwl/express:application api --frontend-project frontend # sets up the proxy configuration so you can access the API in development
+yarn add --dev @yolkai/nx-express # Add Express Capabilities to the workspace
+nx g @yolkai/nx-express:application api --frontend-project frontend # sets up the proxy configuration so you can access the API in development
 ```
 
 This will create the following:
@@ -176,7 +176,7 @@ Normally sharing code between the backend and the frontend would have required d
 Create a new library via:
 
 ```bash
-nx g @nrwl/workspace:library data # This generates a barebone library with only Typescript setup
+nx g @yolkai/nx-workspace:library data # This generates a barebone library with only Typescript setup
 ```
 
 ```treeview

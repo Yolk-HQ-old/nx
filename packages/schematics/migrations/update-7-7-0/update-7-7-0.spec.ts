@@ -5,9 +5,9 @@ import {
 } from '@angular-devkit/schematics/testing';
 
 import { join } from 'path';
-import { readJsonInTree } from '@nrwl/workspace';
-import { serializeJson } from '@nrwl/workspace';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { readJsonInTree } from '@yolkai/nx-workspace';
+import { serializeJson } from '@yolkai/nx-workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 describe('Update 7.7.0', () => {
   let initialTree: Tree;
@@ -17,7 +17,7 @@ describe('Update 7.7.0', () => {
     initialTree = createEmptyWorkspace(Tree.empty());
 
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/schematics',
+      '@yolkai/nx-schematics',
       join(__dirname, '../migrations.json')
     );
   });
@@ -30,7 +30,7 @@ describe('Update 7.7.0', () => {
 
       expect(
         readJsonInTree(result, 'workspace.json').schematics[
-          '@nrwl/schematics:library'
+          '@yolkai/nx-schematics:library'
         ].framework
       ).toEqual('angular');
     });
@@ -54,7 +54,7 @@ describe('Update 7.7.0', () => {
           transform: {
             '^.+\\.(ts|js|html)$': 'jest-preset-angular/preprocessor.js'
           },
-          resolver: '@nrwl/builders/plugins/jest/resolver',
+          resolver: '@yolkai/builders/plugins/jest/resolver',
           moduleFileExtensions: ['ts', 'js', 'html'],
           coverageReporters: ['html']
         };`

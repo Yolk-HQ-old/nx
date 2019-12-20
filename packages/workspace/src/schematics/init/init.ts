@@ -30,7 +30,7 @@ import {
   getWorkspacePath,
   renameSyncInTree,
   renameDirSyncInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { DEFAULT_NRWL_PRETTIER_CONFIG } from '../workspace/workspace';
 import { JsonArray } from '@angular-devkit/core';
 import { updateWorkspace } from '../../utils/workspace';
@@ -52,7 +52,7 @@ function updatePackageJson() {
       format: 'nx format:write',
       'format:write': 'nx format:write',
       'format:check': 'nx format:check',
-      update: 'ng update @nrwl/workspace',
+      update: 'ng update @yolkai/nx-workspace',
       'update:check': 'ng update',
       lint: 'nx workspace-lint && ng lint',
       'dep-graph': 'nx dep-graph',
@@ -63,11 +63,11 @@ function updatePackageJson() {
     if (!packageJson.dependencies) {
       packageJson.dependencies = {};
     }
-    if (!packageJson.dependencies['@nrwl/angular']) {
-      packageJson.dependencies['@nrwl/angular'] = nxVersion;
+    if (!packageJson.dependencies['@yolkai/nx-angular']) {
+      packageJson.dependencies['@yolkai/nx-angular'] = nxVersion;
     }
-    if (!packageJson.devDependencies['@nrwl/workspace']) {
-      packageJson.devDependencies['@nrwl/workspace'] = nxVersion;
+    if (!packageJson.devDependencies['@yolkai/nx-workspace']) {
+      packageJson.devDependencies['@yolkai/nx-workspace'] = nxVersion;
     }
     if (!packageJson.devDependencies['@angular/cli']) {
       packageJson.devDependencies['@angular/cli'] = angularCliVersion;
@@ -275,7 +275,9 @@ function updateTsLint() {
       tslintJson[key] = undefined;
     });
     tslintJson.rulesDirectory = tslintJson.rulesDirectory || [];
-    tslintJson.rulesDirectory.push('node_modules/@nrwl/workspace/src/tslint');
+    tslintJson.rulesDirectory.push(
+      'node_modules/@yolkai/nx-workspace/src/tslint'
+    );
     tslintJson.rules['nx-enforce-module-boundaries'] = [
       true,
       {

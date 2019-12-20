@@ -1,6 +1,6 @@
-import { readWorkspaceConfigPath, updateJsonFile } from '@nrwl/workspace';
+import { readWorkspaceConfigPath, updateJsonFile } from '@yolkai/nx-workspace';
 import { writeFileSync, unlinkSync } from 'fs';
-import { offsetFromRoot } from '@nrwl/workspace';
+import { offsetFromRoot } from '@yolkai/nx-workspace';
 import * as path from 'path';
 
 export default {
@@ -60,7 +60,7 @@ export default {
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
 const { SpecReporter } = require('jasmine-spec-reporter');
-const { getAppDirectoryUsingCliConfig } = require('@nrwl/schematics/src/utils/cli-config-utils');
+const { getAppDirectoryUsingCliConfig } = require('@yolkai/nx-schematics/src/utils/cli-config-utils');
 const appDir = getAppDirectoryUsingCliConfig();
 
 exports.config = {

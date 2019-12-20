@@ -1,6 +1,6 @@
 import { Tree } from '@angular-devkit/schematics';
 import { runSchematic } from '../../utils/testing';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 describe('preset', () => {
   let projectTree: Tree;
@@ -19,7 +19,7 @@ describe('preset', () => {
 
     expect(
       JSON.parse(tree.readContent('/workspace.json')).cli.defaultCollection
-    ).toBe('@nrwl/angular');
+    ).toBe('@yolkai/nx-angular');
   });
 
   it('should create files (preset = react)', async () => {
@@ -31,7 +31,7 @@ describe('preset', () => {
     expect(tree.exists('/apps/proj/src/main.tsx')).toBe(true);
     expect(
       JSON.parse(tree.readContent('/workspace.json')).cli.defaultCollection
-    ).toBe('@nrwl/react');
+    ).toBe('@yolkai/nx-react');
   });
 
   it('should create files (preset = web-components)', async () => {
@@ -43,7 +43,7 @@ describe('preset', () => {
     expect(tree.exists('/apps/proj/src/main.ts')).toBe(true);
     expect(
       JSON.parse(tree.readContent('/workspace.json')).cli.defaultCollection
-    ).toBe('@nrwl/web');
+    ).toBe('@yolkai/nx-web');
   });
 
   it('should create files (preset = next)', async () => {
@@ -55,7 +55,7 @@ describe('preset', () => {
     expect(tree.exists('/apps/proj/pages/index.tsx')).toBe(true);
     expect(
       JSON.parse(tree.readContent('/workspace.json')).cli.defaultCollection
-    ).toBe('@nrwl/next');
+    ).toBe('@yolkai/nx-next');
   });
 
   describe('--preset angular-nest', () => {

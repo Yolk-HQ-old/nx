@@ -4,9 +4,9 @@ import {
   SchematicContext,
   chain
 } from '@angular-devkit/schematics';
-import { updateJsonInTree } from '@nrwl/workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
-import { NxJson } from '@nrwl/workspace';
+import { NxJson } from '@yolkai/nx-workspace';
 
 function displayInformation(host: Tree, context: SchematicContext) {
   context.logger.info(stripIndents`
@@ -35,7 +35,7 @@ const addImplicitDependencies = updateJsonInTree<NxJson>('nx.json', nxJson => {
 });
 
 const changeNpmRunUpdate = updateJsonInTree('package.json', packageJson => {
-  packageJson.scripts.update = 'ng update @nrwl/schematics';
+  packageJson.scripts.update = 'ng update @yolkai/nx-schematics';
   packageJson.scripts['update:check'] = 'ng update';
   delete packageJson.scripts['update:skip'];
   return packageJson;

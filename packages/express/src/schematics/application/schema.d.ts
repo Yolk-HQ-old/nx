@@ -1,5 +1,5 @@
 import { UnitTestRunner } from '../../utils/test-runners';
-import { Linter } from '@nrwl/workspace';
+import { Linter } from '@yolkai/nx-workspace';
 
 export interface Schema {
   name: string;

@@ -1,7 +1,7 @@
 import { Tree, schematic, externalSchematic } from '@angular-devkit/schematics';
 import { runSchematic, callRule } from '../../utils/testing';
 import { StorybookConfigureSchema } from './schema';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 
 describe('react:storybook-configuration', () => {
   it('should configure everything at once', async () => {
@@ -27,7 +27,7 @@ export async function createTestUILib(libName: string): Promise<Tree> {
   let appTree = Tree.empty();
   appTree = createEmptyWorkspace(appTree);
   appTree = await callRule(
-    externalSchematic('@nrwl/react', 'library', {
+    externalSchematic('@yolkai/nx-react', 'library', {
       name: libName
     }),
     appTree

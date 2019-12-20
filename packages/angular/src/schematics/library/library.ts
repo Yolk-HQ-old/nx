@@ -35,10 +35,10 @@ import {
   toFileName,
   toPropertyName,
   updateJsonInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { addUnitTestRunner } from '../init/init';
 import { addImportToModule, addRoute } from '../../utils/ast-utils';
-import { insertImport } from '@nrwl/workspace/src/utils/ast-utils';
+import { insertImport } from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 interface NormalizedSchema extends Schema {
   name: string;
@@ -332,7 +332,7 @@ function updateProject(options: NormalizedSchema): Rule {
         if (options.style !== 'css') {
           fixedProject.schematics = {
             ...fixedProject.schematics,
-            '@nrwl/angular:component': {
+            '@yolkai/nx-angular:component': {
               styleext: options.style
             }
           };
@@ -456,7 +456,7 @@ export default function(schema: Schema): Rule {
       updateProject(options),
       updateTsConfig(options),
       options.unitTestRunner === 'jest'
-        ? externalSchematic('@nrwl/jest', 'jest-project', {
+        ? externalSchematic('@yolkai/nx-jest', 'jest-project', {
             project: options.name,
             setupFile: 'angular',
             supportTsx: false,

@@ -19,8 +19,8 @@ cd myorg
 Now, create a frontend application using Angular with:
 
 ```bash
-ng add @nrwl/angular # Add Angular Capabilities to the workspace
-ng g @nrwl/angular:application frontend # Create an Angular Application
+ng add @yolkai/nx-angular # Add Angular Capabilities to the workspace
+ng g @yolkai/nx-angular:application frontend # Create an Angular Application
 ```
 
 This will create the following:
@@ -126,8 +126,8 @@ No todos will show up yet because the API does not exist. So the next step is to
 Create a Nest Application similar to how you created the Angular application earlier:
 
 ```bash
-ng add @nrwl/nest # Add Node Capabilities to the workspace
-ng g @nrwl/nest:application api --frontend-project frontend # sets up the proxy configuration so you can access the API in development
+ng add @yolkai/nx-nest # Add Node Capabilities to the workspace
+ng g @yolkai/nx-nest:application api --frontend-project frontend # sets up the proxy configuration so you can access the API in development
 ```
 
 This will create the following:
@@ -190,8 +190,8 @@ export class AppModule {}
 > If you prefer `express`, run the following commands instead:
 
 ```
-ng add @nrwl/express # Add Express Capabilities to the workspace
-ng g @nrwl/express:application api --frontend-project frontend
+ng add @yolkai/nx-express # Add Express Capabilities to the workspace
+ng g @yolkai/nx-express:application api --frontend-project frontend
 ```
 
 ### Adding an Endpoint
@@ -244,7 +244,7 @@ Normally sharing code between the backend and the frontend would have required d
 Create a new library via:
 
 ```bash
-ng g @nrwl/workspace:library data # This generates a barebone library with only Typescript setup
+ng g @yolkai/nx-workspace:library data # This generates a barebone library with only Typescript setup
 ```
 
 ```treeview

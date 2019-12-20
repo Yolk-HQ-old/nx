@@ -7,8 +7,8 @@ import {
 } from '@angular-devkit/schematics';
 import { join, normalize, Path } from '@angular-devkit/core';
 import { Schema } from './schema';
-import { updateJsonInTree } from '@nrwl/workspace';
-import { toFileName, formatFiles } from '@nrwl/workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace';
+import { toFileName, formatFiles } from '@yolkai/nx-workspace';
 import init from '../init/init';
 
 interface NormalizedSchema extends Schema {
@@ -55,7 +55,7 @@ export default function(schema: Schema): Rule {
     const options = normalizeOptions(schema);
     return chain([
       init({ skipFormat: true }),
-      externalSchematic('@nrwl/node', 'application', schema),
+      externalSchematic('@yolkai/nx-node', 'application', schema),
       addMainFile(options),
       addTypes(options),
       formatFiles(options)

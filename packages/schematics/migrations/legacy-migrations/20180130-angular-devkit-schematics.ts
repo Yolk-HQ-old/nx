@@ -1,4 +1,4 @@
-import { updateJsonFile } from '@nrwl/workspace';
+import { updateJsonFile } from '@yolkai/nx-workspace';
 
 export default {
   description: 'Add @angular-devkit/schematics as a dev dependency',

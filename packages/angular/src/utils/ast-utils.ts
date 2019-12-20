@@ -7,7 +7,7 @@ import {
   getSourceNodes,
   InsertChange,
   RemoveChange
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 import {
   Tree,
   SchematicsException,
@@ -19,7 +19,7 @@ import {
   forEach
 } from '@angular-devkit/schematics';
 import * as path from 'path';
-import { toFileName } from '@nrwl/workspace/src/utils/name-utils';
+import { toFileName } from '@yolkai/nx-workspace/src/utils/name-utils';
 
 function _angularImportsFromNode(
   node: ts.ImportDeclaration,

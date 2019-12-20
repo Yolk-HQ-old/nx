@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/nest",
+  "name": "@yolkai/nx-nest",
   "version": "0.0.1",
   "description": "Nest Plugin for Nx",
   "repository": {
@@ -29,11 +29,11 @@
     "migrations": "./migrations.json"
   },
   "peerDependencies": {
-    "@nrwl/workspace": "*"
+    "@yolkai/nx-workspace": "*"
   },
   "dependencies": {
-    "@nrwl/node": "*",
-    "@nrwl/jest": "*",
+    "@yolkai/nx-node": "*",
+    "@yolkai/nx-jest": "*",
     "@angular-devkit/schematics": "8.3.14"
   }
 }

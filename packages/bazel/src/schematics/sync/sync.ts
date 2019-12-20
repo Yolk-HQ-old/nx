@@ -16,12 +16,12 @@ import {
   getWorkspace,
   readJsonInTree,
   readWorkspace
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { join, normalize } from '@angular-devkit/core';
 import {
   ProjectGraph,
   ProjectGraphNode
-} from '@nrwl/workspace/src/core/project-graph';
+} from '@yolkai/nx-workspace/src/core/project-graph';
 import { rulesNodeJSSha, rulesNodeJSVersion } from '../utils/versions';
 import { TargetDefinition } from '@angular-devkit/core/src/workspace';
 
@@ -30,16 +30,16 @@ const buildBuilders = {
   '@angular-devkit/build-angular:server': 'outputPath',
   '@angular-devkit/build-angular:ng-packagr': 'outputPath',
   '@angular-devkit/build-webpack:webpack': 'outputPath',
-  '@nrwl/web:build': 'outputPath'
+  '@yolkai/nx-web:build': 'outputPath'
 };
 
 const testBuilders = new Set([
   '@angular-devkit/build-angular:karma',
   '@angular-devkit/build-angular:protractor',
   '@angular-devkit/build-angular:tslint',
-  '@nrwl/jest:jest',
-  '@nrwl/cypress:cypress',
-  '@nrwl/linter:lint'
+  '@yolkai/nx-jest:jest',
+  '@yolkai/nx-cypress:cypress',
+  '@yolkai/nx-linter:lint'
 ]);
 
 function createBuildFile(

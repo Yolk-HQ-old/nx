@@ -22,22 +22,22 @@ _How do you do it?_
 First, generate an Angular application.
 
 ```bash
-ng add @nrwl/angular # Add Angular capabilities to a workspace
-ng g @nrwl/angular:app frontend
+ng add @yolkai/nx-angular # Add Angular capabilities to a workspace
+ng g @yolkai/nx-angular:app frontend
 ```
 
 Second, generate a Nest application.
 
 ```bash
-ng add @nrwl/nest # Add Nest capabilities to a workspace
-ng g @nrwl/nest:app backend --frontend-project frontend # Generate a Nest Application and sets up a proxy for the frontend application.
+ng add @yolkai/nx-nest # Add Nest capabilities to a workspace
+ng g @yolkai/nx-nest:app backend --frontend-project frontend # Generate a Nest Application and sets up a proxy for the frontend application.
 ```
 
 We recommend using [Nest](https://nestjs.com). If you prefer Express or you want to build your backend from scratch, add and use different capabilities to your workspace via:
 
 ```bash
-ng add @nrwl/express # Add Express capabilities to a workspace
-ng add @nrwl/node # Add Node capabilities to a workspace
+ng add @yolkai/nx-express # Add Express capabilities to a workspace
+ng add @yolkai/nx-node # Add Node capabilities to a workspace
 ```
 
 Finally, you can run `ng serve backend` and `ng serve frontend`. There is a lot more to full-stack development in Nx, which you can read about [here](/angular/fundamentals/build-full-stack-applications).
@@ -134,8 +134,8 @@ Adding these tools to the dev workflow is challenging in a regular Angular CLI p
 When using Nx, adding Cypress or Jest is easy:
 
 ```bash
-ng g @nrwl/angular:app myapp --e2e-test-runner=cypress --unit-test-runner=jest # cypress and jest are actually defaults
-ng g @nrwl/angular:app myapp --e2e-test-runner=protractor --unit-test-runner=karma
+ng g @yolkai/nx-angular:app myapp --e2e-test-runner=cypress --unit-test-runner=jest # cypress and jest are actually defaults
+ng g @yolkai/nx-angular:app myapp --e2e-test-runner=protractor --unit-test-runner=karma
 ```
 
 Tests can then be run just like you would run them normally:

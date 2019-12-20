@@ -1,4 +1,4 @@
-import { updateJsonFile } from '@nrwl/workspace';
+import { updateJsonFile } from '@yolkai/nx-workspace';
 
 export default {
   description:
@@ -8,11 +8,11 @@ export default {
       json.scripts = {
         ...json.scripts,
         'apps:affected':
-          'node ./node_modules/@nrwl/schematics/src/affected/run-affected.js apps',
+          'node ./node_modules/@yolkai/nx-schematics/src/affected/run-affected.js apps',
         'build:affected':
-          'node ./node_modules/@nrwl/schematics/src/affected/run-affected.js build',
+          'node ./node_modules/@yolkai/nx-schematics/src/affected/run-affected.js build',
         'e2e:affected':
-          'node ./node_modules/@nrwl/schematics/src/affected/run-affected.js e2e'
+          'node ./node_modules/@yolkai/nx-schematics/src/affected/run-affected.js e2e'
       };
     });
   }

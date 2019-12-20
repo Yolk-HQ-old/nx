@@ -6,7 +6,7 @@ import {
   updateWorkspaceInTree,
   readWorkspace,
   getWorkspacePath
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 
 import * as path from 'path';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
@@ -18,7 +18,7 @@ describe('Update 8-5-0', () => {
   beforeEach(async () => {
     tree = Tree.empty();
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/react',
+      '@yolkai/nx-react',
       path.join(__dirname, '../../../migrations.json')
     );
   });
@@ -28,12 +28,12 @@ describe('Update 8-5-0', () => {
       'workspace.json',
       JSON.stringify({
         schematics: {
-          '@nrwl/react': {
+          '@yolkai/nx-react': {
             application: {
               babel: true
             }
           },
-          '@nrwl/react:application': {
+          '@yolkai/nx-react:application': {
             babel: true
           }
         }
@@ -47,10 +47,10 @@ describe('Update 8-5-0', () => {
     const config = readWorkspace(tree);
     expect(config).toEqual({
       schematics: {
-        '@nrwl/react': {
+        '@yolkai/nx-react': {
           application: {}
         },
-        '@nrwl/react:application': {}
+        '@yolkai/nx-react:application': {}
       }
     });
   });

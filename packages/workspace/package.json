@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/workspace",
+  "name": "@yolkai/nx-workspace",
   "version": "0.0.1",
   "description": "Extensible Dev Tools for Monorepos",
   "repository": {
@@ -31,18 +31,18 @@
     "requirements": {},
     "migrations": "./migrations.json",
     "packageGroup": [
-      "@nrwl/workspace",
-      "@nrwl/angular",
-      "@nrwl/bazel",
-      "@nrwl/cypress",
-      "@nrwl/express",
-      "@nrwl/jest",
-      "@nrwl/nest",
-      "@nrwl/next",
-      "@nrwl/node",
-      "@nrwl/react",
-      "@nrwl/storybook",
-      "@nrwl/web"
+      "@yolkai/nx-workspace",
+      "@yolkai/nx-angular",
+      "@yolkai/nx-bazel",
+      "@yolkai/nx-cypress",
+      "@yolkai/nx-express",
+      "@yolkai/nx-jest",
+      "@yolkai/nx-nest",
+      "@yolkai/nx-next",
+      "@yolkai/nx-node",
+      "@yolkai/nx-react",
+      "@yolkai/nx-storybook",
+      "@yolkai/nx-web"
     ]
   },
   "peerDependencies": {
@@ -63,6 +63,6 @@
     "yargs-parser": "10.0.0",
     "yargs": "^11.0.0",
     "chalk": "2.4.2",
-    "@nrwl/cli": "*"
+    "@yolkai/nx-cli": "*"
   }
 }

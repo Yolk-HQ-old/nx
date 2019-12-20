@@ -1,8 +1,8 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { SchematicTestRunner } from '@angular-devkit/schematics/testing';
 import { join } from 'path';
-import { readJsonInTree, updateJsonInTree } from '@nrwl/workspace';
+import { readJsonInTree, updateJsonInTree } from '@yolkai/nx-workspace';
 import { callRule, runSchematic } from '../../utils/testing';
 
 describe('init', () => {
@@ -13,7 +13,7 @@ describe('init', () => {
     tree = Tree.empty();
     tree = createEmptyWorkspace(tree);
     testRunner = new SchematicTestRunner(
-      '@nrwl/express',
+      '@yolkai/nx-express',
       join(__dirname, '../../../collection.json')
     );
   });
@@ -23,8 +23,8 @@ describe('init', () => {
       .runSchematicAsync('init', {}, tree)
       .toPromise();
     const packageJson = readJsonInTree(result, 'package.json');
-    expect(packageJson.dependencies['@nrwl/express']).toBeUndefined();
-    expect(packageJson.devDependencies['@nrwl/express']).toBeDefined();
+    expect(packageJson.dependencies['@yolkai/nx-express']).toBeUndefined();
+    expect(packageJson.devDependencies['@yolkai/nx-express']).toBeDefined();
     expect(packageJson.dependencies['express']).toBeDefined();
     expect(packageJson.devDependencies['@types/express']).toBeDefined();
   });
@@ -33,14 +33,14 @@ describe('init', () => {
     it('should be set if none was set before', async () => {
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
-      expect(workspaceJson.cli.defaultCollection).toEqual('@nrwl/express');
+      expect(workspaceJson.cli.defaultCollection).toEqual('@yolkai/nx-express');
     });
 
-    it('should be set if @nrwl/workspace was set before', async () => {
+    it('should be set if @yolkai/nx-workspace was set before', async () => {
       tree = await callRule(
         updateJsonInTree('workspace.json', json => {
           json.cli = {
-            defaultCollection: '@nrwl/workspace'
+            defaultCollection: '@yolkai/nx-workspace'
           };
 
           return json;
@@ -49,14 +49,14 @@ describe('init', () => {
       );
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
-      expect(workspaceJson.cli.defaultCollection).toEqual('@nrwl/express');
+      expect(workspaceJson.cli.defaultCollection).toEqual('@yolkai/nx-express');
     });
 
     it('should not be set if something else was set before', async () => {
       tree = await callRule(
         updateJsonInTree('workspace.json', json => {
           json.cli = {
-            defaultCollection: '@nrwl/angular'
+            defaultCollection: '@yolkai/nx-angular'
           };
 
           return json;
@@ -65,7 +65,7 @@ describe('init', () => {
       );
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
-      expect(workspaceJson.cli.defaultCollection).toEqual('@nrwl/angular');
+      expect(workspaceJson.cli.defaultCollection).toEqual('@yolkai/nx-angular');
     });
   });
 });

@@ -12,7 +12,7 @@ describe('updateKarmaConf', () => {
   let schematicRunner: SchematicTestRunner;
   beforeEach(done => {
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/workspace',
+      '@yolkai/nx-workspace',
       path.join(__dirname, '../../../collection.json')
     );
     tree = createEmptyWorkspace(Tree.empty());

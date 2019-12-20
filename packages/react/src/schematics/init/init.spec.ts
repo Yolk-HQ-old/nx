@@ -1,7 +1,7 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
-import { readJsonInTree } from '@nrwl/workspace';
-import { updateJsonInTree } from '@nrwl/workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
+import { readJsonInTree } from '@yolkai/nx-workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace';
 import { runSchematic, callRule } from '../../utils/testing';
 
 describe('init', () => {
@@ -15,10 +15,10 @@ describe('init', () => {
   it('should add react dependencies', async () => {
     const result = await runSchematic('init', {}, tree);
     const packageJson = readJsonInTree(result, 'package.json');
-    expect(packageJson.dependencies['@nrwl/react']).toBeUndefined();
+    expect(packageJson.dependencies['@yolkai/nx-react']).toBeUndefined();
     expect(packageJson.dependencies['react']).toBeDefined();
     expect(packageJson.dependencies['react-dom']).toBeDefined();
-    expect(packageJson.devDependencies['@nrwl/react']).toBeDefined();
+    expect(packageJson.devDependencies['@yolkai/nx-react']).toBeDefined();
     expect(packageJson.devDependencies['@types/react']).toBeDefined();
     expect(packageJson.devDependencies['@types/react-dom']).toBeDefined();
     expect(packageJson.devDependencies['@testing-library/react']).toBeDefined();
@@ -28,17 +28,17 @@ describe('init', () => {
     it('should be set if none was set before', async () => {
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
-      expect(workspaceJson.cli.defaultCollection).toEqual('@nrwl/react');
-      expect(workspaceJson.schematics['@nrwl/react'].application.babel).toBe(
-        true
-      );
+      expect(workspaceJson.cli.defaultCollection).toEqual('@yolkai/nx-react');
+      expect(
+        workspaceJson.schematics['@yolkai/nx-react'].application.babel
+      ).toBe(true);
     });
 
-    it('should be set if @nrwl/workspace was set before', async () => {
+    it('should be set if @yolkai/nx-workspace was set before', async () => {
       tree = await callRule(
         updateJsonInTree('workspace.json', json => {
           json.cli = {
-            defaultCollection: '@nrwl/workspace'
+            defaultCollection: '@yolkai/nx-workspace'
           };
 
           return json;
@@ -47,17 +47,17 @@ describe('init', () => {
       );
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
-      expect(workspaceJson.cli.defaultCollection).toEqual('@nrwl/react');
-      expect(workspaceJson.schematics['@nrwl/react'].application.babel).toBe(
-        true
-      );
+      expect(workspaceJson.cli.defaultCollection).toEqual('@yolkai/nx-react');
+      expect(
+        workspaceJson.schematics['@yolkai/nx-react'].application.babel
+      ).toBe(true);
     });
 
     it('should not be set if something else was set before', async () => {
       tree = await callRule(
         updateJsonInTree('workspace.json', json => {
           json.cli = {
-            defaultCollection: '@nrwl/angular'
+            defaultCollection: '@yolkai/nx-angular'
           };
 
           json.schematics = {};
@@ -68,7 +68,7 @@ describe('init', () => {
       );
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
-      expect(workspaceJson.cli.defaultCollection).toEqual('@nrwl/angular');
+      expect(workspaceJson.cli.defaultCollection).toEqual('@yolkai/nx-angular');
     });
   });
 });

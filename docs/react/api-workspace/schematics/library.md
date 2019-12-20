@@ -17,7 +17,7 @@ By default, Nx will search for `library` in the default collection provisioned i
 You can specify the collection explicitly as follows:
 
 ```bash
-nx g @nrwl/workspace:library ...
+nx g @yolkai/workspace:library ...
 ```
 
 Show what will be generated without writing to disk:

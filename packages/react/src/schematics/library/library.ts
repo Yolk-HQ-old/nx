@@ -28,7 +28,7 @@ import {
   toFileName,
   updateJsonInTree,
   updateWorkspaceInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { join, normalize, Path } from '@angular-devkit/core';
 import * as ts from 'typescript';
 
@@ -71,14 +71,14 @@ export default function(schema: Schema): Rule {
       addProject(options),
       updateNxJson(options),
       options.unitTestRunner !== 'none'
-        ? externalSchematic('@nrwl/jest', 'jest-project', {
+        ? externalSchematic('@yolkai/nx-jest', 'jest-project', {
             project: options.name,
             setupFile: 'none',
             supportTsx: true,
             skipSerializers: true
           })
         : noop(),
-      externalSchematic('@nrwl/react', 'component', {
+      externalSchematic('@yolkai/nx-react', 'component', {
         name: options.name,
         project: options.name,
         style: options.style,
@@ -104,14 +104,14 @@ function addProject(options: NormalizedSchema): Rule {
 
     if (options.publishable) {
       architect.build = {
-        builder: '@nrwl/web:bundle',
+        builder: '@yolkai/nx-web:bundle',
         options: {
           outputPath: `dist/libs/${options.projectDirectory}`,
           tsConfig: `${options.projectRoot}/tsconfig.lib.json`,
           project: `${options.projectRoot}/package.json`,
           entryFile: `${options.projectRoot}/src/index.ts`,
-          babelConfig: `@nrwl/react/plugins/bundle-babel`,
-          rollupConfig: `@nrwl/react/plugins/bundle-rollup`
+          babelConfig: `@yolkai/nx-react/plugins/bundle-babel`,
+          rollupConfig: `@yolkai/nx-react/plugins/bundle-rollup`
         }
       };
     }

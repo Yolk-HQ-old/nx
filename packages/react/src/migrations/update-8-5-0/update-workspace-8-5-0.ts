@@ -1,15 +1,15 @@
 import { Rule } from '@angular-devkit/schematics';
-import { updateWorkspaceInTree } from '@nrwl/workspace';
+import { updateWorkspaceInTree } from '@yolkai/nx-workspace';
 
 export default function update(): Rule {
   return updateWorkspaceInTree(config => {
     const a = [];
     const b = [];
     Object.keys(config.schematics).forEach(name => {
-      if (name === '@nrwl/react' && config.schematics[name].application) {
+      if (name === '@yolkai/nx-react' && config.schematics[name].application) {
         a.push(config.schematics[name]);
       }
-      if (name === '@nrwl/react:application') {
+      if (name === '@yolkai/nx-react:application') {
         b.push(config.schematics[name]);
       }
     });

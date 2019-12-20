@@ -15,9 +15,9 @@ import {
   updateJsonInTree,
   offsetFromRoot,
   updateWorkspaceInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { join, normalize } from '@angular-devkit/core';
-import { getProjectConfig } from '@nrwl/workspace';
+import { getProjectConfig } from '@yolkai/nx-workspace';
 
 export interface KarmaProjectSchema {
   project: string;

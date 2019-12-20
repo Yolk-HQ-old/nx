@@ -1,12 +1,12 @@
 {
   "name": "nx/next",
   "version": "0.1",
-  "extends": ["@nrwl/react"],
+  "extends": ["@yolkai/nx-react"],
   "schematics": {
     "init": {
       "factory": "./src/schematics/init/init",
       "schema": "./src/schematics/init/schema.json",
-      "description": "Initialize the @nrwl/next plugin",
+      "description": "Initialize the @yolkai/nx-next plugin",
       "hidden": true
     },
 

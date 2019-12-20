@@ -63,12 +63,12 @@ export function getNxPackageDependencies(
     name: packageJson.name,
     dependencies: packageJson.dependencies
       ? Object.keys(packageJson.dependencies).filter(item =>
-          item.includes('@nrwl')
+          item.includes('@yolkai')
         )
       : [],
     peerDependencies: packageJson.peerDependencies
       ? Object.keys(packageJson.peerDependencies).filter(item =>
-          item.includes('@nrwl')
+          item.includes('@yolkai')
         )
       : []
   };

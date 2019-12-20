@@ -39,7 +39,7 @@ describe('Jest Builder', () => {
     });
 
     it('should send appropriate options to jestCLI', async () => {
-      const run = await architect.scheduleBuilder('@nrwl/jest:jest', {
+      const run = await architect.scheduleBuilder('@yolkai/nx-jest:jest', {
         jestConfig: './jest.config.js',
         tsConfig: './tsconfig.test.json',
         watch: false
@@ -69,7 +69,7 @@ describe('Jest Builder', () => {
     });
 
     it('should send appropriate options to jestCLI when testFile is specified', async () => {
-      const run = await architect.scheduleBuilder('@nrwl/jest:jest', {
+      const run = await architect.scheduleBuilder('@yolkai/nx-jest:jest', {
         testFile: 'lib.spec.ts',
         jestConfig: './jest.config.js',
         tsConfig: './tsconfig.test.json',
@@ -119,7 +119,7 @@ describe('Jest Builder', () => {
     });
 
     it('should send appropriate options to jestCLI when findRelatedTests is specified', async () => {
-      const run = await architect.scheduleBuilder('@nrwl/jest:jest', {
+      const run = await architect.scheduleBuilder('@yolkai/nx-jest:jest', {
         findRelatedTests: 'file1.ts,file2.ts',
         jestConfig: './jest.config.js',
         tsConfig: './tsconfig.test.json',
@@ -158,7 +158,7 @@ describe('Jest Builder', () => {
     });
 
     it('should send other options to jestCLI', async () => {
-      const run = await architect.scheduleBuilder('@nrwl/jest:jest', {
+      const run = await architect.scheduleBuilder('@yolkai/nx-jest:jest', {
         jestConfig: './jest.config.js',
         tsConfig: './tsconfig.test.json',
         codeCoverage: true,
@@ -232,7 +232,7 @@ describe('Jest Builder', () => {
     });
 
     it('should send the main to runCLI', async () => {
-      const run = await architect.scheduleBuilder('@nrwl/jest:jest', {
+      const run = await architect.scheduleBuilder('@yolkai/nx-jest:jest', {
         jestConfig: './jest.config.js',
         tsConfig: './tsconfig.test.json',
         setupFile: './test-setup.ts',
@@ -264,7 +264,7 @@ describe('Jest Builder', () => {
     });
 
     it('should return the proper result', async done => {
-      const run = await architect.scheduleBuilder('@nrwl/jest:jest', {
+      const run = await architect.scheduleBuilder('@yolkai/nx-jest:jest', {
         jestConfig: './jest.config.js',
         tsConfig: './tsconfig.test.json',
         watch: false
@@ -290,7 +290,7 @@ describe('Jest Builder', () => {
     });
 
     it('should merge the globals property from jest config', async () => {
-      await architect.scheduleBuilder('@nrwl/jest:jest', {
+      await architect.scheduleBuilder('@yolkai/nx-jest:jest', {
         jestConfig: './jest.config.js',
         tsConfig: './tsconfig.test.json',
         setupFile: './test-setup.ts',

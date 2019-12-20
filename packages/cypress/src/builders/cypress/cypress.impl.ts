@@ -10,7 +10,7 @@ import { catchError, concatMap, tap, map, take } from 'rxjs/operators';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import { JsonObject } from '@angular-devkit/core';
 import { dirname, join, relative } from 'path';
-import { readJsonFile } from '@nrwl/workspace';
+import { readJsonFile } from '@yolkai/nx-workspace';
 import { legacyCompile } from './legacy';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 
@@ -226,5 +226,5 @@ function showLegacyWarning(context: BuilderContext) {
   context.logger.warn(stripIndents`
   Warning:
   You are using the legacy configuration for cypress.
-  Please run "ng update @nrwl/cypress --from 8.1.0 --to 8.2.0 --migrate-only".`);
+  Please run "ng update @yolkai/nx-cypress --from 8.1.0 --to 8.2.0 --migrate-only".`);
 }

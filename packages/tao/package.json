@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/tao",
+  "name": "@yolkai/nx-tao",
   "version": "0.0.1",
   "description": "CLI for generating code and running commands",
   "repository": {

@@ -3,19 +3,19 @@
 Here is the list of all the available packages inside the Nx ecosystem. You
 can see, for each package its dependencies.
 
-| PackageName     | Dependencies                                      | PeerDependencies |
-| --------------- | ------------------------------------------------- | ---------------- |
-| @nrwl/angular   | @nrwl/cypress, @nrwl/jest                         | @nrwl/workspace  |
-| @nrwl/cypress   |                                                   | @nrwl/workspace  |
-| @nrwl/express   | @nrwl/node, @nrwl/jest                            | @nrwl/workspace  |
-| @nrwl/jest      |                                                   | @nrwl/workspace  |
-| @nrwl/linter    |                                                   | @nrwl/workspace  |
-| @nrwl/nest      | @nrwl/node, @nrwl/jest                            | @nrwl/workspace  |
-| @nrwl/node      | @nrwl/jest, @nrwl/linter                          | @nrwl/workspace  |
-| @nrwl/react     | @nrwl/cypress, @nrwl/jest, @nrwl/web              | @nrwl/workspace  |
-| @nrwl/next      | @nrwl/cypress, @nrwl/jest, @nrwl/web, @nrwl/react | @nrwl/workspace  |
-| @nrwl/web       | @nrwl/cypress, @nrwl/jest, @nrwl/linter           | @nrwl/workspace  |
-| @nrwl/workspace | @nrwl/cli                                         |                  |
+| PackageName          | Dependencies                                                          | PeerDependencies     |
+| -------------------- | --------------------------------------------------------------------- | -------------------- |
+| @yolkai/nx-angular   | @yolkai/nx-cypress, @yolkai/nx-jest                                   | @yolkai/nx-workspace |
+| @yolkai/nx-cypress   |                                                                       | @yolkai/nx-workspace |
+| @yolkai/nx-express   | @yolkai/nx-node, @yolkai/nx-jest                                      | @yolkai/nx-workspace |
+| @yolkai/nx-jest      |                                                                       | @yolkai/nx-workspace |
+| @yolkai/nx-linter    |                                                                       | @yolkai/nx-workspace |
+| @yolkai/nx-nest      | @yolkai/nx-node, @yolkai/nx-jest                                      | @yolkai/nx-workspace |
+| @yolkai/nx-node      | @yolkai/nx-jest, @yolkai/nx-linter                                    | @yolkai/nx-workspace |
+| @yolkai/nx-react     | @yolkai/nx-cypress, @yolkai/nx-jest, @yolkai/nx-web                   | @yolkai/nx-workspace |
+| @yolkai/nx-next      | @yolkai/nx-cypress, @yolkai/nx-jest, @yolkai/nx-web, @yolkai/nx-react | @yolkai/nx-workspace |
+| @yolkai/nx-web       | @yolkai/nx-cypress, @yolkai/nx-jest, @yolkai/nx-linter                | @yolkai/nx-workspace |
+| @yolkai/nx-workspace | @yolkai/nx-cli                                                        |                      |
 
 ## Angular
 

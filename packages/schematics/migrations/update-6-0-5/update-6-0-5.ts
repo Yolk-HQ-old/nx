@@ -4,7 +4,7 @@ import {
   SchematicContext,
   chain
 } from '@angular-devkit/schematics';
-import { updateJsonInTree } from '@nrwl/workspace';
+import { updateJsonInTree } from '@yolkai/nx-workspace';
 
 export default function(): Rule {
   return updateJsonInTree('package.json', packageJson => {

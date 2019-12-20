@@ -5,7 +5,7 @@ import {
   addPackageWithInit,
   updateWorkspace,
   formatFiles
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { Schema } from './schema';
 import {
   expressTypingsVersion,
@@ -21,7 +21,7 @@ function addDependencies(): Rule {
     },
     {
       '@types/express': expressTypingsVersion,
-      '@nrwl/express': nxVersion
+      '@yolkai/nx-express': nxVersion
     }
   );
 }
@@ -30,7 +30,7 @@ function moveDependency(): Rule {
   return updateJsonInTree('package.json', json => {
     json.dependencies = json.dependencies || {};
 
-    delete json.dependencies['@nrwl/express'];
+    delete json.dependencies['@yolkai/nx-express'];
     return json;
   });
 }
@@ -43,9 +43,9 @@ function setDefault(): Rule {
       workspace.extensions.cli &&
       ((workspace.extensions.cli as JsonObject).defaultCollection as string);
 
-    if (!defaultCollection || defaultCollection === '@nrwl/workspace') {
+    if (!defaultCollection || defaultCollection === '@yolkai/nx-workspace') {
       (workspace.extensions.cli as JsonObject).defaultCollection =
-        '@nrwl/express';
+        '@yolkai/nx-express';
     }
   });
 }
@@ -53,8 +53,8 @@ function setDefault(): Rule {
 export default function(schema: Schema) {
   return chain([
     setDefault(),
-    addPackageWithInit('@nrwl/node'),
-    addPackageWithInit('@nrwl/jest'),
+    addPackageWithInit('@yolkai/nx-node'),
+    addPackageWithInit('@yolkai/nx-jest'),
     addDependencies(),
     moveDependency(),
     formatFiles(schema)

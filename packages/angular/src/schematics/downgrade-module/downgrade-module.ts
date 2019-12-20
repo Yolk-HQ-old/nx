@@ -1,7 +1,7 @@
 import { chain, noop, Rule, Tree } from '@angular-devkit/schematics';
-import { addMethod, insert } from '@nrwl/workspace';
+import { addMethod, insert } from '@yolkai/nx-workspace';
 import { Schema } from './schema';
-import { formatFiles } from '@nrwl/workspace';
+import { formatFiles } from '@yolkai/nx-workspace';
 import { addUpgradeToPackageJson } from '../../utils/upgrade';
 import {
   addEntryComponents,

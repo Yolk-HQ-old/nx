@@ -18,7 +18,7 @@ import {
 import { formatFiles } from '../../utils/rules/format-files';
 
 import * as ts from 'typescript';
-import { toFileName } from '@nrwl/workspace/src/utils/name-utils';
+import { toFileName } from '@yolkai/nx-workspace/src/utils/name-utils';
 
 export default function(options: Schema): Rule {
   options = normalizeOptions(options);
@@ -35,7 +35,7 @@ function createPreset(options: Schema): Rule {
   } else if (options.preset === 'angular') {
     return chain([
       externalSchematic(
-        '@nrwl/angular',
+        '@yolkai/nx-angular',
         'application',
         {
           name: options.name,
@@ -43,12 +43,12 @@ function createPreset(options: Schema): Rule {
         },
         { interactive: false }
       ),
-      setDefaultCollection('@nrwl/angular')
+      setDefaultCollection('@yolkai/nx-angular')
     ]);
   } else if (options.preset === 'react') {
     return chain([
       externalSchematic(
-        '@nrwl/react',
+        '@yolkai/nx-react',
         'application',
         {
           name: options.name,
@@ -57,12 +57,12 @@ function createPreset(options: Schema): Rule {
         },
         { interactive: false }
       ),
-      setDefaultCollection('@nrwl/react')
+      setDefaultCollection('@yolkai/nx-react')
     ]);
   } else if (options.preset === 'next') {
     return chain([
       externalSchematic(
-        '@nrwl/next',
+        '@yolkai/nx-next',
         'application',
         {
           name: options.name,
@@ -71,12 +71,12 @@ function createPreset(options: Schema): Rule {
         },
         { interactive: false }
       ),
-      setDefaultCollection('@nrwl/next')
+      setDefaultCollection('@yolkai/nx-next')
     ]);
   } else if (options.preset === 'web-components') {
     return chain([
       externalSchematic(
-        '@nrwl/web',
+        '@yolkai/nx-web',
         'application',
         {
           name: options.name,
@@ -85,18 +85,18 @@ function createPreset(options: Schema): Rule {
         },
         { interactive: false }
       ),
-      setDefaultCollection('@nrwl/web')
+      setDefaultCollection('@yolkai/nx-web')
     ]);
   } else if (options.preset === 'angular-nest') {
     return chain([
       externalSchematic(
-        '@nrwl/angular',
+        '@yolkai/nx-angular',
         'application',
         { name: options.name, style: options.style },
         { interactive: false }
       ),
       externalSchematic(
-        '@nrwl/nest',
+        '@yolkai/nx-nest',
         'application',
         {
           name: 'api',
@@ -105,13 +105,13 @@ function createPreset(options: Schema): Rule {
         { interactive: false }
       ),
       schematic('library', { name: 'api-interfaces' }, { interactive: false }),
-      setDefaultCollection('@nrwl/angular'),
+      setDefaultCollection('@yolkai/nx-angular'),
       connectAngularAndNest(options)
     ]);
   } else if (options.preset === 'react-express') {
     return chain([
       externalSchematic(
-        '@nrwl/react',
+        '@yolkai/nx-react',
         'application',
         {
           name: options.name,
@@ -121,7 +121,7 @@ function createPreset(options: Schema): Rule {
         { interactive: false }
       ),
       externalSchematic(
-        '@nrwl/express',
+        '@yolkai/nx-express',
         'application',
         {
           name: 'api',
@@ -135,7 +135,7 @@ function createPreset(options: Schema): Rule {
         { name: 'api-interfaces', linter },
         { interactive: false }
       ),
-      setDefaultCollection('@nrwl/react'),
+      setDefaultCollection('@yolkai/nx-react'),
       connectReactAndExpress(options)
     ]);
   } else {
@@ -144,7 +144,7 @@ function createPreset(options: Schema): Rule {
 }
 
 function connectAngularAndNest(options: Schema) {
-  const addImportToModule = require('@nrwl/angular/src/utils/ast-utils')
+  const addImportToModule = require('@yolkai/nx-angular/src/utils/ast-utils')
     .addImportToModule;
   return (host: Tree) => {
     host.overwrite(

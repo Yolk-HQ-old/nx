@@ -27,7 +27,7 @@ import {
   updateJsonInTree,
   updateWorkspace,
   addLintFiles
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { join, normalize } from '@angular-devkit/core';
 import init from '../init/init';
 import {
@@ -39,7 +39,7 @@ import {
   insertImport,
   getProjectConfig,
   updateWorkspaceInTree
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 interface NormalizedSchema extends Schema {
   appProjectRoot: string;
@@ -112,10 +112,10 @@ const nrwlHomeTemplate = {
         <summary>Add UI library</summary>
         <pre>
 # Generate UI lib
-ng g @nrwl/angular:lib ui
+ng g @yolkai/nx-angular:lib ui
 
 # Add a component
-ng g @nrwl/angular:component xyz --project ui</pre
+ng g @yolkai/nx-angular:component xyz --project ui</pre
         >
     </details>
     <details>
@@ -489,7 +489,7 @@ function updateProject(options: NormalizedSchema): Rule {
           angularSchematicNames.forEach(type => {
             const schematic = `@schematics/angular:${type}`;
             if (schematic in fixedProject.schematics) {
-              fixedProject.schematics[`@nrwl/angular:${type}`] =
+              fixedProject.schematics[`@yolkai/nx-angular:${type}`] =
                 fixedProject.schematics[schematic];
               delete fixedProject.schematics[schematic];
             }
@@ -698,7 +698,7 @@ export default function(schema: Schema): Rule {
         ? updateE2eProject(options)
         : noop(),
       options.e2eTestRunner === 'cypress'
-        ? externalSchematic('@nrwl/cypress', 'cypress-project', {
+        ? externalSchematic('@yolkai/nx-cypress', 'cypress-project', {
             name: options.e2eProjectName,
             directory: options.directory,
             project: options.name,
@@ -713,7 +713,7 @@ export default function(schema: Schema): Rule {
       options.routing ? addRouterRootConfiguration(options) : noop(),
       updateLinting(options),
       options.unitTestRunner === 'jest'
-        ? externalSchematic('@nrwl/jest', 'jest-project', {
+        ? externalSchematic('@yolkai/nx-jest', 'jest-project', {
             project: options.name,
             supportTsx: false,
             skipSerializers: false,

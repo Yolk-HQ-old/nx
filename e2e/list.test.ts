@@ -17,7 +17,7 @@ forEachCli(() => {
         expect(listOutput).toContain('NX  Installed plugins');
 
         // just check for some, not all
-        expect(listOutput).toContain('@nrwl/angular');
+        expect(listOutput).toContain('@yolkai/nx-angular');
         expect(listOutput).toContain('@schematics/angular');
         expect(listOutput).toContain('@ngrx/store');
 
@@ -25,17 +25,17 @@ forEachCli(() => {
 
         // temporarily make it look like this isn't installed
         renameSync(
-          tmpProjPath('node_modules/@nrwl/angular'),
-          tmpProjPath('node_modules/@nrwl/angular_tmp')
+          tmpProjPath('node_modules/@yolkai/nx-angular'),
+          tmpProjPath('node_modules/@yolkai/nx-angular_tmp')
         );
 
         listOutput = runCommand('npm run nx -- list');
         expect(listOutput).toContain('NX  Also available');
 
         // look for specific plugin
-        listOutput = runCommand('npm run nx -- list @nrwl/workspace');
+        listOutput = runCommand('npm run nx -- list @yolkai/nx-workspace');
 
-        expect(listOutput).toContain('Capabilities in @nrwl/workspace');
+        expect(listOutput).toContain('Capabilities in @yolkai/nx-workspace');
 
         // check for schematics
         expect(listOutput).toContain('workspace');
@@ -46,10 +46,10 @@ forEachCli(() => {
         expect(listOutput).toContain('run-commands');
 
         // look for uninstalled approved plugin
-        listOutput = runCommand('npm run nx -- list @nrwl/angular');
+        listOutput = runCommand('npm run nx -- list @yolkai/nx-angular');
 
         expect(listOutput).toContain(
-          'NX   NOTE  @nrwl/angular is not currently installed'
+          'NX   NOTE  @yolkai/nx-angular is not currently installed'
         );
 
         // look for an unknown plugin
@@ -59,10 +59,10 @@ forEachCli(() => {
           'NX   ERROR  Could not find plugin @wibble/fish'
         );
 
-        // put back the @nrwl/angular module (or all the other e2e tests after this will fail)
+        // put back the @yolkai/nx-angular module (or all the other e2e tests after this will fail)
         renameSync(
-          tmpProjPath('node_modules/@nrwl/angular_tmp'),
-          tmpProjPath('node_modules/@nrwl/angular')
+          tmpProjPath('node_modules/@yolkai/nx-angular_tmp'),
+          tmpProjPath('node_modules/@yolkai/nx-angular')
         );
       },
       testTimeout

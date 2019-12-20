@@ -12,7 +12,7 @@ forEachCli(() => {
       ensureProject();
 
       const appName = uniq('app');
-      runCommand(`npm run nx -- g @nrwl/web:app ${appName}`);
+      runCommand(`npm run nx -- g @yolkai/nx-web:app ${appName}`);
       runCommand(`npm run nx -- build ${appName} --prod --outputHashing none`);
 
       checkFilesExist(

@@ -9,7 +9,7 @@ import {
   getWorkspace,
   readJsonInTree,
   updateJsonInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 import {
   parseConfigFileTextToJson,
@@ -36,7 +36,7 @@ async function updateCypressJson(host: Tree, context: SchematicContext) {
 
   workspace.projects.forEach(project => {
     project.targets.forEach(target => {
-      if (target.builder !== '@nrwl/cypress:cypress') {
+      if (target.builder !== '@yolkai/nx-cypress:cypress') {
         return;
       }
 
@@ -145,7 +145,7 @@ async function updatePlugins(host: Tree, context: SchematicContext) {
 
   workspace.projects.forEach(project => {
     project.targets.forEach(target => {
-      if (target.builder !== '@nrwl/cypress:cypress') {
+      if (target.builder !== '@yolkai/nx-cypress:cypress') {
         return;
       }
 
@@ -192,7 +192,7 @@ async function updatePlugins(host: Tree, context: SchematicContext) {
 
           recorder.insertLeft(
             0,
-            `const { preprocessTypescript } = require('@nrwl/cypress/plugins/preprocessor');`
+            `const { preprocessTypescript } = require('@yolkai/nx-cypress/plugins/preprocessor');`
           );
           sourceFile.statements.forEach(statement => {
             if (

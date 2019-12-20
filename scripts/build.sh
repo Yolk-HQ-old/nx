@@ -15,17 +15,17 @@ echo "Compiling Typescript..."
 echo "Compiled Typescript"
 
 #TODO This is a temporary hack until we can publish named umds
-sed -i.bak "s/define(\[/define('@nrwl\/angular',\[/" build/packages/angular/bundles/nrwl-angular.umd.js
-sed -i.bak "s/define(\[/define('@nrwl\/angular',\[/" build/packages/angular/bundles/nrwl-angular.umd.min.js
+sed -i.bak "s/define(\[/define('@yolkai\/angular',\[/" build/packages/angular/bundles/yolkai-nx-angular.umd.js
+sed -i.bak "s/define(\[/define('@yolkai\/angular',\[/" build/packages/angular/bundles/yolkai-nx-angular.umd.min.js
 
-rm -rf build/packages/angular/bundles/nrwl-angular.umd.js.bak
-rm -rf build/packages/angular/bundles/nrwl-angular.umd.min.js.bak
+rm -rf build/packages/angular/bundles/yolkai-nx-angular.umd.js.bak
+rm -rf build/packages/angular/bundles/yolkai-nx-angular.umd.min.js.bak
 
-sed -i.bak "s/define(\[/define('@nrwl\/angular\/testing',\[/" build/packages/angular/bundles/nrwl-angular-testing.umd.js
-sed -i.bak "s/define(\[/define('@nrwl\/angular\/testing',\[/" build/packages/angular/bundles/nrwl-angular-testing.umd.min.js
+sed -i.bak "s/define(\[/define('@yolkai\/angular\/testing',\[/" build/packages/angular/bundles/yolkai-nx-angular-testing.umd.js
+sed -i.bak "s/define(\[/define('@yolkai\/angular\/testing',\[/" build/packages/angular/bundles/yolkai-nx-angular-testing.umd.min.js
 
-rm -rf build/packages/angular/bundles/nrwl-angular-testing.umd.js.bak
-rm -rf build/packages/angular/bundles/nrwl-angular-testing.umd.min.js.bak
+rm -rf build/packages/angular/bundles/yolkai-nx-angular-testing.umd.js.bak
+rm -rf build/packages/angular/bundles/yolkai-nx-angular-testing.umd.min.js.bak
 
 rsync -a --exclude=*.ts packages/ build/packages
 chmod +x build/packages/create-nx-workspace/bin/create-nx-workspace.js

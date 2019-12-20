@@ -13,7 +13,7 @@ import * as yargs from 'yargs';
 import { ProjectGraph, ProjectGraphNode } from '../core/project-graph';
 import { Environment, NxJson } from '../core/shared-interfaces';
 import { projectHasTargetAndConfiguration } from '../utils/project-has-target-and-configuration';
-import { NxArgs } from '@nrwl/workspace/src/command-line/utils';
+import { NxArgs } from '@yolkai/nx-workspace/src/command-line/utils';
 
 export interface TasksMap {
   [projectName: string]: { [targetName: string]: Task };

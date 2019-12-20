@@ -10,7 +10,7 @@ import { Architect, BuilderContext, Target } from '@angular-devkit/architect';
 import { ScheduleOptions } from '@angular-devkit/architect/src/api';
 
 const testRunner = new SchematicTestRunner(
-  '@nrwl/node',
+  '@yolkai/nx-node',
   join(__dirname, '../../collection.json')
 );
 

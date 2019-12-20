@@ -13,7 +13,7 @@ By default, Nx will search for `configuration` in the default collection provisi
 You can specify the collection explicitly as follows:
 
 ```bash
-ng g @nrwl/storybook:configuration ...
+ng g @yolkai/storybook:configuration ...
 ```
 
 Show what will be generated without writing to disk:

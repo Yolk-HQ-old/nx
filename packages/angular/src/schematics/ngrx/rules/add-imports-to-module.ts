@@ -1,13 +1,13 @@
 import { Rule, Tree } from '@angular-devkit/schematics';
 import * as ts from 'typescript';
-import { toClassName, toFileName, toPropertyName } from '@nrwl/workspace';
-import { insert } from '@nrwl/workspace';
+import { toClassName, toFileName, toPropertyName } from '@yolkai/nx-workspace';
+import { insert } from '@yolkai/nx-workspace';
 import { RequestContext } from './request-context';
 import {
   addImportToModule,
   addProviderToModule
 } from '../../../utils/ast-utils';
-import { Change, insertImport } from '@nrwl/workspace/src/utils/ast-utils';
+import { Change, insertImport } from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 export function addImportsToModule(context: RequestContext): Rule {
   return (host: Tree) => {
@@ -59,7 +59,7 @@ export function addImportsToModule(context: RequestContext): Rule {
     const storeRouterModule = 'StoreRouterConnectingModule.forRoot()';
 
     // InsertImport [symbol,source] value pairs
-    const nxModuleImport = ['NxModule', '@nrwl/angular'];
+    const nxModuleImport = ['NxModule', '@yolkai/nx-angular'];
     const storeModule = ['StoreModule', '@ngrx/store'];
     const effectsModule = ['EffectsModule', '@ngrx/effects'];
     const storeDevTools = ['StoreDevtoolsModule', '@ngrx/store-devtools'];

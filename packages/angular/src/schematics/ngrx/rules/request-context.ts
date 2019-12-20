@@ -2,7 +2,7 @@ import * as path from 'path';
 
 import { Tree } from '@angular-devkit/schematics';
 import { Schema } from '../schema';
-import { stringUtils } from '@nrwl/workspace';
+import { stringUtils } from '@yolkai/nx-workspace';
 
 /**
  * Schematic request context

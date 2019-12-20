@@ -10,11 +10,11 @@ import {
   readJsonInTree,
   updateJsonInTree,
   updateWorkspaceInTree
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import {
   getSourceNodes,
   ReplaceChange
-} from '@nrwl/workspace/src/utils/ast-utils';
+} from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 const addExtensionRecommendations = updateJsonInTree(
   '.vscode/extensions.json',
@@ -376,27 +376,29 @@ const setDefaults = updateWorkspaceInTree(json => {
   if (!json.schematics) {
     json.schematics = {};
   }
-  if (!json.schematics['@nrwl/schematics:library']) {
-    json.schematics['@nrwl/schematics:library'] = {};
+  if (!json.schematics['@yolkai/nx-schematics:library']) {
+    json.schematics['@yolkai/nx-schematics:library'] = {};
   }
-  if (!json.schematics['@nrwl/schematics:library'].unitTestRunner) {
-    json.schematics['@nrwl/schematics:library'].unitTestRunner = 'karma';
+  if (!json.schematics['@yolkai/nx-schematics:library'].unitTestRunner) {
+    json.schematics['@yolkai/nx-schematics:library'].unitTestRunner = 'karma';
   }
-  if (!json.schematics['@nrwl/schematics:application']) {
-    json.schematics['@nrwl/schematics:application'] = {};
+  if (!json.schematics['@yolkai/nx-schematics:application']) {
+    json.schematics['@yolkai/nx-schematics:application'] = {};
   }
-  if (!json.schematics['@nrwl/schematics:application'].unitTestRunner) {
-    json.schematics['@nrwl/schematics:application'].unitTestRunner = 'karma';
+  if (!json.schematics['@yolkai/nx-schematics:application'].unitTestRunner) {
+    json.schematics['@yolkai/nx-schematics:application'].unitTestRunner =
+      'karma';
   }
-  if (!json.schematics['@nrwl/schematics:application'].e2eTestRunner) {
-    json.schematics['@nrwl/schematics:application'].e2eTestRunner =
+  if (!json.schematics['@yolkai/nx-schematics:application'].e2eTestRunner) {
+    json.schematics['@yolkai/nx-schematics:application'].e2eTestRunner =
       'protractor';
   }
-  if (!json.schematics['@nrwl/schematics:node-application']) {
-    json.schematics['@nrwl/schematics:node-application'] = {};
+  if (!json.schematics['@yolkai/nx-schematics:node-application']) {
+    json.schematics['@yolkai/nx-schematics:node-application'] = {};
   }
-  if (!json.schematics['@nrwl/schematics:node-application'].framework) {
-    json.schematics['@nrwl/schematics:node-application'].framework = 'express';
+  if (!json.schematics['@yolkai/nx-schematics:node-application'].framework) {
+    json.schematics['@yolkai/nx-schematics:node-application'].framework =
+      'express';
   }
   return json;
 });

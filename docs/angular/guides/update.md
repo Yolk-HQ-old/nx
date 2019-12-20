@@ -13,11 +13,11 @@ We recommend waiting for Nx to update these dependencies for you as we verify th
 All you you have to do to update Nx to the latest version is run the following:
 
 ```bash
-nx migrate @nrwl/workspace
-nx migrate @nrwl/workspace@version # you can also specify version
+nx migrate @yolkai/nx-workspace
+nx migrate @yolkai/nx-workspace@version # you can also specify version
 ```
 
-This will fetch the specified version of `@nrwl/workspace`, analyze the dependencies and fetch all the dependent packages. The process will keep going until the whole tree of dependencies is resolved. This will result in:
+This will fetch the specified version of `@yolkai/nx-workspace`, analyze the dependencies and fetch all the dependent packages. The process will keep going until the whole tree of dependencies is resolved. This will result in:
 
 - `package.json` being updated
 - `migrations.json` being generated
@@ -52,13 +52,13 @@ The migrate process can take a long time, sometimes day, so it can be useful to 
 Sometimes, you may want to use a different version of a package than what Nx recommends. You can do it as follows:
 
 ```bash
-nx migrate @nrwl/workspace --to="jest@22.0.0,cypress:3.4.0"
+nx migrate @yolkai/nx-workspace --to="jest@22.0.0,cypress:3.4.0"
 ```
 
 By default, Nx uses currently installed packages to calculate what migrations need to run. You can override them like this:
 
 ```bash
-nx migrate @nrwl/workspace --to="@nrwl/jest@8.0.0"
+nx migrate @yolkai/nx-workspace --to="@yolkai/nx-jest@8.0.0"
 ```
 
 ## Reverting a failed update

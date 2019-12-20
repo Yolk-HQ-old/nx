@@ -1,7 +1,7 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
-import { readJsonInTree } from '@nrwl/workspace';
-import { NxJson } from '@nrwl/workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
+import { readJsonInTree } from '@yolkai/nx-workspace';
+import { NxJson } from '@yolkai/nx-workspace';
 import { runSchematic } from '../../utils/testing';
 
 describe('lib', () => {
@@ -318,14 +318,14 @@ describe('lib', () => {
       const workspaceJson = readJsonInTree(tree, '/workspace.json');
 
       expect(workspaceJson.projects['my-lib'].architect.build).toMatchObject({
-        builder: '@nrwl/web:bundle',
+        builder: '@yolkai/nx-web:bundle',
         options: {
           entryFile: 'libs/my-lib/src/index.ts',
           outputPath: 'dist/libs/my-lib',
           project: 'libs/my-lib/package.json',
           tsConfig: 'libs/my-lib/tsconfig.lib.json',
-          babelConfig: '@nrwl/react/plugins/bundle-babel',
-          rollupConfig: '@nrwl/react/plugins/bundle-rollup'
+          babelConfig: '@yolkai/nx-react/plugins/bundle-babel',
+          rollupConfig: '@yolkai/nx-react/plugins/bundle-rollup'
         }
       });
     });

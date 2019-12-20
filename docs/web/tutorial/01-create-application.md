@@ -31,19 +31,19 @@ This is an empty Nx workspace without any applications or libraries: nothing to 
 First, we must add the capability to create web applications via:
 
 ```bash
-npm install --save-dev @nrwl/web
+npm install --save-dev @yolkai/nx-web
 ```
 
 or
 
 ```bash
-yarn add --dev @nrwl/web
+yarn add --dev @yolkai/nx-web
 ```
 
 Now, create your first web application.
 
 ```bash
-nx g @nrwl/web:application todos
+nx g @yolkai/nx-web:application todos
 ```
 
 Nx will ask you a few questions about the application you are trying to create: the directory it will be placed it, the tags used for linting, etc.. As your workspace grows, those things become really important. For now the default answers are good enough.

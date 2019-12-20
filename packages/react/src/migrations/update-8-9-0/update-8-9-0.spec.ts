@@ -6,7 +6,7 @@ import {
   updateWorkspaceInTree,
   readWorkspace,
   getWorkspacePath
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 
 import * as path from 'path';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
@@ -18,7 +18,7 @@ describe('Update 8-9-0', () => {
   beforeEach(async () => {
     tree = Tree.empty();
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/react',
+      '@yolkai/nx-react',
       path.join(__dirname, '../../../migrations.json')
     );
   });

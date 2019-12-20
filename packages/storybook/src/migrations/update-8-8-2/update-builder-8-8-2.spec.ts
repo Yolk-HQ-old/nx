@@ -6,7 +6,7 @@ import {
   updateWorkspaceInTree,
   readWorkspace,
   getWorkspacePath
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 
 import * as path from 'path';
 
@@ -17,7 +17,7 @@ describe('Update 8-8-2', () => {
   beforeEach(async () => {
     tree = Tree.empty();
     schematicRunner = new SchematicTestRunner(
-      '@nrwl/storybook',
+      '@yolkai/nx-storybook',
       path.join(__dirname, '../../../migrations.json')
     );
   });
@@ -34,7 +34,7 @@ describe('Update 8-8-2', () => {
             prefix: 'app',
             architect: {
               storybook: {
-                builder: '@nrwl/storybook:storybook',
+                builder: '@yolkai/nx-storybook:storybook',
                 options: {
                   uiFramework: '@storybook/angular',
                   port: 4400,
@@ -50,7 +50,7 @@ describe('Update 8-8-2', () => {
             sourceRoot: 'apps/home-ui-e2e/src',
             architect: {
               e2e: {
-                builder: '@nrwl/cypress:cypress',
+                builder: '@yolkai/nx-cypress:cypress',
                 options: {
                   cypressConfig: 'apps/home-ui-e2e/cypress.json',
                   tsConfig: 'apps/home-ui-e2e/tsconfig.e2e.json',
@@ -107,7 +107,7 @@ describe('Update 8-8-2', () => {
             prefix: 'app',
             architect: {
               storybook: {
-                builder: '@nrwl/storybook:storybook',
+                builder: '@yolkai/nx-storybook:storybook',
                 options: {
                   uiFramework: '@storybook/angular',
                   port: 4400,
@@ -123,7 +123,7 @@ describe('Update 8-8-2', () => {
             sourceRoot: 'apps/home-ui-e2e/src',
             architect: {
               e2e: {
-                builder: '@nrwl/cypress:cypress',
+                builder: '@yolkai/nx-cypress:cypress',
                 options: {
                   cypressConfig: 'apps/home-ui-e2e/cypress.json',
                   tsConfig: 'apps/home-ui-e2e/tsconfig.e2e.json',

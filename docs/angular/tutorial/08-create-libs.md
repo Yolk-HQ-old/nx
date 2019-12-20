@@ -10,7 +10,7 @@ Every library has an `index.ts` file, which defines its public API. Other applic
 
 To illustrate how useful libraries can be, create a library of Angular components.
 
-**Run `ng g @nrwl/angular:lib ui`.**
+**Run `ng g @yolkai/nx-angular:lib ui`.**
 
 You should see the following:
 

@@ -4,7 +4,7 @@ import {
   updateJsonInTree,
   addPackageWithInit,
   updateWorkspace
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { Schema } from './schema';
 import {
   reactVersion,
@@ -23,7 +23,7 @@ export function addDependencies(): Rule {
       'react-dom': reactDomVersion
     },
     {
-      '@nrwl/react': nxVersion,
+      '@yolkai/nx-react': nxVersion,
       '@types/react': typesReactVersion,
       '@types/react-dom': typesReactDomVersion,
       '@testing-library/react': testingLibraryReactVersion
@@ -35,7 +35,7 @@ function moveDependency(): Rule {
   return updateJsonInTree('package.json', json => {
     json.dependencies = json.dependencies || {};
 
-    delete json.dependencies['@nrwl/react'];
+    delete json.dependencies['@yolkai/nx-react'];
     return json;
   });
 }
@@ -48,19 +48,19 @@ function setDefault(): Rule {
       workspace.extensions.cli &&
       ((workspace.extensions.cli as JsonObject).defaultCollection as string);
 
-    if (!defaultCollection || defaultCollection === '@nrwl/workspace') {
+    if (!defaultCollection || defaultCollection === '@yolkai/nx-workspace') {
       (workspace.extensions.cli as JsonObject).defaultCollection =
-        '@nrwl/react';
+        '@yolkai/nx-react';
     }
 
     // Also generate all new react apps with babel.
     workspace.extensions.schematics =
       jsonIdentity(workspace.extensions.schematics) || {};
     const reactSchematics =
-      jsonIdentity(workspace.extensions.schematics['@nrwl/react']) || {};
+      jsonIdentity(workspace.extensions.schematics['@yolkai/nx-react']) || {};
     workspace.extensions.schematics = {
       ...workspace.extensions.schematics,
-      '@nrwl/react': {
+      '@yolkai/nx-react': {
         application: {
           ...jsonIdentity(reactSchematics.application),
           babel: true
@@ -77,9 +77,9 @@ function jsonIdentity(x: any): JsonObject {
 export default function(schema: Schema) {
   return chain([
     setDefault(),
-    addPackageWithInit('@nrwl/jest'),
-    addPackageWithInit('@nrwl/cypress'),
-    addPackageWithInit('@nrwl/web'),
+    addPackageWithInit('@yolkai/nx-jest'),
+    addPackageWithInit('@yolkai/nx-cypress'),
+    addPackageWithInit('@yolkai/nx-web'),
     addDependencies(),
     moveDependency()
   ]);

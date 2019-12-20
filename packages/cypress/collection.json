@@ -5,7 +5,7 @@
     "init": {
       "factory": "./src/schematics/init/init",
       "schema": "./src/schematics/init/schema.json",
-      "description": "Initialize the @nrwl/cypress plugin",
+      "description": "Initialize the @yolkai/nx-cypress plugin",
       "aliases": ["ng-add"],
       "hidden": true
     },

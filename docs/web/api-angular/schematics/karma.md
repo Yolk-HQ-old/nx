@@ -13,7 +13,7 @@ By default, Nx will search for `karma` in the default collection provisioned in 
 You can specify the collection explicitly as follows:
 
 ```bash
-nx g @nrwl/angular:karma ...
+nx g @yolkai/angular:karma ...
 ```
 
 Show what will be generated without writing to disk:

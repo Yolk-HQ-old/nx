@@ -1,5 +1,5 @@
 import { existsSync } from 'fs';
-import { readJsonFile, updateJsonFile } from '@nrwl/workspace';
+import { readJsonFile, updateJsonFile } from '@yolkai/nx-workspace';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 import { execSync } from 'child_process';
 import { join } from 'path';
@@ -40,7 +40,7 @@ export default {
       const currentVersion = readJsonFile(join(__dirname, '../../package.json'))
         .version;
       execSync(
-        `ng generate @schematics/update:migrate --package @nrwl/schematics --collection @nrwl/schematics/migrations/migrations.json --from 1.0.3 --to ${currentVersion}`,
+        `ng generate @schematics/update:migrate --package @yolkai/nx-schematics --collection @yolkai/nx-schematics/migrations/migrations.json --from 1.0.3 --to ${currentVersion}`,
         {
           stdio: [0, 1, 2]
         }
@@ -53,7 +53,7 @@ export default {
         
         * yarn install or npm install
         * ng update @angular/cli@6.0.1
-        * ng update @nrwl/schematics@6.0.0
+        * ng update @yolkai/nx-schematics@6.0.0
         
         The upgrade process creates a test target for every library. If you have a library
         that does not have specs, either set failOnEmptyTestSuite to false in karma.conf.js of the library, 

@@ -15,9 +15,9 @@ import {
   updateWorkspaceInTree,
   generateProjectLint,
   addLintFiles
-} from '@nrwl/workspace';
-import { offsetFromRoot } from '@nrwl/workspace';
-import { toFileName } from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
+import { offsetFromRoot } from '@yolkai/nx-workspace';
+import { toFileName } from '@yolkai/nx-workspace';
 import { Schema } from './schema';
 
 export interface CypressProjectSchema extends Schema {
@@ -55,7 +55,7 @@ function updateWorkspaceJson(options: CypressProjectSchema): Rule {
     const architect: any = {};
 
     architect.e2e = {
-      builder: '@nrwl/cypress:cypress',
+      builder: '@yolkai/nx-cypress:cypress',
       options: {
         cypressConfig: join(normalize(options.projectRoot), 'cypress.json'),
         tsConfig: join(normalize(options.projectRoot), 'tsconfig.e2e.json'),

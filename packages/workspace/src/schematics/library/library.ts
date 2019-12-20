@@ -14,11 +14,11 @@ import {
 import { join, normalize } from '@angular-devkit/core';
 import { Schema } from './schema';
 
-import { NxJson, updateWorkspaceInTree } from '@nrwl/workspace';
-import { updateJsonInTree, readJsonInTree } from '@nrwl/workspace';
-import { toFileName, names } from '@nrwl/workspace';
-import { formatFiles } from '@nrwl/workspace';
-import { offsetFromRoot } from '@nrwl/workspace';
+import { NxJson, updateWorkspaceInTree } from '@yolkai/nx-workspace';
+import { updateJsonInTree, readJsonInTree } from '@yolkai/nx-workspace';
+import { toFileName, names } from '@yolkai/nx-workspace';
+import { formatFiles } from '@yolkai/nx-workspace';
+import { offsetFromRoot } from '@yolkai/nx-workspace';
 import { generateProjectLint, addLintFiles } from '../../utils/lint';
 
 export interface NormalizedSchema extends Schema {
@@ -97,7 +97,7 @@ export default function(schema: Schema): Rule {
       addProject(options),
       updateNxJson(options),
       options.unitTestRunner !== 'none'
-        ? externalSchematic('@nrwl/jest', 'jest-project', {
+        ? externalSchematic('@yolkai/nx-jest', 'jest-project', {
             project: options.name,
             setupFile: 'none',
             supportTsx: true,

@@ -277,7 +277,7 @@ describe('Migration', () => {
 
     // this is temporary. if tao gets used by other projects,
     // we will extract the special casing
-    it('should special case @nrwl/workspace', async () => {
+    it('should special case @yolkai/nx-workspace', async () => {
       const migrator = new Migrator({
         versions: () => '1.0.0',
         fetch: (p, v) => Promise.resolve({ version: '2.0.0' }),
@@ -286,40 +286,67 @@ describe('Migration', () => {
       });
 
       expect(
-        await migrator.updatePackageJson('@nrwl/workspace', '2.0.0')
+        await migrator.updatePackageJson('@yolkai/nx-workspace', '2.0.0')
       ).toEqual({
         migrations: [],
         packageJson: {
-          '@nrwl/workspace': {
+          '@yolkai/nx-workspace': {
             version: '2.0.0',
             alwaysAddToPackageJson: false
           },
-          '@nrwl/angular': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/cypress': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/eslint-plugin-nx': {
+          '@yolkai/nx-angular': {
             version: '2.0.0',
             alwaysAddToPackageJson: false
           },
-          '@nrwl/express': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/jest': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/linter': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/nest': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/next': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/node': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/react': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/storybook': {
+          '@yolkai/nx-cypress': {
             version: '2.0.0',
             alwaysAddToPackageJson: false
           },
-          '@nrwl/tao': { version: '2.0.0', alwaysAddToPackageJson: false },
-          '@nrwl/web': { version: '2.0.0', alwaysAddToPackageJson: false }
+          '@yolkai/eslint-plugin-nx': {
+            version: '2.0.0',
+            alwaysAddToPackageJson: false
+          },
+          '@yolkai/nx-express': {
+            version: '2.0.0',
+            alwaysAddToPackageJson: false
+          },
+          '@yolkai/nx-jest': {
+            version: '2.0.0',
+            alwaysAddToPackageJson: false
+          },
+          '@yolkai/nx-linter': {
+            version: '2.0.0',
+            alwaysAddToPackageJson: false
+          },
+          '@yolkai/nx-nest': {
+            version: '2.0.0',
+            alwaysAddToPackageJson: false
+          },
+          '@yolkai/nx-next': {
+            version: '2.0.0',
+            alwaysAddToPackageJson: false
+          },
+          '@yolkai/nx-node': {
+            version: '2.0.0',
+            alwaysAddToPackageJson: false
+          },
+          '@yolkai/nx-react': {
+            version: '2.0.0',
+            alwaysAddToPackageJson: false
+          },
+          '@yolkai/nx-storybook': {
+            version: '2.0.0',
+            alwaysAddToPackageJson: false
+          },
+          '@yolkai/nx-tao': { version: '2.0.0', alwaysAddToPackageJson: false },
+          '@yolkai/nx-web': { version: '2.0.0', alwaysAddToPackageJson: false }
         }
       });
     });
 
     it('should not throw when packages are missing', async () => {
       const migrator = new Migrator({
-        versions: p => (p === '@nrwl/nest' ? null : '1.0.0'),
+        versions: p => (p === '@yolkai/nx-nest' ? null : '1.0.0'),
         fetch: (p, v) =>
           Promise.resolve({
             version: '2.0.0',
@@ -328,14 +355,14 @@ describe('Migration', () => {
         from: {},
         to: {}
       });
-      await migrator.updatePackageJson('@nrwl/workspace', '2.0.0');
+      await migrator.updatePackageJson('@yolkai/nx-workspace', '2.0.0');
     });
 
     it('should only fetch packages that are installed', async () => {
       const migrator = new Migrator({
-        versions: p => (p === '@nrwl/nest' ? null : '1.0.0'),
+        versions: p => (p === '@yolkai/nx-nest' ? null : '1.0.0'),
         fetch: (p, v) => {
-          if (p === '@nrwl/nest') {
+          if (p === '@yolkai/nx-nest') {
             throw new Error('Boom');
           }
           return Promise.resolve({
@@ -346,7 +373,7 @@ describe('Migration', () => {
         from: {},
         to: {}
       });
-      await migrator.updatePackageJson('@nrwl/workspace', '2.0.0');
+      await migrator.updatePackageJson('@yolkai/nx-workspace', '2.0.0');
     });
   });
 

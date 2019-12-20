@@ -17,7 +17,7 @@ By default, Nx will search for `application` in the default collection provision
 You can specify the collection explicitly as follows:
 
 ```bash
-nx g @nrwl/express:application ...
+nx g @yolkai/express:application ...
 ```
 
 Show what will be generated without writing to disk:

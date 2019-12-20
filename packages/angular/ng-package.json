@@ -11,7 +11,7 @@
     }
   },
   "whitelistedNonPeerDependencies": [
-    "@nrwl/",
+    "@yolkai/",
     "@angular-devkit",
     "@schematics",
     "jasmine-marbles"

@@ -15,13 +15,13 @@ Install the Nx CLI globally on your system using your preferred package manager:
 Using npm:
 
 ```bash
-npm install -g @nrwl/cli
+npm install -g @yolkai/nx-cli
 ```
 
 Using yarn:
 
 ```bash
-yarn global add @nrwl/cli
+yarn global add @yolkai/nx-cli
 ```
 
 Afer the Nx CLI is installed, you will have an `nx` executable you use to run commands in your workspace.
@@ -39,7 +39,7 @@ To create, build, and serve a new application, go to the root directory of your 
 To generate a new application:
 
 ```bash
-nx generate @nrwl/react:app myapp
+nx generate @yolkai/nx-react:app myapp
 ```
 
 > Substitute `myapp` with the name of your application. Also use the `--help` option to see the other options for generating an app.
@@ -77,10 +77,10 @@ nx list
 And to list the schematics within a specific collection :
 
 ```bash
-nx list @nrwl/web
+nx list @yolkai/nx-web
 ```
 
-This will list all the schematics in the `@nrwl/web` collection.
+This will list all the schematics in the `@yolkai/nx-web` collection.
 
 `nx list` will also output a list of Nrwl-approved plugins that you may want to consider adding to your workspace.
 
@@ -97,13 +97,13 @@ The workspace configuration file is updated when adding new applications, or lib
 The Nx CLI uses code generators to automate creation of files, configuration of modern tools, and workspace tasks to increase your productivity when using a monorepo. These tasks are accomplished using schematics. Schematics provide the underlying APIs for scaffolding, and utilities to automate changes to your filesystem. The example below is the command to generate a new application.
 
 ```sh
-nx generate @nrwl/react:application myapp
+nx generate @yolkai/nx-react:application myapp
 ```
 
-The `@nrwl/react` package contains a collection of schematics, with `application` being the one used in this example. The Nx CLI applies the schematic to your workspace, verifying that the provided options are valid, and the destination files don't already exist. Once the validations are passed, the new files are generated, or existing files are updated. You can also customize the output of the generated application, by passing options to the schematic.
+The `@yolkai/nx-react` package contains a collection of schematics, with `application` being the one used in this example. The Nx CLI applies the schematic to your workspace, verifying that the provided options are valid, and the destination files don't already exist. Once the validations are passed, the new files are generated, or existing files are updated. You can also customize the output of the generated application, by passing options to the schematic.
 
 ```sh
-nx generate @nrwl/react:application myapp --style=scss
+nx generate @yolkai/nx-react:application myapp --style=scss
 ```
 
 The command above generates a new application using SASS for styles instead of CSS. You can see the options available to the [application schematic](/react/api/react/schematics/application) and others in the [api docs](/react/api/home).
@@ -130,7 +130,7 @@ Defaults are defined under the `schematics` key in your project-specific configu
       "sourceRoot": "apps/myapp/src",
       "projectType": "application",
       "schematics": {
-        "@nrwl/react:component": {
+        "@yolkai/nx-react:component": {
           "style": "scss"
         }
       },
@@ -153,14 +153,14 @@ Defaults are defined under the `schematics` top-level key in your `workspace.jso
       "sourceRoot": "apps/myapp/src",
       "projectType": "application",
       "schematics": {
-        "@nrwl/react:component": {
+        "@yolkai/nx-react:component": {
           "style": "scss"
         }
       }
     }
   },
   "schematics": {
-    "@nrwl/react": {
+    "@yolkai/nx-react": {
       "component": {
         "style": "css",
         "routing": false
@@ -188,22 +188,22 @@ You can also set default schematics for your workspace by configuring the `defau
       "sourceRoot": "apps/myapp/src",
       "projectType": "application",
       "schematics": {
-        "@nrwl/react:component": {
+        "@yolkai/nx-react:component": {
           "style": "scss"
         }
       }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/react"
+    "defaultCollection": "@yolkai/nx-react"
   }
 }
 ```
 
-Setting `@nrwl/react` as the default collection allows you to use shorthand syntax to run the schematics command. Without a default, you have to specify the collection for the schematics.
+Setting `@yolkai/nx-react` as the default collection allows you to use shorthand syntax to run the schematics command. Without a default, you have to specify the collection for the schematics.
 
 ```sh
-nx g @nrwl/react:app mysecondapp
+nx g @yolkai/nx-react:app mysecondapp
 ```
 
 With the default set, the command becomes much shorter:
@@ -222,7 +222,7 @@ A builder is a function that uses the Architect API to perform a complex process
 
 The Nx CLI command `nx run` invokes a builder with a specific target configuration. The workspace configuration file, `workspace.json`, contains default configurations for built-in builders.
 
-An example is the builder named `build` defined in the `@nrwl/web` package. This builder is configured through options defined in the `workspace.json` to bundle your React application for local development, as well as bundle for production distribution. The `dev-server` is another builder that spins up a web-server during local development when you run the `nx serve myapp` command.
+An example is the builder named `build` defined in the `@yolkai/nx-web` package. This builder is configured through options defined in the `workspace.json` to bundle your React application for local development, as well as bundle for production distribution. The `dev-server` is another builder that spins up a web-server during local development when you run the `nx serve myapp` command.
 
 To run a builder with the Nx CLI, invoke it with the `nx run` command, passing your project and the target configuration.
 

@@ -13,7 +13,7 @@ By default, Nx will search for `workspace-schematic` in the default collection p
 You can specify the collection explicitly as follows:
 
 ```bash
-ng g @nrwl/workspace:workspace-schematic ...
+ng g @yolkai/workspace:workspace-schematic ...
 ```
 
 Show what will be generated without writing to disk:

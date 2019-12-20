@@ -1,4 +1,4 @@
-import { packagesWeCareAbout } from '@nrwl/workspace/src/command-line/report';
+import { packagesWeCareAbout } from '@yolkai/nx-workspace/src/command-line/report';
 import { ensureProject, forEachCli, runCommand } from './utils';
 
 const testTimeout = 120000;

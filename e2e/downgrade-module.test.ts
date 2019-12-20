@@ -14,7 +14,9 @@ forEachCli('angular', () => {
       ensureProject();
 
       const myapp = uniq('myapp');
-      runCLI(`generate @nrwl/angular:app ${myapp} --unit-test-runner=karma`);
+      runCLI(
+        `generate @yolkai/nx-angular:app ${myapp} --unit-test-runner=karma`
+      );
       patchKarmaToWorkOnWSL();
 
       updateFile(
@@ -23,7 +25,7 @@ forEachCli('angular', () => {
       );
 
       runCLI(
-        `generate @nrwl/angular:downgrade-module legacy --angularJsImport=./legacy --project=${myapp}`
+        `generate @yolkai/nx-angular:downgrade-module legacy --angularJsImport=./legacy --project=${myapp}`
       );
 
       runCLI(`build ${myapp}`);

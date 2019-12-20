@@ -30,7 +30,7 @@ npx --ignore-existing create-nx-workspace happynrwl --preset=react
 If you used the react preset, you are all set and can skip this. If you created an empty workspace or have an existing workspace, you can add React capabilities to the workspace:
 
 ```bash
-ng add @nrwl/react
+ng add @yolkai/nx-react
 ```
 
 ## Generating a React Application
@@ -38,7 +38,7 @@ ng add @nrwl/react
 Run
 
 ```bash
-ng g @nrwl/react:app frontend
+ng g @yolkai/nx-react:app frontend
 ```
 
 and you will see the following:
@@ -100,7 +100,7 @@ As with Angular and Node, when using React in Nx, you get the out-of-the-box sup
 Run
 
 ```bash
-ng g @nrwl/react:lib home
+ng g @yolkai/nx-react:lib home
 ```
 
 and you will see the following:

@@ -3,11 +3,11 @@
 When using Nx you can build and test individual apps and libs.
 
 ```bash
-nx g @nrwl/web:app client
-nx g @nrwl/web:app admin
-nx g @nrwl/workspace:lib client-feature-main
-nx g @nrwl/workspace:lib admin-feature-permissions
-nx g @nrwl/workspace:lib components-shared
+nx g @yolkai/nx-web:app client
+nx g @yolkai/nx-web:app admin
+nx g @yolkai/nx-workspace:lib client-feature-main
+nx g @yolkai/nx-workspace:lib admin-feature-permissions
+nx g @yolkai/nx-workspace:lib components-shared
 
 nx build client
 nx build client-feature-main # works if the lib is marked as publishable

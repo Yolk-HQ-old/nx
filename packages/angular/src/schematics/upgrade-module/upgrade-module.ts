@@ -12,12 +12,16 @@ import {
   url
 } from '@angular-devkit/schematics';
 
-import { names, toClassName, toFileName } from '@nrwl/workspace';
+import { names, toClassName, toFileName } from '@yolkai/nx-workspace';
 import * as path from 'path';
-import { addMethod, addParameterToConstructor, insert } from '@nrwl/workspace';
+import {
+  addMethod,
+  addParameterToConstructor,
+  insert
+} from '@yolkai/nx-workspace';
 import { Schema } from './schema';
 import { addUpgradeToPackageJson } from '../../utils/upgrade';
-import { formatFiles } from '@nrwl/workspace';
+import { formatFiles } from '@yolkai/nx-workspace';
 import {
   addDeclarationToModule,
   addEntryComponents,
@@ -26,7 +30,7 @@ import {
   readBootstrapInfo,
   removeFromNgModule
 } from '../../utils/ast-utils';
-import { insertImport } from '@nrwl/workspace/src/utils/ast-utils';
+import { insertImport } from '@yolkai/nx-workspace/src/utils/ast-utils';
 
 function addImportsToModule(options: Schema): Rule {
   return (host: Tree) => {

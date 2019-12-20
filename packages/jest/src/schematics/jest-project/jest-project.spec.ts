@@ -1,6 +1,6 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
-import { readJsonInTree, updateJsonInTree } from '@nrwl/workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
+import { readJsonInTree, updateJsonInTree } from '@yolkai/nx-workspace';
 import { runSchematic, callRule } from '../../utils/testing';
 
 describe('jestProject', () => {
@@ -63,7 +63,7 @@ describe('jestProject', () => {
     );
     const workspaceJson = readJsonInTree(resultTree, 'workspace.json');
     expect(workspaceJson.projects.lib1.architect.test).toEqual({
-      builder: '@nrwl/jest:jest',
+      builder: '@yolkai/nx-jest:jest',
       options: {
         jestConfig: 'libs/lib1/jest.config.js',
         setupFile: 'libs/lib1/src/test-setup.ts',

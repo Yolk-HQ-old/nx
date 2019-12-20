@@ -12,7 +12,7 @@ import {
   tmpProjPath,
   supportUi
 } from './utils';
-import { toClassName } from '@nrwl/workspace';
+import { toClassName } from '@yolkai/nx-workspace';
 
 forEachCli(() => {
   describe('Create New Workspace', () => {
@@ -24,10 +24,10 @@ forEachCli(() => {
       const myapp = uniq('myapp');
       const mylib = uniq('mylib');
       runCLI(
-        `generate @nrwl/angular:app ${myapp} --directory=myDir --no-interactive`
+        `generate @yolkai/nx-angular:app ${myapp} --directory=myDir --no-interactive`
       );
       runCLI(
-        `generate @nrwl/angular:lib ${mylib} --directory=myDir --no-interactive`
+        `generate @yolkai/nx-angular:lib ${mylib} --directory=myDir --no-interactive`
       );
 
       updateFile(
@@ -87,9 +87,11 @@ forEachCli(() => {
     it('should support router config generation (lazy)', async () => {
       const myapp = uniq('myapp');
       const mylib = uniq('mylib');
-      runCLI(`generate @nrwl/angular:app ${myapp} --directory=myDir --routing`);
       runCLI(
-        `generate @nrwl/angular:lib ${mylib} --directory=myDir --routing --lazy --parentModule=apps/my-dir/${myapp}/src/app/app.module.ts`
+        `generate @yolkai/nx-angular:app ${myapp} --directory=myDir --routing`
+      );
+      runCLI(
+        `generate @yolkai/nx-angular:lib ${mylib} --directory=myDir --routing --lazy --parentModule=apps/my-dir/${myapp}/src/app/app.module.ts`
       );
 
       runCLI(`build my-dir-${myapp} --aot`);
@@ -98,10 +100,12 @@ forEachCli(() => {
 
     it('should support router config generation (eager)', async () => {
       const myapp = uniq('myapp');
-      runCLI(`generate @nrwl/angular:app ${myapp} --directory=myDir --routing`);
+      runCLI(
+        `generate @yolkai/nx-angular:app ${myapp} --directory=myDir --routing`
+      );
       const mylib = uniq('mylib');
       runCLI(
-        `generate @nrwl/angular:lib ${mylib} --directory=myDir --routing --parentModule=apps/my-dir/${myapp}/src/app/app.module.ts`
+        `generate @yolkai/nx-angular:lib ${mylib} --directory=myDir --routing --parentModule=apps/my-dir/${myapp}/src/app/app.module.ts`
       );
 
       runCLI(`build my-dir-${myapp} --aot`);
@@ -111,7 +115,7 @@ forEachCli(() => {
     it('should support Ivy', async () => {
       const myapp = uniq('myapp');
       runCLI(
-        `generate @nrwl/angular:app ${myapp} --directory=myDir --routing --enable-ivy`
+        `generate @yolkai/nx-angular:app ${myapp} --directory=myDir --routing --enable-ivy`
       );
 
       runCLI(`build my-dir-${myapp} --aot`);

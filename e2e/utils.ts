@@ -67,11 +67,11 @@ function patchPackageJsonDeps(addWorkspace = true) {
   const storybookPath = path.join(getCwd(), 'build', 'packages', 'storybook');
 
   if (addWorkspace) {
-    p.devDependencies['@nrwl/workspace'] = `file:${workspacePath}`;
+    p.devDependencies['@yolkai/nx-workspace'] = `file:${workspacePath}`;
   }
-  p.devDependencies['@nrwl/angular'] = `file:${angularPath}`;
-  p.devDependencies['@nrwl/react'] = `file:${reactPath}`;
-  p.devDependencies['@nrwl/storybook'] = `file:${storybookPath}`;
+  p.devDependencies['@yolkai/nx-angular'] = `file:${angularPath}`;
+  p.devDependencies['@yolkai/nx-react'] = `file:${reactPath}`;
+  p.devDependencies['@yolkai/nx-storybook'] = `file:${storybookPath}`;
   writeFileSync(tmpProjPath('package.json'), JSON.stringify(p, null, 2));
 }
 
@@ -88,7 +88,7 @@ export function runYarnInstall(silent: boolean = true) {
  *
  * @param args Extra arguments to pass to the `new` command
  * @param silent Run in silent mode (no output)
- * @param addWorkspace Include `@nrwl/workspace` when patching the `package.json` paths
+ * @param addWorkspace Include `@yolkai/nx-workspace` when patching the `package.json` paths
  */
 export function runNew(
   args?: string,
@@ -107,7 +107,7 @@ export function runNew(
     );
   } else {
     gen = execSync(
-      `node ../../node_modules/@nrwl/tao/index.js new proj --no-interactive --skip-install ${args ||
+      `node ../../node_modules/@yolkai/nx-tao/index.js new proj --no-interactive --skip-install ${args ||
         ''}`,
       {
         cwd: `./tmp/${cli}`,
@@ -128,7 +128,7 @@ export function runNew(
 export function newProject(): void {
   cleanup();
   if (!directoryExists(tmpBackupProjPath())) {
-    runNew('--collection=@nrwl/workspace --npmScope=proj', true);
+    runNew('--collection=@yolkai/nx-workspace --npmScope=proj', true);
     copyMissingPackages();
 
     writeFileSync(
@@ -174,7 +174,7 @@ export function supportUi() {
 export function copyMissingPackages(): void {
   const modulesToCopy = [
     '@ngrx',
-    '@nrwl',
+    '@yolkai',
     'angular',
     '@angular',
     '@angular-devkit',
@@ -343,7 +343,7 @@ export function runCLIAsync(
   }
 ): Promise<{ stdout: string; stderr: string }> {
   return runCommandAsync(
-    `node ./node_modules/@nrwl/cli/bin/nx.js ${command}`,
+    `node ./node_modules/@yolkai/nx-cli/bin/nx.js ${command}`,
     opts
   );
 }
@@ -380,7 +380,7 @@ export function runCLI(
   }
 ): string {
   try {
-    return execSync(`node ./node_modules/@nrwl/cli/bin/nx.js ${command}`, {
+    return execSync(`node ./node_modules/@yolkai/nx-cli/bin/nx.js ${command}`, {
       cwd: tmpProjPath()
     })
       .toString()

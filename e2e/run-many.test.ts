@@ -18,10 +18,22 @@ forEachCli(() => {
       const libC = uniq('libc-rand');
       const libD = uniq('libd-rand');
 
-      l(runCLI(`generate @nrwl/angular:lib ${libA} --publishable --defaults`));
-      l(runCLI(`generate @nrwl/angular:lib ${libB} --publishable --defaults`));
-      l(runCLI(`generate @nrwl/angular:lib ${libC} --publishable --defaults`));
-      l(runCLI(`generate @nrwl/angular:lib ${libD} --defaults`));
+      l(
+        runCLI(
+          `generate @yolkai/nx-angular:lib ${libA} --publishable --defaults`
+        )
+      );
+      l(
+        runCLI(
+          `generate @yolkai/nx-angular:lib ${libB} --publishable --defaults`
+        )
+      );
+      l(
+        runCLI(
+          `generate @yolkai/nx-angular:lib ${libC} --publishable --defaults`
+        )
+      );
+      l(runCLI(`generate @yolkai/nx-angular:lib ${libD} --defaults`));
 
       l('=======> libA depends on libC');
       updateFile(

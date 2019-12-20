@@ -15,7 +15,7 @@ import {
 import { Schema } from './schema';
 import * as path from 'path';
 
-import { names, toFileName } from '@nrwl/workspace';
+import { names, toFileName } from '@yolkai/nx-workspace';
 
 import {
   addImportsToModule,
@@ -23,7 +23,7 @@ import {
   addExportsToBarrel,
   RequestContext
 } from './rules';
-import { formatFiles } from '@nrwl/workspace';
+import { formatFiles } from '@yolkai/nx-workspace';
 
 /**
  * Rule to generate the Nx 'ngrx' Collection

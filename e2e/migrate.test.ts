@@ -68,7 +68,7 @@ forEachCli(() => {
       );
 
       updateFile(
-        './node_modules/@nrwl/tao/src/commands/migrate.js',
+        './node_modules/@yolkai/nx-tao/src/commands/migrate.js',
         content => {
           const start = content.indexOf('// testing-fetch-start');
           const end = content.indexOf('// testing-fetch-end');

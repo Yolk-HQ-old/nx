@@ -37,7 +37,7 @@ cd myworkspace
 If you already have a regular Angular CLI project, you can add Nx power-ups by running:
 
 ```bash
-ng add @nrwl/workspace
+ng add @yolkai/nx-workspace
 ```
 
 ## Adding Capabilities
@@ -47,37 +47,37 @@ If you haven't specified any presets, you will get an empty Nx workspace. There 
 **Using `npm`**
 
 ```bash
-npm install --save-dev @nrwl/angular # Adds Angular capabilities
-npm install --save-dev @nrwl/web # Adds Web capabilities
-npm install --save-dev @nrwl/react # Adds React capabilities
-npm install --save-dev @nrwl/node # Adds Node capabilities
-npm install --save-dev @nrwl/express # Adds Express capabilities
-npm install --save-dev @nrwl/nest # Adds Nest capabilities
-npm install --save-dev @nrwl/next # Adds Next.js capabilities
+npm install --save-dev @yolkai/nx-angular # Adds Angular capabilities
+npm install --save-dev @yolkai/nx-web # Adds Web capabilities
+npm install --save-dev @yolkai/nx-react # Adds React capabilities
+npm install --save-dev @yolkai/nx-node # Adds Node capabilities
+npm install --save-dev @yolkai/nx-express # Adds Express capabilities
+npm install --save-dev @yolkai/nx-nest # Adds Nest capabilities
+npm install --save-dev @yolkai/nx-next # Adds Next.js capabilities
 ```
 
 **Using `yarn`**
 
 ```bash
-yarn add --dev @nrwl/react # Adds React capabilities
-yarn add --dev @nrwl/web # Adds Web capabilities
-yarn add --dev @nrwl/angular # Adds Angular capabilities
-yarn add --dev @nrwl/node # Adds Node capabilities
-yarn add --dev @nrwl/express # Adds Express capabilities
-yarn add --dev @nrwl/nest # Adds Nest capabilities
-yarn add --dev @nrwl/next # Adds Next.js capabilities
+yarn add --dev @yolkai/nx-react # Adds React capabilities
+yarn add --dev @yolkai/nx-web # Adds Web capabilities
+yarn add --dev @yolkai/nx-angular # Adds Angular capabilities
+yarn add --dev @yolkai/nx-node # Adds Node capabilities
+yarn add --dev @yolkai/nx-express # Adds Express capabilities
+yarn add --dev @yolkai/nx-nest # Adds Nest capabilities
+yarn add --dev @yolkai/nx-next # Adds Next.js capabilities
 ```
 
 **Using `ng add`**
 
 ```bash
-ng add @nrwl/angular # Adds Angular capabilities
-ng add @nrwl/web # Adds Web capabilities
-ng add @nrwl/react # Adds React capabilities
-ng add @nrwl/node # Adds Node capabilities
-ng add @nrwl/express # Adds Express capabilities
-ng add @nrwl/nest # Adds Nest capabilities
-ng add @nrwl/next # Adds Next.js capabilities
+ng add @yolkai/nx-angular # Adds Angular capabilities
+ng add @yolkai/nx-web # Adds Web capabilities
+ng add @yolkai/nx-react # Adds React capabilities
+ng add @yolkai/nx-node # Adds Node capabilities
+ng add @yolkai/nx-express # Adds Express capabilities
+ng add @yolkai/nx-nest # Adds Nest capabilities
+ng add @yolkai/nx-next # Adds Next.js capabilities
 ```
 
 ## Discover Capabilities
@@ -93,10 +93,10 @@ This will output a list of all the plugins you have just added, alongside some t
 To list the capabilities within a specific plugin :
 
 ```bash
-nx list @nrwl/web
+nx list @yolkai/nx-web
 ```
 
-This will list all the capabilities in the `@nrwl/web` collection.
+This will list all the capabilities in the `@yolkai/nx-web` collection.
 
 `nx list` will also output a list of Nrwl-approved plugins that you may want to consider adding to your workspace.
 
@@ -105,7 +105,7 @@ This will list all the capabilities in the `@nrwl/web` collection.
 After the capability is added, you can now create your first application via:
 
 ```bash
-ng g @nrwl/angular:application myapp
+ng g @yolkai/nx-angular:application myapp
 ```
 
 The following files and folders are generated in the new application:

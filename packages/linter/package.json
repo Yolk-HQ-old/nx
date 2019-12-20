@@ -1,5 +1,5 @@
 {
-  "name": "@nrwl/linter",
+  "name": "@yolkai/nx-linter",
   "version": "0.0.1",
   "description": "Lint Plugin for Nx",
   "repository": {
@@ -24,7 +24,7 @@
   "homepage": "https://nx.dev",
   "builders": "./builders.json",
   "peerDependencies": {
-    "@nrwl/workspace": "*"
+    "@yolkai/nx-workspace": "*"
   },
   "dependencies": {
     "@angular-devkit/architect": "0.803.14",

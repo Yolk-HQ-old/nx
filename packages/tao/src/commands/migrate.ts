@@ -168,24 +168,24 @@ export class Migrator {
     // this should be used to know what version to include
     // we should use from everywhere we use versions
 
-    if (packageName === '@nrwl/workspace') {
+    if (packageName === '@yolkai/nx-workspace') {
       if (!m.packageJsonUpdates) m.packageJsonUpdates = {};
       m.packageJsonUpdates[targetVersion + '-defaultPackages'] = {
         version: targetVersion,
         packages: [
-          '@nrwl/angular',
-          '@nrwl/cypress',
-          '@nrwl/eslint-plugin-nx',
-          '@nrwl/express',
-          '@nrwl/jest',
-          '@nrwl/linter',
-          '@nrwl/nest',
-          '@nrwl/next',
-          '@nrwl/node',
-          '@nrwl/react',
-          '@nrwl/storybook',
-          '@nrwl/tao',
-          '@nrwl/web'
+          '@yolkai/nx-angular',
+          '@yolkai/nx-cypress',
+          '@yolkai/eslint-plugin-nx',
+          '@yolkai/nx-express',
+          '@yolkai/nx-jest',
+          '@yolkai/nx-linter',
+          '@yolkai/nx-nest',
+          '@yolkai/nx-next',
+          '@yolkai/nx-node',
+          '@yolkai/nx-react',
+          '@yolkai/nx-storybook',
+          '@yolkai/nx-tao',
+          '@yolkai/nx-web'
         ].reduce(
           (m, c) => ({
             ...m,
@@ -291,10 +291,10 @@ function parseMigrationsOptions(
       targetPackage = args[0].substring(0, i);
       targetVersion = args[0].substring(i + 1);
     } else if (args[0]) {
-      targetPackage = '@nrwl/workspace';
+      targetPackage = '@yolkai/nx-workspace';
       targetVersion = args[0];
     } else {
-      targetPackage = '@nrwl/workspace';
+      targetPackage = '@yolkai/nx-workspace';
       targetVersion = 'latest';
     }
 
@@ -465,13 +465,13 @@ async function generateMigrationsJsonAndUpdatePackageJson(
       );
     }
   } catch (e) {
-    const startVersion = versions(root, {})('@nrwl/workspace');
+    const startVersion = versions(root, {})('@yolkai/nx-workspace');
     logger.error(
       `The migrate command failed. Try the following to migrate your workspace:`
     );
-    logger.error(`> npm install --save-dev @nrwl/workspace@latest`);
+    logger.error(`> npm install --save-dev @yolkai/nx-workspace@latest`);
     logger.error(
-      `> nx migrate ${opts.targetPackage}@${opts.targetVersion} --from="@nrwl/workspace@${startVersion}"`
+      `> nx migrate ${opts.targetPackage}@${opts.targetVersion} --from="@yolkai/nx-workspace@${startVersion}"`
     );
     logger.error(
       `This will use the newest version of the migrate functionality, which might have your issue resolved.`

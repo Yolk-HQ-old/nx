@@ -3,14 +3,14 @@ import {
   updateJsonInTree,
   addPackageWithInit,
   formatFiles
-} from '@nrwl/workspace';
-import { addDepsToPackageJson } from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
+import { addDepsToPackageJson } from '@yolkai/nx-workspace';
 import { Schema } from './schema';
 import {
   nxVersion,
   documentRegisterElementVersion
 } from '../../utils/versions';
-import { updateWorkspace } from '@nrwl/workspace';
+import { updateWorkspace } from '@yolkai/nx-workspace';
 import { JsonObject } from '@angular-devkit/core';
 
 function addDependencies(): Rule {
@@ -19,7 +19,7 @@ function addDependencies(): Rule {
       'document-register-element': documentRegisterElementVersion
     },
     {
-      '@nrwl/web': nxVersion
+      '@yolkai/nx-web': nxVersion
     }
   );
 }
@@ -28,7 +28,7 @@ function moveDependency(): Rule {
   return updateJsonInTree('package.json', json => {
     json.dependencies = json.dependencies || {};
 
-    delete json.dependencies['@nrwl/web'];
+    delete json.dependencies['@yolkai/nx-web'];
     return json;
   });
 }
@@ -41,8 +41,9 @@ function setDefault(): Rule {
       workspace.extensions.cli &&
       ((workspace.extensions.cli as JsonObject).defaultCollection as string);
 
-    if (!defaultCollection || defaultCollection === '@nrwl/workspace') {
-      (workspace.extensions.cli as JsonObject).defaultCollection = '@nrwl/web';
+    if (!defaultCollection || defaultCollection === '@yolkai/nx-workspace') {
+      (workspace.extensions.cli as JsonObject).defaultCollection =
+        '@yolkai/nx-web';
     }
   });
 }
@@ -50,8 +51,8 @@ function setDefault(): Rule {
 export default function(schema: Schema) {
   return chain([
     setDefault(),
-    addPackageWithInit('@nrwl/jest'),
-    addPackageWithInit('@nrwl/cypress'),
+    addPackageWithInit('@yolkai/nx-jest'),
+    addPackageWithInit('@yolkai/nx-cypress'),
     addDependencies(),
     moveDependency(),
     formatFiles(schema)

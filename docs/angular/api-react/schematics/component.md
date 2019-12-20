@@ -17,7 +17,7 @@ By default, Nx will search for `component` in the default collection provisioned
 You can specify the collection explicitly as follows:
 
 ```bash
-ng g @nrwl/react:component ...
+ng g @yolkai/react:component ...
 ```
 
 Show what will be generated without writing to disk:

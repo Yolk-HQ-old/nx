@@ -1,8 +1,11 @@
 import { Tree } from '@angular-devkit/schematics';
 import * as stripJsonComments from 'strip-json-comments';
-import { createEmptyWorkspace, getFileContent } from '@nrwl/workspace/testing';
+import {
+  createEmptyWorkspace,
+  getFileContent
+} from '@yolkai/nx-workspace/testing';
 import { runSchematic } from '../../utils/testing';
-import { NxJson, readJsonInTree } from '@nrwl/workspace';
+import { NxJson, readJsonInTree } from '@yolkai/nx-workspace';
 import { createApp } from '../../../../angular/src/utils/testing';
 
 describe('app', () => {
@@ -22,7 +25,7 @@ describe('app', () => {
       expect(project.architect).toEqual(
         jasmine.objectContaining({
           build: {
-            builder: '@nrwl/node:build',
+            builder: '@yolkai/nx-node:build',
             options: {
               outputPath: 'dist/apps/my-node-app',
               main: 'apps/my-node-app/src/main.ts',
@@ -45,7 +48,7 @@ describe('app', () => {
             }
           },
           serve: {
-            builder: '@nrwl/node:execute',
+            builder: '@yolkai/nx-node:execute',
             options: {
               buildTarget: 'my-node-app:build'
             }

@@ -21,12 +21,12 @@ describe('project graph', () => {
 
   beforeEach(() => {
     packageJson = {
-      name: '@nrwl/workspace-src',
+      name: '@yolkai/nx-workspace-src',
       dependencies: {
         'happy-nrwl': '1.0.0'
       },
       devDependencies: {
-        '@nrwl/workspace': '*'
+        '@yolkai/nx-workspace': '*'
       }
     };
     workspaceJson = {
@@ -85,13 +85,13 @@ describe('project graph', () => {
         console.log('starting server');
       `,
       './apps/demo/src/index.ts': stripIndents`
-        import * as ui from '@nrwl/ui';
+        import * as ui from '@yolkai/ui';
       `,
       './apps/demo-e2e/src/integration/app.spec.ts': stripIndents`
         describe('whatever', () => {});
       `,
       './libs/ui/src/index.ts': stripIndents`
-        import * as util from '@nrwl/util';
+        import * as util from '@yolkai/util';
       `,
       './libs/util/src/index.ts': stripIndents`
         import * as happyNrwl from 'happy-nrwl';
