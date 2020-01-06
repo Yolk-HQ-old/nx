@@ -40,7 +40,7 @@ Use class components instead of functional components:
 nx g app myapp --classComponent
 ```
 
-Set up routing:
+Set up React Router:
 
 ```bash
 nx g app myapp --routing
@@ -76,6 +76,14 @@ Possible values: `cypress`, `none`
 
 Test runner to use for end to end (e2e) tests
 
+### js
+
+Default: `false`
+
+Type: `boolean`
+
+Generate JavaScript files rather than TypeScript files
+
 ### linter
 
 Default: `tslint`
@@ -103,6 +111,8 @@ Type: `boolean`
 Use pascal case component file name (e.g. App.tsx)
 
 ### routing
+
+Default: `false`
 
 Type: `boolean`
 

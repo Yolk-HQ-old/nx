@@ -7,5 +7,9 @@
     "allowSyntheticDefaultImports": true,
     "types": []
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "files": [
+    "<%= offsetFromRoot %>node_modules/@yolkai/nx-react/typings/cssmodule.d.ts",
+    "<%= offsetFromRoot %>node_modules/@yolkai/nx-react/typings/image.d.ts"
+  ],
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
 }

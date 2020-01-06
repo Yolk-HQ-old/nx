@@ -1,10 +1,12 @@
+import { Change } from '../core/file-utils';
+
 export enum DiffType {
-  Deleted,
-  Added,
-  Modified
+  Deleted = 'JsonPropertyDeleted',
+  Added = 'JsonPropertyAdded',
+  Modified = 'JsonPropertyModified'
 }
 
-export interface JsonValueDiff {
+export interface JsonChange extends Change {
   type: DiffType;
   path: string[];
   value: {
@@ -13,12 +15,20 @@ export interface JsonValueDiff {
   };
 }
 
-export function jsonDiff(lhs: any, rhs: any): JsonValueDiff[] {
-  const result: JsonValueDiff[] = [];
-  const seen = new Set<string>();
+export function isJsonChange(change: Change): change is JsonChange {
+  return (
+    change.type === DiffType.Added ||
+    change.type === DiffType.Deleted ||
+    change.type === DiffType.Modified
+  );
+}
+
+export function jsonDiff(lhs: any, rhs: any): JsonChange[] {
+  const result: JsonChange[] = [];
+  const seenInLhs = new Set<string>();
 
   walkJsonTree(lhs, [], (path, lhsValue) => {
-    seen.add(hashArray(path));
+    seenInLhs.add(hashArray(path));
     if (typeof lhsValue === 'object') {
       return true;
     }
@@ -46,11 +56,11 @@ export function jsonDiff(lhs: any, rhs: any): JsonValueDiff[] {
   });
 
   walkJsonTree(rhs, [], (path, rhsValue) => {
-    if (seen.has(hashArray(path))) {
-      return false;
-    } else if (typeof rhsValue === 'object') {
+    if (typeof rhsValue === 'object') {
       return true;
-    } else {
+    }
+    const addedInRhs = !seenInLhs.has(hashArray(path));
+    if (addedInRhs) {
       result.push({
         type: DiffType.Added,
         path,
@@ -67,7 +77,7 @@ export function jsonDiff(lhs: any, rhs: any): JsonValueDiff[] {
 }
 
 // Depth-first walk down JSON tree.
-function walkJsonTree(
+export function walkJsonTree(
   json: any,
   currPath: string[],
   visitor: (path: string[], value: any) => boolean

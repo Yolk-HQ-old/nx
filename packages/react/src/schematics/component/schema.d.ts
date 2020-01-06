@@ -8,4 +8,6 @@ export interface Schema {
   pascalCaseFiles?: boolean;
   classComponent?: boolean;
   routing?: boolean;
+  js?: boolean;
+  flat?: boolean;
 }

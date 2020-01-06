@@ -1,5 +1,5 @@
 import { extname } from 'path';
-import { vol } from 'memfs';
+import { vol, fs } from 'memfs';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 import { createProjectGraph } from './project-graph';
 import { DependencyType } from './project-graph-models';
@@ -13,7 +13,6 @@ describe('project graph', () => {
   let packageJson: any;
   let workspaceJson: any;
   let nxJson: NxJson;
-  let tsConfigJson: any;
   let filesJson: any;
   let files: FileData[];
 
@@ -49,16 +48,6 @@ describe('project graph', () => {
           sourceRoot: 'libs/shared/util/src',
           projectType: 'library'
         },
-        'shared-util-data': {
-          root: 'libs/shared/util/data',
-          sourceRoot: 'libs/shared/util/data/src',
-          projectType: 'library'
-        },
-        'lazy-lib': {
-          root: 'libs/lazy-lib',
-          sourceRoot: 'libs/lazy-lib',
-          projectType: 'library'
-        },
         api: {
           root: 'apps/api/',
           sourceRoot: 'apps/api/src',
@@ -68,25 +57,19 @@ describe('project graph', () => {
     };
     nxJson = {
       npmScope: 'nrwl',
+      implicitDependencies: {
+        'package.json': {
+          scripts: {
+            deploy: '*'
+          }
+        }
+      },
       projects: {
         api: { tags: [] },
         demo: { tags: [], implicitDependencies: ['api'] },
         'demo-e2e': { tags: [] },
         ui: { tags: [] },
-        'shared-util': { tags: [] },
-        'shared-util-data': { tags: [] },
-        'lazy-lib': { tags: [] }
-      }
-    };
-    tsConfigJson = {
-      compilerOptions: {
-        baseUrl: '.',
-        paths: {
-          '@yolkai/nx-shared/util': ['libs/shared/util/src/index.ts'],
-          '@yolkai/nx-shared-util-data': ['libs/shared/util/data/src/index.ts'],
-          '@yolkai/nx-ui': ['libs/ui/src/index.ts'],
-          '@yolkai/nx-lazy-lib': ['libs/lazy-lib/src/index.ts']
-        }
+        'shared-util': { tags: [] }
       }
     };
     filesJson = {
@@ -95,9 +78,6 @@ describe('project graph', () => {
       `,
       './apps/demo/src/index.ts': stripIndents`
         import * as ui from '@yolkai/nx-ui';
-        import * as data from '@yolkai/nx-shared-util-data;
-
-        const s = { loadChildren: '@yolkai/nx-lazy-lib#LAZY' }
       `,
       './apps/demo-e2e/src/integration/app.spec.ts': stripIndents`
         describe('whatever', () => {});
@@ -106,18 +86,11 @@ describe('project graph', () => {
         import * as util from '@yolkai/shared/util';
       `,
       './libs/shared/util/src/index.ts': stripIndents`
-        import * as happyNrwl from 'happy-nrwl';
-      `,
-      './libs/shared/util/data/src/index.ts': stripIndents`
-        export const SHARED_DATA = 'shared data';
-      `,
-      './libs/lazy-lib/src/index.ts': stripIndents`
-        export const LAZY = 'lazy lib';
+        import * as happyNrwl from 'happy-nrwl/a/b/c';
       `,
       './package.json': JSON.stringify(packageJson),
       './nx.json': JSON.stringify(nxJson),
-      './workspace.json': JSON.stringify(workspaceJson),
-      './tsconfig.json': JSON.stringify(tsConfigJson)
+      './workspace.json': JSON.stringify(workspaceJson)
     };
     files = Object.keys(filesJson).map(f => ({
       file: f,
@@ -135,38 +108,26 @@ describe('project graph', () => {
       'demo-e2e': { name: 'demo-e2e', type: 'e2e' },
       demo: { name: 'demo', type: 'app' },
       ui: { name: 'ui', type: 'lib' },
-      'shared-util': { name: 'shared-util', type: 'lib' },
-      'shared-util-data': { name: 'shared-util-data', type: 'lib' },
-      'lazy-lib': { name: 'lazy-lib', type: 'lib' }
+      'shared-util': { name: 'shared-util', type: 'lib' }
     });
+
     expect(graph.dependencies).toMatchObject({
       'demo-e2e': [
         { type: DependencyType.implicit, source: 'demo-e2e', target: 'demo' }
       ],
-      demo: [
-        { type: DependencyType.static, source: 'demo', target: 'ui' },
-        {
-          type: DependencyType.static,
-          source: 'demo',
-          target: 'shared-util-data'
-        },
-        {
-          type: DependencyType.dynamic,
-          source: 'demo',
-          target: 'lazy-lib'
-        },
-        { type: DependencyType.implicit, source: 'demo', target: 'api' }
-      ],
+      demo: expect.arrayContaining([
+        { type: DependencyType.implicit, source: 'demo', target: 'api' },
+        { type: DependencyType.static, source: 'demo', target: 'ui' }
+      ]),
       ui: [{ type: DependencyType.static, source: 'ui', target: 'shared-util' }]
     });
   });
 
   it('should handle circular dependencies', () => {
-    filesJson['./libs/shared/util/src/index.ts'] = stripIndents`
-        import * as ui from '@yolkai/ui';
-        import * as happyNrwl from 'happy-nrwl';
-    `;
-    vol.fromJSON(filesJson, '/root');
+    fs.writeFileSync(
+      '/root/libs/shared/util/src/index.ts',
+      `import * as ui from '@yolkai/nx-ui';`
+    );
 
     const graph = createProjectGraph();
 

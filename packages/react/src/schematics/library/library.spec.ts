@@ -67,7 +67,11 @@ describe('lib', () => {
           esModuleInterop: true,
           types: ['node', 'jest']
         },
-        include: ['**/*.ts', '**/*.tsx']
+        files: [
+          '../../node_modules/@yolkai/nx-react/typings/cssmodule.d.ts',
+          '../../node_modules/@yolkai/nx-react/typings/image.d.ts'
+        ],
+        include: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx']
       });
     });
 
@@ -220,7 +224,11 @@ describe('lib', () => {
           esModuleInterop: true,
           types: ['node', 'jest']
         },
-        include: ['**/*.ts', '**/*.tsx']
+        files: [
+          '../../../node_modules/@yolkai/nx-react/typings/cssmodule.d.ts',
+          '../../../node_modules/@yolkai/nx-react/typings/image.d.ts'
+        ],
+        include: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx']
       });
     });
   });
@@ -343,6 +351,21 @@ describe('lib', () => {
       const packageJson = readJsonInTree(tree, '/libs/my-lib/package.json');
 
       expect(packageJson.name).toEqual('my-lib');
+    });
+  });
+
+  describe('--js', () => {
+    it('should generate JS files', async () => {
+      const tree = await runSchematic(
+        'lib',
+        {
+          name: 'myLib',
+          js: true
+        },
+        appTree
+      );
+
+      expect(tree.exists('/libs/my-lib/src/index.js')).toBe(true);
     });
   });
 });

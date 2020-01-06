@@ -1,9 +1,10 @@
 import { extname } from 'path';
+import { jsonDiff } from '../../utils/json-diff';
 import { vol } from 'memfs';
 import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 import { createProjectGraph } from '../project-graph';
 import { filterAffected } from './affected-project-graph';
-import { FileData } from '../file-utils';
+import { FileData, WholeFileChange } from '../file-utils';
 import { NxJson } from '../shared-interfaces';
 
 jest.mock('fs', () => require('memfs').fs);
@@ -12,7 +13,6 @@ jest.mock('../../utils/app-root', () => ({ appRootPath: '/root' }));
 describe('project graph', () => {
   let packageJson: any;
   let workspaceJson: any;
-  let tsConfigJson: any;
   let nxJson: NxJson;
   let filesJson: any;
   let filesAtMasterJson: any;
@@ -22,11 +22,14 @@ describe('project graph', () => {
   beforeEach(() => {
     packageJson = {
       name: '@yolkai/nx-workspace-src',
+      scripts: {
+        deploy: 'echo deploy'
+      },
       dependencies: {
         'happy-nrwl': '1.0.0'
       },
       devDependencies: {
-        '@yolkai/nx-workspace': '*'
+        '@yolkai/nx-workspace': '8.0.0'
       }
     };
     workspaceJson = {
@@ -59,8 +62,16 @@ describe('project graph', () => {
       }
     };
     nxJson = {
-      npmScope: 'nrwl',
+      npmScope: 'yolkai',
       implicitDependencies: {
+        'package.json': {
+          scripts: {
+            deploy: ['demo', 'api']
+          },
+          devDependencies: {
+            '@yolkai/nx-workspace': '*'
+          }
+        },
         'something-for-api.txt': ['api']
       },
       projects: {
@@ -69,15 +80,6 @@ describe('project graph', () => {
         'demo-e2e': { tags: [] },
         ui: { tags: [] },
         util: { tags: [] }
-      }
-    };
-    tsConfigJson = {
-      compilerOptions: {
-        baseUrl: '.',
-        paths: {
-          '@yolkai/nx-ui': ['libs/ui/src/index.ts'],
-          '@yolkai/nx-util': ['libs/util/src/index.ts']
-        }
       }
     };
     filesJson = {
@@ -98,8 +100,7 @@ describe('project graph', () => {
       `,
       './package.json': JSON.stringify(packageJson),
       './nx.json': JSON.stringify(nxJson),
-      './workspace.json': JSON.stringify(workspaceJson),
-      './tsconfig.json': JSON.stringify(tsConfigJson)
+      './workspace.json': JSON.stringify(workspaceJson)
     };
     files = Object.keys(filesJson).map(f => ({
       file: f,
@@ -128,13 +129,13 @@ describe('project graph', () => {
         file: 'something-for-api.txt',
         ext: '.txt',
         mtime: 1,
-        getChanges: () => ['SOMETHING CHANGED']
+        getChanges: () => [new WholeFileChange()]
       },
       {
         file: 'libs/ui/src/index.ts',
         ext: '.ts',
         mtime: 1,
-        getChanges: () => ['SOMETHING CHANGED']
+        getChanges: () => [new WholeFileChange()]
       }
     ]);
     expect(affected).toEqual({
@@ -182,5 +183,121 @@ describe('project graph', () => {
         ]
       }
     });
+  });
+
+  it('should create nodes and dependencies with npm packages', () => {
+    const graph = createProjectGraph();
+    const updatedPackageJson = {
+      ...packageJson,
+      dependencies: {
+        'happy-nrwl': '2.0.0'
+      }
+    };
+
+    const affected = filterAffected(graph, [
+      {
+        file: 'package.json',
+        ext: '.json',
+        mtime: 1,
+        getChanges: () => jsonDiff(packageJson, updatedPackageJson)
+      }
+    ]);
+
+    expect(affected).toEqual({
+      nodes: {
+        'happy-nrwl': {
+          type: 'npm',
+          name: 'happy-nrwl',
+          data: expect.anything()
+        },
+        util: {
+          name: 'util',
+          type: 'lib',
+          data: expect.anything()
+        },
+        ui: {
+          name: 'ui',
+          type: 'lib',
+          data: expect.anything()
+        },
+        demo: {
+          name: 'demo',
+          type: 'app',
+          data: expect.anything()
+        },
+        'demo-e2e': {
+          name: 'demo-e2e',
+          type: 'e2e',
+          data: expect.anything()
+        }
+      },
+      dependencies: {
+        'demo-e2e': [
+          {
+            type: 'implicit',
+            source: 'demo-e2e',
+            target: 'demo'
+          }
+        ],
+        demo: [
+          {
+            type: 'static',
+            source: 'demo',
+            target: 'ui'
+          }
+        ],
+        ui: [{ type: 'static', source: 'ui', target: 'util' }],
+        util: [{ type: 'static', source: 'util', target: 'happy-nrwl' }]
+      }
+    });
+  });
+
+  it('should support implicit JSON file dependencies (some projects)', () => {
+    const graph = createProjectGraph();
+    const updatedPackageJson = {
+      ...packageJson,
+      scripts: {
+        deploy: 'echo deploy!!!'
+      }
+    };
+
+    const affected = filterAffected(graph, [
+      {
+        file: 'package.json',
+        ext: '.json',
+        mtime: 1,
+        getChanges: () => jsonDiff(packageJson, updatedPackageJson)
+      }
+    ]);
+
+    expect(Object.keys(affected.nodes)).toEqual(['demo', 'demo-e2e', 'api']);
+  });
+
+  it('should support implicit JSON file dependencies (all projects)', () => {
+    const graph = createProjectGraph();
+    const updatedPackageJson = {
+      ...packageJson,
+      devDependencies: {
+        '@yolkai/nx-workspace': '9.0.0'
+      }
+    };
+
+    const affected = filterAffected(graph, [
+      {
+        file: 'package.json',
+        ext: '.json',
+        mtime: 1,
+        getChanges: () => jsonDiff(packageJson, updatedPackageJson)
+      }
+    ]);
+
+    expect(Object.keys(affected.nodes)).toEqual([
+      '@yolkai/nx-workspace',
+      'api',
+      'demo',
+      'demo-e2e',
+      'ui',
+      'util'
+    ]);
   });
 });

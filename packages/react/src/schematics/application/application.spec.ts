@@ -51,6 +51,9 @@ describe('app', () => {
       expect(tree.exists('apps/my-app/src/app/app.spec.tsx')).toBeTruthy();
       expect(tree.exists('apps/my-app/src/app/app.css')).toBeTruthy();
 
+      const jestConfig = tree.readContent('apps/my-app/jest.config.js');
+      expect(jestConfig).toContain('@yolkai/nx-react/plugins/jest');
+
       const tsconfig = readJsonInTree(tree, 'apps/my-app/tsconfig.json');
       expect(tsconfig.extends).toEqual('../../tsconfig.json');
       expect(tsconfig.compilerOptions.types).toContain('jest');
@@ -237,7 +240,7 @@ describe('app', () => {
       scripts: [],
       styles: ['apps/my-app/src/styles.css'],
       tsConfig: 'apps/my-app/tsconfig.app.json',
-      webpackConfig: '@yolkai/nx-react/plugins/babel'
+      webpackConfig: '@yolkai/nx-react/plugins/webpack'
     });
     expect(architectConfig.build.configurations.production).toEqual({
       optimization: true,
@@ -478,7 +481,7 @@ describe('app', () => {
 
     expect(
       workspaceJson.projects['my-app'].architect.build.options.webpackConfig
-    ).toEqual('@yolkai/nx-react/plugins/babel');
+    ).toEqual('@yolkai/nx-react/plugins/webpack');
   });
 
   it('should add required polyfills for core-js and regenerator', async () => {
@@ -544,6 +547,19 @@ describe('app', () => {
           'eslint-plugin-react-hooks': expect.anything()
         }
       });
+    });
+  });
+
+  describe('--js', () => {
+    it('generates JS files', async () => {
+      const tree = await runSchematic(
+        'app',
+        { name: 'myApp', js: true },
+        appTree
+      );
+
+      expect(tree.exists('/apps/my-app/src/app/app.js')).toBe(true);
+      expect(tree.exists('/apps/my-app/src/main.js')).toBe(true);
     });
   });
 });

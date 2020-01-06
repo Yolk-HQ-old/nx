@@ -2,6 +2,7 @@ import { exec, execSync } from 'child_process';
 import { readFileSync, renameSync, statSync, writeFileSync } from 'fs';
 import { ensureDirSync } from 'fs-extra';
 import * as path from 'path';
+import * as fs from 'fs';
 
 export let cli;
 
@@ -215,12 +216,15 @@ export function copyMissingPackages(): void {
 
     // For testing webpack config with babel-loader
     '@babel',
+    '@svgr/webpack',
     'babel-loader',
+    'babel-plugin-const-enum',
     'babel-plugin-macros',
     'eslint-plugin-import',
     'eslint-plugin-jsx-a11y',
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',
+    'url-loader',
 
     // For testing web bundle
     'rollup',
@@ -453,6 +457,10 @@ export function checkFilesExist(...expectedFiles: string[]) {
   });
 }
 
+export function listFiles(dirName: string) {
+  return fs.readdirSync(tmpProjPath(dirName));
+}
+
 export function readJson(f: string): any {
   return JSON.parse(readFile(f));
 }
@@ -464,6 +472,10 @@ export function readFile(f: string) {
 
 export function cleanup() {
   execSync(`rm -rf ${tmpProjPath()}`);
+}
+
+export function rmDist() {
+  execSync(`rm -rf ${tmpProjPath()}/dist`);
 }
 
 export function getCwd(): string {
