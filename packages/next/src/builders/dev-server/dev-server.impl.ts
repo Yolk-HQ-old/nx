@@ -22,8 +22,8 @@ export interface NextBuildBuilderOptions extends JsonObject {
   port: number;
   quiet: boolean;
   buildTarget: string;
-  customServerTarget?: string;
-  environmentFilePath?: string;
+  customServerTarget: string;
+  environmentFilePath: string;
 }
 
 export default createBuilder<NextBuildBuilderOptions>(run);
