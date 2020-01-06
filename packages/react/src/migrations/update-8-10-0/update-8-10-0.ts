@@ -61,7 +61,9 @@ function addCustomTypings(host: Tree) {
             `${offsetFromRoot(
               p.root
             )}node_modules/@yolkai/nx-react/typings/image.d.ts`,
-            `${offsetFromRoot(p.root)}node_modules/@yolkai/nx-react/typings/svg.d.ts`
+            `${offsetFromRoot(
+              p.root
+            )}node_modules/@yolkai/nx-react/typings/svg.d.ts`
           );
           json.files = files;
           return json;
@@ -77,7 +79,8 @@ function updateBuilderWebpackOption(json) {
   Object.keys(json.projects).map(k => {
     const p = json.projects[k];
     if (isReactProject(p)) {
-      p.architect.build.options.webpackConfig = '@yolkai/nx-react/plugins/webpack';
+      p.architect.build.options.webpackConfig =
+        '@yolkai/nx-react/plugins/webpack';
     }
   });
   return json;
@@ -89,7 +92,9 @@ function isReactProject(p) {
   return (
     buildArchitect &&
     buildArchitect.builder === '@yolkai/nx-web:build' &&
-    (buildArchitect.options.webpackConfig === '@yolkai/nx-react/plugins/babel' ||
-      buildArchitect.options.webpackConfig === '@yolkai/nx-react/plugins/webpack')
+    (buildArchitect.options.webpackConfig ===
+      '@yolkai/nx-react/plugins/babel' ||
+      buildArchitect.options.webpackConfig ===
+        '@yolkai/nx-react/plugins/webpack')
   );
 }

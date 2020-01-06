@@ -252,7 +252,9 @@ forEachCli(() => {
       myapp = uniq('myapp');
       mypublishablelib = uniq('mypublishablelib');
       runCLI(`generate @yolkai/nx-angular:app ${myapp}`);
-      runCLI(`generate @yolkai/nx-angular:lib ${mypublishablelib} --publishable`);
+      runCLI(
+        `generate @yolkai/nx-angular:lib ${mypublishablelib} --publishable`
+      );
       updateFile(
         `apps/${myapp}/src/app/app.component.spec.ts`,
         `
