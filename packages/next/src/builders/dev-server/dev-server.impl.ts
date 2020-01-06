@@ -23,6 +23,7 @@ export interface NextBuildBuilderOptions extends JsonObject {
   quiet: boolean;
   buildTarget: string;
   customServerTarget?: string;
+  environmentFilePath?: string;
 }
 
 export default createBuilder<NextBuildBuilderOptions>(run);
@@ -52,6 +53,14 @@ function run(
   options: NextBuildBuilderOptions,
   context: BuilderContext
 ): Observable<BuilderOutput> {
+  if (options.environmentFilePath) {
+    const envFilePath = path.resolve(
+      context.workspaceRoot,
+      options.environmentFilePath
+    );
+    require('dotenv').config({ path: envFilePath });
+  }
+
   const buildTarget = targetFromTargetString(options.buildTarget);
   const customServerTarget =
     options.customServerTarget &&

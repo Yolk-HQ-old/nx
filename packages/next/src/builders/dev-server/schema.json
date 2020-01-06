@@ -26,6 +26,11 @@
       "type": "string",
       "description": "Target which builds a custom server",
       "default": null
+    },
+    "environmentFilePath": {
+      "type": "string",
+      "description": "Load environment variables from a file.",
+      "default": null
     }
   },
   "required": []
