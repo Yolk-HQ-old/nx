@@ -1,5 +1,5 @@
-import { offsetFromRoot, readWorkspaceJson } from '@nrwl/workspace';
-import { appRootPath } from '@nrwl/workspace/src/utils/app-root';
+import { offsetFromRoot, readWorkspaceJson } from '@yolkai/nx-workspace';
+import { appRootPath } from '@yolkai/nx-workspace/src/utils/app-root';
 import next from 'next';
 import * as path from 'path';
 import TsConfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
