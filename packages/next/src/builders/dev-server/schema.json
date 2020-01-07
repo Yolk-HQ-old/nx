@@ -31,6 +31,11 @@
       "type": "string",
       "description": "Load environment variables from a file.",
       "default": null
+    },
+    "baseUrl": {
+      "type": "string",
+      "description": "Protocol, hostname, and port on which the application is served.",
+      "default": null
     }
   },
   "required": []

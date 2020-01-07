@@ -6,6 +6,12 @@ Builder properties can be configured in angular.json when defining the builder, 
 
 ## Properties
 
+### baseUrl
+
+Type: `string`
+
+Protocol, hostname, and port on which the application is served.
+
 ### buildTarget
 
 Type: `string`

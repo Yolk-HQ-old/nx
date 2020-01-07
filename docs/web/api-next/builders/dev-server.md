@@ -7,6 +7,12 @@ Read more about how to use builders and the CLI here: https://nx.dev/web/guides/
 
 ## Properties
 
+### baseUrl
+
+Type: `string`
+
+Protocol, hostname, and port on which the application is served.
+
 ### buildTarget
 
 Type: `string`

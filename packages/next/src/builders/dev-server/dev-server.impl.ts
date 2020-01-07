@@ -24,6 +24,7 @@ export interface NextBuildBuilderOptions extends JsonObject {
   buildTarget: string;
   customServerTarget: string;
   environmentFilePath: string;
+  baseUrl: string;
 }
 
 export default createBuilder<NextBuildBuilderOptions>(run);
@@ -65,6 +66,7 @@ function run(
   const customServerTarget =
     options.customServerTarget &&
     targetFromTargetString(options.customServerTarget);
+  const baseUrl = options.baseUrl || `http://localhost:${options.port}`;
 
   const success: BuilderOutput = { success: true };
   const build$ = !options.dev
@@ -103,13 +105,13 @@ function run(
 
           return from(startServer(nextApp, options)).pipe(
             tap(() => {
-              context.logger.info(`Ready on http://localhost:${options.port}`);
+              context.logger.info(`Ready on ${baseUrl}`);
             }),
             switchMap(
               _e =>
                 new Observable<BuilderOutput>(obs => {
                   obs.next({
-                    baseUrl: `http://localhost:${options.port}`,
+                    baseUrl,
                     success: true
                   });
                 })
