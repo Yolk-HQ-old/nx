@@ -60,10 +60,7 @@ function addCustomTypings(host: Tree) {
             )}node_modules/@yolkai/nx-react/typings/cssmodule.d.ts`,
             `${offsetFromRoot(
               p.root
-            )}node_modules/@yolkai/nx-react/typings/image.d.ts`,
-            `${offsetFromRoot(
-              p.root
-            )}node_modules/@yolkai/nx-react/typings/svg.d.ts`
+            )}node_modules/@yolkai/nx-react/typings/image.d.ts`
           );
           json.files = files;
           return json;

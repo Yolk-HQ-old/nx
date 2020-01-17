@@ -53,6 +53,7 @@ describe('app', () => {
             tags: ['one', 'two']
           },
           'my-app-e2e': {
+            implicitDependencies: ['my-app'],
             tags: []
           }
         }
@@ -190,6 +191,7 @@ describe('app', () => {
             tags: ['one', 'two']
           },
           'my-dir-my-app-e2e': {
+            implicitDependencies: ['my-dir-my-app'],
             tags: []
           }
         }
