@@ -51,8 +51,8 @@ export class Cache {
       const scriptPath = join(
         this.root,
         'node_modules',
-        '@nrwl',
-        'workspace',
+        '@yolkai',
+        'nx-workspace',
         'src',
         'tasks-runner',
         'remove-old-cache-records.js'

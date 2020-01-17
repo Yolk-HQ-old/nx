@@ -1,5 +1,5 @@
 import { chain, Rule, SchematicContext } from '@angular-devkit/schematics';
-import { formatFiles } from '@nrwl/workspace/src/utils/rules/format-files';
+import { formatFiles } from '@yolkai/nx-workspace/src/utils/rules/format-files';
 import * as path from 'path';
 import { updatePackagesInPackageJson } from '../../utils/update-packages-in-package-json';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';

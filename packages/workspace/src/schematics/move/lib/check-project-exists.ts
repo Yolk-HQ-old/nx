@@ -1,5 +1,5 @@
 import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
-import { getWorkspace } from '@nrwl/workspace';
+import { getWorkspace } from '@yolkai/nx-workspace';
 import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Schema } from '../schema';

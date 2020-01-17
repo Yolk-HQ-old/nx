@@ -4,7 +4,7 @@ import {
   NxJson,
   readJsonInTree,
   serializeJson
-} from '@nrwl/workspace';
+} from '@yolkai/nx-workspace';
 import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Schema } from '../schema';

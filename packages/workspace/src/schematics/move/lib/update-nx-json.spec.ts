@@ -1,7 +1,7 @@
 import { Tree } from '@angular-devkit/schematics';
 import { UnitTestTree } from '@angular-devkit/schematics/testing';
-import { readJsonInTree } from '@nrwl/workspace';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { readJsonInTree } from '@yolkai/nx-workspace';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { callRule, runSchematic } from '../../../utils/testing';
 import { Schema } from '../schema';
 import { updateNxJson } from './update-nx-json';

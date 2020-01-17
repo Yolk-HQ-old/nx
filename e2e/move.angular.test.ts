@@ -1,4 +1,4 @@
-import { classify } from '@nrwl/workspace/src/utils/strings';
+import { classify } from '@yolkai/nx-workspace/src/utils/strings';
 import {
   checkFilesExist,
   forEachCli,
@@ -24,7 +24,7 @@ forEachCli(cli => {
         app2 = uniq('app2');
         newPath = `subfolder/${app2}`;
         newProject();
-        runCLI(`generate @nrwl/angular:app ${app1}`);
+        runCLI(`generate @yolkai/nx-angular:app ${app1}`);
       });
 
       /**
@@ -32,7 +32,7 @@ forEachCli(cli => {
        */
       it('should work for apps', () => {
         const moveOutput = runCLI(
-          `generate @nrwl/angular:move --projectName=${app1} --destination=${newPath}`
+          `generate @yolkai/nx-angular:move --projectName=${app1} --destination=${newPath}`
         );
 
         // just check the output
@@ -79,7 +79,7 @@ forEachCli(cli => {
        */
       it('should work for e2e projects', () => {
         const moveOutput = runCLI(
-          `generate @nrwl/angular:move --projectName=${app1}-e2e --destination=${newPath}-e2e`
+          `generate @yolkai/nx-angular:move --projectName=${app1}-e2e --destination=${newPath}-e2e`
         );
 
         // just check that the cypress.json is updated correctly
@@ -103,13 +103,13 @@ forEachCli(cli => {
       const lib1 = uniq('mylib');
       const lib2 = uniq('mylib');
       newProject();
-      runCLI(`generate @nrwl/angular:lib ${lib1}`);
+      runCLI(`generate @yolkai/nx-angular:lib ${lib1}`);
 
       /**
        * Create a library which imports the module from the other lib
        */
 
-      runCLI(`generate @nrwl/angular:lib ${lib2}`);
+      runCLI(`generate @yolkai/nx-angular:lib ${lib2}`);
 
       updateFile(
         `libs/${lib2}/src/lib/${lib2}.module.ts`,
@@ -119,7 +119,7 @@ forEachCli(cli => {
       );
 
       const moveOutput = runCLI(
-        `generate @nrwl/angular:move --projectName=${lib1} --destination=shared/${lib1}`
+        `generate @yolkai/nx-angular:move --projectName=${lib1} --destination=shared/${lib1}`
       );
 
       const newPath = `libs/shared/${lib1}`;

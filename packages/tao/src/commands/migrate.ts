@@ -322,7 +322,7 @@ export function parseMigrationsOptions(
 function parseTargetPackageAndVersion(args: string) {
   if (!args) {
     throw new Error(
-      `Provide the correct package name and version. E.g., @nrwl/workspace@9.0.0.`
+      `Provide the correct package name and version. E.g., @yolkai/nx-workspace@9.0.0.`
     );
   }
 
@@ -332,14 +332,14 @@ function parseTargetPackageAndVersion(args: string) {
     const maybeVersion = args.substring(i + 1);
     if (!targetPackage || !maybeVersion) {
       throw new Error(
-        `Provide the correct package name and version. E.g., @nrwl/workspace@9.0.0.`
+        `Provide the correct package name and version. E.g., @yolkai/nx-workspace@9.0.0.`
       );
     }
     const targetVersion = normalizeVersionWithTagCheck(maybeVersion);
     return { targetPackage, targetVersion };
   } else {
     return {
-      targetPackage: '@nrwl/workspace',
+      targetPackage: '@yolkai/nx-workspace',
       targetVersion: normalizeVersionWithTagCheck(args)
     };
   }

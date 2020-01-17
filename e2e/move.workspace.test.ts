@@ -1,4 +1,4 @@
-import { NxJson } from '@nrwl/workspace';
+import { NxJson } from '@yolkai/nx-workspace';
 import {
   checkFilesExist,
   exists,
@@ -22,7 +22,7 @@ forEachCli(cli => {
       const lib1 = uniq('mylib');
       const lib2 = uniq('mylib');
       newProject();
-      runCLI(`generate @nrwl/workspace:lib ${lib1}/data-access`);
+      runCLI(`generate @yolkai/nx-workspace:lib ${lib1}/data-access`);
 
       updateFile(
         `libs/${lib1}/data-access/src/lib/${lib1}-data-access.ts`,
@@ -38,7 +38,7 @@ forEachCli(cli => {
        * Create a library which imports a class from the other lib
        */
 
-      runCLI(`generate @nrwl/workspace:lib ${lib2}/ui`);
+      runCLI(`generate @yolkai/nx-workspace:lib ${lib2}/ui`);
 
       updateFile(
         `libs/${lib2}/ui/src/lib/${lib2}-ui.ts`,
@@ -48,7 +48,7 @@ forEachCli(cli => {
       );
 
       const moveOutput = runCLI(
-        `generate @nrwl/workspace:move --projectName=${lib1}-data-access --destination=shared/${lib1}/data-access`
+        `generate @yolkai/nx-workspace:move --projectName=${lib1}-data-access --destination=shared/${lib1}/data-access`
       );
 
       expect(moveOutput).toContain(`DELETE libs/${lib1}/data-access`);

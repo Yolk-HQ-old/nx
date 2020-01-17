@@ -1,4 +1,4 @@
-import { updateWorkspaceInTree } from '@nrwl/workspace';
+import { updateWorkspaceInTree } from '@yolkai/nx-workspace';
 import { Schema } from '../schema';
 import { getDestination, getNewProjectName } from './utils';
 

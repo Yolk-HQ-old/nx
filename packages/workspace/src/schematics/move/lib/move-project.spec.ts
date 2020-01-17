@@ -1,5 +1,5 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { runSchematic } from '../../../utils/testing';
 import { Schema } from '../schema';
 

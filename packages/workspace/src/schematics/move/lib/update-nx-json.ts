@@ -1,4 +1,4 @@
-import { NxJson, updateJsonInTree } from '@nrwl/workspace';
+import { NxJson, updateJsonInTree } from '@yolkai/nx-workspace';
 import { Schema } from '../schema';
 import { getNewProjectName } from './utils';
 

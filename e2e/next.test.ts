@@ -76,10 +76,10 @@ module.exports = {
       const tsxLibName = uniq('tsxlib');
 
       runCLI(
-        `generate @nrwl/next:app ${appName} --no-interactive --linter=eslint`
+        `generate @yolkai/nx-next:app ${appName} --no-interactive --linter=eslint`
       );
-      runCLI(`generate @nrwl/react:lib ${tsxLibName} --no-interactive`);
-      runCLI(`generate @nrwl/workspace:lib ${tsLibName} --no-interactive`);
+      runCLI(`generate @yolkai/nx-react:lib ${tsxLibName} --no-interactive`);
+      runCLI(`generate @yolkai/nx-workspace:lib ${tsLibName} --no-interactive`);
 
       updateFile(
         `libs/${tsLibName}/src/lib/${tsLibName}.ts`,

@@ -722,7 +722,7 @@ export default function(schema: Schema): Rule {
           })
         : noop(),
       options.e2eTestRunner === 'cypress'
-        ? externalSchematic('@nrwl/cypress', 'cypress-project', {
+        ? externalSchematic('@yolkai/nx-cypress', 'cypress-project', {
             name: options.e2eProjectName,
             directory: options.directory,
             project: options.name,

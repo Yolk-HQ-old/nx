@@ -139,8 +139,8 @@ export class TaskOrchestrator {
     return path.join(
       this.workspaceRoot,
       'node_modules',
-      '@nrwl',
-      'cli',
+      '@yolkai',
+      'nx-cli',
       'lib',
       'run-cli.js'
     );

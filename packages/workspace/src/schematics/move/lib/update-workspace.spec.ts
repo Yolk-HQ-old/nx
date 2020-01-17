@@ -1,6 +1,6 @@
 import { Tree } from '@angular-devkit/schematics';
 import { UnitTestTree } from '@angular-devkit/schematics/testing';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+import { createEmptyWorkspace } from '@yolkai/nx-workspace/testing';
 import { callRule } from '../../../utils/testing';
 import { Schema } from '../schema';
 import { updateWorkspace } from './update-workspace';
@@ -98,7 +98,7 @@ describe('updateWorkspace Rule', () => {
               }
             },
             test: {
-              builder: '@nrwl/jest:jest',
+              builder: '@yolkai/nx-jest:jest',
               options: {
                 jestConfig: 'apps/my-source/jest.config.js',
                 tsConfig: 'apps/my-source/tsconfig.spec.json',
@@ -113,7 +113,7 @@ describe('updateWorkspace Rule', () => {
           projectType: 'application',
           architect: {
             e2e: {
-              builder: '@nrwl/cypress:cypress',
+              builder: '@yolkai/nx-cypress:cypress',
               options: {
                 cypressConfig: 'apps/my-source-e2e/cypress.json',
                 tsConfig: 'apps/my-source-e2e/tsconfig.e2e.json',

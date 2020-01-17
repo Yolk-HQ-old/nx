@@ -1,5 +1,5 @@
 import { chain, noop, Rule, Tree } from '@angular-devkit/schematics';
-import { readWorkspace, updateJsonInTree } from '@nrwl/workspace';
+import { readWorkspace, updateJsonInTree } from '@yolkai/nx-workspace';
 import * as path from 'path';
 
 const ignore = require('ignore');
@@ -16,7 +16,7 @@ export default function update(): Rule {
         if (isReactProject(p)) {
           return updateJsonInTree(path.join(p.root, 'tsconfig.json'), json => {
             json.files = json.files.filter(
-              f => f.indexOf('@nrwl/react/typings/svg.d.ts') === -1
+              f => f.indexOf('@yolkai/nx-react/typings/svg.d.ts') === -1
             );
             return json;
           });
@@ -33,8 +33,10 @@ function isReactProject(p) {
     p.architect && p.architect.build ? p.architect.build : null;
   return (
     buildArchitect &&
-    buildArchitect.builder === '@nrwl/web:build' &&
-    (buildArchitect.options.webpackConfig === '@nrwl/react/plugins/babel' ||
-      buildArchitect.options.webpackConfig === '@nrwl/react/plugins/webpack')
+    buildArchitect.builder === '@yolkai/nx-web:build' &&
+    (buildArchitect.options.webpackConfig ===
+      '@yolkai/nx-react/plugins/babel' ||
+      buildArchitect.options.webpackConfig ===
+        '@yolkai/nx-react/plugins/webpack')
   );
 }

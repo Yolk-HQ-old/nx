@@ -8,7 +8,7 @@ import { stripIndents } from '@angular-devkit/core/src/utils/literals';
 
 import { updateJsonInTree } from '../../utils/ast-utils';
 import { NxJson } from '../../core/shared-interfaces';
-import { formatFiles } from '@nrwl/workspace/src/utils/rules/format-files';
+import { formatFiles } from '@yolkai/nx-workspace/src/utils/rules/format-files';
 
 const addE2eImplicitDependencies = updateJsonInTree<NxJson>('nx.json', json => {
   Object.keys(json.projects).forEach(proj => {

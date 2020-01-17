@@ -6,12 +6,12 @@ import { Schema } from './schema';
  * Moves an Angular lib/app to another folder (and renames it in the process)
  *
  * @remarks It's important to note that `updateModuleName` is done after the update
- * to the workspace, so it can't use the same tricks as the `@nrwl/workspace` rules
+ * to the workspace, so it can't use the same tricks as the `@yolkai/nx-workspace` rules
  * to get the before and after names and paths.
  */
 export default function(schema: Schema) {
   return chain([
-    externalSchematic('@nrwl/workspace', 'move', schema),
+    externalSchematic('@yolkai/nx-workspace', 'move', schema),
     updateModuleName(schema)
   ]);
 }

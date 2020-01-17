@@ -488,7 +488,7 @@ describe('Migration', () => {
       ]);
       expect(r).toEqual({
         type: 'generateMigrations',
-        targetPackage: '@nrwl/workspace',
+        targetPackage: '@yolkai/nx-workspace',
         targetVersion: '8.12.0',
         from: {
           '@myscope/a': '12.3.0',
@@ -502,15 +502,17 @@ describe('Migration', () => {
 
     it('should handle different variations of the target package', () => {
       expect(parseMigrationsOptions(['8.12'])).toMatchObject({
-        targetPackage: '@nrwl/workspace',
+        targetPackage: '@yolkai/nx-workspace',
         targetVersion: '8.12.0'
       });
       expect(parseMigrationsOptions(['8'])).toMatchObject({
-        targetPackage: '@nrwl/workspace',
+        targetPackage: '@yolkai/nx-workspace',
         targetVersion: '8.0.0'
       });
-      expect(parseMigrationsOptions(['@nrwl/workspace@8.12'])).toMatchObject({
-        targetPackage: '@nrwl/workspace',
+      expect(
+        parseMigrationsOptions(['@yolkai/nx-workspace@8.12'])
+      ).toMatchObject({
+        targetPackage: '@yolkai/nx-workspace',
         targetVersion: '8.12.0'
       });
       expect(parseMigrationsOptions(['mypackage@8.12'])).toMatchObject({
@@ -520,8 +522,10 @@ describe('Migration', () => {
       expect(() => parseMigrationsOptions(['mypackage@latest'])).toThrowError(
         `Incorrect version "latest". You must use a semver version (cannot use "latest" or "next").`
       );
-      expect(() => parseMigrationsOptions(['@nrwl/workspace'])).toThrowError(
-        `Provide the correct package name and version. E.g., @nrwl/workspace@9.0.0.`
+      expect(() =>
+        parseMigrationsOptions(['@yolkai/nx-workspace'])
+      ).toThrowError(
+        `Provide the correct package name and version. E.g., @yolkai/nx-workspace@9.0.0.`
       );
     });
 

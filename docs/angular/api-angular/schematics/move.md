@@ -17,7 +17,7 @@ By default, Nx will search for `move` in the default collection provisioned in `
 You can specify the collection explicitly as follows:
 
 ```bash
-ng g @nrwl/angular:move ...
+ng g @yolkai/angular:move ...
 ```
 
 Show what will be generated without writing to disk:

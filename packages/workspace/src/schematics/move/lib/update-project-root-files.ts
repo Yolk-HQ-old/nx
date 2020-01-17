@@ -1,7 +1,7 @@
 import { Rule, SchematicContext } from '@angular-devkit/schematics';
 import { Tree } from '@angular-devkit/schematics/src/tree/interface';
-import { getWorkspace } from '@nrwl/workspace';
-import { appRootPath } from '@nrwl/workspace/src/utils/app-root';
+import { getWorkspace } from '@yolkai/nx-workspace';
+import { appRootPath } from '@yolkai/nx-workspace/src/utils/app-root';
 import * as path from 'path';
 import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
