@@ -6,16 +6,12 @@ import {
   scheduleTargetAndForget
 } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
-import {
-  PHASE_DEVELOPMENT_SERVER,
-  PHASE_PRODUCTION_SERVER
-} from 'next/dist/next-server/lib/constants';
-import startServer from 'next/dist/server/lib/start-server';
-import NextServer from 'next/dist/server/next-dev-server';
+import * as http from 'http';
+import next from 'next';
 import * as path from 'path';
-import { from, Observable, of } from 'rxjs';
+import { from, Observable, of, forkJoin } from 'rxjs';
 import { switchMap, concatMap, tap } from 'rxjs/operators';
-import { prepareConfig } from '../../utils/config';
+import { StartServerFn } from '../../..';
 
 try {
   require('dotenv').config();
@@ -24,81 +20,98 @@ try {
 export interface NextBuildBuilderOptions extends JsonObject {
   dev: boolean;
   port: number;
-  staticMarkup: boolean;
   quiet: boolean;
   buildTarget: string;
-  customServerPath: string;
-}
-
-export interface NextServerOptions {
-  dev: boolean;
-  dir: string;
-  staticMarkup: boolean;
-  quiet: boolean;
-  conf: any;
-  port: number;
-  path: string;
+  customServerTarget: string;
+  environmentFilePath: string;
+  baseUrl: string;
 }
 
 export default createBuilder<NextBuildBuilderOptions>(run);
 
-function defaultServer(settings: NextServerOptions) {
-  return startServer(settings, settings.port).then(app => app.prepare());
-}
-
-function customServer(settings: NextServerOptions) {
-  const nextApp = new NextServer(settings);
-
-  return require(path.resolve(settings.dir, settings.path))(nextApp, settings);
-}
+/**
+ * A simple default server implementation to be used if no `customServerTarget` is provided.
+ */
+const defaultStartServer: StartServerFn = async (nextApp, options) => {
+  const handle = nextApp.getRequestHandler();
+  await nextApp.prepare();
+  const server = http.createServer((req, res) => {
+    handle(req, res);
+  });
+  return new Promise((resolve, reject) => {
+    server.on('error', (error: Error) => {
+      if (error) {
+        reject(error);
+      }
+    });
+    server.listen(options.port, () => {
+      resolve();
+    });
+  });
+};
 
 function run(
   options: NextBuildBuilderOptions,
   context: BuilderContext
 ): Observable<BuilderOutput> {
-  const buildTarget = targetFromTargetString(options.buildTarget);
+  if (options.environmentFilePath) {
+    const envFilePath = path.resolve(
+      context.workspaceRoot,
+      options.environmentFilePath
+    );
+    require('dotenv').config({ path: envFilePath });
+  }
 
+  const buildTarget = targetFromTargetString(options.buildTarget);
+  const customServerTarget =
+    options.customServerTarget &&
+    targetFromTargetString(options.customServerTarget);
+  const baseUrl = options.baseUrl || `http://localhost:${options.port}`;
+
+  const success: BuilderOutput = { success: true };
   const build$ = !options.dev
     ? scheduleTargetAndForget(context, buildTarget)
-    : of({ success: true });
+    : of(success);
+  const customServer$ = customServerTarget
+    ? scheduleTargetAndForget(context, customServerTarget)
+    : of(success);
 
-  return build$.pipe(
-    concatMap(r => {
-      if (!r.success) return of(r);
+  return forkJoin(build$, customServer$).pipe(
+    concatMap(([buildResult, customServerResult]) => {
+      if (!buildResult.success) return of(buildResult);
+      if (!customServerResult.success) return of(customServerResult);
+
+      const customServerEntry = customServerResult.outfile;
+
       return from(context.getTargetOptions(buildTarget)).pipe(
-        concatMap((buildOptions: any) => {
-          const root = path.resolve(context.workspaceRoot, buildOptions.root);
-
-          const config = prepareConfig(
+        concatMap((buildOptions: JsonObject) => {
+          const root = path.resolve(
             context.workspaceRoot,
-            buildOptions.root,
-            buildOptions.outputPath,
-            options.dev ? PHASE_DEVELOPMENT_SERVER : PHASE_PRODUCTION_SERVER
+            buildOptions.root as string
           );
 
-          const settings = {
+          const nextApp = next({
             dev: options.dev,
             dir: root,
-            staticMarkup: options.staticMarkup,
-            quiet: options.quiet,
-            conf: config,
-            port: options.port,
-            path: options.customServerPath
-          };
+            quiet: options.quiet
+          });
 
-          const server = options.customServerPath
-            ? customServer
-            : defaultServer;
+          let startServer: StartServerFn;
+          if (customServerEntry) {
+            startServer = require(customServerEntry as string).startServer;
+          } else {
+            startServer = defaultStartServer;
+          }
 
-          return from(server(settings)).pipe(
+          return from(startServer(nextApp, options)).pipe(
             tap(() => {
-              context.logger.info(`Ready on http://localhost:${settings.port}`);
+              context.logger.info(`Ready on ${baseUrl}`);
             }),
             switchMap(
-              e =>
+              _e =>
                 new Observable<BuilderOutput>(obs => {
                   obs.next({
-                    baseUrl: `http://localhost:${options.port}`,
+                    baseUrl,
                     success: true
                   });
                 })

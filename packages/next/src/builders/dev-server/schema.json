@@ -17,19 +17,24 @@
       "description": "Port to listen on.",
       "default": 4200
     },
-    "staticMarkup": {
-      "type": "boolean",
-      "description": "Static markup.",
-      "default": false
-    },
     "quiet": {
       "type": "boolean",
       "description": "Hide error messages containing server information.",
       "default": false
     },
-    "customServerPath": {
+    "customServerTarget": {
       "type": "string",
-      "description": "Use a custom server script",
+      "description": "Target which builds a custom server",
+      "default": null
+    },
+    "environmentFilePath": {
+      "type": "string",
+      "description": "Load environment variables from a file.",
+      "default": null
+    },
+    "baseUrl": {
+      "type": "string",
+      "description": "Protocol, hostname, and port on which the application is served.",
       "default": null
     }
   },
