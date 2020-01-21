@@ -6,17 +6,23 @@ Builder properties can be configured in angular.json when defining the builder, 
 
 ## Properties
 
+### baseUrl
+
+Type: `string`
+
+Protocol, hostname, and port on which the application is served.
+
 ### buildTarget
 
 Type: `string`
 
 Target which builds the application
 
-### customServerPath
+### customServerTarget
 
 Type: `string`
 
-Use a custom server script
+Target which builds a custom server
 
 ### dev
 
@@ -25,6 +31,12 @@ Default: `true`
 Type: `boolean`
 
 Serve the application in the dev mode
+
+### environmentFilePath
+
+Type: `string`
+
+Load environment variables from a file.
 
 ### hostname
 
@@ -47,11 +59,3 @@ Default: `false`
 Type: `boolean`
 
 Hide error messages containing server information.
-
-### staticMarkup
-
-Default: `false`
-
-Type: `boolean`
-
-Static markup.
