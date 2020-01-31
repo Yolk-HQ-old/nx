@@ -14,8 +14,8 @@ function requireCli() {
     require(path.join(
       workspace.dir,
       'node_modules',
-      '@nrwl',
-      'tao',
+      '@yolkai',
+      'nx-tao',
       'index.js'
     ));
   } else {
