@@ -11,8 +11,6 @@ import next from 'next';
 import * as path from 'path';
 import { from, Observable, of, forkJoin } from 'rxjs';
 import { switchMap, concatMap, tap } from 'rxjs/operators';
-import * as url from 'url';
-import { prepareConfig } from '../../utils/config';
 import { StartServerFn } from '../../..';
 
 try {
