@@ -59,3 +59,11 @@ Default: `false`
 Type: `boolean`
 
 Hide error messages containing server information.
+
+### skipBuild
+
+Default: `false`
+
+Type: `boolean`
+
+Skip building buildTarget.

@@ -26,6 +26,7 @@ export interface NextBuildBuilderOptions extends JsonObject {
   environmentFilePath: string;
   baseUrl: string;
   hostname: string;
+  skipBuild: boolean;
 }
 
 export default createBuilder<NextBuildBuilderOptions>(run);
@@ -78,9 +79,10 @@ function run(
     `http://${options.hostname || 'localhost'}:${options.port}`;
 
   const success: BuilderOutput = { success: true };
-  const build$ = !options.dev
-    ? scheduleTargetAndForget(context, buildTarget)
-    : of(success);
+  const build$ =
+    !options.dev && !options.skipBuild
+      ? scheduleTargetAndForget(context, buildTarget)
+      : of(success);
   const customServer$ = customServerTarget
     ? scheduleTargetAndForget(context, customServerTarget)
     : of(success);
