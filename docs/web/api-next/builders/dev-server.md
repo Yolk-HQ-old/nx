@@ -39,6 +39,12 @@ Type: `string`
 
 Load environment variables from a file.
 
+### hostname
+
+Type: `string`
+
+Hostname on which the application is served.
+
 ### port
 
 Default: `4200`

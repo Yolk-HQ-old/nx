@@ -36,6 +36,11 @@
       "type": "string",
       "description": "Protocol, hostname, and port on which the application is served.",
       "default": null
+    },
+    "hostname": {
+      "type": "string",
+      "description": "Hostname on which the application is served.",
+      "default": null
     }
   },
   "required": []

@@ -34,6 +34,6 @@
   "dependencies": {
     "@yolkai/nx-node": "*",
     "@yolkai/nx-jest": "*",
-    "@angular-devkit/schematics": "8.3.14"
+    "@angular-devkit/schematics": "8.3.23"
   }
 }

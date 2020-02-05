@@ -11,6 +11,8 @@ import next from 'next';
 import * as path from 'path';
 import { from, Observable, of, forkJoin } from 'rxjs';
 import { switchMap, concatMap, tap } from 'rxjs/operators';
+import * as url from 'url';
+import { prepareConfig } from '../../utils/config';
 import { StartServerFn } from '../../..';
 
 try {
@@ -25,6 +27,7 @@ export interface NextBuildBuilderOptions extends JsonObject {
   customServerTarget: string;
   environmentFilePath: string;
   baseUrl: string;
+  hostname: string;
 }
 
 export default createBuilder<NextBuildBuilderOptions>(run);
@@ -44,9 +47,15 @@ const defaultStartServer: StartServerFn = async (nextApp, options) => {
         reject(error);
       }
     });
-    server.listen(options.port, () => {
-      resolve();
-    });
+    if (options.hostname) {
+      server.listen(options.port, options.hostname, () => {
+        resolve();
+      });
+    } else {
+      server.listen(options.port, () => {
+        resolve();
+      });
+    }
   });
 };
 
@@ -66,7 +75,9 @@ function run(
   const customServerTarget =
     options.customServerTarget &&
     targetFromTargetString(options.customServerTarget);
-  const baseUrl = options.baseUrl || `http://localhost:${options.port}`;
+  const baseUrl =
+    options.baseUrl ||
+    `http://${options.hostname || 'localhost'}:${options.port}`;
 
   const success: BuilderOutput = { success: true };
   const build$ = !options.dev
