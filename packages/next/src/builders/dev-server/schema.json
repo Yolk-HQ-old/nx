@@ -41,6 +41,11 @@
       "type": "string",
       "description": "Hostname on which the application is served.",
       "default": null
+    },
+    "skipBuild": {
+      "type": "boolean",
+      "description": "Skip building buildTarget.",
+      "default": false
     }
   },
   "required": []
