@@ -44,7 +44,7 @@
     },
     "skipBuild": {
       "type": "boolean",
-      "description": "Skip building buildTarget.",
+      "description": "Skip building buildTarget and customServerTarget.",
       "default": false
     }
   },

@@ -67,4 +67,4 @@ Default: `false`
 
 Type: `boolean`
 
-Skip building buildTarget.
+Skip building buildTarget and customServerTarget.
