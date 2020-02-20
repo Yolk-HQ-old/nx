@@ -83,16 +83,15 @@ function run(
     !options.dev && !options.skipBuild
       ? scheduleTargetAndForget(context, buildTarget)
       : of(success);
-  const customServer$ = customServerTarget
-    ? scheduleTargetAndForget(context, customServerTarget)
-    : of(success);
+  const customServer$ =
+    customServerTarget && !options.skipBuild
+      ? scheduleTargetAndForget(context, customServerTarget)
+      : of(success);
 
   return forkJoin(build$, customServer$).pipe(
     concatMap(([buildResult, customServerResult]) => {
       if (!buildResult.success) return of(buildResult);
       if (!customServerResult.success) return of(customServerResult);
-
-      const customServerEntry = customServerResult.outfile;
 
       return from(context.getTargetOptions(buildTarget)).pipe(
         concatMap((buildOptions: JsonObject) => {
@@ -107,14 +106,26 @@ function run(
             quiet: options.quiet
           });
 
-          let startServer: StartServerFn;
-          if (customServerEntry) {
-            startServer = require(customServerEntry as string).startServer;
+          let server$: Observable<void>;
+          if (customServerTarget) {
+            server$ = from(context.getTargetOptions(customServerTarget)).pipe(
+              concatMap((customServerOptions: JsonObject) => {
+                const customServerEntry = path.join(
+                  context.workspaceRoot,
+                  customServerOptions.outputPath as string,
+                  'main.js'
+                );
+                const startServer: StartServerFn = require(customServerEntry)
+                  .startServer;
+                return from(startServer(nextApp, options));
+              })
+            );
           } else {
-            startServer = defaultStartServer;
+            const startServer: StartServerFn = defaultStartServer;
+            server$ = from(startServer(nextApp, options));
           }
 
-          return from(startServer(nextApp, options)).pipe(
+          return server$.pipe(
             tap(() => {
               context.logger.info(`Ready on ${baseUrl}`);
             }),

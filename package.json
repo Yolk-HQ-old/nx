@@ -1,6 +1,6 @@
 {
   "name": "@yolkai/nx-source",
-  "version": "8.12.0-alpha.3",
+  "version": "8.12.0-alpha.4",
   "description": "Extensible Dev Tools for Monorepos",
   "homepage": "https://nx.dev",
   "main": "index.js",
